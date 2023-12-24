@@ -5,8 +5,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { MdOutlineFacebook } from 'react-icons/md';
 import { LuInstagram } from 'react-icons/lu';
-import { XCircleIcon } from '@heroicons/react/20/solid';
-Gplu
+
 
 
 
