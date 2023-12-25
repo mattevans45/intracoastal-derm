@@ -14,7 +14,7 @@ const Footer = () => {
   }, []);
 
   return (
-    <footer className="mt-auto mx-0 mr-0 ml-0 text-white bg-[#3a3a3a] sm:py-12">
+    <footer className="mt-auto mx-0 pt-5 text-white bg-[#3a3a3a] sm:py-12">
       <div className="container flex flex-col w-full mx-auto self-start justify-center">
         <div className="text-center w-fit mx-auto md:text-left md:ml-4 lg:flex lg:flex-row lg:gap-12 lg:justify-center xl:flex xl:flex-row xl:self-stretch xl:mx-14 xl:content-stretch md:flex-row md:flex md:w-fit md:mx-auto md:justify-center">
           <a className="flex font-medium w-fit md:justify-start text-gray-900 mb-4">
@@ -26,12 +26,13 @@ const Footer = () => {
             />
           </a>
 
-          <div className="w-full md:w-auto text-center md:text-left md:ml-1 flex flex-col md:flex-row">
-            <div className="lg:w-fit lg:flex md:h-fit lg:flex-col lg:justify-start lg:content-center md:w-1/4 md:flex-wrap w-full px-1 mx-auto xl:mx-20 pt-0 mb-4 md:mb-0">
+          <div className="container w-full md:w-auto text-center md:text-left md:ml-1 flex flex-col md:flex-row">
+            <div className="lg:w-fit lg:flex sm:justify-center md:justify-center md:h-fit lg:flex-col lg:justify-start lg:content-center md:w-1/4 md:flex-wrap w-full px-1 mx-auto xl:mx-20 pt-0 mb-4 md:mb-0">
               <h5
                 className="font-bold text-white tracking-widest text-lg mt-10 mb-3"
-                data-aos="fade-left"
-              >
+                data-aos="fade-down"
+                data-aos-anchor-placement="top-bottom">
+              
                 Important Links
               </h5>
               <nav className="list-none mb-10">
@@ -73,7 +74,8 @@ const Footer = () => {
               <h2
                 className="title-font text-lg font-bold text-white tracking-widest mb-3"
                 data-aos="slide-down"
-              >
+                data-aos-anchor-placement="top-bottom">
+              
                 About
               </h2>
               <nav className="list-none footer-links" data-aos="slide-right">
@@ -90,7 +92,7 @@ const Footer = () => {
                     href="#"
                     className="border-b border-solid border-transparent hover:border-gray-300 hover:text-gray-300"
                   >
-                    Locations
+                    Placeholder
                   </a>
                 </li>
                 <li className="mb-2">
@@ -135,11 +137,13 @@ const Footer = () => {
                 </li>
               </nav>
             </div>
-            <div className="lg:w-fit w-full lg:flex lg:flex-col mt-10 lg:justify-start lg:items-center lg:content-center  md:flex-wrap md:flex-1 px-4 pt-0 mb-4 md:mb-0">
+            <div className="container flex flex-col items-center py-10">
+
+           
               <h2 className="text-lg font-bold mb-6 sm:text-center xl:text-left">
                 Follow Us
               </h2>
-              <div className="flex flex-row justify-start sm:justify-center xl:justify-start">
+              <div className="flex flex-row justify-start items-center flex-wrap sm:justify-center xl:justify-start">
                 <a
                   href=""
                   className="w-11 h-11 flex justify-center rounded-md text-center py-1 ml-2 text-gray-300 hover:text-white hover:bg-gray-600 hover:border-gray-700"
@@ -158,13 +162,15 @@ const Footer = () => {
                 >
                   <LuTwitter className="w-full h-full flex justify-center" />
                 </a>
-              </div>
+        
             </div>
+            </div>
+
           </div>
         </div>
       </div>
 
-      <ContactSection />
+    
       <div className="container py-4 px-5 static justify-center mx-auto sm:flex sm:justify-center sm:align-middle sm:items-center sm:flex-row">
         <span className="sm:ml-auto sm:mt-0 mt-2 flex flex-1">
           <p className="text-gray-500 text-sm text-center sm:text-center">

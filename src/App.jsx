@@ -4,6 +4,7 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import Navbar from './Navbar'
 import Footer from './Footer'
+import ContactSection from './ContactSection'
 
 function App() {
 
@@ -12,7 +13,9 @@ function App() {
     
     <div className="min-h-screen flex flex-col">
     <Navbar />
+    <ContactSection />
        <Footer />
+
       </div>
   )
 }
