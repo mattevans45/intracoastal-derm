@@ -65,9 +65,9 @@ const ContactSection = () => {
               </h2>
               <a
                 href="mailto:example@email.com"
-                className="text-indigo-500 leading-relaxed"
+                className="text-[#30648B] text-wrap leading-relaxed"
               >
-                icderm@gmail.com
+                intracoastaldermatology@gmail.com
               </a>
               <h2 className="title-font font-semibold text-gray-900 tracking-widest text-xs mt-4">
                 PHONE
@@ -119,7 +119,7 @@ const ContactSection = () => {
               className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"
             ></textarea>
           </div>
-          <button className="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">
+          <button className="text-white bg-[#30648B] border-0 py-2 px-6 focus:outline-none hover:bg-[#30648B]/90 rounded text-lg">
             Send Message
           </button>
           <p className="text-xs text-gray-500 mt-3">Thank you!</p>

@@ -11,6 +11,10 @@ import { LuPill, LuBaby } from "react-icons/lu";
 import logo from "./assets/blackandwhite.svg";
 import logo2 from "./assets/Asset 3.webp";
 import logo3 from "./assets/image.svg";
+import Logo from "./assets/3dlogo.jpg"
+import LogoBest from "./assets/bestlogo.png"
+import LOGO from "./assets/bestlogoupdated.png"
+
 import SkinCare from "./Skincare";
 
 const services = [
@@ -59,15 +63,15 @@ export default function Navbar() {
 
   return (
   <>
-      <header className="bg-transparent z-50 min-h-[140px] left-0 sticky mx-auto top-0 w-full">
+      <header className="bg-transparent z-50 min-h-[130px] left-0 sticky mx-auto top-0 w-full">
         <nav
-          className="mx-auto w-full flex justify-between items-center  bg-white p-3 lg:px-8"
+          className="mx-auto w-full h-full flex justify-between items-center  bg-white p-3 lg:px-6"
           aria-label="Global"
         >
-          <div className="flex lg:flex-0">
+          <div className="">
             <a href="#">
-              <span className="sr-only">Intracoastal Dermatology</span>
-              <img className="h-28 object-contain" src={logo2} alt="" />
+        
+              <img className=" w-60 object-fit object-center mx-0" src={LOGO} alt="" />
             </a>
           </div>
           <div className="flex lg:hidden">
@@ -176,11 +180,11 @@ export default function Navbar() {
           <div className="hidden w-18 lg:flex gap-4 lg:mr-3 lg:ml-8 lg:justify-end lg:items-center">
             <a
               href="#"
-              className="text-xl  text-[#4d4d4d] py-2 px-4 border-2 border-[#4d4d4d] border-opacity-5  hover:bg-[#4d4d4d]/70 hover:text-white antialiased rounded-md transition duration-150 ease-in-out"
+              className="text-xl  text-[#4d4d4d] py-2 px-4 border-2 border-[#4d4d4d] border-opacity-5  hover:bg-[#4d4d4d]/70 hover:text-[#4d4d4d] antialiased rounded-md transition duration-150 ease-in-out"
             >
               PATIENT PORTAL <span aria-hidden="true"></span>
             </a>
-            {/* <a href="#" className="rounded-lg px-4 py-2 shadow-xl bg-neutral-700/80 text-white transition duration-150 ease-in-out hover:bg-gray-700/90  focus:outline-none focus-visible:ring focus-visible:ring-gray-500/50 ">
+            {/* <a href="#" className="rounded-lg px-4 py-2 shadow-xl bg-neutral-700/80 text-[#4d4d4d] transition duration-150 ease-in-out hover:bg-gray-700/90  focus:outline-none focus-visible:ring focus-visible:ring-gray-500/50 ">
            MAKE PAYMENT <span aria-hidden="true"></span>
           </a> */}
           </div>
@@ -305,6 +309,7 @@ export default function Navbar() {
           </Transition.Child>
         </Dialog>
       </Transition>
+
 </>
   );
 }
