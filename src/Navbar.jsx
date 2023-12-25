@@ -58,8 +58,8 @@ export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <div className="relative z-50">
-      <header className="bg-transparent  fixed mx-auto top-0 w-full">
+  <>
+      <header className="bg-transparent z-50 min-h-[140px] left-0 sticky mx-auto top-0 w-full">
         <nav
           className="mx-auto w-full flex justify-between items-center  bg-white p-3 lg:px-8"
           aria-label="Global"
@@ -79,7 +79,7 @@ export default function Navbar() {
             )}
             <button
               type="button"
-              className="-m-2.5 flex items-center rounded-md p-2.5 text-gray-700"
+              className="-m-2.5 flex items-center rounded-md justify-end content-center text-gray-700"
               onClick={() => setMobileMenuOpen(true)}
             >
               <span className="pr-2 justify-center">Menu</span>
@@ -106,8 +106,9 @@ export default function Navbar() {
                 leaveFrom="opacity-100 translate-y-0"
                 leaveTo="opacity-0 translate-y-[-10px]"
               >
-                <Popover.Panel className="absolute -left-8 top-full z-10 mt-3 w-screen max-w-md overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5">
-                  <div className="p-4">
+                <Popover.Panel className="absolute -left-8 mx-auto top-full z-50 w-screen max-w-md rounded-3xl bg-white shadow-lg ring-2 ring-gray-900/5">
+
+                 
                     {services.map((item) => (
                       <div
                         key={item.name}
@@ -133,7 +134,7 @@ export default function Navbar() {
                         </div>
                       </div>
                     ))}
-                  </div>
+               
                   <div className="grid grid-cols-2 divide-x divide-gray-900/5 bg-gray-50">
                     {callsToAction.map((item) => (
                       <a
@@ -198,7 +199,7 @@ export default function Navbar() {
         <Dialog
           open={mobileMenuOpen}
           onClose={() => setMobileMenuOpen(false)}
-          className="fixed inset-0 z-10 overflow-hidden"
+          className="fixed inset-0 z-50 overflow-hidden"
         >
           <Transition.Child
             enter="transition-opacity duration-300"
@@ -304,6 +305,6 @@ export default function Navbar() {
           </Transition.Child>
         </Dialog>
       </Transition>
-    </div>
+</>
   );
 }
