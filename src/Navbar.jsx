@@ -215,10 +215,10 @@ export default function Navbar() {
               >
                 PATIENT PORTAL <span aria-hidden="true"></span>
               </a>
-              <a href="#" className="rounded-lg px-2 py-1 border-2 bg-[#30648B]/5 border-[#4d4d4d] border-opacity-5 text-[#4d4d4d] transition duration-150 ease-in-out hover:bg-[#30648B]/90 hover:text-white focus:outline-none focus-visible:ring focus-visible:ring-gray-500/50 ">
+              <a href="#" className="rounded-lg px-2 py-2 border-2 bg-[#30648B]/5 border-[#4d4d4d] border-opacity-5 text-[#4d4d4d] transition duration-150 ease-in-out hover:bg-[#30648B]/90 hover:text-white focus:outline-none focus-visible:ring focus-visible:ring-gray-500/50 ">
            MAKE PAYMENT <span aria-hidden="true"></span>
           </a>
-          <a href="#" className="rounded-lg px-2 py-1 border-2 bg-[#30648B]/5 border-[#4d4d4d] border-opacity-5 text-[#4d4d4d] transition duration-150 ease-in-out hover:bg-[#30648B]/90 hover:text-white focus:outline-none focus-visible:ring focus-visible:ring-gray-500/50 ">
+          <a href="#" className="rounded-lg px-2 py-2 border-2 bg-[#30648B]/5 border-[#4d4d4d] border-opacity-5 text-[#4d4d4d] transition duration-150 ease-in-out hover:bg-[#30648B]/90 hover:text-white focus:outline-none focus-visible:ring focus-visible:ring-gray-500/50 ">
            TELEDERM <span aria-hidden="true"></span>
           </a>
             </div>
