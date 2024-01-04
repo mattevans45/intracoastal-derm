@@ -411,7 +411,7 @@ const Footer = () => {
                 <img
                   src={whiteLogo}
                   data-aos="fade-down"
-                  className="h-60 object-fit sm:min-h-52 md:min-h-52 sm:px-3"
+                  className="max-h-60 object-fit sm:min-h-40 md:min-h-40 sm:px-3"
                   alt="Intracoastal Dermatology Logo"
                 />
               </a>
