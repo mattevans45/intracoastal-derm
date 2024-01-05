@@ -5,6 +5,7 @@ import './App.css'
 import Navbar from './Navbar'
 import Footer from './Footer'
 import ContactSection from './ContactSection'
+import Hero from "./Hero"
 
 
 function App() {
@@ -12,13 +13,14 @@ function App() {
 
   return (
     
-    <div className="min-h-screen flex flex-col">
+    <>
     <Navbar />
+    <Hero />
 
     <ContactSection />
        <Footer />
 
-      </div>
+      </>
   )
 }
 

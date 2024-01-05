@@ -15,39 +15,41 @@ import Logo from "./assets/3dlogo.jpg";
 import LogoBest from "./assets/bestlogo.png";
 import LOGO from "./assets/bestlogoupdated.png";
 
+import { GiScalpel } from "react-icons/gi";
+
 import SkinCare from "./Skincare";
 
 const services = [
   {
-    name: "Skin Surgery",
-    description: "Surgically remove unwanted blemishes and moles",
-    href: "#",
-    icon: MdFace,
-  },
-  {
-    name: "Injectables",
-    description: "Botox and lip-fillers",
-    href: "#",
-    icon: MdOutlineVaccines,
-  },
-  {
-    name: "Cosmetic Care",
-    description: "Get the care you deserve",
+    name: "General Dermatology",
+    description: "Psoriasis, Atropic Dermatitis, Bullous Diseases, Lichen Planus, Vitiligo, Acne, Rosacea, Skin Cancer Screening, Rash, Growths, Skin discoloration, and excessive sweating.",
     href: "#",
     icon: SkinCare,
   },
   {
-    name: "Acne",
-    description: "You don't have to deal with acne alone. Get help!",
+    name: "Cosmetic Dermatology",
+    description: "Neuromodulators, Dermal Filler, and Lasers.",
     href: "#",
-    icon: LuBaby,
+    icon: MdOutlineVaccines,
   },
+  // {
+  //   name: "Cosmetic Care",
+  //   description: "Get the care you deserve",
+  //   href: "#",
+  //   icon: SkinCare,
+  // },
   {
-    name: "Blemishes",
-    description: "Get help to fix blemishes",
+    name: "Surgical Dermatology",
+    description: "Skin Cancer Removal, Mohs Surgery, Scar Revision, and Mole Removal.",
     href: "#",
-    icon: LuPill,
+    icon: GiScalpel,
   },
+  // {
+  //   name: "Blemishes",
+  //   description: "Get help to fix blemishes",
+  //   href: "#",
+  //   icon: LuPill,
+  // },
 ];
 const callsToAction = [
   { name: "Watch demo", href: "#", icon: PlayCircleIcon },
@@ -77,7 +79,7 @@ export default function Navbar() {
           className={`header ${
             mobileMenuOpen
               ? "hidden"
-              : "bg-white z-50 left-0 sticky mx-auto  top-0 w-full"
+              : "bg-white z-50 left-0 sticky top-0"
           }`}
         >
           {mobileMenuOpen && (
@@ -203,12 +205,12 @@ export default function Navbar() {
               </a>
               <a
                 href="#"
-                className="transition w-40 hover:duration-700 ease-in-out rounded-lg  text-[#4d4d4d] md:text-lg xl:text-xl hover:bg-[#4d4d4d]/10 py-2 px-4 focus:outline-none focus-visible:ring focus-visible:ring-gray-500/50"
+                className="transition hover:duration-700 ease-in-out rounded-lg  text-[#4d4d4d] md:text-lg xl:text-xl hover:bg-[#4d4d4d]/10 py-2 px-4 focus:outline-none focus-visible:ring focus-visible:ring-gray-500/50"
               >
                 ABOUT US
               </a>
             </Popover.Group>
-            <div className="hidden w-18 lg:flex gap-4  lg:justify-end lg:items-center">
+            <div className="hidden w-fit lg:flex gap-4  lg:justify-end lg:items-center">
               <a
                 href="#"
                 className="rounded-lg md:text-md px-4 py-2 border-2 bg-[#30648B]/5 border-[#4d4d4d] border-opacity-5 text-[#4d4d4d] transition duration-150 ease-in-out hover:bg-[#30648B]/90 hover:text-white focus:outline-none focus-visible:ring focus-visible:ring-gray-500/50 "
@@ -297,19 +299,19 @@ export default function Navbar() {
               href="#"
               className="block rounded-lg px-3 py-2 text-base font-semibold leading-7 mx-2 text-[#4d4d4d]/90 hover:bg-gray-100"
             >
-              Features
+              Location
             </a>
             <a
               href="#"
               className="block rounded-lg px-3 py-2 text-base font-semibold leading-7 mx-2 text-[#4d4d4d]/90 hover:bg-gray-100"
             >
-              Marketplace
+              Contact
             </a>
             <a
               href="#"
               className="block rounded-lg px-3 py-2 text-base font-semibold leading-7 mx-2 text-[#4d4d4d]/90 hover:bg-gray-100"
             >
-              Company
+              About Us
             </a>
             <div className="py-6">
               <a
@@ -317,6 +319,18 @@ export default function Navbar() {
                 className="block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 mx-2 text-[#4d4d4d]/90 hover:bg-gray-100"
               >
                 Patient Portal
+              </a>
+              <a
+                href="#"
+                className="block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 mx-2 text-[#4d4d4d]/90 hover:bg-gray-100"
+              >
+                TeleDerm
+              </a>
+              <a
+                href="#"
+                className="block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 mx-2 text-[#4d4d4d]/90 hover:bg-gray-100"
+              >
+                Make Payment
               </a>
             </div>
           </div>

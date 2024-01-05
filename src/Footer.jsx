@@ -402,8 +402,8 @@ const Footer = () => {
  
       <footer className="text-white bg-[#3a3a3a] dark:bg-[#3a3a3a]">
         <div className="mx-auto w-full p-4 py-6 lg:py-8">
-          <div className="w-full mx-auto sm:flex sm:justify-center md:flex md:justify-around">
-            <div className="mb-6 md:mb-0">
+          <div className="w-view mx-auto sm:flex sm:justify-center md:flex md:justify-evenly">
+            <div className="mb-6 mx-4 md:mb-0">
               <a
                 href="https://instracoastal-dermatology.com/"
                 className="hover:scale-150"
@@ -411,7 +411,7 @@ const Footer = () => {
                 <img
                   src={whiteLogo}
                   data-aos="fade-down"
-                  className="max-h-60 object-fit sm:min-h-40 md:min-h-40 sm:px-3"
+                  className="max-h-64 antialiased object-fit sm:min-h-30 md:min-h-32 lg:min-h-50 sm:px-3"
                   alt="Intracoastal Dermatology Logo"
                 />
               </a>
@@ -445,7 +445,23 @@ const Footer = () => {
                       href="https://intracoastal-dermatology.com/office-location/"
                       className="hover:underline"
                     >
-                      Office Location
+                      TeleDerm
+                    </a>
+                  </li>
+                  <li className="mb-4">
+                    <a
+                      href="https://intracoastal-dermatology.com/office-location/"
+                      className="hover:underline"
+                    >
+                      Patient Portal
+                    </a>
+                  </li>
+                  <li className="mb-4">
+                    <a
+                      href="https://intracoastal-dermatology.com/office-location/"
+                      className="hover:underline"
+                    >
+                      Make Payment
                     </a>
                   </li>
                   
@@ -472,7 +488,7 @@ const Footer = () => {
               </div>
               <div data-aos="slide-right"
               data-aos-anchor-placement="top-right">
-                <h2 className="mb-6 text-sm font-semibold text-gray-900 text-start dark:text-white">
+                <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase text-start dark:text-white">
                   Follow us
                 </h2>
                 <ul className="text-gray-500 flex flex-row justify-start dark:text-gray-400 font-medium">
