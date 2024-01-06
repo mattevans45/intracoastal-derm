@@ -4,13 +4,12 @@
 
 
 body {
+
   background-color: #f0f0f0;
-  
-  color: #4D4D4D; 
+
 }
 
 * {
-
-  /* font-family: 'Baloo Chettan 2', sans-serif; */
-  /* text-transform: uppercase; */
+  font-family: 'Roboto', sans-serif;
+/* font-family: 'Roboto'; */
 } 

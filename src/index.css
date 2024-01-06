@@ -65,13 +65,18 @@ button:focus-visible {
 @tailwind components;
 @tailwind utilities;
 
-/* :root, * {
-  font-family: 'Baloo Chettan 2', sans-serif;
 
-} */
+:root, * {
+
+  font-family: 'Roboto', sans-serif;
+}
 
 span {
   text-transform: uppercase;
 
 }
 
+
+iframe {
+  border-style: none;
+}
