@@ -54,8 +54,8 @@ const services = [
 
 ];
 const callsToAction = [
-  { name: "Watch demo", href: "#", icon: PlayCircleIcon },
-  { name: "Schedule A Consultation", href: "#", icon: PhoneIcon },
+  { name: "Watch demo", to: "/", icon: PlayCircleIcon },
+  { name: "Schedule A Consultation", to: "/", icon: PhoneIcon },
 ];
 
 function classNames(...classes) {
@@ -95,7 +95,7 @@ export default function Navbar() {
             {!mobileMenuOpen ? (
               <div className="">
                 <Link
-                 to="#">
+                 to="/">
                   <img
                     className=" w-60 object-fit object-center mx-0"
                     src={LOGO}
@@ -163,7 +163,7 @@ export default function Navbar() {
                           <div className="flex-auto">
                             <Link
                             onClick={() => setMobileMenuOpen(false)}
-                              to={item.href}
+                              to={item.to}
                               className="block font-semibold text-[#4d4d4d]"
                             >
                               {item.name}
@@ -178,9 +178,9 @@ export default function Navbar() {
 
                       <div className="grid grid-cols-2 divide-x divide-gray-900/5 bg-gray-50">
                         {callsToAction.map((item) => (
-                          <a
+                          <Link
                             key={item.name}
-                            href={item.href}
+                            to={item.to}
                             className="flex items-center justify-center gap-x-2.5 p-3 text-sm font-semibold leading-6 text-[#4d4d4d] hover:bg-gray-100"
                           >
                             <item.icon
@@ -188,7 +188,7 @@ export default function Navbar() {
                               aria-hidden="true"
                             />
                             {item.name}
-                          </a>
+                          </Link>
                         ))}
                       </div>
                     </Popover.Panel>
