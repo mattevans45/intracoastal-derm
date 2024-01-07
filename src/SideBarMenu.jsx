@@ -21,24 +21,24 @@ const menuItems = [
   {
     icon: HiOutlineOfficeBuilding,
     text: "Location",
-    to: "/intracoastal-derm/location",
+    to: "/location",
   },
-  { icon: HiOutlineMail, text: "Contact", to: "/intracoastal-derm/contact" },
+  { icon: HiOutlineMail, text: "Contact", to: "/contact" },
   {
     icon: HiOutlineIdentification,
     text: "About Us",
-    to: "/intracoastal-derm/about",
+    to: "/about",
   },
   {
     icon: HiOutlineUser,
     text: "Patient Portal",
-    to: "/intracoastal-derm/patientPortal",
+    to: "/patientPortal",
   },
-  { icon: HiOutlinePhone, text: "TeleDerm", to: "/intracoastal-derm/telederm" },
+  { icon: HiOutlinePhone, text: "TeleDerm", to: "/telederm" },
   {
     icon: HiOutlineCreditCard,
     text: "Make Payment",
-    to: "/intracoastal-derm/payment",
+    to: "/payment",
   },
 ];
 
@@ -61,13 +61,13 @@ const SidebarMenu = ({ mobileMenuOpen, setMobileMenuOpen, services }) => {
       >
         <div className="fixed w-screen top-0 right-0 z-50 bg-white mx-auto pl-3 p-2 sm:max-w-sm sm:h-fit sm:ring-1 sm:ring-gray-900/10">
           <div className="mx-auto flex items-center justify-between">
-            <a href="#">
+            <Link to="/">
               <img
                 className="w-60 object-fit object-center mx-0 hover:scale-95"
                 src={LOGO}
                 alt=""
               />
-            </a>
+            </Link>
             <button
               type="button"
               className="rounded-full w-fit shadow-inner transition-all duration-300  hover:bg-gray-100 bg-gray-50 p-2.5 text-gray-700"
@@ -120,13 +120,13 @@ const SidebarMenu = ({ mobileMenuOpen, setMobileMenuOpen, services }) => {
                           />
                         </div>
                         <div className="flex-auto">
-                          <a
-                            href={item.href}
+                          <Link
+                            to={item.to}
                             className="block font-semibold text-[#4d4d4d]"
                           >
                             {item.name}
                             <span className="absolute inset-0" />
-                          </a>
+                          </Link>
                           <p className="mt-1 text-[#4d4d4d]">
                             {item.description}
                           </p>

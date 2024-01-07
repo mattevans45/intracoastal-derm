@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { BrowserRouter, Router, Route, Routes } from "react-router-dom";
+import { HashRouter, Router, Route, Routes } from "react-router-dom";
 import App from "./App.jsx";
 import Location from "./Location.jsx";
 import Contact from "./Contact.jsx";
@@ -15,12 +15,12 @@ import "./index.css";
 const rootElement = document.getElementById("root");
 
 ReactDOM.createRoot(rootElement).render(
-    <BrowserRouter>
+    <HashRouter>
 
     <Routes>
       <Route
         index
-        path="/intracoastal-derm/"
+        path="/"
         element={
           <Layout>
             <App />
@@ -28,7 +28,7 @@ ReactDOM.createRoot(rootElement).render(
         }
       />
       <Route
-        path="/intracoastal-derm/location"
+        path="/location"
         element={
           <Layout>
             <Location />
@@ -36,7 +36,7 @@ ReactDOM.createRoot(rootElement).render(
         }
       />
       <Route
-        path="/intracoastal-derm/contact"
+        path="/contact"
         element={
           <Layout>
             <Contact />
@@ -44,7 +44,7 @@ ReactDOM.createRoot(rootElement).render(
         }
       />
       <Route
-        path="/intracoastal-derm/services"
+        path="/services"
         element={
           <Layout>
             <Services />
@@ -52,7 +52,7 @@ ReactDOM.createRoot(rootElement).render(
         }
       />
       <Route
-        path="/intracoastal-derm/services/general-dermatology"
+        path="/services/general-dermatology"
         element={
           <Layout>
             <General />
@@ -60,7 +60,7 @@ ReactDOM.createRoot(rootElement).render(
         }
       />
       <Route
-        path="/intracoastal-derm/services/cosmetic-dermatology"
+        path="/services/cosmetic-dermatology"
         element={
           <Layout>
             <Cosmetic />
@@ -68,7 +68,7 @@ ReactDOM.createRoot(rootElement).render(
         }
       />
       <Route
-        path="/intracoastal-derm/services/surgical-dermatology/"
+        path="/services/surgical-dermatology/"
         element={
           <Layout>
             <Surgical />
@@ -76,7 +76,7 @@ ReactDOM.createRoot(rootElement).render(
         }
       />
       <Route
-        path="/intracoastal-derm/about"
+        path="/about"
         element={
           <Layout>
             <About />
@@ -85,6 +85,6 @@ ReactDOM.createRoot(rootElement).render(
       />
     </Routes>
 
-  </BrowserRouter>
+  </HashRouter>
 
 );

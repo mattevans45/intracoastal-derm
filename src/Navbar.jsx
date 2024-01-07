@@ -34,13 +34,13 @@ const services = [
     name: "General Dermatology",
     description:
       "Psoriasis, Atropic Dermatitis, Bullous Diseases, Lichen Planus, Vitiligo, Acne, Rosacea, Skin Cancer Screening, Rash, Growths, Skin discoloration, and excessive sweating.",
-    href: "/intracoastal-derm/services/general-dermatology",
+    to: "/services/general-dermatology",
     icon: Follicle,
   },
   {
     name: "Cosmetic Dermatology",
     description: "Neuromodulators, Dermal Filler, and Lasers.",
-    href: "/intracoastal-derm/services/cosmetic-dermatology",
+    to: "/services/cosmetic-dermatology",
     icon: MdOutlineVaccines,
   },
 
@@ -48,7 +48,7 @@ const services = [
     name: "Surgical Dermatology",
     description:
       "Skin Cancer Removal, Mohs Surgery, Scar Revision, and Mole Removal.",
-    href: "/intracoastal-derm/services/surgical-dermatology",
+    to: "/services/surgical-dermatology",
     icon: GiScalpel,
   },
 
@@ -95,7 +95,7 @@ export default function Navbar() {
             {!mobileMenuOpen ? (
               <div className="">
                 <Link
-                 to="/intracoastal-derm/">
+                 to="#">
                   <img
                     className=" w-60 object-fit object-center mx-0"
                     src={LOGO}
@@ -197,20 +197,20 @@ export default function Navbar() {
               </Popover>
       <div className="hidden lg:flex md:text-lg lg:items-baseline lg:justify-center   md:flex md:justify-center md:items-baseline">
         <Link
-          to="/intracoastal-derm/location"
+          to="/location"
           className="transition hover:duration-700 ease-in-out rounded-lg  text-[#4d4d4d] hover:bg-[#4d4d4d]/10  py-2 px-2 focus:outline-none focus-visible:ring focus-visible:ring-gray-500/50"
         >
           LOCATION
         </Link>
         <Link
         
-          to="/intracoastal-derm/contact"
+          to="/contact"
           className="transition hover:duration-700 ease-in-out rounded-lg text-[#4d4d4d] hover:bg-[#4d4d4d]/10  py-2 px-2 focus:outline-none focus-visible:ring focus-visible:ring-gray-500/50"
         >
           CONTACT
         </Link>
         <Link
-          to="/intracoastal-derm/about"
+          to="/about"
           className="transition hover:duration-700 ease-in-out rounded-lg  text-[#4d4d4d] hover:bg-[#4d4d4d]/10 py-2 px-2 focus:outline-none focus-visible:ring focus-visible:ring-gray-500/50"
         >
           ABOUT US
@@ -219,19 +219,19 @@ export default function Navbar() {
     </Popover.Group>
     <div className="hidden lg:flex md:text-lg font-poppins gap-4 lg:justify-center lg:items-center">
       <Link
-        to="/intracoastal-derm/patient-portal"
+        to="/patient-portal"
         className="rounded-lg min-w-fit lg:text-md text-center px-1.5 py-1 border-2 bg-[#30648B]/5 border-[#4d4d4d] border-opacity-5 text-[#4d4d4d] transition duration-150 ease-in-out hover:bg-[#30648B]/90 hover:text-white focus:outline-none focus-visible:ring focus-visible:ring-gray-500/50 "
       >
         PATIENT PORTAL
       </Link>
       <Link
-        to="/intracoastal-derm/payment"
+        to="/payment"
         className="rounded-lg min-w-fit lg:text-md text-center px-1.5 py-1 border-2 bg-[#30648B]/5 border-[#4d4d4d] border-opacity-5 text-[#4d4d4d] transition duration-150 ease-in-out hover:bg-[#30648B]/90 hover:text-white focus:outline-none focus-visible:ring focus-visible:ring-gray-500/50 "
       >
         MAKE PAYMENT
       </Link>
       <Link
-        to="/intracoastal-derm/telederm"
+        to="/telederm"
         className="rounded-lg min-w-fit lg:text-md text-center px-1.5 py-1 border-2 bg-[#30648B]/5 border-[#4d4d4d] border-opacity-5 text-[#4d4d4d] transition duration-150 ease-in-out hover:bg-[#30648B]/90 hover:text-white focus:outline-none focus-visible:ring focus-visible:ring-gray-500/50 "
       >
         TELEDERM
