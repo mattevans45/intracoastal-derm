@@ -1,10 +1,6 @@
 import React from 'react'
 
-
-const cosmeticDerm = [
-    
-]
-
+git
 const Cosmetic = () => {
   return (
     <>

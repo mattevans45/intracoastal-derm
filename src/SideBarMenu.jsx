@@ -87,7 +87,7 @@ const SidebarMenu = ({ mobileMenuOpen, setMobileMenuOpen, services }) => {
              
                     className="h-6 w-fit hover:animate-pulse text-[#4d4d4d]"
                   />
-                  <span className="px-6 mx-auto flex self-start flex-grow  capitalize">
+                  <span className="px-6 mx-auto flex self-start flex-grow sm:w-fit capitalize">
                     Services
                   </span>
                   <ChevronDownIcon
