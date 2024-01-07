@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Router, Route, Routes } from "react-router-dom";
 import App from "./App.jsx";
 import Location from "./Location.jsx";
 import Contact from "./Contact.jsx";
@@ -15,7 +15,8 @@ import "./index.css";
 const rootElement = document.getElementById("root");
 
 ReactDOM.createRoot(rootElement).render(
-  <Router>
+    <BrowserRouter>
+
     <Routes>
       <Route
         index
@@ -83,5 +84,7 @@ ReactDOM.createRoot(rootElement).render(
         }
       />
     </Routes>
-  </Router>
+
+  </BrowserRouter>
+
 );
