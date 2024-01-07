@@ -195,7 +195,7 @@ const Footer = () => {
   </div>
     </footer> */}
 
-{/* <footer className="text-white bg-[#3a3a3a] dark:bg-[#3a3a3a]">
+      {/* <footer className="text-white bg-[#3a3a3a] dark:bg-[#3a3a3a]">
   <div className="grid w-full mx-auto lg:grid-cols-5 md:grid-cols-5 sm:grid-cols-4 justify-center border-2 border-red-500 items-start py-6 max-w-6xl gap-4">
     <div className="col-span-2">
       <div className="flex flex-col h-fit mb-10 mx-auto">
@@ -309,116 +309,138 @@ const Footer = () => {
     </span>
   </div>
 </footer> */}
-<footer className="text-white bg-[#3a3a3a] dark:bg-[#3a3a3a]">
-    <div class=" mx-auto w-full max-w-7xl  overflow-hidden p-4 py-6 lg:py-8">
-        <div class="md:flex md:justify-between lg:flex lg:justify-evenly">
-          <div class="mb-6 md:mb-0">
-          <Link to="/" className="hover:scale-150">
-          <img
-            src={whiteLogo}
-            data-aos="fade-down"
-            className="max-h-60 antialiased object-fit sm:min-h-30 md:min-h-32 sm:px-3"
-            alt="Intracoastal Dermatology Logo"
-          />
-        </Link>
-          </div>
-          <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
+      <footer className="text-white bg-[#3a3a3a] dark:bg-[#3a3a3a]">
+        <div class=" mx-auto w-full max-w-7xl  overflow-hidden p-4 py-6 lg:py-8">
+          <div class="md:flex md:justify-between lg:flex lg:justify-evenly">
+            <div class="mb-6 flex justify-center md:mb-0">
+              <Link to="/" className="hover:scale-105">
+                <img
+                  src={whiteLogo}
+                  data-aos="fade-down"
+                  className="max-h-60 antialiased object-fit sm:min-h-30 md:min-h-32 sm:px-3"
+                  alt="Intracoastal Dermatology Logo"
+                />
+              </Link>
+            </div>
+            <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
               <div>
-                  <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Important Links</h2>
-                  <ul class="text-gray-500 dark:text-gray-400 font-medium">
-                      <li class="mb-2">
-                      <Link to="/intracoastal-derm/location/" className="hover:underline block flex-grow">
-            Office Location
-          </Link>
-                      </li>
-                      <li className="mb-2">
-          <Link to="/intracoastal-derm/services/" className="hover:underline block flex-grow">
-            Services
-          </Link>
-        </li>
-        <li className='mb-2'>
-          <Link to="/intracoastal-derm/telederm/" className="hover:underline block flex-grow">
-            TeleDerm
-          </Link>
-        </li>
-        <li className='mb-2'>
-          <Link to="/intracoastal-derm/patient-portal/" className="hover:underline block flex-grow">
-            Patient Portal
-          </Link>
-        </li>
-        <li className='mb-2'>
-          <Link to="/intracoastal-derm/make-payment/" className="hover:underline block flex-grow">
-            Make Payment
-          </Link>
-        </li>
-                      <li>
-                          <a href="https://tailwindcss.com/" class="hover:underline">Tailwind CSS</a>
-                      </li>
-                  </ul>
-              </div>
-              <div>
-                  <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Forms and Documents</h2>
-                  <ul class="text-gray-500 dark:text-gray-400 font-medium">
+                <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
+                  Important Links
+                </h2>
+                <ul class="text-gray-500 dark:text-gray-400 font-medium">
+                  <li class="mb-2">
+                    <Link
+                      to="/intracoastal-derm/location/"
+                      className="hover:underline block flex-grow"
+                    >
+                      Office Location
+                    </Link>
+                  </li>
                   <li className="mb-2">
-          <Link to="/" className="hover:underline block flex-grow">
-            Insurance Accepted
-          </Link>
-        </li>
-        <li className="mb-2">
-          <Link to="/" className="hover:underline block flex-grow">
-            Office Policies
-          </Link>
-        </li>
-        <li className="mb-2">
-          <Link to="/" className="hover:underline block flex-grow">
-            Medical Release Form
-          </Link>
-        </li>
-                  </ul>
+                    <Link
+                      to="/services"
+                      className="hover:underline block flex-grow"
+                    >
+                      Services
+                    </Link>
+                  </li>
+                  <li className="mb-2">
+                    <Link
+                      to="/telederm"
+                      className="hover:underline block flex-grow"
+                    >
+                      TeleDerm
+                    </Link>
+                  </li>
+                  <li className="mb-2">
+                    <Link
+                      to="/patient-portal"
+                      className="hover:underline block flex-grow"
+                    >
+                      Patient Portal
+                    </Link>
+                  </li>
+                  <li className="mb-2">
+                    <Link
+                      to="/intracoastal-derm/make-payment/"
+                      className="hover:underline block flex-grow"
+                    >
+                      Make Payment
+                    </Link>
+                  </li>
+                  
+                </ul>
               </div>
               <div>
-                  <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Follow Us</h2>
-                  <ul class="text-gray-500 dark:text-gray-400 font-medium">
-                  <li className="mr-2">
-          <Link
-            to="/"
-            className="rounded-md text-gray-300 hover:text-white hover:bg-gray-600 hover:border-gray-700 flex-grow"
-          >
-            <MdOutlineFacebook className="h-12 w-8" />
-          </Link>
-        </li>
-        <li className="mr-2">
-          <Link
-            to="/"
-            className="rounded-md text-center text-gray-300 hover:text-white hover:bg-gray-600 hover:border-gray-700 flex-grow"
-          >
-            <LuInstagram className="h-12 w-8" />
-          </Link>
-        </li>
-        <li className="mr-2">
-          <Link
-            to="/"
-            className="rounded-md text-center text-gray-300 hover:text-white hover:bg-gray-600 hover:border-gray-700 flex-grow"
-          >
-            <LuTwitter className="h-12 w-8" />
-          </Link>
-        </li>
-                  </ul>
+                <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
+                  Forms and Documents
+                </h2>
+                <ul class="text-gray-500 dark:text-gray-400 font-medium">
+                  <li className="mb-2">
+                    <Link to="/" className="hover:underline block flex-grow">
+                      Insurance Accepted
+                    </Link>
+                  </li>
+                  <li className="mb-2">
+                    <Link to="/" className="hover:underline block flex-grow">
+                      Office Policies
+                    </Link>
+                  </li>
+                  <li className="mb-2">
+                    <Link to="/" className="hover:underline block flex-grow">
+                      Medical Release Form
+                    </Link>
+                  </li>
+                </ul>
               </div>
+              <div className="mx-1">
+                <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
+                  Follow Us
+                </h2>
+                <ul class="text-gray-500 dark:text-gray-400 font-medium ">
+                  <li className="mr-2">
+                    <Link
+                      to="/"
+                      className="rounded-md text-gray-300 hover:text-white hover:bg-gray-600 hover:border-gray-700 flex-grow"
+                    >
+                      <MdOutlineFacebook className="h-12 w-8" />
+                    </Link>
+                  </li>
+                  <li className="mr-2">
+                    <Link
+                      to="/"
+                      className="rounded-md text-center text-gray-300 hover:text-white hover:bg-gray-600 hover:border-gray-700 flex-grow"
+                    >
+                      <LuInstagram className="h-12 w-8" />
+                    </Link>
+                  </li>
+                  <li className="mr-2">
+                    <Link
+                      to="/"
+                      className="rounded-md text-center text-gray-300 hover:text-white hover:bg-gray-600 hover:border-gray-700 flex-grow"
+                    >
+                      <LuTwitter className="h-12 w-8" />
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
-      </div>
-      <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
-  <div className="w-full flex flex-row sm:flex sm:items-center sm:justify-around">
-    <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">
-      © 2024
-      <Link to="https://intracoastal-derm/" className="px-1 hover:underline">
-        Intracoastal Dermatology.
-      </Link>
-      All Rights Reserved.
-    </span>
-  </div>
-  </div>
-  </footer>
+          <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
+          <div className="w-full flex flex-row sm:flex sm:items-center sm:justify-around">
+            <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">
+              © 2024
+              <Link
+                to="/"
+                className="px-1 hover:underline"
+              >
+                Intracoastal Dermatology.
+              </Link>
+              All Rights Reserved.
+            </span>
+          </div>
+        </div>
+      </footer>
     </>
   );
 };
