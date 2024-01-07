@@ -10,13 +10,14 @@ import General from "./General.jsx";
 import Cosmetic from "./Cosmetic.jsx";
 import About from "./About.jsx";
 import Layout from "./Layout.jsx";
+import ScrollToTop from "./ScrollToTop.js";
 import "./index.css";
 
 const rootElement = document.getElementById("root");
 
 ReactDOM.createRoot(rootElement).render(
-    <HashRouter>
-
+  <HashRouter>
+    <ScrollToTop />
     <Routes>
       <Route
         index
@@ -68,7 +69,7 @@ ReactDOM.createRoot(rootElement).render(
         }
       />
       <Route
-        path="/services/surgical-dermatology/"
+        path="/services/surgical-dermatology"
         element={
           <Layout>
             <Surgical />
@@ -84,7 +85,5 @@ ReactDOM.createRoot(rootElement).render(
         }
       />
     </Routes>
-
   </HashRouter>
-
 );

@@ -77,9 +77,12 @@ export default function Navbar() {
         leaveFrom="opacity-100 translate-y-0"
         leaveTo="opacity-0 translate-y-[-10px]"
       >
+        <Menu>
+
+        
 <header
-          className={`header ${
-            mobileMenuOpen ? "hidden" : "bg-white z-50 left-0 sticky top-0"
+          className={`container ${
+            mobileMenuOpen ? "hidden" : "bg-white z-50 mx-auto min-w-full left-0 sticky top-0 shadow-sm"
           }`}
         >
           {mobileMenuOpen && (
@@ -89,7 +92,7 @@ export default function Navbar() {
             />
           )}
           <nav
-            className="w-full flex justify-between items-center p-3"
+            className="flex justify-between max-w-screen max-w-full md:w-full items-center p-3"
             aria-label="Global"
           >
             {!mobileMenuOpen ? (
@@ -97,7 +100,7 @@ export default function Navbar() {
                 <Link
                  to="/">
                   <img
-                    className=" w-60 object-fit object-center mx-0"
+                    className="md:max-w-50 lg:max-w-60 xl:max-w-60 max-w-60 object-fit object-center mx-auto"
                     src={LOGO}
                     alt=""
                   />
@@ -130,7 +133,7 @@ export default function Navbar() {
             </div>
             <Popover.Group className="hidden z-20 lg:flex md:items-center md:gap-4 lg:justify-between lg:items-center lg:gap-r-2">
               <Popover className="relative">
-                <Popover.Button className="flex z-20 items-center justify-center md:text-lg xl:text-xl ml-0  -mb-1 transition hover:duration-700 ease-in-out rounded-lg hover:border-gray-200 text-[#4d4d4d] hover:bg-gray-200 py-2 px-1 focus:outline-none focus-visible:ring focus-visible:ring-gray-500/50">
+                <Popover.Button className="flex z-20 items-center justify-center md:text-lg xl:text-lg ml-0 place-self-center font-display font-semibold transition hover:duration-700 ease-in-out rounded-lg hover:border-gray-200 text-[#4d4d4d] hover:bg-gray-200 py-2 px-1 focus:outline-none focus-visible:ring focus-visible:ring-gray-500/50">
                   SERVICES
                   <ChevronDownIcon
                     className="h-5 w-5 flex-none text-[#4d4d4d]"
@@ -195,7 +198,8 @@ export default function Navbar() {
                   
                 </Transition>
               </Popover>
-      <div className="hidden lg:flex md:text-lg lg:items-baseline lg:justify-center   md:flex md:justify-center md:items-baseline">
+              <div className="hidden lg:flex md:text-lg  lg:justify-center lg:font-semibold font-display  md:flex md:justify-center md:items-baseline">
+
         <Link
           to="/location"
           className="transition hover:duration-700 ease-in-out rounded-lg  text-[#4d4d4d] hover:bg-[#4d4d4d]/10  py-2 px-2 focus:outline-none focus-visible:ring focus-visible:ring-gray-500/50"
@@ -213,32 +217,35 @@ export default function Navbar() {
           to="/about"
           className="transition hover:duration-700 ease-in-out rounded-lg  text-[#4d4d4d] hover:bg-[#4d4d4d]/10 py-2 px-2 focus:outline-none focus-visible:ring focus-visible:ring-gray-500/50"
         >
-          ABOUT US
+          ABOUT
         </Link>
       </div>
     </Popover.Group>
-    <div className="hidden lg:flex md:text-lg font-poppins gap-4 lg:justify-center lg:items-center">
-      <Link
-        to="/patient-portal"
-        className="rounded-lg min-w-fit lg:text-md text-center px-1.5 py-1 border-2 bg-[#30648B]/5 border-[#4d4d4d] border-opacity-5 text-[#4d4d4d] transition duration-150 ease-in-out hover:bg-[#30648B]/90 hover:text-white focus:outline-none focus-visible:ring focus-visible:ring-gray-500/50 "
-      >
-        PATIENT PORTAL
-      </Link>
-      <Link
-        to="/payment"
-        className="rounded-lg min-w-fit lg:text-md text-center px-1.5 py-1 border-2 bg-[#30648B]/5 border-[#4d4d4d] border-opacity-5 text-[#4d4d4d] transition duration-150 ease-in-out hover:bg-[#30648B]/90 hover:text-white focus:outline-none focus-visible:ring focus-visible:ring-gray-500/50 "
-      >
-        MAKE PAYMENT
-      </Link>
-      <Link
-        to="/telederm"
-        className="rounded-lg min-w-fit lg:text-md text-center px-1.5 py-1 border-2 bg-[#30648B]/5 border-[#4d4d4d] border-opacity-5 text-[#4d4d4d] transition duration-150 ease-in-out hover:bg-[#30648B]/90 hover:text-white focus:outline-none focus-visible:ring focus-visible:ring-gray-500/50 "
-      >
-        TELEDERM
-      </Link>
-    </div>
+    <div className="hidden lg:flex justify-end lg:items-center md:items-center  flex-wrap md:text-md lg:text-lg font-display font-medium">
+  <div className="flex w-fit h-full justify-center gap-x-2 lg:mr-1 md:mr-2">
+    <Link
+      to="/patient-portal"
+      className="rounded-lg min-w-fit lg:text-md text-center px-1.5 py-1 border-2 bg-[#30648B]/5 border-[#4d4d4d] border-opacity-5 text-[#4d4d4d] transition duration-150 ease-in-out hover:bg-[#30648B]/90 hover:text-white focus:outline-none focus-visible:ring focus-visible:ring-gray-500/50 "
+    >
+      PATIENT PORTAL
+    </Link>
+    <Link
+      to="/payment"
+      className="rounded-lg min-w-fit lg:text-md text-center px-1.5 py-1 border-2 bg-[#30648B]/5 border-[#4d4d4d] border-opacity-5 text-[#4d4d4d] transition duration-150 ease-in-out hover:bg-[#30648B]/90 hover:text-white focus:outline-none focus-visible:ring focus-visible:ring-gray-500/50 "
+    >
+      MAKE PAYMENT
+    </Link>
+    <Link
+      to="/telederm"
+      className="rounded-lg min-w-fit lg:text-md text-center px-1.5 py-1 border-2 bg-[#30648B]/5 border-[#4d4d4d] border-opacity-5 text-[#4d4d4d] transition duration-150 ease-in-out hover:bg-[#30648B]/90 hover:text-white focus:outline-none focus-visible:ring focus-visible:ring-gray-500/50 "
+    >
+      TELEDERM
+    </Link>
+  </div>
+</div>
   </nav>
 </header>
+</Menu>
       </Transition>
       
       <SidebarMenu

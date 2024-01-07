@@ -1,6 +1,9 @@
 import React from "react";
 import hero from "./assets/hero.webp";
 import {Link} from 'react-router-dom'
+import { MdOutlineVaccines } from "react-icons/md";
+import { GiScalpel } from "react-icons/gi";
+import Follicle from "./Follicle";
 
 const Hero = () => {
   return (
@@ -37,7 +40,7 @@ const Hero = () => {
             <div className="mt-10 flex items-center justify-center gap-x-6">
               <a
                 href="#"
-                className="rounded-md bg-[#30648B] px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                className="rounded-md bg-[#30648B] px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-[#224966] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               >
                 Schedule an Appointment
               </a>
@@ -86,30 +89,17 @@ const Hero = () => {
           </h1>
           <div className="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4 md:space-y-0 space-y-6">
             <div className="p-4 md:w-1/3 flex">
-              <div className="w-12 h-12 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 mb-4 flex-shrink-0">
-                <svg
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  className="w-6 h-6"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
-                </svg>
+              <div className="w-12 h-12 inline-flex items-center justify-center rounded-full bg-indigo-100 text-blue-900 mb-4 flex-shrink-0">
+              <MdOutlineVaccines className="h-8 w-7 font-white bg-transparent" /> 
               </div>
               <div className="flex-grow pl-6">
                 <h2 className="text-gray-900 text-lg title-font font-medium mb-2">
                   Cosmetic Dermatology
                 </h2>
                 <p className="leading-relaxed text-base">
-                  Blue bottle crucifix vinyl post-ironic four dollar toast vegan
-                  taxidermy. Gastropub indxgo juice poutine, ramps microdosing
-                  banh mi pug VHS try-hard ugh iceland kickstarter tumblr
-                  live-edge tilde.
+               Neuromodulators like Botox, Dermal Filler, and laser based treatments. 
                 </p>
-                <a className="mt-3 text-[#30648B] inline-flex items-center">
+                <Link to="/services/cosmetic-dermatology"className="mt-3 text-[#30648B] inline-flex items-center">
                   Learn More
                   <svg
                     fill="none"
@@ -122,36 +112,21 @@ const Hero = () => {
                   >
                     <path d="M5 12h14M12 5l7 7-7 7"></path>
                   </svg>
-                </a>
+                </Link>
               </div>
             </div>
             <div className="p-4 md:w-1/3 flex">
-              <div className="w-12 h-12 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 mb-4 flex-shrink-0">
-                <svg
-                  fill="none"
-                  stroke="#30648B"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  className="w-6 h-6"
-                  viewBox="0 0 24 24"
-                >
-                  <circle cx="6" cy="6" r="3"></circle>
-                  <circle cx="6" cy="18" r="3"></circle>
-                  <path d="M20 4L8.12 15.88M14.47 14.48L20 20M8.12 8.12L12 12"></path>
-                </svg>
+              <div className="w-12 h-12 inline-flex items-center justify-center rounded-full bg-indigo-100 text-blue-900 mb-4 flex-shrink-0">
+              <Follicle className="h-8 w-7 stroke-sky-700 fill-green-950" /> 
               </div>
               <div className="flex-grow pl-6">
                 <h2 className="text-gray-900 text-lg title-font font-medium mb-2">
                   General Dermatology
                 </h2>
                 <p className="leading-relaxed text-base">
-                  Blue bottle crucifix vinyl post-ironic four dollar toast vegan
-                  taxidermy. Gastropub indxgo juice poutine, ramps microdosing
-                  banh mi pug VHS try-hard ugh iceland kickstarter tumblr
-                  live-edge tilde.
+               Psoriasis, Atropic Dermatitis, Bullous Diseases, Lichen Planus, Vitiligo, Acne, Rosacea, Skin Cancer Screening, Rash, Growths, Skin Discoloration, and excessive sweating.
                 </p>
-                <a className="mt-3 text-[#30648B] inline-flex items-center">
+                <Link to="/services/general-dermatology" className="mt-3 text-[#30648B] inline-flex items-center">
                   Learn More
                   <svg
                     fill="none"
@@ -164,23 +139,13 @@ const Hero = () => {
                   >
                     <path d="M5 12h14M12 5l7 7-7 7"></path>
                   </svg>
-                </a>
+                </Link>
               </div>
             </div>
             <div className="p-4 md:w-1/3 flex">
               <div className="w-12 h-12 inline-flex items-center justify-center rounded-full bg-indigo-100 text-[#30648B] mb-4 flex-shrink-0">
-                <svg
-                  fill="none"
-                  stroke="#30648B"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  className="w-6 h-6"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path>
-                  <circle cx="12" cy="7" r="4"></circle>
-                </svg>
+             
+              <GiScalpel className="h-8 w-7 font-white bg-transparent" /> 
               </div>
               <div className="flex-grow pl-6">
                 <h2 className="text-gray-900 text-lg title-font font-medium mb-2">
@@ -189,7 +154,7 @@ const Hero = () => {
                 <p className="leading-relaxed text-base">
                  Skin Cancer Removal, Mohs Surgery, Scar Revision, mole removal, and more.
                 </p>
-                <a className="mt-3 text-[#30648B] inline-flex items-center">
+                <Link to="/services/surgical-dermatology" className="mt-3 text-[#30648B] inline-flex items-center">
                   Learn More
                   <svg
                     fill="none"
@@ -202,7 +167,7 @@ const Hero = () => {
                   >
                     <path d="M5 12h14M12 5l7 7-7 7"></path>
                   </svg>
-                </a>
+                </Link>
               </div>
             </div>
           </div>
