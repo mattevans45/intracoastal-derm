@@ -13,10 +13,11 @@ function App() {
   return (
     
     <>
-    <Navbar />
+   
     <Hero />
     <ContactSection />
-    <Footer />
+
+
       </>
   )
 }

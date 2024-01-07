@@ -67,16 +67,25 @@ button:focus-visible {
 
 
 :root, * {
+  
 
-  font-family: 'Roboto', sans-serif;
 }
 
 span {
   text-transform: uppercase;
 
 }
-
+ body {
+  background-color: #f0f0f0;
+ }
 
 iframe {
   border-style: none;
+}
+
+/* styles.css */
+@layer components {
+  .sidebar-icon {
+    @apply relative flex items-center justify-center h-12 w-12 mt-2 mb-2;
+  }
 }

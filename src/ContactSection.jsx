@@ -1,25 +1,11 @@
 import React from "react";
 import { useState } from "react";
 import { LuChevronDown, LuChevronUp, LuChevronUpCircle } from "react-icons/lu";
-import {
-  MdClose,
-  MdMinimize,
-  MdCropSquare,
-  MdLocationOn,
-  MdMaximize,
-  MdArrowUpward,
-  MdMenuOpen,
-  MdExpand,
-  MdExtension,
-  MdAdd,
-} from "react-icons/md";
+
 
 const ContactSection = () => {
   const address = "509 Olde Waterford Way Suite 103, Leland, NC 28451";
 
-  const mapSource = `https://maps.google.com/maps?q=${encodeURIComponent(
-    address
-  )}&output=embed`;
 
   const [minimized, setMinimized] = useState(false);
 
@@ -30,7 +16,7 @@ const ContactSection = () => {
   return (
     <section className="text-gray-600 body-font">
       <div className="container px-10 py-20 mx-auto flex flex-wrap">
-        <div className="lg:w-1/3 md:w-1/2 overflow-x-auto rounded-lg  min-h-[39rem] sm:mr-10 py-16 px-8 transition-all duration-500 ease flex flex-1 items-end justify-start relative">
+        <div className="lg:w-1/2 md:w-1/2 sm:w-view overflow-x-auto rounded-lg  min-h-[39rem] sm:mr-10 py-16 px-8 transition-all duration-500 ease flex flex-1 items-end justify-start relative">
           <iframe
             className="absolute inset-0 border-0 z-0"
             loading="lazy"

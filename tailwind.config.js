@@ -8,6 +8,8 @@ export default {
     fontFamily: {
       'sans': ["'Roboto', 'sans-serif'"],
       'serif': ["'Roboto', 'serif'"],
+      'display':['ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";'],
+      poppins: ["Poppins", "sans-serif"],
     },
     fontWeight: {
       'light': 300,
@@ -23,5 +25,8 @@ export default {
     },
     extend: {},
   },
-  plugins: [],
+  plugins: [
+
+    require('@tailwindcss/typography'),
+  ],
 }
