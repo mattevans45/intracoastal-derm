@@ -313,7 +313,7 @@ const Footer = () => {
         <div class=" mx-auto w-full max-w-7xl  overflow-hidden p-4 py-6 lg:py-8">
           <div class="md:flex md:justify-between lg:flex lg:justify-evenly">
             <div class="mb-6 flex justify-center md:mb-0">
-              <Link to="/" className="hover:scale-105">
+              <Link to="/" className="hover:scale-105 hover:transition-scale hover:duration-700 hover:ease-in-out">
                 <img
                   src={whiteLogo}
                   data-aos="fade-down"
