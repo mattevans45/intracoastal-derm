@@ -81,7 +81,7 @@ export default function Navbar() {
               />
             )}
             <nav
-              className="flex md:justify-between justify-around max-w-screen max-w-full md:w-full items-center"
+              className="flex lg:justify-evenly justify-between max-w-screen max-w-full md:w-full items-center"
               aria-label="Global"
             >
               {!mobileMenuOpen ? (
@@ -195,13 +195,13 @@ export default function Navbar() {
                   </Link>
                   <Link
                     to="/contact"
-                    className="transition hover:duration-700 ease-in-out rounded-lg bg-slate-400/10 shadow-gray-400/20 shadow-md  drop-shadow-md  text-[#4d4d4d] hover:bg-[#4d4d4d]/10  py-2 px-1.5 focus:outline-none focus-visible:ring focus-visible:ring-gray-500/50"
+                    className="transition hover:duration-700 ease-in-out px-2 py-2  shadow-gray-400/20 drop-shadow-md  text-[#4d4d4d] hover:rounded-lg hover:py-2 hover:px-2 hover:bg-[#4d4d4d]/10 focus:outline-none focus-visible:ring focus-visible:ring-gray-500/50"
                   >
                     CONTACT
                   </Link>
                   <Link
                     to="/about"
-                    className="transition hover:duration-700 ease-in-out rounded-lg bg-slate-400/10 shadow-gray-400/20 shadow-md  drop-shadow-md  text-[#4d4d4d] hover:bg-[#4d4d4d]/10 py-2 px-1.5 focus:outline-none focus-visible:ring focus-visible:ring-gray-500/50"
+                    className="transition hover:duration-700 ease-in-out px-2 py-2  shadow-gray-400/20 drop-shadow-md  text-[#4d4d4d] hover:rounded-lg hover:py-2 hover:px-2 hover:bg-[#4d4d4d]/10 focus:outline-none focus-visible:ring focus-visible:ring-gray-500/50"
                   >
                     ABOUT
                   </Link>
