@@ -310,9 +310,9 @@ const Footer = () => {
   </div>
 </footer> */}
       <footer className="text-white bg-[#3a3a3a] dark:bg-[#3a3a3a]">
-        <div class=" mx-auto w-full max-w-7xl  overflow-hidden p-4 py-6 lg:py-8">
-          <div class="md:flex md:justify-between lg:flex lg:justify-evenly">
-            <div class="mb-6 flex justify-center md:mb-0">
+        <div className=" mx-auto w-full max-w-7xl  overflow-hidden p-4 py-6 lg:py-8">
+          <div className="md:flex md:justify-between lg:flex lg:justify-evenly">
+            <div className="mb-6 flex justify-center md:mb-0">
               <Link to="/" className="hover:scale-105 hover:transition-scale hover:duration-700 hover:ease-in-out">
                 <img
                   src={whiteLogo}
@@ -322,13 +322,13 @@ const Footer = () => {
                 />
               </Link>
             </div>
-            <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
+            <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
               <div>
-                <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
+                <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
                   Important Links
                 </h2>
-                <ul class="text-gray-500 dark:text-gray-400 font-medium">
-                  <li class="mb-2">
+                <ul className="text-gray-500 dark:text-gray-400 font-medium">
+                  <li className="mb-2">
                     <Link
                       to="/intracoastal-derm/location/"
                       className="hover:underline block flex-grow"
@@ -372,10 +372,10 @@ const Footer = () => {
                 </ul>
               </div>
               <div>
-                <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
+                <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
                   Forms and Documents
                 </h2>
-                <ul class="text-gray-500 dark:text-gray-400 font-medium">
+                <ul className="text-gray-500 dark:text-gray-400 font-medium">
                   <li className="mb-2">
                     <Link to="/" className="hover:underline block flex-grow">
                       Insurance Accepted
@@ -394,10 +394,10 @@ const Footer = () => {
                 </ul>
               </div>
               <div className="mx-1">
-                <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
+                <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
                   Follow Us
                 </h2>
-                <ul class="text-gray-500 dark:text-gray-400 font-medium ">
+                <ul className="text-gray-500 dark:text-gray-400 font-medium ">
                   <li className="mr-2">
                     <Link
                       to="/"

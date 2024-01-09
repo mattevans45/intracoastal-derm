@@ -6,9 +6,9 @@ export default {
   ],
   theme: {
     fontFamily: {
-      'sans': ["'Roboto', 'sans-serif'"],
-      'serif': ["'Roboto', 'serif'"],
-      'display':['ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";'],
+      sans: ['Roboto', 'sans-serif'],
+      serif: ['Roboto', 'serif'],
+     display:['ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";'],
       poppins: ["Poppins", "sans-serif"],
     },
     fontWeight: {
@@ -23,7 +23,10 @@ export default {
     container: {
       center: true,
     },
-    extend: {},
+    extend: {
+
+      
+    },
   },
   plugins: [
 

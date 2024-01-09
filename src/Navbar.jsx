@@ -12,22 +12,13 @@ import {
   MdOutlineMedicalServices,
   MdOutlineVaccines,
 } from "react-icons/md";
-import { LuPill, LuBaby, LuHome, LuEggOff } from "react-icons/lu";
 import {Link, Navigate} from 'react-router-dom'
 import SidebarMenu from "./SideBarMenu";
 import LOGO from "./assets/bestlogoupdated.png";
-import follicle from "./assets/hair-follicle-icon.jpg";
+
 import { GiScalpel } from "react-icons/gi";
 import Follicle from "./Follicle";
-import {
-  HiOutlineOfficeBuilding,
-  HiOutlineCreditCard,
-  HiOutlineMail,
-  HiOutlineUser,
-  HiOutlinePhone,
-  HiOutlineServer,
-  HiOutlineIdentification,
-} from "react-icons/hi";
+
 
 const services = [
   {
@@ -82,7 +73,7 @@ export default function Navbar() {
         
 <header
           className={`container ${
-            mobileMenuOpen ? "hidden" : "bg-white z-50 mx-auto min-w-full left-0 sticky top-0 shadow-sm"
+            mobileMenuOpen ? "hidden" : "bg-white z-50 mx-auto min-w-full left-0 sticky top-0 p-3 shadow-sm"
           }`}
         >
           {mobileMenuOpen && (
@@ -126,7 +117,7 @@ export default function Navbar() {
               >
                 <span className="sr-only">Open main menu</span>
                 <Bars3Icon
-                  className="h-10 w-10 focus:outline-none focus-visible:ring focus-visible:ring-gray-500/50"
+                  className="h-10 w-10  focus:outline-none focus-visible:ring focus-visible:ring-gray-500/50"
                   aria-hidden="true"
                 />
               </button>
