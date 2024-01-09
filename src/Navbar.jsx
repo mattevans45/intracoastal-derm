@@ -20,6 +20,7 @@ import { GiScalpel } from "react-icons/gi";
 import Follicle from "./Follicle";
 
 
+
 const services = [
   {
     name: "General Dermatology",
@@ -73,7 +74,7 @@ export default function Navbar() {
         
 <header
           className={`container ${
-            mobileMenuOpen ? "hidden" : "bg-white z-50 mx-auto min-w-full left-0 sticky top-0 p-3 shadow-sm"
+            mobileMenuOpen ? "hidden" : "z-50 mx-auto min-w-full bg-white/90 max-h-40 px-4 left-0 sticky top-0 shadow md:pr-3"
           }`}
         >
           {mobileMenuOpen && (
@@ -83,20 +84,21 @@ export default function Navbar() {
             />
           )}
           <nav
-            className="flex justify-between max-w-screen max-w-full md:w-full items-center p-3"
+            className="flex justify-between max-w-screen max-w-full md:w-full items-center"
             aria-label="Global"
           >
             {!mobileMenuOpen ? (
-              <div className="">
-                <Link
-                 to="/">
-                  <img
-                    className="md:max-w-50 lg:max-w-60 xl:max-w-60 max-w-60 object-fit object-center mx-auto"
-                    src={LOGO}
-                    alt=""
-                  />
-                </Link>
-              </div>
+           <div className="left-0 z-4 top-0">
+           <Link to="/">
+             <img
+               className="h-auto max-w-lg max-h-36 object-cover relative object-center bg-blend-lighten mx-0 "
+               src={LOGO}
+               alt=""
+             />
+             <div className="mx-auto inset-0 absolute -z-50 bg-gray-700/95 h-full w-full sm:w-auto opacity-5"></div>
+           </Link>
+       
+          </div>
             ) : (
               <></>
             )}
@@ -124,7 +126,7 @@ export default function Navbar() {
             </div>
             <Popover.Group className="hidden z-20 lg:flex md:items-center md:gap-4 lg:justify-between lg:items-center lg:gap-r-2">
               <Popover className="relative">
-                <Popover.Button className="flex z-20 items-center justify-center md:text-lg xl:text-lg ml-0 place-self-center font-display font-semibold transition hover:duration-700 ease-in-out rounded-lg hover:border-gray-200 text-[#4d4d4d] hover:bg-gray-200 py-2 px-1 focus:outline-none focus-visible:ring focus-visible:ring-gray-500/50">
+                <Popover.Button className="flex z-20 items-center justify-center bg-slate-400/10 shadow-gray-400/20 shadow-md  drop-shadow-md font-display font-semibold pl-2 md:text-lg xl:text-lg ml-0 place-self-center  transition hover:duration-700 ease-in-out rounded-lg hover:border-gray-200 text-[#4d4d4d] hover:bg-gray-200 py-2 px-1 focus:outline-none focus-visible:ring focus-visible:ring-gray-500/90">
                   SERVICES
                   <ChevronDownIcon
                     className="h-5 w-5 flex-none text-[#4d4d4d]"
@@ -142,13 +144,13 @@ export default function Navbar() {
                   leaveTo="opacity-0 translate-y-[-10px]"
                 >
                 
-                    <Popover.Panel className="absolute -left-8 mx-auto flex flex-col min-h-fit pb-5 z-50 w-screen max-w-md rounded-3xl bg-white shadow-lg ring-2 ring-gray-900/5">
+                    <Popover.Panel className="absolute mx-auto flex flex-col min-h-fit mt-1 pt-4 pb-6 z-50 w-screen max-w-md rounded-3xl bg-white shadow-lg ring-2 ring-gray-900/5">
                       {services.map((item) => (
                         <div
                           key={item.name}
                           className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50"
                         >
-                          <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
+                          <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white hover:rounded-3xl">
                             <item.icon
                               className="h-6 w-6 text-[#4d4d4d] group-hover:text-gray-500"
                               aria-hidden="true"
@@ -189,24 +191,24 @@ export default function Navbar() {
                   
                 </Transition>
               </Popover>
-              <div className="hidden lg:flex md:text-lg  lg:justify-center lg:font-semibold font-display  md:flex md:justify-center md:items-baseline">
+              <div className="hidden lg:flex md:text-lg lg:space-x-3  lg:justify-center lg:font-semibold font-display  md:flex md:justify-center md:items-baseline">
 
         <Link
           to="/location"
-          className="transition hover:duration-700 ease-in-out rounded-lg  text-[#4d4d4d] hover:bg-[#4d4d4d]/10  py-2 px-2 focus:outline-none focus-visible:ring focus-visible:ring-gray-500/50"
+          className="transition hover:duration-700 ease-in-out rounded-lg bg-slate-600/5 shadow-gray-400/20 shadow-md  drop-shadow-md  text-[#4d4d4d] hover:bg-[#4d4d4d]/10  py-2 px-2 focus:outline-none focus-visible:ring focus-visible:ring-gray-500/50"
         >
           LOCATION
         </Link>
         <Link
         
           to="/contact"
-          className="transition hover:duration-700 ease-in-out rounded-lg text-[#4d4d4d] hover:bg-[#4d4d4d]/10  py-2 px-2 focus:outline-none focus-visible:ring focus-visible:ring-gray-500/50"
+          className="transition hover:duration-700 ease-in-out rounded-lg bg-slate-400/10 shadow-gray-400/20 shadow-md  drop-shadow-md  text-[#4d4d4d] hover:bg-[#4d4d4d]/10  py-2 px-2 focus:outline-none focus-visible:ring focus-visible:ring-gray-500/50"
         >
           CONTACT
         </Link>
         <Link
           to="/about"
-          className="transition hover:duration-700 ease-in-out rounded-lg  text-[#4d4d4d] hover:bg-[#4d4d4d]/10 py-2 px-2 focus:outline-none focus-visible:ring focus-visible:ring-gray-500/50"
+          className="transition hover:duration-700 ease-in-out rounded-lg bg-slate-400/10 shadow-gray-400/20 shadow-md  drop-shadow-md  text-[#4d4d4d] hover:bg-[#4d4d4d]/10 py-2 px-2 focus:outline-none focus-visible:ring focus-visible:ring-gray-500/50"
         >
           ABOUT
         </Link>

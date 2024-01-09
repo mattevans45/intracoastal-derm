@@ -47,7 +47,7 @@ const SidebarMenu = ({ mobileMenuOpen, setMobileMenuOpen, services }) => {
     <Menu
       open={mobileMenuOpen}
       onClose={() => setMobileMenuOpen(false)}
-      className="min-h-full  max-w-full max-h-screen w-full overflow-y-auto overflow-x-hidden"
+      className=" max-w-full max-h-screen py-2  my-auto min-h-full w-full px-4 mx-auto overflow-x-auto"
     >
       <Transition
         show={mobileMenuOpen}
@@ -59,39 +59,42 @@ const SidebarMenu = ({ mobileMenuOpen, setMobileMenuOpen, services }) => {
         leaveFrom="opacity-100 translate-y-0"
         leaveTo="opacity-0 translate-y-[-10px]"
       >
-        <div className="fixed w-screen top-0 right-0 z-50 bg-white mx-auto pl-3 p-2 sm:max-w-sm sm:h-fit sm:ring-1 sm:ring-gray-900/10">
-          <div className="mx-auto flex items-center justify-between">
-            <Link to="/">
-              <img
-                className="w-60 object-fit object-center mx-0 hover:scale-95"
-                src={LOGO}
-                alt=""
-              />
-            </Link>
+        <div className="fixed w-screen top-0 right-0 z-50 bg-gray-50 mx-auto pl-3 p-2 shadow sm:max-w-sm sm:h-fit sm:ring-1 sm:ring-gray-900/10">
+          <div className="mx-5 mb-4  flex items-center justify-between">
+    
+           <Link to="/">
+             <img
+               className="h-auto max-w-lg max-h-36 object-cover mx-auto bg-blend-lighten place-self-center"
+               src={LOGO}
+               alt=""
+             />
+             <div className="mx-auto inset-0 absolute -z-50 bg-gray-700/95 h-screen w-full sm:w-auto opacity-5"></div>
+           </Link>
             <button
               type="button"
-              className="rounded-full w-fit shadow-inner transition-all duration-300  hover:bg-gray-100 bg-gray-50 p-2.5 text-gray-700"
+              className="rounded-full w-fit drop-shadow-sm transition-all duration-300  hover:bg-gray-100 bg-gray-50 p-2.5 text-gray-700 hover:ring-1 hover:ring-gray-200 hover:shadow-lg"
               onClick={() => setMobileMenuOpen(false)}
             >
               <span className="sr-only">Close menu</span>
               <XMarkIcon className="h-6 w-6" aria-hidden="true" />
             </button>
           </div>
+     
           <Disclosure >
             {({ open }) => (
               <>
-                <Disclosure.Button className="flex  bg-gray-50 justify-center items-center mx-auto px-8 py-2  rounded-lg w-full text-base font-semibold leading-7 text-[#4d4d4d]/90 hover:bg-gray-100 ">
-                  <div className="transition-all duration-200 hover:scale-105 flex w-30 flex-1 justify-center items-start">
+                <Disclosure.Button className="flex justify-center items-center mx-auto w-full font-semibold leading-7 drop-shadow-sm transition-all duration-300  hover:bg-gray-100 p-1.5 text-gray-700 hover:ring-1 hover:ring-gray-100 hover:shadow-lg hover:scale-x-105 bg-gray-50 rounded-lg">
+                  <div className="bg-gray-200/5 rounded-lg py-2 px-8 mx-auto flex w-full flex-1 justify-start items-start ">
 
                   <MdOutlineMedicalServices
              
                     className="h-6 w-fit hover:animate-pulse text-[#4d4d4d]"
                   />
-                  <span className="px-6 mx-auto flex self-start flex-grow sm:w-fit capitalize">
+                  <span className="px-6 mx-auto flex flex-grow sm:w-full capitalize">
                     Services
                   </span>
                   <ChevronDownIcon
-                    className={`h-5 w-5 bg-gray-100/90 ${open ? "rotate-180" : ""}`}
+                    className={`h-6 w-7 bg-gray-100/90 text-gray-900 rounded-lg drop-shadow-sm transition-all duration-300  hover:bg-gray-100 bg-gray-50  hover:ring-1 hover:ring-gray-200 hover:shadow-inner ${open ? "rotate-180" : ""}`}
                     aria-hidden="true"
                   />
                   </div>
@@ -111,16 +114,17 @@ const SidebarMenu = ({ mobileMenuOpen, setMobileMenuOpen, services }) => {
                     {services.map((item) => (
                       <div
                         key={item.name}
-                        className="relative flex items-center  gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50"
+                        className="relative flex items-center w-full gap-x-6 mb-2 rounded-lg px-4 text-sm leading-6 drop-shadow-sm transition-all duration-300  hover:bg-gray-100  text-gray-700 hover:ring-1 hover:ring-gray-100 hover:shadow-lg hover:scale-x-105 bg-gray-50"
                       >
                         <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
                           <item.icon
-                            className="h-6 w-6 text-[#4d4d4d] group-hover:text-gray-500"
+                            className="h-6 w-6 text-[#4d4d4d] group-hover:bg-white"
                             aria-hidden="true"
                           />
                         </div>
-                        <div className="flex-auto">
+                        <div className="flex-1">
                           <Link
+                            onClick={() => setMobileMenuOpen(false)}
                             to={item.to}
                             className="block font-semibold text-[#4d4d4d]"
                           >
@@ -139,32 +143,29 @@ const SidebarMenu = ({ mobileMenuOpen, setMobileMenuOpen, services }) => {
             )}
           </Disclosure>
 
-          <div className=" items-start bg-white py-1 rounded-lg  w-full h-fit flex font-semibold leading-7 text-[#4d4d4d]/9 ">
-            <ul className="flex flex-col justify-center items-stretch  flex-wrap w-full round-lg">
-              {menuItems.map((item) => (
-                <li key={item.text} className="flex mt-1.5 transition-all duration-200 hover:scale-x-105 bg-gray-50 rounded-lg flex-col w-full h-full justify-items-center">
-                  <Link
-                    onClick={() => setMobileMenuOpen(false)}
-                    to={item.to}
-                    className="flex items-center w-full mx-0 px-4 py-2 rounded-lg hover:bg-gray-100"
-                  >
-                    {item.icon && (
-                      <div className="flex items-center mx-4 justify-center bg-gray-50 rounded-lg group-hover:bg-gray-100">
-                        {
-                          <item.icon
-                            className="h-5 w-5 text-[#4d4d4d] group-hover:text-gray-500"
-                            aria-hidden="true"
-                          />
-                        }
-                      </div>
-                    )}
-                    <span className="mx-3 font-semibold text-[#4d4d4d] w-full capitalize">
-                      {item.text}
-                    </span>
-                  </Link>
-                </li>
-              ))}
-            </ul>
+          <div className=" items-start  py-1 rounded-lg  w-full h-full my-auto mx-auto  flex font-semibold leading-7 text-[#4d4d4d]/9 ">
+          <ul className="flex flex-col justify-center items-stretch -my-1 flex-wrap w-full round-lg">
+  {menuItems.map((item) => (
+    <li key={item.text} className="flex mt-1.5 drop-shadow-sm transition-all duration-300  hover:bg-gray-100 p-1.5 text-gray-700 hover:ring-1 hover:ring-gray-100 hover:shadow-lg hover:scale-x-105 bg-gray-50 rounded-lg flex-col w-full h-full justify-items-center">
+      <Link
+        onClick={() => setMobileMenuOpen(false)}
+        to={item.to}
+        className="group flex items-center w-full mx-0 px-4 py-2 rounded-lg hover:bg-gray-100"
+      >
+        {item.icon && (
+          <div className="flex items-center mx-4 justify-center bg-gray-50 rounded-lg group-hover:bg-white">
+            {<item.icon className="h-5 w-5 text-[#4d4d4d] group-hover:bg-white" aria-hidden="true" />}
+          </div>
+        )}
+        <span className="mx-3 font-semibold text-[#4d4d4d] w-full capitalize">
+          {item.text}
+        </span>
+      </Link>
+    </li>
+  ))}
+</ul>
+
+
           </div>
         </div>
       </Transition>

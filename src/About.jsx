@@ -2,22 +2,22 @@
 export default function About() {
   return (
 
-<div className="md:py-1 mt-4 mb-10 sm:py-8 bg-[#4d4d4d]/1">
-  <div className="container w-full h-full px-6 text-gray-600 md:px-12 xl:px-6">
-    <h2 className="prose-2xl  py-8 flex justify-center leading-tight font-bold md:text-4xl">
+<div className="md:py-1  mt-4 mb-10 sm:py-8 bg-[#4d4d4d]/1">
+  <div className="container h-full px-6 text-gray-600 md:px-12 xl:px-6">
+    <h2 className="prose-2xl max-w-prose py-8 flex justify-center leading-tight font-bold md:text-4xl">
       Blair Harris, DO, FAAD
     </h2>
     <div className="flex flex-col justify-center md:flex-row md:gap-6 md:items-start">
-      <div className="md:w-1/2 mb-10">
+      <div className="md:w-1/2 flex flex-wrap mb-10">
         <img
           src="https://tailus.io/sources/blocks/left-image/preview/images/startup.png"
           alt="image"
-          className="w-full h-auto"
+          className="w-full object-contain rounded-lg h-auto"
         />
       </div>
 
-      <div className="prose md:w-1/2">
-        <p className="prose leading-8  text-gray-600">
+      <div className="max-w-prose prose-xl md:w-1/2">
+        <p className=" text-gray-600">
               Dr. Blair Harris was born and raised in northern Utah. He
               graduated from Brigham Young University with a degree in Business
               Management with an emphasis in finance. After working as a
@@ -32,7 +32,7 @@ export default function About() {
               tracking instruments for the student government organization at
               PNWU. 
             </p>
-            <p className="prose leading-8 mt-6 text-gray-600">
+            <p className="prose-xl max-w-prose mt-6 text-gray-600">
             Dr. Harris developed a love for dermatology while
               volunteering as a camp counselor at Camp Discovery, a summer camp
               for children with dermatologic skin conditions. He completed his
