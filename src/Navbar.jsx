@@ -84,7 +84,7 @@ export default function Navbar() {
             />
           )}
           <nav
-            className="flex justify-between max-w-screen max-w-full md:w-full items-center"
+            className="flex md:justify-between justify-around max-w-screen max-w-full md:w-full items-center"
             aria-label="Global"
           >
             {!mobileMenuOpen ? (
@@ -114,12 +114,12 @@ export default function Navbar() {
 
               <button
                 type="button"
-                className="-m-1.5  flex items-center rounded-md justify-end content-center transition-all duration-300 shadow-inner hover:scale-105 text-[#4d4d4d] hover:bg-gray-200"
+                className="-m-1.5  flex items-center rounded-md mr-2.5 justify-end content-center transition-all duration-300 hover:drop-shadow-sm hover:scale-105 text-[#4d4d4d] hover:bg-gray-200"
                 onClick={() => setMobileMenuOpen(true)}
               >
                 <span className="sr-only">Open main menu</span>
                 <Bars3Icon
-                  className="h-10 w-10  focus:outline-none focus-visible:ring focus-visible:ring-gray-500/50"
+                  className="h-10 w-fit shadow-gray-200 rounded-lg hover:shadow-sm drop-shadow-sm transition-all duration-300  hover:bg-gray-100 bg-gray-100  text-gray-700 hover:ring-3 hover:ring-gray-200 "
                   aria-hidden="true"
                 />
               </button>
@@ -195,20 +195,20 @@ export default function Navbar() {
 
         <Link
           to="/location"
-          className="transition hover:duration-700 ease-in-out rounded-lg bg-slate-600/5 shadow-gray-400/20 shadow-md  drop-shadow-md  text-[#4d4d4d] hover:bg-[#4d4d4d]/10  py-2 px-2 focus:outline-none focus-visible:ring focus-visible:ring-gray-500/50"
+          className="transition hover:duration-700 ease-in-out rounded-lg bg-slate-600/5 shadow-gray-400/20 shadow-md  drop-shadow-md  text-[#4d4d4d] hover:bg-[#4d4d4d]/10  py-2 px-1.5 focus:outline-none focus-visible:ring focus-visible:ring-gray-500/50"
         >
           LOCATION
         </Link>
         <Link
         
           to="/contact"
-          className="transition hover:duration-700 ease-in-out rounded-lg bg-slate-400/10 shadow-gray-400/20 shadow-md  drop-shadow-md  text-[#4d4d4d] hover:bg-[#4d4d4d]/10  py-2 px-2 focus:outline-none focus-visible:ring focus-visible:ring-gray-500/50"
+          className="transition hover:duration-700 ease-in-out rounded-lg bg-slate-400/10 shadow-gray-400/20 shadow-md  drop-shadow-md  text-[#4d4d4d] hover:bg-[#4d4d4d]/10  py-2 px-1.5 focus:outline-none focus-visible:ring focus-visible:ring-gray-500/50"
         >
           CONTACT
         </Link>
         <Link
           to="/about"
-          className="transition hover:duration-700 ease-in-out rounded-lg bg-slate-400/10 shadow-gray-400/20 shadow-md  drop-shadow-md  text-[#4d4d4d] hover:bg-[#4d4d4d]/10 py-2 px-2 focus:outline-none focus-visible:ring focus-visible:ring-gray-500/50"
+          className="transition hover:duration-700 ease-in-out rounded-lg bg-slate-400/10 shadow-gray-400/20 shadow-md  drop-shadow-md  text-[#4d4d4d] hover:bg-[#4d4d4d]/10 py-2 px-1.5 focus:outline-none focus-visible:ring focus-visible:ring-gray-500/50"
         >
           ABOUT
         </Link>
