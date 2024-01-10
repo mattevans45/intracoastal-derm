@@ -8,8 +8,7 @@ const Follicle = () => {
     viewBox="0 0 992 784"
     xmlSpace="preserve"
     xmlns="http://www.w3.org/2000/svg"
-    fill="gray"
-    stroke="white"
+
     strokeLinecap="round"
     strokeLinejoin="round"
     strokeWidth="1"
