@@ -3,7 +3,7 @@ import hero from "./assets/hero.webp";
 import { Link } from "react-router-dom";
 import { MdOutlineVaccines } from "react-icons/md";
 import { GiScalpel, GiSyringe, GiHairStrands } from "react-icons/gi";
-import Follicle from "./Follicle";
+import {Hair} from "./Hair";
 
 const Hero = () => {
   return (
