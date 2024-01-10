@@ -1,7 +1,7 @@
 import React from "react";
 
 
-const Follicle = () => {
+const Hair = () => {
   return (
     <svg
     version="1.1"
@@ -27,4 +27,4 @@ const Follicle = () => {
   );
 };
 
-export default Follicle;
+export default Hair;
