@@ -3,7 +3,6 @@ import hero from "./assets/hero.webp";
 import { Link } from "react-router-dom";
 import { MdOutlineVaccines } from "react-icons/md";
 import { GiScalpel, GiSyringe, GiHairStrands } from "react-icons/gi";
-import {Hair} from "./Hair";
 
 const Hero = () => {
   return (
@@ -127,7 +126,7 @@ const Hero = () => {
                 <svg
                   version="1.1"
                   viewBox="0 0 992 784"
-                  xml:space="preserve"
+                  xmlSpace="preserve"
                   xmlns="http://www.w3.org/2000/svg"
                  
                   stroke="white"
