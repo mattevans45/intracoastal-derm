@@ -119,9 +119,10 @@ export default function Navbar() {
                   />
                 </button>
               </div>
+
               <Popover.Group className="hidden z-20 lg:flex md:items-center md:gap-4 lg:justify-between lg:items-center lg:gap-r-2">
                 <Popover className="relative">
-                  <Popover.Button className="flex z-20 items-center justify-center bg-slate-400/10 shadow-gray-400/20 shadow-md  drop-shadow-md font-display font-semibold pl-2 md:text-lg xl:text-lg ml-0 place-self-center  transition hover:duration-700 ease-in-out rounded-lg hover:border-gray-200 text-[#4d4d4d] hover:bg-gray-200 py-2 px-1 focus:outline-none focus-visible:ring focus-visible:ring-gray-500/90">
+                  <Popover.Button className="flex z-20  items-center justify-center  font-display font-semibold  md:text-lg xl:text-lg ml-0 place-self-center  transition-all duration-500 ease-in-out rounded-lg hover:border-gray-200  hover:bg-gray-200 py-2 px-2   shadow-gray-400/20 drop-shadow-md  text-[#4d4d4d] hover:rounded-lg hover:py-2 hover:px-2 hover:bg-[#4d4d4d]/10 focus:outline-none focus-visible:ring focus-visible:ring-gray-500/50">
                     SERVICES
                     <ChevronDownIcon
                       className="h-5 w-5 flex-none text-[#4d4d4d]"
@@ -189,25 +190,25 @@ export default function Navbar() {
                 <div className="hidden lg:flex md:text-lg lg:space-x-3  lg:justify-center lg:font-semibold font-display  md:flex md:justify-center md:items-baseline">
                   <Link
                     to="/location"
-                    className="transition hover:duration-700 ease-in-out rounded-lg bg-slate-600/5 shadow-gray-400/20 shadow-md  drop-shadow-md  text-[#4d4d4d] hover:bg-[#4d4d4d]/10  py-2 px-1.5 focus:outline-none focus-visible:ring focus-visible:ring-gray-500/50"
+                    className="transition-all duration-500 ease-in-out rounded-lg hover:border-gray-200  hover:bg-gray-200 py-1.5 px-2   shadow-gray-400/20 drop-shadow-md  text-[#4d4d4d] hover:rounded-lg hover:py-2 hover:px-2 hover:bg-[#4d4d4d]/10 focus:outline-none focus-visible:ring focus-visible:ring-gray-500/50"
                   >
                     LOCATION
                   </Link>
                   <Link
                     to="/contact"
-                    className="transition hover:duration-700 ease-in-out px-2 py-2  shadow-gray-400/20 drop-shadow-md  text-[#4d4d4d] hover:rounded-lg hover:py-2 hover:px-2 hover:bg-[#4d4d4d]/10 focus:outline-none focus-visible:ring focus-visible:ring-gray-500/50"
+                    className="transition-all duration-500 ease-in-out rounded-lg hover:border-gray-200  hover:bg-gray-200 py-2 px-2   shadow-gray-400/20 drop-shadow-md  text-[#4d4d4d] hover:rounded-lg hover:py-2 hover:px-2 hover:bg-[#4d4d4d]/10 focus:outline-none focus-visible:ring focus-visible:ring-gray-500/50"
                   >
                     CONTACT
                   </Link>
                   <Link
                     to="/about"
-                    className="transition hover:duration-700 ease-in-out px-2 py-2  shadow-gray-400/20 drop-shadow-md  text-[#4d4d4d] hover:rounded-lg hover:py-2 hover:px-2 hover:bg-[#4d4d4d]/10 focus:outline-none focus-visible:ring focus-visible:ring-gray-500/50"
+                    className="transition-all duration-500 ease-in-out rounded-lg hover:border-gray-200  hover:bg-gray-200 py-2 px-2   shadow-gray-400/20 drop-shadow-md  text-[#4d4d4d] hover:rounded-lg hover:py-2 hover:px-2 hover:bg-[#4d4d4d]/10 focus:outline-none focus-visible:ring focus-visible:ring-gray-500/50"
                   >
                     ABOUT
                   </Link>
                 </div>
               </Popover.Group>
-              <div className="hidden lg:flex justify-end lg:items-center md:items-center  flex-wrap md:text-md lg:text-lg font-display font-medium">
+              <div className="hidden lg:flex justify-end lg:items-center md:items-center flex-wrap md:text-md lg:text-lg font-display font-medium">
                 <div className="flex w-fit h-full justify-center gap-x-2 lg:mr-1 md:mr-2">
                   <Link
                     to="/patient-portal"
@@ -217,7 +218,7 @@ export default function Navbar() {
                   </Link>
                   <Link
                     to="/payment"
-                    className="rounded-lg min-w-fit lg:text-md text-center px-1.5 py-1 border-2 bg-[#30648B]/5 border-[#4d4d4d] border-opacity-5 text-[#4d4d4d] transition duration-150 ease-in-out hover:bg-[#30648B]/90 hover:text-white focus:outline-none focus-visible:ring focus-visible:ring-gray-500/50 "
+                    className=" min-w-fit lg:text-md text-center px-1.5 py-1 border-2 bg-[#30648B]/5 border-[#4d4d4d] border-opacity-5 text-[#4d4d4d]  transition-all duration-500 ease-in-out rounded-lg  hover:bg-[#30648B]/90 hover:text-white shadow-gray-400/20 hover:drop-shadow-md hover:rounded-lg focus:outline-none focus-visible:ring focus-visible:ring-gray-500/50 "
                   >
                     MAKE PAYMENT
                   </Link>
