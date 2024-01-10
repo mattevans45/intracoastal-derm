@@ -1,12 +1,12 @@
 import React from "react";
-import follicle from "./assets/hair.svg"
+
 
 const Follicle = () => {
   return (
     <svg
     version="1.1"
     viewBox="0 0 992 784"
-    xml:space="preserve"
+    xmlSpace="preserve"
     xmlns="http://www.w3.org/2000/svg"
     fill="gray"
     stroke="white"

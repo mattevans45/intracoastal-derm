@@ -114,7 +114,7 @@ export default function Navbar() {
                 >
                   <span className="sr-only">Open main menu</span>
                   <Bars3Icon
-                    className="h-10 w-fit shadow-gray-200 rounded-lg hover:shadow-sm drop-shadow-sm transition-all duration-300  hover:bg-gray-100 bg-gray-100  text-gray-700 hover:ring-3 hover:ring-gray-200 "
+                    className="h-10 w-10 shadow-gray-200 rounded-lg hover:shadow-sm drop-shadow-sm transition-all duration-300  hover:bg-gray-100 bg-gray-100  text-gray-700 hover:ring-3 hover:ring-gray-200 "
                     aria-hidden="true"
                   />
                 </button>
