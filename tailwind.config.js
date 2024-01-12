@@ -29,7 +29,7 @@ export default {
     },
   },
   plugins: [
-
+    require('@headlessui/tailwindcss'),
     require('@tailwindcss/typography'),
   ],
 }

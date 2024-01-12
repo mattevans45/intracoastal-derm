@@ -4,7 +4,7 @@ import React from 'react'
 const Cosmetic = () => {
   return (
     <>
-    <section className='mx-auto container prose'>
+    <section className='mx-auto container prose mt-5'>
     <h2>Neuromodulators</h2>
     <p>Botox, Dysport, and Jeuveau are all cosmetic treatments that fall under the category of neurotoxin injections, commonly used for minimizing the appearance of wrinkles and fine lines on the face. Despite their similarities, these products have some differences in terms of their formulations, onset of action, and potential uses.</p>
 

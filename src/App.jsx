@@ -5,6 +5,7 @@ import Navbar from './Navbar'
 import Footer from './Footer'
 import ContactSection from './ContactSection'
 import Hero from "./Hero"
+import SideBar from './SideBar'
 
 
 function App() {
@@ -15,7 +16,6 @@ function App() {
     <>
 
 
-  
     <Hero />
     <ContactSection />
 

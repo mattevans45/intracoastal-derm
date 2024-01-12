@@ -8,6 +8,8 @@ import Services from "./Services.jsx";
 import Surgical from "./Surgical.jsx";
 import General from "./General.jsx";
 import Cosmetic from "./Cosmetic.jsx";
+import SideBar from "./SideBar.jsx";
+import Hero from "./Hero.jsx";
 import About from "./About.jsx";
 import Layout from "./Layout.jsx";
 import ScrollToTop from "./ScrollToTop.js";
@@ -16,16 +18,22 @@ import "./index.css";
 const rootElement = document.getElementById("root");
 
 ReactDOM.createRoot(rootElement).render(
-  <HashRouter>
+  <HashRouter basename="/">
     <ScrollToTop />
+
     <Routes>
       <Route
-        index
+    
         path="/"
         element={
-          <Layout>
+        
+        <>
+           <Layout>
+   
             <App />
+    
           </Layout>
+          </>
         }
       />
       <Route
@@ -84,6 +92,7 @@ ReactDOM.createRoot(rootElement).render(
           </Layout>
         }
       />
+   
     </Routes>
   </HashRouter>
 );

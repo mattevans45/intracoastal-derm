@@ -44,22 +44,25 @@ const menuItems = [
 
 const SidebarMenu = ({ mobileMenuOpen, setMobileMenuOpen, services }) => {
   return (
+    <>
+
     <Menu
-      open={mobileMenuOpen}
-      onClose={() => setMobileMenuOpen(false)}
-      className=" max-w-full h-screen py-2  my-auto max-h-screen w-full px-4 mx-auto overflow-x-auto"
+      
+      className=" max-w-full h-screen py-2 min-h-screen mb-18 my-auto max-h-screen w-full px-4 mx-auto overflow-x-auto"
     >
       <Transition
         show={mobileMenuOpen}
-        as={Fragment}
-        enter="transition-all transform duration-200"
-        enterFrom="opacity-0 translate-y-[-10px]"
-        enterTo="opacity-100 translate-y-0"
-        leave="transition-all transform duration-200"
-        leaveFrom="opacity-100 translate-y-0"
-        leaveTo="opacity-0 translate-y-[-10px]"
+        as={Menu}
+        enter="transition-all transform duration-250"
+        enterFrom="opacity-0 translate-x-[-1000px]"
+        enterTo="opacity-100 translate-x-0"
+        leave="transition-all transform duration-350"
+        leaveFrom="opacity-100 translate-x-0"
+        leaveTo="opacity-0 translate-x-[-1200px]"
+
+
       >
-        <div className="fixed w-screen top-0 right-0 z-50 bg-gray-50 mx-auto pl-3 p-2 shadow sm:max-w-sm sm:h-fit sm:ring-1 sm:ring-gray-900/10">
+        <div className="fixed top-0 right-0 h-screen z-50 bg-gray-50 mx-auto pl-3 p-2 shadow sm:max-w-sm sm:h-fit sm:ring-1 sm:ring-gray-900/10">
           <div className="mx-5 mb-4  flex items-center justify-between">
             <Link to="/">
               <img
@@ -174,6 +177,7 @@ const SidebarMenu = ({ mobileMenuOpen, setMobileMenuOpen, services }) => {
         </div>
       </Transition>
     </Menu>
+    </>
   );
 };
 

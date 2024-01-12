@@ -2,7 +2,7 @@ import React from "react";
 import { useEffect } from "react";
 import logo from "./assets/logo.svg";
 import whiteLogo from "./assets/white Transparent PNG logo.png";
-import AOS from "aos";
+
 import { Link } from "react-router-dom";
 
 import "aos/dist/aos.css";
@@ -11,10 +11,7 @@ import { LuInstagram, LuTwitter } from "react-icons/lu";
 import logo2 from "./assets/blackandwhite.svg";
 
 const Footer = () => {
-  useEffect(() => {
-    AOS.init();
-    (AOS.duration = 800), (AOS.easing = "ease-in-out-back");
-  }, []);
+  
 
   return (
     <>
@@ -310,13 +307,14 @@ const Footer = () => {
   </div>
 </footer> */}
       <footer className="text-white bg-[#3a3a3a] dark:bg-[#3a3a3a]">
-        <div className=" mx-auto w-full max-w-7xl  overflow-hidden p-4 py-6 lg:py-8">
+        <div className=" mx-auto w-full max-w-7xl p-4 py-6 lg:py-8">
           <div className="md:flex md:justify-between lg:flex lg:justify-evenly">
             <div className="mb-6 flex justify-center md:mb-0">
               <Link to="/" className="hover:scale-105 hover:transition-scale hover:duration-700 hover:ease-in-out">
                 <img
                   src={whiteLogo}
-                  data-aos="fade-down"
+                  data-aos="fade-up"
+                
                   className="max-h-60 antialiased object-fit sm:min-h-30 md:min-h-32 sm:px-3"
                   alt="Intracoastal Dermatology Logo"
                 />
