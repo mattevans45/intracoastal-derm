@@ -71,9 +71,7 @@ button:focus-visible {
 
 } */
 
-:root, * {
 
-}
 span {
   text-transform: uppercase;
 
@@ -87,9 +85,3 @@ iframe {
   border-style: none;
 }
 
-/* styles.css */
-@layer components {
-  .sidebar-icon {
-    @apply relative flex items-center justify-center h-12 w-12 mt-2 mb-2;
-  }
-}

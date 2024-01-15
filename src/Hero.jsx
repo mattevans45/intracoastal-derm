@@ -8,55 +8,56 @@ import image from "./assets/sean.jpg";
 const Hero = () => {
   return (
     <>
-<section className="relative px-6 lg:px-8">
-  <div className="absolute -z-50 inset-0 size-full w-full backdrop-blur-md bg-opacity-30">
-    <img
-      src={image}
-      loading="lazy"
-      className="inset-0 h-full w-full bg-clip-text object-cover"
-      alt="Background"
-    />
-
-  </div>
-  
-  <div className="mx-auto max-w-2xl md:py-20 lg:py-20 relative text-center">
-    <h1 className="h-30 font-poppins text-4xl font-bold tracking-tighter bg-clip-text bg-[url('/assets/sean.jpg')] sm:mt-10 sm:text-5xl md:mt-5 absolute inset-0">
-      Intracoastal Dermatology and Skin Surgery
-    </h1>
-    <div className="mx-auto max-w-2xl md:py-20 lg:py-20">
-      <div className="hidden sm:mb-8 sm:flex sm:justify-center">
-        <div className="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
-          Now accepting new patients.
-          <Link to="/" className="px-2 font-semibold text-[#30648B]">
-            <span className="absolute inset-0" aria-hidden="true" />
-            Find out more <span aria-hidden="true">&rarr;</span>
-          </Link>
+      <section className="relative px-6 lg:px-8">
+      <div
+    className="absolute inset-0 -z-30 size-full w-full bg-gray-50/5 space-x-4 shadow-lg"
+   
+  >
+          <img
+            src={image}
+            loading="lazy"
+            className="inset-0 h-full w-full bg-repeat z-2 object-cover blur-sm mix-blend-screen"
+            alt="Background"
+          />
         </div>
-      </div>
 
-      <p className="mt-6 text-2xl leading-8 text-[#4d4d4d] drop-shadow-2xl">
-        Expert care for healthy skin.
-      </p>
-      <div className="mt-10 flex items-center justify-center gap-x-6">
-        <Link
-          to="/schedule-appointment"
-          className="z-10 rounded-md bg-[#30648B] px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-[#224966] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-        >
-          Schedule an Appointment
-        </Link>
-        <Link
-          href="/intracoastal-derm/schedule-appointment"
-          className="w-30 z-10 h-fit text-sm font-semibold leading-6 text-gray-800 hover:bg-slate-200"
-        >
-          Learn more <span aria-hidden="true">→</span>
-        </Link>
-      </div>
-    </div>
-  </div>
-</section>
+        <div className="mx-auto max-w-2xl md:py-20 lg:py-20">
+          <div className="hidden sm:mb-8 sm:flex sm:justify-center sm:text-black sm:w-full">
+            <div className="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-600 ring-1 bg-gray-50/15 ring-gray-900/10 hover:ring-gray-900/20">
+              Now accepting new patients.
+              <Link to="/" className="px-2 font-semibold text-[#30648B]">
+                <span className="absolute inset-0" aria-hidden="true" />
+                Find out more <span aria-hidden="true">&rarr;</span>
+              </Link>
+            </div>
+          </div>
+
+          <div className="text-center">
+            <h1 className="z-5 h-fit font-poppins text-4xl font-bold tracking-tighter text-pretty text-sky-900  z-0   drop-shadow-2xl sm:mt-10 sm:text-5xl  md:mt-5">
+              Intracoastal Dermatology and Skin Surgery
+            </h1>
+            <p className="mt-6 text-2xl leading-8 text-[#4d4d4d] drop-shadow-2xl">
+              Expert care for healthy skin.
+            </p>
+            <div className="mt-10 flex items-center justify-center gap-x-6">
+              <Link
+                to="/schedule-appointment"
+                className="z-10 rounded-md bg-[#30648B] px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-[#224966] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+              >
+                Schedule an Appointment
+              </Link>
+              <Link
+                href="/intracoastal-derm/schedule-appointment"
+                className="w-30 z-10 h-fit text-sm font-semibold leading-6 text-gray-800 hover:bg-slate-200"
+              >
+                Learn more <span aria-hidden="true">→</span>
+              </Link>
+            </div>
+          </div>
+        </div>
 
         <div
-          className="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]"
+          className="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)] mt-30"
           aria-hidden="true"
         >
           <div
@@ -67,17 +68,10 @@ const Hero = () => {
             }}
           />
         </div>
-  
+      </section>
+<section className="relative h-[900px] overflow-hidden px-10">
 
-      <div
-  style={{
-    position: 'relative',
-    width: '100%',
-    height: '100%',
-    zIndex: -90,
-  }}
-  className="body-font relative mx-auto space-x-3 mt-0 overflow-hidden text-gray-600"
->
+    
   <div
     style={{
       position: 'absolute',
@@ -85,13 +79,13 @@ const Hero = () => {
       width: '100%',
       height: '100%',
       zIndex: -90,
-      filter: 'blur(8px)', 
+ 
       backgroundImage: `linear-gradient(rgba(255, 128, 181, 0.3), rgba(144, 137, 252, 0.3)), url(${image})`,
     }}
-    className="blur-sm"
+    className=" mt-10 shadow-sm"
   />
      
-        <div className="container relative mx-auto px-5 py-24">
+        <div className="container mt-20 relative mx-auto px-5 py-24">
           <h1 className="mb-20 text-center font-poppins text-2xl font-medium text-gray-900 sm:text-3xl">
             Intracoastal Dermatology
             <p className="hidden sm:block md:block">
@@ -215,8 +209,8 @@ const Hero = () => {
               </div>
             </div>
           </div>
-            </div>
-        
+           
+</section>
   
     </>
   );
