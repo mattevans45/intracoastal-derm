@@ -5,6 +5,10 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}"
   ],
   theme: {
+    animation: {
+      'pulse-slow': 'pulse 4s ease-in-out infinite',
+    },
+    
     fontFamily: {
       sans: ['Roboto', 'sans-serif'],
       serif: ['Roboto', 'serif'],

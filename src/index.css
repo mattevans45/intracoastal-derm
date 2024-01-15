@@ -71,6 +71,9 @@ button:focus-visible {
 
 } */
 
+:root, * {
+
+}
 span {
   text-transform: uppercase;
 

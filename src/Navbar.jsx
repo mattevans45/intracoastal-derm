@@ -66,7 +66,7 @@ export default function Navbar() {
             className={`container ${
               mobileMenuOpen
                 ? "hidden"
-                : "sticky left-0 top-0 z-50 mx-auto max-h-40 min-w-full bg-white/90 px-4 shadow md:pr-3"
+                : "sticky left-0 top-0 z-[100] max-h-40 h-40 min-w-full min-h-full bg-white/90 shadow md:pr-3"
             }`}
           >
             {mobileMenuOpen && (
@@ -76,18 +76,18 @@ export default function Navbar() {
               />
             )}
             <nav
-              className="max-w-screen flex items-center justify-between md:w-full lg:justify-evenly"
+              className="max-w-screen z-50 flex items-center justify-between md:w-full lg:justify-evenly"
               aria-label="Global"
             >
               {!mobileMenuOpen ? (
               
                   <Link to="/">
                     <img
-                      className="relative  max-w-sm max-h-36 lg:max-w-lg lg:max-h-36 object-cover object-center bg-blend-lighten "
+                      className="relative z-40 h-36 max-w-sm max-h-36 lg:max-w-lg lg:max-h-36 object-cover object-center bg-blend-lighten "
                       src={LOGO}
                       alt=""
                     />
-                    <div className="absolute inset-0 -z-50 mx-auto h-full w-full bg-gray-700/95 opacity-5 sm:w-auto"></div>
+                    <div className="absolute inset-0 mx-auto h-full w-full bg-gray-700/95 opacity-5 sm:w-auto"></div>
                   </Link>
             
               ) : (

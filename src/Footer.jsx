@@ -9,437 +9,140 @@ import "aos/dist/aos.css";
 import { MdOutlineFacebook } from "react-icons/md";
 import { LuInstagram, LuTwitter } from "react-icons/lu";
 import logo2 from "./assets/blackandwhite.svg";
+import Waves from "./Waves";
 
 const Footer = () => {
-  
-
   return (
-    <>
-      {/* <footer className="w-full mx-auto pt-5 text-white bg-[#3a3a3a] sm:py-12">
-        <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
-        <div className="md:flex md:justify-between">
-     
-        <a className="basis-3 font-medium mx-auto md:justify-start text-gray-900 mb-4">
-          <img
-            className="lg:min-w-24 object-fill w-[320px] md:min-w-[180px] md:w-[350px] xl:w-[400px]"
-            data-aos="fade-down"
-            src={logo}
-            alt="Intracoastal Dermatology Logo"
-          />
-        </a>
+    <footer className="relative z-50  text-gray-700">
+  
+        <div className="absolute inset-0 -z-20 h-full rotate-[180deg] bg-sky-700 bg-opacity-70 mix-blend-multiply backdrop-blur-sm ">
+          <Waves className=" fill" />
 
-       
-        <nav
-              className="w-full mx-auto list-none mb-2"
-              data-aos="slide-right"
-              data-aos-anchor-placement="top-right"
+        </div>
+        <div className="absolute inset-0 -z-20 bg-sky-700 mix-blend-darken bg-opacity-15">
+          <Waves className="" />
+        </div>
+        {/* <div className="sun bg-yellow-600 saturate-125 shadow-2xl drop-shadow-2xl -z-10 blur-sm border-4 bg-clip-content border-yellow-200 shadow-orange-500 absolute top-5 right-5 md:w-40 md:h-40 h-20 w-20 rounded-full"></div> */}
+
+        <div className="z-40 mx-0 grid grid-flow-dense grid-cols-2 justify-stretch gap-5 px-0 py-8 md:mx-auto md:grid-cols-5 md:items-start md:justify-evenly ">
+          <div className="col-span-2 mx-auto space-x-5 lg:col-start-1">
+            <Link
+              to="/"
+              className="hover:transition-scale hover:scale-105 hover:duration-700 hover:ease-in-out"
             >
-            <h5
-              className="font-bold text-white tracking-widest text-lg mt-10 mb-3"
-              data-aos="slide-right"
-              data-aos-anchor-placement="top-right"
-            >
+              <img
+                src={whiteLogo}
+                className="mx-0 size-72 object-contain p-0  md:size-80"
+                alt="Intracoastal Dermatology Logo"
+              />
+            </Link>
+          </div>
+
+          <div className="mx-auto">
+            <h2 className="text-md mb-6 bg-transparent font-semibold uppercase text-white ">
               Important Links
-            </h5>
-           
+            </h2>
+            <ul className="bg-transparent font-medium text-white">
               <li className="mb-2">
-                <a
-                  href="#"
-                  className="border-b border-solid border-transparent hover:border-gray-300 hover:text-gray-300"
-                >
+                <Link to="/location/" className="block hover:underline">
                   Office Location
-                </a>
+                </Link>
               </li>
               <li className="mb-2">
-                <a
-                  href="#"
-                  className="border-b border-solid border-transparent hover:border-gray-300 hover:text-gray-300"
-                >
-                  Services Provided
-                </a>
+                <Link to="/services" className="block hover:underline">
+                  Services
+                </Link>
               </li>
               <li className="mb-2">
-                <a
-                  href="#"
-                  className="border-b border-solid border-transparent hover:border-gray-300 hover:text-gray-300"
-                >
-                  Another resource
-                </a>
+                <Link to="/telederm" className="block hover:underline ">
+                  TeleDerm
+                </Link>
               </li>
               <li className="mb-2">
-                <a
-                  href="#"
-                  className="border-b border-solid border-transparent hover:border-gray-300 hover:text-gray-300"
-                >
-                  Final resource
-                </a>
-              </li>
-            </nav>
-   
-          <nav
-              className="list-none footer-links"
-              data-aos="slide-right"
-              data-aos-anchor-placement="top-right"
-            >
-            <h2
-              className="title-font text-lg font-bold text-white tracking-widest mb-3"
-              data-aos="slide-right"
-              data-aos-anchor-placement="top-right"
-            >
-              About
-            </h2>
-          
-              <li className="mb-2">
-                <a
-                  href="#"
-                  className="border-b border-solid border-transparent hover:border-gray-300 hover:text-gray-300"
-                >
-                  Team
-                </a>
+                <Link to="/patient-portal" className="block hover:underline ">
+                  Patient Portal
+                </Link>
               </li>
               <li className="mb-2">
-                <a
-                  href="#"
-                  className="border-b border-solid border-transparent hover:border-gray-300 hover:text-gray-300"
+                <Link
+                  to="/intracoastal-derm/make-payment/"
+                  className="block hover:underline"
                 >
-                  Placeholder
-                </a>
+                  Make Payment
+                </Link>
               </li>
-              <li className="mb-2">
-                <a
-                  href="#"
-                  className="border-b border-solid border-transparent hover:border-gray-300 hover:text-gray-300"
-                >
-                  Privacy
-                </a>
-              </li>
-              <li className="mb-2">
-                <a
-                  href="#"
-                  className="border-b border-solid border-transparent hover:border-gray-300 hover:text-gray-300"
-                >
-                  Terms
-                </a>
-              </li>
-            </nav>
-       
+            </ul>
+          </div>
 
-          <nav className="list-none footer-links" data-aos="slide-right">
-            <h2
-              className="title-font font-bold text-lg text-white tracking-widest mb-3"
-              data-aos="slide-right"
-              data-aos-anchor-placement="top-right"
-            >
-              Contact Us
+          <div className="mx-auto place-items-start justify-items-center">
+            <h2 className="text-md mb-6 bg-transparent font-semibold uppercase text-white">
+              Forms and Documents
             </h2>
-          
+            <ul className="bg-transparent font-medium text-white">
               <li className="mb-2">
-                <a
-                  href="#"
-                  className="border-b border-solid border-transparent hover:border-gray-300 hover:text-gray-300"
-                >
-                  (910) 631-0301
-                </a>
+                <Link to="/" className="block flex-grow hover:underline">
+                  Insurance Accepted
+                </Link>
               </li>
               <li className="mb-2">
-                <a className="border-b border-solid border-transparent hover:border-gray-300 hover:text-gray-300">
-                  icderm@gmail.com
-                </a>
+                <Link to="/" className="block flex-grow hover:underline">
+                  Office Policies
+                </Link>
               </li>
-            </nav>
-            <h2
-              className="title-font self-center font-bold text-lg text-white tracking-widest mb-3"
-              data-aos="slide-right"
-              data-aos-anchor-placement="top-right"
-            >
+              <li className="mb-2">
+                <Link to="/" className="block flex-grow hover:underline">
+                  Medical Release Form
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          <div className="mx-auto flex flex-col place-content-start place-items-start items-start justify-center  md:mx-0">
+            <h2 className="max-w-30 text-md mb-6 bg-transparent font-semibold uppercase text-white ">
               Follow Us
             </h2>
-            <div className="inline-flex self-center flex-row bg-red-500 flex-wrap mx-auto justify-center  gap-1 sm:justify-center">
-    
-              <a
-                href=""
-                className="w-11 h-11 rounded-md text-center py-1 ml-2 text-gray-300 hover:text-white hover:bg-gray-600 hover:border-gray-700"
-              >
-                <MdOutlineFacebook className="w-full h-full" />
-              </a>
-              <a
-                href=""
-                className="w-11 h-11   rounded-md text-center py-1 ml-2 text-gray-300 hover:text-white hover:bg-gray-600 hover:border-gray-700"
-              >
-                <LuInstagram className="w-full h-full" />
-              </a>
-              <a
-                href=""
-                className="w-11 h-11 rounded-md text-center py-1 ml-2 text-gray-300 hover:text-white hover:bg-gray-600 hover:border-gray-700"
-              >
-                <LuTwitter className="w-full h-full" />
-              </a>
-    
-          </div>
 
-          
-          
-   
-
-      <div className="container py-4 px-5 static justify-center mx-auto sm:flex sm:justify-center sm:align-middle sm:items-center sm:flex-row">
-        <span className="sm:ml-auto sm:mt-0 mt-2 flex flex-1">
-          <p className="text-gray-500 text-sm text-center sm:text-center">
-            &copy;2023 Intracoastal Dermatology All Rights Reserved by ICD-LTD.
-          </p>
-        </span>
-      </div>
-  </div>
-  </div>
-    </footer> */}
-
-      {/* <footer className="text-white bg-[#3a3a3a] dark:bg-[#3a3a3a]">
-  <div className="grid w-full mx-auto lg:grid-cols-5 md:grid-cols-5 sm:grid-cols-4 justify-center border-2 border-red-500 items-start py-6 max-w-6xl gap-4">
-    <div className="col-span-2">
-      <div className="flex flex-col h-fit mb-10 mx-auto">
-        <Link to="https://instracoastal-dermatology.com/" className="hover:scale-150">
-          <img
-            src={whiteLogo}
-            data-aos="fade-down"
-            className="max-h-64 antialiased object-fit sm:min-h-30 md:min-h-32 lg:min-h-50 sm:px-3 mx-auto"
-            alt="Intracoastal Dermatology Logo"
-          />
-        </Link>
-      </div>
-    </div>
-
-    <div className="md:justify-center md:items-center sm:col-span-1 col-span-1 lg:col-span-1 sm:justify-start w-full border-red-500">
-      <h2 className="text-sm font-semibold text-gray-900 uppercase dark:text-white mb-4">
-        Important Links
-      </h2>
-      <ul>
-        <li>
-          <Link to="/intracoastal-derm/location/" className="hover:underline block flex-grow">
-            Office Location
-          </Link>
-        </li>
-        <li>
-          <Link to="/intracoastal-derm/services/" className="hover:underline block flex-grow">
-            Services
-          </Link>
-        </li>
-        <li>
-          <Link to="/intracoastal-derm/telederm/" className="hover:underline block flex-grow">
-            TeleDerm
-          </Link>
-        </li>
-        <li>
-          <Link to="/intracoastal-derm/patient-portal/" className="hover:underline block flex-grow">
-            Patient Portal
-          </Link>
-        </li>
-        <li>
-          <Link to="/intracoastal-derm/make-payment/" className="hover:underline block flex-grow">
-            Make Payment
-          </Link>
-        </li>
-      </ul>
-    </div>
-
-    <div className="sm:col-span-2 md:col-span-1 lg:col-span-1 w-full">
-      <h2 className="mb-4 text-sm font-semibold text-gray-900 uppercase  dark:text-white">
-        Documents and Forms
-      </h2>
-      <ul>
-        <li>
-          <Link to="/" className="hover:underline block flex-grow">
-            Insurance Accepted
-          </Link>
-        </li>
-        <li>
-          <Link to="/" className="hover:underline block flex-grow">
-            Office Policies
-          </Link>
-        </li>
-        <li>
-          <Link to="/" className="hover:underline block flex-grow">
-            Medical Release Form
-          </Link>
-        </li>
-      </ul>
-    </div>
-
-    <div className="sm:max-md-col-span-2 lg:col-span-1 justify-start">
-      <h2 className="mb-4 text-sm font-semibold text-gray-900 uppercase dark:text-white">
-        Follow us
-      </h2>
-      <ul className="mx-auto flex flex-row">
-        <li className="mr-2">
-          <Link
-            to="/"
-            className="rounded-md text-gray-300 hover:text-white hover:bg-gray-600 hover:border-gray-700 flex-grow"
-          >
-            <MdOutlineFacebook className="h-12 w-8" />
-          </Link>
-        </li>
-        <li className="mr-2">
-          <Link
-            to="/"
-            className="rounded-md text-center text-gray-300 hover:text-white hover:bg-gray-600 hover:border-gray-700 flex-grow"
-          >
-            <LuInstagram className="h-12 w-8" />
-          </Link>
-        </li>
-        <li className="mr-2">
-          <Link
-            to="/"
-            className="rounded-md text-center text-gray-300 hover:text-white hover:bg-gray-600 hover:border-gray-700 flex-grow"
-          >
-            <LuTwitter className="h-12 w-8" />
-          </Link>
-        </li>
-      </ul>
-    </div>
-  </div>
-  <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
-  <div className="w-full flex flex-row sm:flex sm:items-center sm:justify-around">
-    <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">
-      © 2024
-      <Link to="https://intracoastal-derm/" className="px-1 hover:underline">
-        Intracoastal Dermatology.
-      </Link>
-      All Rights Reserved.
-    </span>
-  </div>
-</footer> */}
-      <footer className="text-white bg-[#3a3a3a] dark:bg-[#3a3a3a]">
-        <div className=" mx-auto w-full max-w-7xl p-4 py-6 lg:py-8">
-          <div className="md:flex md:justify-between lg:flex lg:justify-evenly">
-            <div className="mb-6 flex justify-center md:mb-0">
-              <Link to="/" className="hover:scale-105 hover:transition-scale hover:duration-700 hover:ease-in-out">
-                <img
-                  src={whiteLogo}
-                  data-aos="fade-up"
-                
-                  className="max-h-60 antialiased object-fit sm:min-h-30 md:min-h-32 sm:px-3"
-                  alt="Intracoastal Dermatology Logo"
-                />
-              </Link>
-            </div>
-            <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
-              <div>
-                <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
-                  Important Links
-                </h2>
-                <ul className="text-gray-500 dark:text-gray-400 font-medium">
-                  <li className="mb-2">
-                    <Link
-                      to="/intracoastal-derm/location/"
-                      className="hover:underline block flex-grow"
-                    >
-                      Office Location
-                    </Link>
-                  </li>
-                  <li className="mb-2">
-                    <Link
-                      to="/services"
-                      className="hover:underline block flex-grow"
-                    >
-                      Services
-                    </Link>
-                  </li>
-                  <li className="mb-2">
-                    <Link
-                      to="/telederm"
-                      className="hover:underline block flex-grow"
-                    >
-                      TeleDerm
-                    </Link>
-                  </li>
-                  <li className="mb-2">
-                    <Link
-                      to="/patient-portal"
-                      className="hover:underline block flex-grow"
-                    >
-                      Patient Portal
-                    </Link>
-                  </li>
-                  <li className="mb-2">
-                    <Link
-                      to="/intracoastal-derm/make-payment/"
-                      className="hover:underline block flex-grow"
-                    >
-                      Make Payment
-                    </Link>
-                  </li>
-                  
-                </ul>
-              </div>
-              <div>
-                <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
-                  Forms and Documents
-                </h2>
-                <ul className="text-gray-500 dark:text-gray-400 font-medium">
-                  <li className="mb-2">
-                    <Link to="/" className="hover:underline block flex-grow">
-                      Insurance Accepted
-                    </Link>
-                  </li>
-                  <li className="mb-2">
-                    <Link to="/" className="hover:underline block flex-grow">
-                      Office Policies
-                    </Link>
-                  </li>
-                  <li className="mb-2">
-                    <Link to="/" className="hover:underline block flex-grow">
-                      Medical Release Form
-                    </Link>
-                  </li>
-                </ul>
-              </div>
-              <div className="mx-1">
-                <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
-                  Follow Us
-                </h2>
-                <ul className="text-gray-500 dark:text-gray-400 font-medium ">
-                  <li className="mr-2">
-                    <Link
-                      to="/"
-                      className="rounded-md text-gray-300 hover:text-white hover:bg-gray-600 hover:border-gray-700 flex-grow"
-                    >
-                      <MdOutlineFacebook className="h-12 w-8" />
-                    </Link>
-                  </li>
-                  <li className="mr-2">
-                    <Link
-                      to="/"
-                      className="rounded-md text-center text-gray-300 hover:text-white hover:bg-gray-600 hover:border-gray-700 flex-grow"
-                    >
-                      <LuInstagram className="h-12 w-8" />
-                    </Link>
-                  </li>
-                  <li className="mr-2">
-                    <Link
-                      to="/"
-                      className="rounded-md text-center text-gray-300 hover:text-white hover:bg-gray-600 hover:border-gray-700 flex-grow"
-                    >
-                      <LuTwitter className="h-12 w-8" />
-                    </Link>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
-          <div className="w-full flex flex-row sm:flex sm:items-center sm:justify-around">
-            <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">
-              © 2024
-              <Link
-                to="/"
-                className="px-1 hover:underline"
-              >
-                Intracoastal Dermatology.
-              </Link>
-              All Rights Reserved.
-            </span>
+            <ul className="font-medium text-gray-500 dark:text-gray-400 ">
+              <li className="mr-2">
+                <Link
+                  to="/"
+                  className="flex-grow  rounded-md text-white hover:border-gray-700 hover:bg-gray-600 hover:text-white"
+                >
+                  <MdOutlineFacebook className="h-12 w-8" />
+                </Link>
+              </li>
+              <li className="mr-2">
+                <Link
+                  to="/"
+                  className="flex-grow rounded-md text-center text-white hover:border-gray-700 hover:bg-gray-600 hover:text-white"
+                >
+                  <LuInstagram className="h-12 w-8" />
+                </Link>
+              </li>
+              <li className="mr-2">
+                <Link
+                  to="/"
+                  className="flex-grow rounded-md text-center text-white hover:border-gray-700 hover:bg-gray-600 hover:text-white"
+                >
+                  <LuTwitter className="h-12 w-8" />
+                </Link>
+              </li>
+            </ul>
           </div>
         </div>
-      </footer>
-    </>
+
+        <hr className="my-6 border-gray-200 sm:mx-auto  lg:my-8 dark:border-gray-700" />
+        <div className="flex flex-row p-4 sm:flex sm:items-center sm:justify-around">
+          <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">
+            © 2024
+            <Link to="/" className="px-1 hover:underline">
+              Intracoastal Dermatology.
+            </Link>
+            All Rights Reserved.
+          </span>
+        </div>
+  
+    </footer>
   );
 };
 
