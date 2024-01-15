@@ -27,19 +27,32 @@ body {
 
 
 .path-0, .path-1, .path-2, .path-3 {
-  fill: #002d67 ;
-  /* mix-blend-mode: difference; */
-  transition: all 15s ease-in-out;
-  
+  fill:
+    radial-gradient(
+      110.35% 80.79% at 6% 103.92%,
+      rgba(37, 169, 239, 1) 0%,
+      rgba(37, 169, 239, 0) 100%
+    ),
+    linear-gradient(
+      169.3deg,
+      rgba(205, 249, 232, 1) 15%,
+      rgba(205, 249, 232, 0) 46%
+    );
+  /* fill: #002d67 ;
+  background: rgb(9,9,121); */
+  /* fill: linear-gradient(180deg, rgba(9,9,121,1) 55%, rgb(0, 123, 255) 10%); */
+  /* transition: all 15s ease-in-out; */
+  /* transform: matrix(3); */
   /* fill: #0087BD; */
-  /* fill: lab(13 1 -23); */
+  /* fill: lab(13 13 -23); */
 }
 
 
 .path-0{
-  animation: pathAnim-0 8s;
+  animation: pathAnim-0 40s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
+  background-blend-mode: color;
     
 }
 @keyframes pathAnim-0{
@@ -61,7 +74,7 @@ body {
 }
 
 .path-1{
-  animation:pathAnim-1 9s;
+  animation:pathAnim-1 50s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
 }
@@ -84,7 +97,7 @@ body {
 }
 
 .path-2{
-  animation:pathAnim-2 5s;
+  animation:pathAnim-2 50s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
 }
@@ -107,7 +120,7 @@ body {
 }
 
 .path-3{
-  animation: pathAnim-3 5s;
+  animation: pathAnim-3 50s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
 }

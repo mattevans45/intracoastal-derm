@@ -13,8 +13,9 @@ import Waves from "./Waves";
 
 const Footer = () => {
   return (
-    <footer className="relative z-50  text-gray-700">
-  
+    <footer className="relative z-5  text-gray-700">
+      <div className="wave">
+
         <div className="absolute inset-0 -z-20 h-full rotate-[180deg] bg-sky-700 bg-opacity-70 mix-blend-multiply backdrop-blur-sm ">
           <Waves className=" fill" />
 
@@ -23,6 +24,7 @@ const Footer = () => {
           <Waves className="" />
         </div>
         {/* <div className="sun bg-yellow-600 saturate-125 shadow-2xl drop-shadow-2xl -z-10 blur-sm border-4 bg-clip-content border-yellow-200 shadow-orange-500 absolute top-5 right-5 md:w-40 md:h-40 h-20 w-20 rounded-full"></div> */}
+        </div>
 
         <div className="z-40 mx-0 grid grid-flow-dense grid-cols-2 justify-stretch gap-5 px-0 py-8 md:mx-auto md:grid-cols-5 md:items-start md:justify-evenly ">
           <div className="col-span-2 mx-auto space-x-5 lg:col-start-1">
