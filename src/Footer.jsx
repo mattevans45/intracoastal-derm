@@ -11,14 +11,15 @@ import { LuInstagram, LuTwitter } from "react-icons/lu";
 import logo2 from "./assets/blackandwhite.svg";
 import color from "./assets/vecteezy_hand-painted-watercolor-texture-abstract-background_8205850.jpg"
 import Waves from "./Waves";
+import footerimg from "./assets/erda-estremera-aSFZKeZiHPc-unsplash.jpg"
 
 const Footer = () => {
   return (
     <footer className="relative   text-white">
 
-        <div className="absolute inset-0 -z-10  mx-auto bg-sky-500 bg-opacity-70">
+        <div className="absolute inset-0 -z-10 bg-gray-500  mx-auto ">
           
-        <img src={color} className="absolute inset-0 -z-30  h-full w-full  object-cover mix-blend-multiply blur-[3.5px] rotate-180 backdrop-grayscale" alt="background" />
+        <img src={footerimg} className="absolute inset-0 -z-30  h-full w-full backdrop-blur-sm mix-blend-multiply  object-cover" alt="background" />
 
           {/* <Waves className=" fill" /> */}
 
@@ -37,7 +38,7 @@ const Footer = () => {
             >
               <img
                 src={whiteLogo}
-                className="mx-0 size-72 object-contain p-0  md:size-80"
+                className="size-72 object-contain p-0 mx-3  md:size-80"
                 alt="Intracoastal Dermatology Logo"
               />
             </Link>
