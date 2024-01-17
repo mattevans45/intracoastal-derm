@@ -32,10 +32,10 @@ const HeroServices = () => {
             <GiSyringe className="font-white h-8 w-7 bg-transparent" />
           </div>
           <div className="flex-grow pl-6">
-            <h2 className="title-font mb-2 text-lg font-medium text-gray-900">
+            <h2 className="title-font mb-2 text-lg font-medium text-white">
               Cosmetic Dermatology
             </h2>
-            <p className="text-base leading-relaxed">
+            <p className="text-gray-50 leading-relaxed">
               Neuromodulators like Botox, Dermal Filler, and laser based
               treatments.
             </p>
@@ -82,10 +82,10 @@ const HeroServices = () => {
             </svg>
           </div>
           <div className="flex-grow pl-6">
-            <h2 className="title-font mb-2 text-lg font-medium text-gray-900">
+            <h2 className="title-font mb-2 text-lg font-medium text-white">
               General Dermatology
             </h2>
-            <p className="text-base leading-relaxed">
+            <p className="text-gray-50 leading-relaxed">
               Psoriasis, Atropic Dermatitis, Bullous Diseases, Lichen Planus,
               Vitiligo, Acne, Rosacea, Skin Cancer Screening, Rash, Growths,
               Skin Discoloration, and excessive sweating.
@@ -114,10 +114,10 @@ const HeroServices = () => {
             <GiScalpel className="font-white h-8 w-7 bg-transparent" />
           </div>
           <div className="flex-grow pl-6">
-            <h2 className="title-font mb-2 text-lg font-medium text-gray-900">
+            <h2 className="title-font mb-2 text-lg font-medium text-white">
               Surgical Dermatology
             </h2>
-            <p className="text-base leading-relaxed">
+            <p className="text-gray-50 leading-relaxed">
               Skin Cancer Removal, Mohs Surgery, Scar Revision, mole removal,
               and more.
             </p>
