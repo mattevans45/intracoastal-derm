@@ -66,37 +66,25 @@ export default function Navbar() {
             className={`container ${
               mobileMenuOpen
                 ? "hidden"
-                : "sticky left-0 top-0 z-[100] max-h-40 h-40 min-w-full min-h-full bg-white/90 shadow md:pr-3"
+                : "max-h-34 sticky left-0 top-0 z-[100] min-w-full  bg-white/90 px-2 shadow md:pr-3"
             }`}
           >
-            {mobileMenuOpen && (
-              <div
-                className="fixed inset-0 bg-black bg-opacity-60"
-                onClick={() => setMobileMenuOpen(false)}
-              />
-            )}
             <nav
-              className="max-w-screen z-50 flex items-center justify-between md:w-full lg:justify-evenly"
+              className="max-w-screen z-50 flex items-center justify-between mx-auto space-x-6 md:w-full lg:justify-around"
               aria-label="Global"
             >
-              {!mobileMenuOpen ? (
-              
-                  <Link to="/">
-                    <img
-                      className="relative z-40 h-36 max-w-sm max-h-36 lg:max-w-lg lg:max-h-36 object-cover object-center bg-blend-lighten "
-                      src={LOGO}
-                      alt=""
-                    />
-                    <div className="absolute inset-0 mx-auto h-full w-full bg-gray-700/95 opacity-5 sm:w-auto"></div>
-                  </Link>
-            
-              ) : (
-                <></>
+              {!mobileMenuOpen && (
+                <Link to="/">
+                  <img
+                    className="relative z-40 h-36 max-h-36 max-w-sm object-cover object-center bg-blend-lighten lg:max-h-36 lg:max-w-lg "
+                    src={LOGO}
+                    alt="Intracoastal Dermatology Logo"
+                  />
+                  <div className="absolute inset-0 mx-auto h-full w-full bg-gray-700/95 opacity-5 sm:w-auto"></div>
+                </Link>
               )}
 
               <div className="flex md:hidden">
-        
-
                 <button
                   type="button"
                   className="-m-1.5 mr-2.5 flex items-center justify-end rounded-md text-[#4d4d4d] transition-all duration-300 hover:scale-105 hover:bg-gray-200 hover:drop-shadow-sm"
@@ -109,54 +97,52 @@ export default function Navbar() {
                   />
                 </button>
               </div>
-                <div className="hidden font-display md:flex md:items-baseline md:flex-nowrap md:justify-center md:text-md  lg:flex lg:text-md  lg:justify-around lg:space-x-1 font-semibold">
-                <Link to="/services" >
+              <div className="md:text-md lg:text-md hidden font-display font-semibold md:flex md:flex-nowrap  md:items-baseline md:justify-center  lg:flex lg:justify-around lg:space-x-1">
+                <Link to="/services">
                   <ServicesPopover />
-                  </Link>
-                  
-                  <Link
-                    to="/location"
-                    className="rounded-lg px-2 py-1.5 text-[#4d4d4d] shadow-gray-400/20  drop-shadow-md transition-all duration-500   ease-in-out hover:rounded-lg  hover:border-gray-200 hover:bg-[#4d4d4d]/10 hover:bg-gray-200 hover:px-2 hover:py-2 focus:outline-none focus-visible:ring focus-visible:ring-gray-500/50"
-                  >
-                    LOCATION
-                  </Link>
-                 
-                  <Link
-                    to="/contact"
-                    className="rounded-lg px-2 py-2 text-[#4d4d4d] shadow-gray-400/20  drop-shadow-md transition-all duration-500   ease-in-out hover:rounded-lg  hover:border-gray-200 hover:bg-[#4d4d4d]/10 hover:bg-gray-200 hover:px-2 hover:py-2 focus:outline-none focus-visible:ring focus-visible:ring-gray-500/50"
-                  >
-                    CONTACT
-                  </Link>
-                  <Link
-                    to="/about"
-                    className="rounded-lg px-2 py-2 text-[#4d4d4d] shadow-gray-400/20  drop-shadow-md transition-all duration-500   ease-in-out hover:rounded-lg  hover:border-gray-200 hover:bg-[#4d4d4d]/10 hover:bg-gray-200 hover:px-2 hover:py-2 focus:outline-none focus-visible:ring focus-visible:ring-gray-500/50"
-                  >
-                    ABOUT
-                  </Link>
-                </div>
+                </Link>
 
-           
-                <div className="hidden font-display w-fit md:flex md:items-baseline md:flex-wrap md:justify-center md:text-md  lg:flex lg:text-md  lg:justify-center lg:space-x-1 font-semibold">
-                  <Link
-                    to="/patient-portal"
-                    className="lg:text-md min-w-fit rounded-lg border-2 border-[#4d4d4d] border-opacity-5 bg-[#30648B]/5 px-1.5 py-1 text-center text-[#4d4d4d] transition duration-150 ease-in-out hover:bg-[#30648B]/90 hover:text-white focus:outline-none focus-visible:ring focus-visible:ring-gray-500/50 "
-                  >
-                    PATIENT PORTAL
-                  </Link>
-                  <Link
-                    to="/payment"
-                    className=" lg:text-md min-w-fit rounded-lg border-2 border-[#4d4d4d] border-opacity-5 bg-[#30648B]/5 px-1.5 py-1 text-center  text-[#4d4d4d] shadow-gray-400/20 transition-all duration-500  ease-in-out hover:rounded-lg hover:bg-[#30648B]/90 hover:text-white hover:drop-shadow-md focus:outline-none focus-visible:ring focus-visible:ring-gray-500/50 "
-                  >
-                    MAKE PAYMENT
-                  </Link>
-                  <Link
-                    to="/telederm"
-                    className="lg:text-md min-w-fit rounded-lg border-2 border-[#4d4d4d] border-opacity-5 bg-[#30648B]/5 px-1.5 py-1 text-center text-[#4d4d4d] transition duration-150 ease-in-out hover:bg-[#30648B]/90 hover:text-white focus:outline-none focus-visible:ring focus-visible:ring-gray-500/50 "
-                  >
-                    TELEDERM
-                  </Link>
-                </div>
-              
+                <Link
+                  to="/location"
+                  className="rounded-lg px-2 py-1.5 text-[#4d4d4d] shadow-gray-400/20  drop-shadow-md transition-all duration-500   ease-in-out hover:rounded-lg  hover:border-gray-200 hover:bg-[#4d4d4d]/10 hover:bg-gray-200 hover:px-2 hover:py-2 focus:outline-none focus-visible:ring focus-visible:ring-gray-500/50"
+                >
+                  LOCATION
+                </Link>
+
+                <Link
+                  to="/contact"
+                  className="rounded-lg px-2 py-2 text-[#4d4d4d] shadow-gray-400/20  drop-shadow-md transition-all duration-500   ease-in-out hover:rounded-lg  hover:border-gray-200 hover:bg-[#4d4d4d]/10 hover:bg-gray-200 hover:px-2 hover:py-2 focus:outline-none focus-visible:ring focus-visible:ring-gray-500/50"
+                >
+                  CONTACT
+                </Link>
+                <Link
+                  to="/about"
+                  className="rounded-lg px-2 py-2 text-[#4d4d4d] shadow-gray-400/20  drop-shadow-md transition-all duration-500   ease-in-out hover:rounded-lg  hover:border-gray-200 hover:bg-[#4d4d4d]/10 hover:bg-gray-200 hover:px-2 hover:py-2 focus:outline-none focus-visible:ring focus-visible:ring-gray-500/50"
+                >
+                  ABOUT
+                </Link>
+              </div>
+
+              <div className="md:text-md lg:text-md hidden w-fit font-display font-semibold md:flex md:flex-wrap  md:items-baseline md:justify-center  lg:flex lg:justify-center lg:space-x-1">
+                <Link
+                  to="/patient-portal"
+                  className="lg:text-md min-w-fit rounded-lg border-2 border-[#4d4d4d] border-opacity-5 bg-[#30648B]/5 px-1.5 py-1 text-center text-[#4d4d4d] transition duration-150 ease-in-out hover:bg-[#30648B]/90 hover:text-white focus:outline-none focus-visible:ring focus-visible:ring-gray-500/50 "
+                >
+                  PATIENT PORTAL
+                </Link>
+                <Link
+                  to="/payment"
+                  className=" lg:text-md min-w-fit rounded-lg border-2 border-[#4d4d4d] border-opacity-5 bg-[#30648B]/5 px-1.5 py-1 text-center  text-[#4d4d4d] shadow-gray-400/20 transition-all duration-500  ease-in-out hover:rounded-lg hover:bg-[#30648B]/90 hover:text-white hover:drop-shadow-md focus:outline-none focus-visible:ring focus-visible:ring-gray-500/50 "
+                >
+                  MAKE PAYMENT
+                </Link>
+                <Link
+                  to="/telederm"
+                  className="lg:text-md min-w-fit rounded-lg border-2 border-[#4d4d4d] border-opacity-5 bg-[#30648B]/5 px-1.5 py-1 text-center text-[#4d4d4d] transition duration-150 ease-in-out hover:bg-[#30648B]/90 hover:text-white focus:outline-none focus-visible:ring focus-visible:ring-gray-500/50 "
+                >
+                  TELEDERM
+                </Link>
+              </div>
             </nav>
           </header>
         </Menu>

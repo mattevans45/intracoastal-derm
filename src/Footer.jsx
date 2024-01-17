@@ -9,22 +9,25 @@ import "aos/dist/aos.css";
 import { MdOutlineFacebook } from "react-icons/md";
 import { LuInstagram, LuTwitter } from "react-icons/lu";
 import logo2 from "./assets/blackandwhite.svg";
+import color from "./assets/vecteezy_hand-painted-watercolor-texture-abstract-background_8205850.jpg"
 import Waves from "./Waves";
 
 const Footer = () => {
   return (
-    <footer className="relative z-5  text-gray-700">
-      <div className="wave">
+    <footer className="relative   text-white">
 
-        <div className="absolute inset-0 -z-20 h-full rotate-[180deg] bg-sky-700 bg-opacity-70 mix-blend-multiply backdrop-blur-sm ">
-          <Waves className=" fill" />
+        <div className="absolute inset-0 -z-10  mx-auto bg-sky-500 bg-opacity-70">
+          
+        <img src={color} className="absolute inset-0 -z-30  h-full w-full  object-cover mix-blend-multiply blur-[3.5px] rotate-180 backdrop-grayscale" alt="background" />
+
+          {/* <Waves className=" fill" /> */}
 
         </div>
-        <div className="absolute inset-0 -z-20 bg-sky-700 mix-blend-darken bg-opacity-15">
+{/* 
+        <div className="absolute inset-0 -z-20 bg-sky-600 bg-opacity-70 mix-blend-overlay">
           <Waves className="" />
-        </div>
+        </div>  */}
         {/* <div className="sun bg-yellow-600 saturate-125 shadow-2xl drop-shadow-2xl -z-10 blur-sm border-4 bg-clip-content border-yellow-200 shadow-orange-500 absolute top-5 right-5 md:w-40 md:h-40 h-20 w-20 rounded-full"></div> */}
-        </div>
 
         <div className="z-40 mx-0 grid grid-flow-dense grid-cols-2 justify-stretch gap-5 px-0 py-8 md:mx-auto md:grid-cols-5 md:items-start md:justify-evenly ">
           <div className="col-span-2 mx-auto space-x-5 lg:col-start-1">
@@ -133,9 +136,9 @@ const Footer = () => {
           </div>
         </div>
 
-        <hr className="my-6 border-gray-200 sm:mx-auto  lg:my-8 dark:border-gray-700" />
+        <hr className="my-6 border-gray-200 sm:mx-auto  lg:my-8" />
         <div className="flex flex-row p-4 sm:flex sm:items-center sm:justify-around">
-          <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">
+          <span className="text-sm text-white sm:text-center ">
             © 2024
             <Link to="/" className="px-1 hover:underline">
               Intracoastal Dermatology.

@@ -14,6 +14,9 @@ export default {
       serif: ['Roboto', 'serif'],
      display:['ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";'],
       poppins: ["Poppins", "sans-serif"],
+      title: ["Amatic SC", "sans-serif"],
+      title2: ["Poiret One", "sans-serif"],
+      cursive: ["Grandiflora One", "cursive"]
     },
     fontWeight: {
       'light': 300,
