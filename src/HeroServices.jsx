@@ -9,57 +9,55 @@ import image from "./assets/sean.jpg";
 
 const HeroServices = () => {
   return (
-    <section className="container relative max-w-6xl min-h-80 overflow-hidden shadow-lg drop-shadow-lg mt-4 px-10">
-
-    
-
-      <div className="h-full rounded-xl justify-center gap-x-7 items-start py-12 flex md:flex-row flex-wrap sm:flex-col md:flex sm:-m-4 ">
-     
+  
+    <section className="max-w-7xl w-full mx-auto relative mt-3 z-20 px-4 md:px-8 lg:px-12 xl:px-16">
+      <div className="container shadow-lg rounded-xl relative flex flex-col items-start max-h-full sm:flex-col md:flex md:flex-row ">
       <div
         style={{
-       
           inset: 0,
-   
           zIndex: -90,
-
+          height:"100%",
+          width:"100%",
+          boxShadow:"inherit",
+          opacity:"90%",
           backgroundImage: `linear-gradient(rgba(255, 128, 181, 0.3), rgba(144, 137, 252, 0.3)), url(${image})`,
         }}
-        className="object-fill shadow-sm rounded-xl min-h-2xl h-full top-0 left-0 right-0 absolute"
+        className="object-fill shadow-sm rounded-xl min-h-6xl h-full top-0 left-0 right-0 absolute"
       />
-
-        <div className="inline-flex flex-1 p-4 md:w-1/3">
-          <div className="mb-4 inline-flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-indigo-100 text-blue-900">
+        <div className="z-35 mt-5 inline-flex flex-1 p-4 ">
+          <div className="mb-4 inline-flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-indigo-100 text-[#30648B] ">
             <GiSyringe className="font-white h-8 w-7 bg-transparent" />
           </div>
           <div className="flex-grow pl-6">
-            <h2 className="title-font mb-2 text-lg font-medium text-white">
+            <h2 className="font-poppins font-semibold mb-2 text-2xl leading-relaxed text-white">
               Cosmetic Dermatology
             </h2>
-            <p className="text-gray-50 leading-relaxed">
+            <p className="leading-relaxed text-pretty text-lg text-white">
               Neuromodulators like Botox, Dermal Filler, and laser based
               treatments.
             </p>
-            <Link
-              to="/services/cosmetic-dermatology"
-              className="mt-3 inline-flex items-center text-[#30648B]"
-            >
+            <div className="inline-block group">
+
+            <Link className="mt-3 inline-flex items-center text-sm font-semibold leading-6 rounded-xl p-2 text-gray-50 group-hover:text-[#30548B] group-hover:bg-slate-50/90  group-hover:transition-all ease-in-out duration-500 group-hover:shadow-lg ">
+
               Learn More
               <svg
                 fill="none"
-                stroke="#30648B"
+                stroke="currentColor"
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 strokeWidth="2"
-                className="ml-2 h-4 w-4"
+                className="ml-2 h-4 w-4 "
                 viewBox="0 0 24 24"
               >
                 <path d="M5 12h14M12 5l7 7-7 7"></path>
               </svg>
             </Link>
+            </div>
           </div>
         </div>
 
-        <div className="inline-flex flex-1 p-4 md:w-1/3">
+        <div className="inline-flex flex-1 p-4">
           <div className="mb-4 inline-flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-indigo-100 text-blue-900">
             <svg
               version="1.1"
@@ -82,22 +80,22 @@ const HeroServices = () => {
             </svg>
           </div>
           <div className="flex-grow pl-6">
-            <h2 className="title-font mb-2 text-lg font-medium text-white">
+          <h2 className="font-poppins font-semibold mb-2 text-2xl leading-relaxed text-white">
               General Dermatology
             </h2>
-            <p className="text-gray-50 leading-relaxed">
+            <p className="leading-relaxed text-pretty text-lg text-gray-50">
               Psoriasis, Atropic Dermatitis, Bullous Diseases, Lichen Planus,
               Vitiligo, Acne, Rosacea, Skin Cancer Screening, Rash, Growths,
               Skin Discoloration, and excessive sweating.
             </p>
-            <Link
-              to="/services/general-dermatology"
-              className="mt-3 inline-flex items-center text-[#30648B]"
-            >
+            <div className="inline-block group ">
+
+         
+            <Link className="mt-3 inline-flex items-center text-sm font-semibold leading-6 rounded-xl p-2 text-gray-50 group-hover:text-[#30548B] group-hover:bg-slate-50/90  group-hover:transition-all ease-in-out duration-500 group-hover:shadow-lg ">
               Learn More
               <svg
                 fill="none"
-                stroke="#30648B"
+                stroke="currentColor"
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 strokeWidth="2"
@@ -107,24 +105,26 @@ const HeroServices = () => {
                 <path d="M5 12h14M12 5l7 7-7 7"></path>
               </svg>
             </Link>
+            </div>
           </div>
         </div>
-        <div className="inline-flex flex-1 p-4 md:w-1/3">
+        <div className="inline-flex flex-1 p-4">
           <div className="mb-4 inline-flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-indigo-100 text-blue-900">
             <GiScalpel className="font-white h-8 w-7 bg-transparent" />
           </div>
           <div className="flex-grow pl-6">
-            <h2 className="title-font mb-2 text-lg font-medium text-white">
+          <h2 className="font-poppins font-semibold mb-2 text-2xl leading-relaxed text-white">
               Surgical Dermatology
             </h2>
-            <p className="text-gray-50 leading-relaxed">
+            <p className="leading-relaxed text-pretty text-lg text-gray-50">
+
               Skin Cancer Removal, Mohs Surgery, Scar Revision, mole removal,
               and more.
             </p>
-            <Link
-              to="/services/surgical-dermatology"
-              className="mt-3 inline-flex items-center text-[#30648B]"
-            >
+            <div className="inline-block group">
+    
+            <Link className="mt-3 inline-flex items-center text-sm font-semibold leading-6 rounded-xl p-2 text-gray-50 group-hover:text-[#30548B] group-hover:bg-slate-50/90  group-hover:transition-all ease-in-out duration-500 group-hover:shadow-lg ">
+
               Learn More
               <svg
                 fill="none"
@@ -139,10 +139,13 @@ const HeroServices = () => {
               </svg>
             </Link>
           </div>
+          </div>
         </div>
       </div>
     </section>
-  )
-}
 
-export default HeroServices
+
+  );
+};
+
+export default HeroServices;
