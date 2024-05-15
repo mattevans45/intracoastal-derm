@@ -50,12 +50,11 @@ const callsToAction = [
 export default function ServicesPopover() {
     return (
       <>
-        <Popover className="relative rounded-lg px-2 py-2 text-[#4d4d4d] shadow-gray-400/20  drop-shadow-md transition-all duration-500   ease-in-out hover:rounded-lg  hover:border-gray-200 hover:bg-[#4d4d4d]/10 hover:bg-gray-200 hover:px-2 hover:py-2 focus:outline-none focus-visible:ring focus-visible:ring-gray-500/50 ">
-         
+        <Popover className="relative  rounded-lg px-2 py-2 text-[#4d4d4d] shadow-gray-400/20  drop-shadow-md transition-all duration-500   ease-in-out group-hover:rounded-lg  hover:border-gray-200 hover:bg-[#30648B]/90 hover:text-white hover:px-2 hover:py-2 focus:outline-none focus-visible:ring focus-visible:ring-gray-500/50 ">
             <>
-              <Popover.Button className="inline-flex items-center  rounded-lg  text-[#4d4d4d] shadow-gray-400/20  ">
-                <span>Services</span>
-                <ChevronDownIcon className="h-5 w-5" aria-hidden="true" />
+              <Popover.Button className="group inline-flex items-center  rounded-lg  text-[#4d4d4d] shadow-gray-400/20  ">
+                <span className='group-hover:text-white'>Services</span>
+                <ChevronDownIcon className="h-5 w-5 group-hover:text-white" aria-hidden="true" />
               </Popover.Button>
   
               <Transition
@@ -105,7 +104,6 @@ export default function ServicesPopover() {
                 </div>
               </Transition>
             </>
-
         </Popover>
       </>
     );

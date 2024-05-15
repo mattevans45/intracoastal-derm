@@ -30,7 +30,7 @@ const Footer = () => {
         </div>  */}
         {/* <div className="sun bg-yellow-600 saturate-125 shadow-2xl drop-shadow-2xl -z-10 blur-sm border-4 bg-clip-content border-yellow-200 shadow-orange-500 absolute top-5 right-5 md:w-40 md:h-40 h-20 w-20 rounded-full"></div> */}
 
-        <div className="z-40 mx-0 grid grid-flow-dense grid-cols-2 justify-stretch gap-5 px-0 py-8 md:mx-auto md:grid-cols-5 md:items-start md:justify-evenly ">
+        <div className="z-40 mx-0 grid grid-cols-2 justify-stretch gap-5 px-0 py-8 md:mx-auto md:grid-cols-5 md:items-start md:justify-evenly ">
           <div className="col-span-2 mx-auto space-x-5 lg:col-start-1">
             <Link
               to="/"
@@ -103,7 +103,7 @@ const Footer = () => {
             </ul>
           </div>
 
-          <div className="mx-auto flex flex-col place-content-start place-items-start items-start justify-center  md:mx-0">
+          <div className="mx-auto flex flex-col items-start justify-center  md:mx-0">
             <h2 className="max-w-30 text-md mb-6 bg-transparent font-semibold uppercase text-white ">
               Follow Us
             </h2>

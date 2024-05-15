@@ -20,25 +20,25 @@ const HeroServices = () => {
           width:"100%",
           boxShadow:"inherit",
           opacity:"90%",
-          backgroundImage: `linear-gradient(rgba(255, 128, 181, 0.3), rgba(144, 137, 252, 0.3)), url(${image})`,
+          backgroundImage: `linear-gradient(rgba(1, 1, 1, 0.3), rgba(1, 1, 1, 0.3))`,
         }}
         className="object-fill shadow-sm rounded-xl min-h-6xl h-full top-0 left-0 right-0 absolute"
       />
-        <div className="z-35 mt-5 inline-flex flex-1 p-4 ">
+        <div className="z-35 inline-flex flex-1 p-4 ">
           <div className="mb-4 inline-flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-indigo-100 text-[#30648B] ">
             <GiSyringe className="font-white h-8 w-7 bg-transparent" />
           </div>
           <div className="flex-grow pl-6">
-            <h2 className="font-poppins font-semibold mb-2 text-2xl leading-relaxed text-white">
+            <h2 className="font-poppins font-semibold mb-2 text-2xl leading-relaxed text-slate-100">
               Cosmetic Dermatology
             </h2>
-            <p className="leading-relaxed text-pretty text-lg text-white">
+            <p className=" leading-relaxed tracking-tight font-sans font-light text-pretty text-lg text-slate-100">
               Neuromodulators like Botox, Dermal Filler, and laser based
               treatments.
             </p>
             <div className="inline-block group">
 
-            <Link className="mt-3 inline-flex items-center text-sm font-semibold leading-6 rounded-xl p-2 text-gray-50 group-hover:text-[#30548B] group-hover:bg-slate-50/90  group-hover:transition-all ease-in-out duration-500 group-hover:shadow-lg ">
+            <Link className="mt-3 inline-flex items-center text-sm font-semibold leading-6 rounded-xl p-2 text-gray-700 group-hover:text-[#30548B] group-hover:bg-slate-50/90  group-hover:transition-all ease-in-out duration-500 group-hover:shadow-lg ">
 
               Learn More
               <svg

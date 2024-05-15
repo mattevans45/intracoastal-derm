@@ -16,7 +16,9 @@ export default {
       poppins: ["Poppins", "sans-serif"],
       title: ["Amatic SC", "sans-serif"],
       title2: ["Poiret One", "sans-serif"],
-      cursive: ["Grandiflora One", "cursive"]
+      cursive: ["Grandiflora One", "cursive"],
+      captain: ["capitana", "sans-serif"]
+
     },
     fontWeight: {
       'light': 300,

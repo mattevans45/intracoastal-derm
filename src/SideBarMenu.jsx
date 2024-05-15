@@ -59,10 +59,8 @@ const SidebarMenu = ({ mobileMenuOpen, setMobileMenuOpen, services }) => {
         leave="transition-all transform duration-350"
         leaveFrom="opacity-100 translate-x-0"
         leaveTo="opacity-0 translate-x-[-1200px]"
-
-
       >
-        <div className="fixed top-0 right-0 h-screen z-50 bg-gray-50 mx-auto pl-3 p-2 shadow sm:max-w-sm sm:h-fit sm:ring-1 sm:ring-gray-900/10">
+        <div className="fixed top-0 right-0 w-full h-screen z-50 overflow-x-auto bg-gray-100 mx-auto pl-3 p-2 shadow sm:max-w-sm sm:h-fit sm:ring-1 sm:ring-gray-900/10">
           <div className="mx-5 mb-4  flex items-center justify-between">
             <Link to="/">
               <img
@@ -81,7 +79,7 @@ const SidebarMenu = ({ mobileMenuOpen, setMobileMenuOpen, services }) => {
               <XMarkIcon className="h-6 w-6" aria-hidden="true" />
             </button>
           </div>
-          <div className="w-full rounded-lg mt-1 pb-1 bg-slate-400/10">
+          <div className="w-full rounded-lg mt-1 pb-1 bg-gray-200/50">
             <Disclosure>
               {({ open }) => (
                 <>
@@ -92,7 +90,7 @@ const SidebarMenu = ({ mobileMenuOpen, setMobileMenuOpen, services }) => {
                         Services
                       </span>
                       <ChevronDownIcon
-                        className={`h-6 w-7 bg-gray-100/90 text-gray-900 rounded-lg drop-shadow-sm transition-all duration-300  hover:bg-gray-100 bg-gray-50  hover:ring-1 hover:ring-gray-200 hover:shadow-inner ${
+                        className={`h-6 w-7 bg-gray-200/90 text-gray-900 rounded-lg drop-shadow-sm transition-all duration-300  hover:bg-gray-50 bg-gray-50  hover:ring-1 hover:ring-gray-200 hover:shadow-inner ${
                           open ? "rotate-180" : ""
                         }`}
                         aria-hidden="true"
@@ -110,23 +108,23 @@ const SidebarMenu = ({ mobileMenuOpen, setMobileMenuOpen, services }) => {
                     leaveFrom="opacity-100 translate-y-0"
                     leaveTo="opacity-0 translate-y-[-10px]"
                   >
-                    <Disclosure.Panel className="shadow-xl mt-1 w-full mx-auto flex-col justify-between flex items-center">
+                    <Disclosure.Panel className="mt-1 w-full bg-transparent mx-auto flex-col justify-between flex items-center">
                       {services.map((item) => (
                         <div
                           key={item.name}
-                          className="relative flex items-center w-full gap-x-6 mb-2 rounded-lg px-4 text-sm leading-6 drop-shadow-sm transition-all duration-300 bg-gray-100 hover:bg-gray-100  text-gray-700 hover:ring-1 hover:ring-gray-100 hover:shadow-lg hover:scale-x-105 "
+                          className="relative group flex items-center w-full gap-x-6 my-1 py-1  rounded-lg px-7 text-sm leading-6 drop-shadow-sm transition-all duration-300 bg-gray-100 hover:bg-gray-100  text-gray-700 hover:ring-1 hover:ring-gray-100 hover:shadow-lg hover:scale-x-105 "
                         >
-                          <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
+                          <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-200/5 group-hover:bg-slate-100">
                             <item.icon
                               className="h-6 w-6 text-[#4d4d4d] group-hover:bg-white"
                               aria-hidden="true"
                             />
                           </div>
-                          <div className="flex-1">
+                          <div className="flex-1 p-2 rounded-md hover:bg-slate-200/50">
                             <Link
                               onClick={() => setMobileMenuOpen(false)}
                               to={item.to}
-                              className="block font-semibold text-[#4d4d4d]"
+                              className="prose-sm font-semibold text-[#4d4d4d]"
                             >
                               {item.name}
                               <span className="absolute inset-0" />
@@ -144,7 +142,7 @@ const SidebarMenu = ({ mobileMenuOpen, setMobileMenuOpen, services }) => {
             </Disclosure>
           </div>
 
-          <div className="items-start py-1 rounded-lg w-full bg-gray-100 h-full mb-10 mx-auto flex font-semibold leading-7 text-[#4d4d4d]/9">
+          <div className="items-start py-.5 rounded-lg w-full bg-gray-100 h-full mb-10 mx-auto flex font-semibold leading-7 text-[#4d4d4d]/9">
             <ul className="flex flex-col justify-center items-stretch -my-1 flex-wrap w-full round-lg">
               {menuItems.map((item) => (
                 <li

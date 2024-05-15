@@ -7,6 +7,7 @@ import { MdOutlineVaccines } from "react-icons/md";
 import { GiScalpel, GiSyringe, GiHairStrands } from "react-icons/gi";
 import boardwalk from "./assets/alex-CWwdzVtaGKs-unsplash.jpg";
 import a from "./assets/chantal-JSTvpv0wGKc-unsplash.webp";
+import HeroServices from "./HeroServices";
 
 import image from "./assets/sean.jpg";
 
@@ -22,12 +23,12 @@ const Hero = () => {
             className="absolute h-[480px] w-full rounded-3xl object-cover mix-blend-color shadow-xl blur-[1.2px] brightness-75"
             alt="Background"
           />
-          <div className="relative z-10 mx-auto flex w-full flex-col items-center justify-center py-20 text-center text-white">
-            <h1 className="font-title2 prose pointer-events-none mx-auto cursor-none text-wrap break-words text-gray-800 bg-amber-300/60 bg-clip-text text-center text-white text-4xl font-semibold uppercase text-transparent sm:mt-5 sm:text-6xl md:text-6xl">
-              <span className=" bg-gradient-to-br from-amber-50/50 to-white bg-clip-text">Intracoastal</span>
-              <br />
-              <span className="text-3xl bg-gradient-to-t from-amber-50/50 to-yellow-50 text-white bg-clip-text">Dermatology and Skin Surgery</span>
-            </h1>
+          <div className="relative z-10 p-10 mx-auto text-white">
+            
+              <h1 className="font-title2 text-8xl mx-auto uppercase tracking-widest leading-tight bg-gradient-to-br from-amber-50/50 to-white bg-clip-text">Intracoastal</h1>
+          
+              <h2 className="font-title2 text-5xl uppercase tracking-tight leading-10 bg-gradient-to-t from-amber-50/50 to-yellow-50 text-white bg-clip-text">Dermatology and Skin Surgery</h2>
+  
             <h4 className="font-cursive flex flex-col mt-5 w-48 items-start justify-center font-medium lg:h-18 pointer-events-none mx-auto max-w-96 border-collapse cursor-none rounded border-s-4 border-t-sky-100/90 pb-2 pl-1 pr-2 text-2xl text-white shadow-2xl shadow-white/30  backdrop-blur-xl backdrop-opacity-80 sm:mt-18 md:mt-10  md:text-3xl">
              <span className=" text-yellow-50/90 font-display font-light capitalize left-0">Expert care</span> <span className=" lowercase self-center">for</span> <span className="font-cursive text-5xl font-bold lowercase mx-4 ">healthy</span> <span className="lowercase text-end font-medium self-end">skin.</span> 
             </h4>
@@ -49,9 +50,9 @@ const Hero = () => {
         </div>
       </section>
 
-      {/* <section className="max-w-7xl w-full mx-auto mt-1 px-4 md:px-8 lg:px-12 xl:px-16">
-  <HeroServices></HeroServices>
-</section> */}
+      <section className="max-w-7xl w-full mx-auto mt-1 px-4 md:px-8 lg:px-12 xl:px-16">
+
+</section>
     </>
   );
 };

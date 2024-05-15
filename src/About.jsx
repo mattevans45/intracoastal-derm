@@ -1,55 +1,44 @@
+import headshot from "./assets/DrHarris.webp"
+import family from "./assets/HarrisFamily.webp"
+
+const Image = ({ src, alt, className }) => (
+  <div className="">
+    <img
+      src={src}
+      alt={alt}
+      className={className}
+    />
+  </div>
+);
+
 
 export default function About() {
   return (
+<div className="py-8 mb-1 bg-gray-100">
+  <div className="container px-4 lg:px-8">
+    <header className="text-center">
+      <h2 className="font-display text-3xl lg:text-5xl font-medium text-[#4d4d4d] mb-10">
+        Blair Harris, DO, FAAD
+      </h2>
+    </header>
 
-<div className="md:py-1  mt-4 mb-10 sm:py-8 bg-[#4d4d4d]/1">
-  <div className="container h-full px-6 text-gray-600 md:px-12 xl:px-6">
-    <h2 className="prose-2xl max-w-prose py-8 flex justify-center leading-tight font-bold md:text-4xl">
-      Blair Harris, DO, FAAD
-    </h2>
-    <div className="flex flex-col justify-center md:flex-row md:gap-6 md:items-start">
-      <div className="md:w-1/2 flex flex-wrap mb-10">
-        <img
-          src="https://tailus.io/sources/blocks/left-image/preview/images/startup.png"
-          alt="image"
-          className="w-full object-contain rounded-lg h-auto"
-        />
+    <div className="flex flex-col lg:flex-row lg:gap-8 lg:items-start">
+      <div className="w-full lg:w-1/2">
+        <Image src={headshot} alt="Dr. Blair Harris" className="w-full rounded-lg mb-8 lg:mb-0" />
       </div>
 
-      <div className="max-w-prose prose-xl md:w-1/2">
-        <p className=" text-gray-600">
-              Dr. Blair Harris was born and raised in northern Utah. He
-              graduated from Brigham Young University with a degree in Business
-              Management with an emphasis in finance. After working as a
-              financial analyst at Lockheed Martin in southern California for
-              three years, he decided to pursue his lifelong dream of becoming a
-              doctor. Dr. Harris attended medical school at Pacific Northwest
-              University in Yakima, Washington. While in medical school, he was
-              elected to a position in student government and enjoyed serving
-              his fellow students. His leadership position enabled him to
-              institute multiple organizational changes including implementing
-              mental health resources, student support groups, and financial
-              tracking instruments for the student government organization at
-              PNWU. 
-            </p>
-            <p className="prose-xl max-w-prose mt-6 text-gray-600">
-            Dr. Harris developed a love for dermatology while
-              volunteering as a camp counselor at Camp Discovery, a summer camp
-              for children with dermatologic skin conditions. He completed his
-              internship and residency through Campbell University, his number
-              one choice.
-                 He enjoys all aspects of dermatology, but found
-              special interest in procedural and surgical dermatology, which led
-              him to pursue a fellowship in Mohs Micrographic Surgery. When he’s
-              not working as a dermatologist, you can find Blair spending time
-              with his wife and two daughters, exercising, enjoying the beaches,
-              or doing projects around the house.
-            </p>
-          </div>
-        </div>
+      <div className="w-full lg:w-1/2">
+        <p className="text-[#4d4d4d] max-w-prose prose-lg leading-relaxed">
+          Dr. Blair Harris was born and raised in northern Utah. He graduated from Brigham Young University with a degree in Business Management with an emphasis in finance. After working as a financial analyst at Lockheed Martin in southern California for three years, he decided to pursue his lifelong dream of becoming a doctor. Dr. Harris attended medical school at Pacific Northwest University in Yakima, Washington. While in medical school, he was elected to a position in student government and enjoyed serving his fellow students. His leadership position enabled him to institute multiple organizational changes including implementing mental health resources, student support groups, and financial tracking instruments for the student government organization at PNWU.
+        </p>
+        <Image src={family} alt="Harris Family" className="w-full rounded-lg mt-8" />
+        <p className="text-[#4d4d4d] max-w-prose prose-lg leading-relaxed mt-8">
+          Dr. Harris developed a love for dermatology while volunteering as a camp counselor at Camp Discovery, a summer camp for children with dermatologic skin conditions. He completed his internship and residency through Campbell University, his number one choice. He enjoys all aspects of dermatology, but found special interest in procedural and surgical dermatology, which led him to pursue a fellowship in Mohs Micrographic Surgery. When he’s not working as a dermatologist, you can find Blair spending time with his wife and two daughters, exercising, enjoying the beaches, or doing projects around the house.
+        </p>
       </div>
     </div>
-
+  </div>
+</div>
   );
 }
 
