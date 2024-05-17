@@ -10,9 +10,9 @@ import cream from "./assets/kelsey-curtis-kD9qprR6HBI-unsplash.jpg"
 
 const ServiceCard = ({ icon, title, description, backgroundImage }) => {
     return (
-      <div className="relative rounded-lg overflow-hidden shadow-lg">
-       <div className="absolute mix-blend-darken inset-0 bg-cover bg-center z-0" style={{ backgroundImage: `url(${backgroundImage})`}}>
-          <div className="absolute inset-0 bg-black opacity-50" />
+      <div className="relative rounded-lg  bg-gray-500 bg-opacity-75 overflow-hidden shadow-lg">
+       <div className="absolute inset-0  backdrop-blur-sm mix-blend-multiply  bg-cover bg-center z-0" style={{ backgroundImage: `url(${backgroundImage})`}}>
+   
         </div>
         <div className="relative z-10 p-6 text-white">
           <div className="flex items-center mb-4 text-gray-50">

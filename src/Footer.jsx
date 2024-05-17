@@ -15,7 +15,7 @@ import footerimg from "./assets/erda-estremera-aSFZKeZiHPc-unsplash.jpg"
 
 const Footer = () => {
   return (
-    <footer className="relative   text-white">
+    <footer className="relative font-display leading-normal uppercase text-white">
 
         <div className="absolute inset-0 -z-10 bg-gray-500  mx-auto ">
           
