@@ -53,7 +53,7 @@ const Hero = () => {
         <img
           src={logo}
           loading="lazy"
-          className="will-change-auto rounded-md p-2 object-contain w-full h-full"
+          className="will-change-auto rounded-md p-2 object-contain h-[70dvh]"
           alt="Logo"
         />
       </div>
