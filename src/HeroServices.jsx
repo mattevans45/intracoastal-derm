@@ -8,36 +8,37 @@ import boardwalk from "./assets/alex-CWwdzVtaGKs-unsplash.jpg";
 import image from "./assets/sean.jpg";
 import cream from "./assets/kelsey-curtis-kD9qprR6HBI-unsplash.jpg"
 
-const ServiceCard = ({ icon, title, description, backgroundImage }) => {
+const ServiceCard = ({ icon, title, description, backgroundImage, to }) => {
+    const firstWord = title.split(" ")[0].toLowerCase();
     return (
       <div className="relative rounded-lg flex flex-col justify-between items-start h-72 bg-gray-500 bg-opacity-75 overflow-hidden shadow-2xl">
       <div className="absolute inset-0 h-full backdrop-blur-sm mix-blend-multiply bg-cover bg-center z-0" style={{ backgroundImage: `url(${backgroundImage})` }}>
-        <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-55"></div>
+      <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-55"></div>
       </div>
       <div className="relative z-10 p-6 text-white flex flex-col justify-between w-full h-full">
-        <div>
-          <div className="flex items-center mb-4 text-gray-50">
-            {icon}
-            <h2 className="ml-4 text-xl font-semibold">{title}</h2>
-          </div>
-          <p className="text-gray-300">{description}</p>
+      <div>
+        <div className="flex items-center mb-4 text-gray-50">
+        {icon}
+        <Link to={`services/${firstWord}`} className="ml-4 text-xl font-semibold">{title}</Link>
         </div>
-        <div className="group mt-auto">
-          <Link className="mt-3 inline-flex items-center text-sm font-semibold leading-6 rounded-xl p-2 text-gray-100 group-hover:text-white group-hover:bg-[#30548B] group-hover:transition-all ease-in-out duration-500 group-hover:shadow-lg">
-            Learn More
-            <svg
-              fill="none"
-              stroke="currentColor"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              className="ml-2 h-4 w-4"
-              viewBox="0 0 24 24"
-            >
-              <path d="M5 12h14M12 5l7 7-7 7"></path>
-            </svg>
-          </Link>
-        </div>
+        <p className="text-gray-300">{description}</p>
+      </div>
+      <div className="group mt-auto">
+        <Link to={to} className="mt-3 inline-flex items-center text-sm font-semibold leading-6 rounded-xl p-2 text-gray-100 group-hover:text-white group-hover:bg-[#30548B] group-hover:transition-all ease-in-out duration-500 group-hover:shadow-lg"> 
+        Learn More
+        <svg
+          fill="none"
+          stroke="currentColor"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="2"
+          className="ml-2 h-4 w-4"
+          viewBox="0 0 24 24"
+        >
+          <path d="M5 12h14M12 5l7 7-7 7"></path>
+        </svg>
+        </Link>
+      </div>
       </div>
     </div>
     );
@@ -101,12 +102,14 @@ const HeroServices = () => {
           </svg>
         }
         title="General Dermatology"
+        to = "services/general"
         description="Psoriasis, Atropic Dermatitis, Bullous Diseases, Lichen Planus, Vitiligo, Acne, Rosacea, Skin Cancer Screening, Rash, Growths, Skin Discoloration, and excessive sweating."
         backgroundImage={image}
       />
       <ServiceCard
         icon={<GiSyringe className="h-10 w-10 drop-shadow-2xl text-white" />}
         title="Cosmetic Dermatology"
+        to = "services/cosmetic"
         description="Neuromodulators like Botox, Dermal Filler, and laser-based treatments."
         backgroundImage={cream}
       />
@@ -114,6 +117,7 @@ const HeroServices = () => {
       <ServiceCard
         icon={<GiScalpel className="h-10 w-10 text-white" />}
         title="Surgical Dermatology"
+        to = "services/surgical"
         description="Skin Cancer Removal, Mohs Surgery, Scar Revision, mole removal, and more."
         backgroundImage={boardwalk}
       />

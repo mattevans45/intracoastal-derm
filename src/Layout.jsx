@@ -16,17 +16,14 @@ const Layout = ({ children }) => {
 <>
     <ScrollToTop />
       <Navbar />
-  
       <div className="flex min-h-screen">
       {isServicesPage && (
-        <aside className="flex-none w-fit p-6 bg-gray-100 shadow-lg">
+        <aside className="hidden md:flex md:flex-none md:w-64 p-6 bg-gray-100 shadow-lg">
           <Sidebar />
         </aside>
       )}
       <main className="flex-grow p-6 bg-gray-50">{children}</main>
     </div>
-    
-    
     
       
 
