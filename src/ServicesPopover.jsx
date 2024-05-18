@@ -18,13 +18,13 @@ const services = [
       name: "General Dermatology",
       description:
         "Psoriasis, Atropic Dermatitis, Bullous Diseases, Lichen Planus, Vitiligo, Acne, Rosacea, Skin Cancer Screening, Rash, Growths, Skin discoloration, and excessive sweating.",
-      to: "/services/general-dermatology",
+      to: "/services/general",
       icon: Hair,
     },
     {
       name: "Cosmetic Dermatology",
       description: "Neuromodulators, Dermal Filler, and Lasers.",
-      to: "/services/cosmetic-dermatology",
+      to: "/services/cosmetic",
       icon: MdOutlineVaccines,
     },
   
@@ -32,7 +32,7 @@ const services = [
       name: "Surgical Dermatology",
       description:
         "Skin Cancer Removal, Mohs Surgery, Scar Revision, and Mole Removal.",
-      to: "/services/surgical-dermatology",
+      to: "/services/surgical",
       icon: GiScalpel,
     },
   ];

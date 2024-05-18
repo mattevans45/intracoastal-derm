@@ -41,15 +41,18 @@ const Hero = () => {
     >
       <img
         src={boardwalk}
-        loading="lazy"
+        loading="eager"
+        fetchpriority="high"
+     
+
         className={`w-full h-full object-cover transition-all duration-500 ease-in-out ${
           isScrolled ? 'rounded-2xl' : ''
         }`}
         alt="Background"
       />
     </div>
-    <div className={`relative z-20 flex ${isScrolled ? 'backdrop-blur-0' : 'backdrop-blur-sm'} flex-col items-center justify-center h-full drop-shadow-2xl shadow-2xl`}>
-      <div className={`absolute will-change-auto w-[80%] sm:w-[70%] md:w-[60%] lg:w-[60%] place-self-center z-10 transition-opacity duration-500 ease-in-out ${isScrolled ? 'opacity-0' : 'opacity-100'}`}>
+    <div className={`relative flex ${isScrolled ? ' backdrop-brightness-100 backdrop-blur-0' : 'backdrop-brightness-75 backdrop-blur-[3px]'} flex-col items-center justify-center h-full drop-shadow-2xl shadow-2xl`}>
+      <div className={`absolute z-1 will-change-auto w-[80%] sm:w-[70%] md:w-[60%] lg:w-[50%] h-full transition-opacity duration-500 ease-in-out ${isScrolled ? 'opacity-0' : 'opacity-100'}`}>
         <img
           src={logo}
           loading="lazy"
@@ -57,9 +60,9 @@ const Hero = () => {
           alt="Logo"
         />
       </div>
-      <div className={`bg-black bg-opacity-30 bg-blend-lighten p-4 md:p-8 rounded-3xl shadow-lg transition-opacity duration-500 ease-in-out ${isScrolled ? 'opacity-100' : 'opacity-0'}`}>
-        <div className="relative w-full h-fit">
-          <h1 className="text-center relative font-title2 text-gray-50 text-4xl sm:text-5xl lg:text-6xl mx-auto uppercase tracking-widest leading-tight bg-gradient-to-br from-amber-50/50 to-white bg-clip-text z-10">
+      <div className={`bg-black bg-opacity-30  p-4 md:p-8 rounded-3xl shadow-lg transition-all duration-500 ease-in-out ${isScrolled ? 'opacity-100' : 'opacity-0'}`}>
+        <div className="relative w-full h-fit place-self-center">
+          <h1 className="text-center relative font-title2 text-gray-50 text-4xl sm:text-5xl lg:text-7xl mx-auto uppercase tracking-widest leading-tight bg-gradient-to-br from-amber-50/50 to-white bg-clip-text z-10">
             Intracoastal
           </h1>
         </div>
@@ -79,13 +82,13 @@ const Hero = () => {
         <div className="mt-4 sm:mt-8 flex flex-col items-center gap-y-2 sm:gap-y-4 sm:flex-row sm:justify-center sm:gap-x-4">
           <Link
             to="/schedule-appointment"
-            className="rounded-md bg-[#30648B] px-4 py-2 text-sm sm:text-base font-semibold text-white shadow-sm hover:bg-[#224966]"
+            className="rounded-md bg-[#30648B] px-4 py-2 z-50 text-sm sm:text-base font-semibold text-white shadow-sm hover:bg-[#224966]"
           >
             Schedule an Appointment
           </Link>
           <Link
             to="/intracoastal-derm/schedule-appointment"
-            className="mt-2 sm:mt-0 rounded-md px-4 py-2 text-sm sm:text-base font-semibold leading-6 text-gray-200 hover:bg-slate-50/10"
+            className="mt-2 sm:mt-0 rounded-md px-4 z-50 py-2 text-sm sm:text-base font-semibold leading-6 text-gray-200 hover:bg-slate-50/10"
           >
             Learn more <span aria-hidden="true">→</span>
           </Link>

@@ -15,7 +15,7 @@ import ServicesPopover from "./ServicesPopover.jsx";
 
 import { GiScalpel } from "react-icons/gi";
 import Hair from "./Hair.jsx";
-import SideBar from "./SideBar.jsx";
+import SideBar from "./backupsidebar.jsx";
 
 const services = [
   {

@@ -5,7 +5,7 @@ import Navbar from './Navbar'
 import Footer from './Footer'
 import ContactSection from './ContactSection'
 import Hero from "./Hero"
-import SideBar from './SideBar'
+import SideBar from './backupsidebar'
 import HeroServices from './HeroServices'
 
 

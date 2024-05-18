@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { HashRouter, Router, Route, Routes } from "react-router-dom";
+import { HashRouter, Route, Routes, Navigate } from "react-router-dom";
 import App from "./App.jsx";
 import Location from "./Location.jsx";
 import Contact from "./Contact.jsx";
@@ -8,32 +8,24 @@ import Services from "./Services.jsx";
 import Surgical from "./Surgical.jsx";
 import General from "./General.jsx";
 import Cosmetic from "./Cosmetic.jsx";
-import SideBar from "./SideBar.jsx";
-import Hero from "./Hero.jsx";
 import About from "./About.jsx";
 import Layout from "./Layout.jsx";
 import ScrollToTop from "./ScrollToTop.js";
 import "./index.css";
-
+import ServicesPage from "./ServicesPage.jsx";
+import ServiceDetailPage from "./ServiceDetailPage.jsx";
 const rootElement = document.getElementById("root");
 
 ReactDOM.createRoot(rootElement).render(
   <HashRouter basename="/">
     <ScrollToTop />
-
     <Routes>
       <Route
-    
         path="/"
         element={
-        
-        <>
-           <Layout>
-   
+          <Layout>
             <App />
-    
           </Layout>
-          </>
         }
       />
       <Route
@@ -91,8 +83,28 @@ ReactDOM.createRoot(rootElement).render(
             <About />
           </Layout>
         }
+      
       />
-   
+       <Route
+        path="/services/:categoryId"
+        element={
+          <Layout>
+            <ServicesPage />
+          </Layout>
+        }
+      />
+       <Route
+        path="/services/:categoryId/:serviceId"
+        element={
+          <Layout>
+            <ServiceDetailPage />
+          </Layout>
+        }
+      />
+         <Route
+        path="*"
+        element={<Navigate to="/services/" />}
+      />
     </Routes>
   </HashRouter>
 );

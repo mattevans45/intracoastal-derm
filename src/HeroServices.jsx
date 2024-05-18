@@ -10,18 +10,20 @@ import cream from "./assets/kelsey-curtis-kD9qprR6HBI-unsplash.jpg"
 
 const ServiceCard = ({ icon, title, description, backgroundImage }) => {
     return (
-      <div className="relative rounded-lg  bg-gray-500 bg-opacity-75 overflow-hidden shadow-lg">
-       <div className="absolute inset-0  backdrop-blur-sm mix-blend-multiply  bg-cover bg-center z-0" style={{ backgroundImage: `url(${backgroundImage})`}}>
-   
-        </div>
-        <div className="relative z-10 p-6 text-white">
+      <div className="relative rounded-lg flex flex-col justify-between items-start h-72 bg-gray-500 bg-opacity-75 overflow-hidden shadow-2xl">
+      <div className="absolute inset-0 h-full backdrop-blur-sm mix-blend-multiply bg-cover bg-center z-0" style={{ backgroundImage: `url(${backgroundImage})` }}>
+        <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-55"></div>
+      </div>
+      <div className="relative z-10 p-6 text-white flex flex-col justify-between w-full h-full">
+        <div>
           <div className="flex items-center mb-4 text-gray-50">
             {icon}
             <h2 className="ml-4 text-xl font-semibold">{title}</h2>
           </div>
           <p className="text-gray-300">{description}</p>
-          <div className="mt-4 group">
-          <Link className="mt-3 inline-flex items-center text-sm font-semibold leading-6 rounded-xl p-2 text-gray-100 group-hover:text-white group-hover:bg-[#30548B] group-hover:transition-all ease-in-out duration-500 group-hover:shadow-lg ">
+        </div>
+        <div className="group mt-auto">
+          <Link className="mt-3 inline-flex items-center text-sm font-semibold leading-6 rounded-xl p-2 text-gray-100 group-hover:text-white group-hover:bg-[#30548B] group-hover:transition-all ease-in-out duration-500 group-hover:shadow-lg">
             Learn More
             <svg
               fill="none"
@@ -29,15 +31,15 @@ const ServiceCard = ({ icon, title, description, backgroundImage }) => {
               strokeLinecap="round"
               strokeLinejoin="round"
               strokeWidth="2"
-              className="ml-2 h-4 w-4 "
+              className="ml-2 h-4 w-4"
               viewBox="0 0 24 24"
             >
               <path d="M5 12h14M12 5l7 7-7 7"></path>
             </svg>
           </Link>
-          </div>
         </div>
       </div>
+    </div>
     );
   };
 
@@ -74,7 +76,7 @@ const ServiceCard = ({ icon, title, description, backgroundImage }) => {
 
 const HeroServices = () => {
   return (
-    <section className="font-display leading-relaxed mx-auto mt-8 grid max-w-7xl grid-cols-1 gap-8 md:grid-cols-3">
+    <section className="font-display leading-relaxed mt-auto mx-auto py-10  grid max-w-7xl grid-cols-1 gap-12 md:grid-cols-3">
             <ServiceCard
         icon={
           <svg
