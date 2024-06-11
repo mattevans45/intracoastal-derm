@@ -1,4 +1,3 @@
-// src/pages/ServicesPage.jsx
 import React from "react";
 import { useParams, Link } from "react-router-dom";
 import ServiceCard from "./ServiceCard";
@@ -31,24 +30,21 @@ const servicesData = {
         "Reduces the appearance of wrinkles by temporarily paralyzing muscles.",
     },
     { id: 2, name: "Dermal Fillers", description: "Plump and lift the skin." },
-    {id: 3, name: "Lasers", description: "Lasers."}
+    { id: 3, name: "Lasers", description: "Lasers." }
   ],
   surgical: [
-  
     { id: 2, name: "Skin Biopsy", description: "Diagnose skin conditions." },
     { id: 3, name: "Skin Cancer Removal", description: "Skin Cancer Removal." },
     { id: 4, name: "Mohs Surgery", description: "Mohs Surgery." },
     { id: 5, name: "Scar Revision", description: "Scar Revision." },
     { id: 6, name: "Mole Removal", description: "Mole Removal." },
   ],
-
 };
 
 const categories = [
   { id: "general", name: "General Dermatology" },
   { id: "cosmetic", name: "Cosmetic Dermatology" },
   { id: "surgical", name: "Surgical Dermatology" },
-  // Add more categories here...
 ];
 
 const ServicesPage = () => {
@@ -56,11 +52,15 @@ const ServicesPage = () => {
   const services = servicesData[categoryId] || [];
 
   return (
-    <div className="services-page mx-auto max-w-7xl p-6">
+    <div className="services-page prose-lg font-poppins bg-gray-50 mx-auto max-w-7xl p-6">
       <CategoryList categories={categories} />
-      <div className="services-list  mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="services-list mt-6 prose-md grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {services.map((service) => (
-          <Link key={service.id} to={`/services/${categoryId}/${service.id}`}>
+          <Link
+            key={service.id}
+            to={`/services/${categoryId}/${service.id}`}
+            className="prose-base border border-gray-200 rounded p-4 hover:bg-gray-50 transition duration-150 ease-in-out"
+          >
             <ServiceCard service={service} />
           </Link>
         ))}
@@ -68,4 +68,5 @@ const ServicesPage = () => {
     </div>
   );
 };
+
 export default ServicesPage;

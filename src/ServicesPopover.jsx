@@ -50,10 +50,10 @@ const callsToAction = [
 export default function ServicesPopover() {
     return (
       <>
-        <Popover className="relative  rounded-lg px-2 py-2 text-[#4d4d4d] shadow-gray-400/20  drop-shadow-md transition-all duration-500   ease-in-out group-hover:rounded-lg  hover:border-gray-200 hover:bg-[#30648B]/90 hover:text-white hover:px-2 hover:py-2 focus:outline-none focus-visible:ring focus-visible:ring-gray-500/50 ">
+        <Popover className="relative flex md:text-md lg:text-md  md:flex md:flex-nowrap  md:items-baseline md:justify-center  lg:flex lg:justify-around lg:space-x-1">
             <>
-              <Popover.Button className="group inline-flex items-center  rounded-lg  text-[#4d4d4d] shadow-gray-400/20  ">
-                <span className='group-hover:text-white'>Services</span>
+              <Popover.Button className="group inline-flex gap-x-2 uppercase rounded-lg px-2 py-1.5 text-[#4d4d4d] shadow-gray-400/20  drop-shadow-md transition-all duration-500 focus-within:outline-none   ease-in-out hover:rounded-lg  hover:border-gray-200 hover:bg-[#30648B]/90 hover:text-white hover:px-2 hover:py-2 focus:outline-none focus-visible:ring focus-visible:ring-gray-500/50">
+                  Services
                 <ChevronDownIcon className="h-5 w-5 group-hover:text-white" aria-hidden="true" />
               </Popover.Button>
   
@@ -67,23 +67,23 @@ export default function ServicesPopover() {
                 leaveTo="opacity-0 translate-y-1"
               >
                 
-                <div className="absolute z-50  flex  flex-col ">
+                <div className="absolute shadow-2xl rounded-2xl top-7 left-0 z-50 flex flex-col ">
                   <div className="w-screen max-w-md flex-auto overflow-hidden rounded-3xl bg-white text-sm leading-6 shadow-lg ring-1 ring-gray-900/5">
                     <div className="p-4">
                       {services.map((item) => (
-                        <div key={item.name} className="group relative flex gap-x-6 rounded-lg p-4 hover:bg-gray-50">
-                          <div className="mt-1 flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
+                        <div key={item.name} className="group relative flex items-center justify-start gap-x-6 rounded-lg p-4 shadow-gray-400/20  drop-shadow-md transition-all duration-500 focus-within:outline-none ease-in-out hover:rounded-lg  hover:border-gray-200 hover:bg-[hsla(206,49%,37%,.80)] hover:text-white focus:outline-none focus-visible:ring focus-visible:ring-gray-500/50">
+                          <div className="size-9 rounded-lg bg-gray-50 group-hover:bg-white ">
                             <item.icon
-                              className="h-6 w-6 text-[#4d4d4d] group-hover:text-gray-500"
+                              className="size-8 inline-flex text-[#4d4d4d] group-hover:text-gray-500 "
                               aria-hidden="true"
                             />
                           </div>
                           <div>
-                            <Link  to={item.to} className="font-semibold text-gray-900">
+                            <Link  to={item.to} className="font-semibold text-gray-800 group-hover:text-white">
                               {item.name}
                               <span className="absolute inset-0" />
                             </Link>
-                            <p className="mt-1 text-gray-600">{item.description}</p>
+                            <p className="mt-1 text-gray-600 group-hover:text-white">{item.description}</p>
                           </div>
                         </div>
                       ))}

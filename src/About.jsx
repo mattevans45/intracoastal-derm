@@ -1,5 +1,8 @@
-import headshot from "./assets/DrHarris.webp"
+import { HiMenuAlt3 } from "react-icons/hi";
+import headshot from "./assets/drharrisheadshot.jpg"
 import family from "./assets/HarrisFamily.webp"
+import aadlogo from "./assets/American_Academy_of_Dermatology_logo.svg.png"
+
 
 const Image = ({ src, alt, className }) => (
   <div className="">
@@ -17,10 +20,18 @@ export default function About() {
 <div className="py-8 mb-1 bg-gray-100">
   <div className="container px-4 lg:px-8">
     <header className="text-center">
-      <h2 className="font-display text-3xl lg:text-5xl font-medium text-[#4d4d4d] mb-10">
-        Blair Harris, DO, FAAD
+      <h2 className="font-poppins text-4xl lg:text-6xl font-medium text-[#4d4d4d] mb-2">
+        Dr. Blair Harris, DO, FAAD
       </h2>
+      <h3 className="font-poppins text-xl lg:text-2xl font-medium text-[#4d4d4d] mb-7 ">
+        Board-Certified Dermatologist, Fellowship-Trained Mohs Surgeon
+        <div>
+        <Image src={aadlogo} alt="AAD Logo" className="w-20 mx-auto" />
+      </div>
+      </h3>
+
     </header>
+    
 
     <div className="flex flex-col lg:flex-row lg:gap-8 lg:items-start">
       <div className="w-full lg:w-1/2">
@@ -28,11 +39,11 @@ export default function About() {
       </div>
 
       <div className="w-full lg:w-1/2">
-        <p className="text-[#4d4d4d] max-w-prose prose-lg leading-relaxed">
+        <p className="text-[#4d4d4d] max-w-prose prose-xl prose-neutral leading-relaxed">
           Dr. Blair Harris was born and raised in northern Utah. He graduated from Brigham Young University with a degree in Business Management with an emphasis in finance. After working as a financial analyst at Lockheed Martin in southern California for three years, he decided to pursue his lifelong dream of becoming a doctor. Dr. Harris attended medical school at Pacific Northwest University in Yakima, Washington. While in medical school, he was elected to a position in student government and enjoyed serving his fellow students. His leadership position enabled him to institute multiple organizational changes including implementing mental health resources, student support groups, and financial tracking instruments for the student government organization at PNWU.
         </p>
         <Image src={family} alt="Harris Family" className="w-full rounded-lg mt-8" />
-        <p className="text-[#4d4d4d] max-w-prose prose-lg leading-relaxed mt-8">
+        <p className="text-[#4d4d4d] max-w-prose prose-xl prose-neutral leading-relaxed mt-8">
           Dr. Harris developed a love for dermatology while volunteering as a camp counselor at Camp Discovery, a summer camp for children with dermatologic skin conditions. He completed his internship and residency through Campbell University, his number one choice. He enjoys all aspects of dermatology, but found special interest in procedural and surgical dermatology, which led him to pursue a fellowship in Mohs Micrographic Surgery. When he’s not working as a dermatologist, you can find Blair spending time with his wife and two daughters, exercising, enjoying the beaches, or doing projects around the house.
         </p>
       </div>
@@ -136,3 +147,6 @@ export default function About() {
       </div>
     </div>
   </section> */}
+
+   
+ 

@@ -8,6 +8,7 @@ export default {
     animation: {
       'pulse-slow': 'pulse 4s ease-in-out infinite',
     },
+   
     
     fontFamily: {
       sans: ['Roboto', 'sans-serif'],
@@ -33,6 +34,16 @@ export default {
       center: true,
     },
     extend: {
+      colors: {
+        primary: 'lch(52.2345% 70.0687 264.7059)',
+        secondary: 'lch(67.2475% 83.1374 146.7059)',
+        accent: 'lch(58.2345% 90.0687 264.7059)',
+        neutral: 'lch(20.2345% 20.0687 54.7059)',
+        info: 'lch(60.2345% 50.0687 194.7059)',
+        success: 'lch(70.2345% 60.0687 120.7059)',
+        warning: 'lch(60.2345% 90.0687 84.7059)',
+        error: 'lch(50.2345% 70.0687 14.7059)',
+      },
 
       
     },
