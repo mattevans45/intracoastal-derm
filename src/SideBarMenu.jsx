@@ -47,10 +47,6 @@ const SidebarMenu = ({ mobileMenuOpen, setMobileMenuOpen, services }) => {
   const [servicesOpen, setServicesOpen] = useState(false);
   const toggleServices = () => setServicesOpen(!servicesOpen);
 
-  
-
-
-
   const containerVariants = {
     hidden: { opacity: 0, x: '-100%' },
     visible: { opacity: 1, x: 0 },

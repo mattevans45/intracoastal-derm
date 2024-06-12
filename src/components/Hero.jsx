@@ -58,7 +58,7 @@ const StickyImage = ({ img }) => {
     target: targetRef,
     offset: ["start start", "end start"],
   });
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 0.4]);
+  const scale = useTransform(scrollYProgress, [0, 1], [1, 0.98]);
   const opacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
 
   const imgControls = useAnimation();
@@ -73,15 +73,16 @@ const StickyImage = ({ img }) => {
         backgroundImage: `url(${img})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
-        height: `calc(110dvh - ${IMG_PADDING * 2}px)`,
+        height: `calc(100dvh - ${IMG_PADDING * 2}px)`,
         top: IMG_PADDING,
         scale,
       }}
 
-      transition={{ y: { type: 'spring', stiffness: 300, damping: 30 }, scale: { duration: 0.5 } }}
+      transition={{ scale: { duration: 0.1 } }}
       ref={targetRef}
       initial={{ opacity: 0, scale: 1.1 }}
       animate={imgControls}
+      
       className="sticky z-0 h-full overflow-hidden rounded-xl"
     >
       <motion.div

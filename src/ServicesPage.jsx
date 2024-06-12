@@ -1,5 +1,6 @@
 import React from "react";
 import { useParams, Link } from "react-router-dom";
+import { motion } from 'framer-motion';
 import ServiceCard from "./ServiceCard";
 import CategoryList from "./CategoryList";
 
@@ -25,7 +26,7 @@ const servicesData = {
   cosmetic: [
     {
       id: 1,
-      name: "Botox (onabotulinumtoxinA)",
+      name: "Botox",
       description:
         "Reduces the appearance of wrinkles by temporarily paralyzing muscles.",
     },
@@ -52,20 +53,25 @@ const ServicesPage = () => {
   const services = servicesData[categoryId] || [];
 
   return (
-    <div className="services-page prose-lg font-poppins bg-gray-50 mx-auto max-w-7xl p-6">
+    <motion.div 
+      className="services-page bg-gray-50 mx-auto max-w-7xl p-6"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.6 }}
+    >
       <CategoryList categories={categories} />
-      <div className="services-list mt-6 prose-md grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="services-list mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {services.map((service) => (
           <Link
             key={service.id}
             to={`/services/${categoryId}/${service.id}`}
-            className="prose-base border border-gray-200 rounded p-4 hover:bg-gray-50 transition duration-150 ease-in-out"
+            className="block border border-gray-200 rounded-lg p-4 bg-white shadow-sm hover:bg-gray-100 transition duration-150 ease-in-out"
           >
             <ServiceCard service={service} />
           </Link>
         ))}
       </div>
-    </div>
+    </motion.div>
   );
 };
 

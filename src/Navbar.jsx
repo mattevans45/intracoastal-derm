@@ -121,19 +121,19 @@ const DesktopMenu = () => (
     <ServicesPopover />
     <Link
       to="/location"
-      className="rounded-lg px-2 py-1.5 text-[#4d4d4d] shadow-gray-400/20 drop-shadow-md transition-all duration-500 focus-within:outline-none ease-in-out hover:rounded-lg hover:border-gray-200 hover:bg-[#30648B]/90 hover:text-white hover:px-2 hover:py-2 focus:outline-none focus-visible:ring focus-visible:ring-gray-500/50"
+      className="rounded-lg px-2 py-1.5 text-[#4d4d4d] shadow-gray-400/20 drop-shadow-md transition-all duration-500 focus-within:outline-none ease-in-out hover:rounded-lg hover:border-gray-200 hover:bg-[#30648B]/90 hover:text-white hover:px-2 hover:py-1.5  focus:outline-none focus-visible:ring focus-visible:ring-gray-500/50"
     >
       LOCATION
     </Link>
     <Link
       to="/contact"
-      className="rounded-lg px-2 py-1.5 text-[#4d4d4d] shadow-gray-400/20 drop-shadow-md transition-all duration-500 focus-within:outline-none ease-in-out hover:rounded-lg hover:border-gray-200 hover:bg-[#30648B]/90 hover:text-white hover:px-2 hover:py-2 focus:outline-none focus-visible:ring focus-visible:ring-gray-500/50"
+      className="rounded-lg px-2 py-1.5 text-[#4d4d4d] shadow-gray-400/20 drop-shadow-md transition-all duration-500 focus-within:outline-none ease-in-out hover:rounded-lg hover:border-gray-200 hover:bg-[#30648B]/90 hover:text-white hover:px-2 hover:py-1.5  focus:outline-none focus-visible:ring focus-visible:ring-gray-500/50"
     >
       CONTACT
     </Link>
     <Link
       to="/about"
-      className="rounded-lg px-2 py-1.5 text-[#4d4d4d] shadow-gray-400/20 drop-shadow-md transition-all duration-500 focus-within:outline-none ease-in-out hover:rounded-lg hover:border-gray-200 hover:bg-[#30648B]/90 hover:text-white hover:px-2 hover:py-2 focus:outline-none focus-visible:ring focus-visible:ring-gray-500/50"
+      className="rounded-lg px-2 py-1.5 text-[#4d4d4d] shadow-gray-400/20 drop-shadow-md transition-all duration-500 focus-within:outline-none ease-in-out hover:rounded-lg hover:border-gray-200 hover:bg-[#30648B]/90 hover:text-white hover:px-2 hover:py-1.5 focus:outline-none focus-visible:ring focus-visible:ring-gray-500/50"
     >
       ABOUT
     </Link>

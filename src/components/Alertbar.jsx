@@ -2,7 +2,17 @@ import React from 'react';
 
 const AlertBar = () => {
   return (
-    <div className="alert-bar bg-amber-200/85 text-gray-800 md:text-sm md:p-1 text-center p-2 font-bold fixed top-12 lg:top-8 md:top-8 sm:top-24 w-full shadow-md z-50">
+
+    // <div className="contact-bar bg-[#1a3660d9] text-white h-13 ">
+    //   <address className='text-sm w-full mx-auto sm:w-1/2 leading-tight'>
+    //     📍 509 Olde Waterford Way,
+    //         Suite 103
+    //         Leland, NC 28451  
+    //   </address>
+    //   <a className='border-l-white sm:w-1/2  w-full border-l-2 text-sm text-center prose-xl leading-tight break-before-avoid' href="tel:910-631-0301"><PhoneIcon className='inline-block h-4 w-4' /> (910) 631-0301</a>
+        
+    // </div>
+    <div className="alert-bar bg-amber-200/85 max-h-16 text-center pb-1 sticky top-0 flex md:items-center justify-center items-start gap-x-2 w-full z-50">
       <p className='leading-tight font-display font-normal'>🚧 Site Currently Under Construction. Ask about our new location in Leland, NC and Grand Opening specials! 🚧</p>
     </div>
   );
