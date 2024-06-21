@@ -11,6 +11,18 @@ const Location = () => {
         setMinimized(!minimized);
     };
 
+    const mapVariants = {
+        hidden: { opacity: 0, y: 50 },
+        visible: { opacity: 1, y: 0, transition: { duration: 0.3 } },
+        exit: { opacity: 0, y: 50, transition: { duration: 0.3 } },
+    };
+
+    const detailsVariants = {
+        hidden: { height: 0, opacity: 0 },
+        visible: { height: 'auto', opacity: 1, transition: { duration: 0.3 } },
+        exit: { height: 0, opacity: 0, transition: { duration: 0.3 } },
+    };
+
     return (
         <section className="h-[100dvh] px-4 md:px-10 font-display bg-slate-100 flex flex-col md:flex-row justify-center items-start mx-auto w-full">
             <div className="prose text-center flex flex-col justify-center items-center md:text-left md:mr-10 md:w-1/2">
@@ -25,7 +37,7 @@ const Location = () => {
             <div className="p-4 my-4 md:p-0 flex flex-col justify-center items-center mx-auto md:w-1/2 relative">
                 <h1 className="prose-2xl md:text-3xl text-[#4d4d4d] font-semibold mb-5">Office Location on Map</h1>
                 <div className="w-full h-[20rem] md:h-[40rem] rounded-lg overflow-hidden relative">
-                <iframe
+                    <iframe
                         className="absolute inset-0 w-full h-full border-0 z-0"
                         loading="lazy"
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1649.623264414451!2d-78.0224513612766!3d34.21672311123845!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89aa1932ebadfab9%3A0x2861072cfbf4756!2s509%20Olde%20Waterford%20Way%20STE%20103%2C%20Leland%2C%20NC%2028451!5e0!3m2!1sen!2sus!4v1704332166267!5m2!1sen!2sus"
@@ -35,12 +47,13 @@ const Location = () => {
                         allowFullScreen=""
                     ></iframe>
                     <motion.div
-                        className={`absolute bottom-0 right-0 left-0 w-full py-2 bg-white z-30 flex flex-nowrap items-center justify-between rounded shadow-md transition-all duration-300 ease-in-out ${minimized ? 'md:mx-0 md:hidden' : 'md:w-full md:visible'}`}
-                        initial={{ opacity: 0, y: 50 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.3 }}
+                        className={`absolute bottom-0 right-0 left-0 w-full py-2 bg-white z-30 flex flex-nowrap items-center justify-between rounded shadow-md ${minimized ? 'md:mx-0 md:hidden' : 'md:w-full md:visible'}`}
+                        initial="hidden"
+                        animate="visible"
+                        exit="exit"
+                        variants={mapVariants}
                     >
-                        <h5 className="title-font font-semibold text-center md:text-left transition-all duration-300 ease-in-out text-[#4d4d4d] tracking-widest mx-4">
+                        <h5 className="title-font font-semibold text-center md:text-left text-[#4d4d4d] tracking-widest mx-4">
                             Intracoastal Dermatology
                         </h5>
                         <button
@@ -54,11 +67,11 @@ const Location = () => {
                     <AnimatePresence>
                         {!minimized && (
                             <motion.div
-                                className="bg-white flex z-20 items-start absolute top-0 left-0 right-0 py-6 rounded shadow-md transition-all duration-300 ease-in-out"
-                                initial={{ height: 0, opacity: 0 }}
-                                animate={{ height: 'auto', opacity: 1 }}
-                                exit={{ height: 0, opacity: 0 }}
-                                transition={{ duration: 0.3 }}
+                                className="bg-white flex z-20 items-start absolute top-0 left-0 right-0 py-6 rounded shadow-md"
+                                initial="hidden"
+                                animate="visible"
+                                exit="exit"
+                                variants={detailsVariants}
                             >
                                 <div className="lg:w-1/2 py-2 px-6">
                                     <button

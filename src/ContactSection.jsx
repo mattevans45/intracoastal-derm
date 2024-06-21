@@ -6,7 +6,28 @@ import { LuChevronDown, LuChevronUp, LuChevronUpCircle } from "react-icons/lu";
 const ContactSection = () => {
   const address = "509 Olde Waterford Way Suite 103, Leland, NC 28451";
 
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: ''
+  });
 
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    
+    const { name, email, message } = formData;
+    const subject = encodeURIComponent('Website Contact Form Submission');
+    const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
+    const mailtoUrl = `mailto:intracoastaldermatology@gmail.com?subject=${subject}&body=${body}`;
+    
+    window.location.href = mailtoUrl;
+    setFormData({ name: '', email: '', message: '' });
+  };
   const [minimized, setMinimized] = useState(false);
 
   const toggleMinimize = () => {
@@ -82,6 +103,7 @@ const ContactSection = () => {
             Send us a message to schedule an appointment, consulation, or
             anything else!
           </p>
+          <form onSubmit={handleSubmit}>
           <div className="relative mb-4">
             <label htmlFor="name" className="leading-7 text-sm text-gray-600">
               Name
@@ -90,7 +112,9 @@ const ContactSection = () => {
               type="text"
               id="name"
               name="name"
-              className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+              value={formData.name}
+              onChange={handleChange}
+              className="w-full bg-white rounded border border-gray-300 focus:border-[#30648B] focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
             />
           </div>
           <div className="relative mb-4">
@@ -101,25 +125,27 @@ const ContactSection = () => {
               type="email"
               id="email"
               name="email"
-              className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+              value={formData.email}
+              onChange={handleChange}
+              className="w-full bg-white rounded border border-gray-300 focus:border-[#30648B] focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
             />
           </div>
           <div className="relative mb-4">
-            <label
-              htmlFor="message"
-              className="leading-7 text-sm text-gray-600"
-            >
+            <label htmlFor="message" className="leading-7 text-sm text-gray-600">
               Message
             </label>
             <textarea
               id="message"
               name="message"
-              className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"
+              value={formData.message}
+              onChange={handleChange}
+              className="w-full bg-white rounded border border-gray-300 focus:border-[#30648B] focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"
             ></textarea>
           </div>
-          <button className="text-white bg-[#30648B] border-0 py-2 px-6 focus:outline-none hover:bg-[#30648B]/90 rounded text-lg">
+          <button type="submit" className="text-white bg-[#30648B] border-0 py-2 px-6 focus:outline-none hover:bg-[#30648B]/90 rounded text-lg">
             Send Message
           </button>
+        </form>
           <p className="text-xs text-gray-500 mt-3">Thank you!</p>
         </div>
       </div>

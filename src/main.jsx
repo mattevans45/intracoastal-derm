@@ -14,6 +14,8 @@ import ScrollToTop from "./ScrollToTop.js";
 import "./index.css";
 import ServicesPage from "./ServicesPage.jsx";
 import ServiceDetailPage from "./ServiceDetailPage.jsx";
+import MedicalDisclaimer from "./MedicalDisclaimer.jsx";
+import InsurancesAccepted from "./InsurancesAccepted.jsx";
 const rootElement = document.getElementById("root");
 
 ReactDOM.createRoot(rootElement).render(
@@ -81,6 +83,24 @@ ReactDOM.createRoot(rootElement).render(
         element={
           <Layout>
             <About />
+          </Layout>
+        }
+      
+      />
+            <Route
+        path="/medical-disclaimer"
+        element={
+          <Layout>
+            <MedicalDisclaimer />
+          </Layout>
+        }
+      
+      />
+      <Route
+        path="/insurances-accepted"
+        element={
+          <Layout>
+            <InsurancesAccepted />
           </Layout>
         }
       

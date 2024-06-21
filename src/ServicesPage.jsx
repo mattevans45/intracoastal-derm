@@ -6,8 +6,8 @@ import CategoryList from "./CategoryList";
 
 const servicesData = {
   general: [
-    { id: 1, name: "Psoriasis", description: "Psoriasis" },
-    { id: 2, name: "Atropic Dermatitis", description: "Atropic Dermatitis." },
+    { id: 1, name: "Psoriasis", description: "Psoriasis is a chronic auto-immune skin disorder" },
+    { id: 2, name: "Atropic Dermatitis",  description: "Atopic dermatitis, commonly known as eczema, is a chronic inflammatory skin condition characterized by red, itchy, and inflamed skin"},
     { id: 3, name: "Bullous Diseases", description: "Various blood tests." },
     { id: 4, name: "Lichen Planus", description: "Lichen Planus." },
     { id: 5, name: "Vitiligo", description: "Vitiligo." },

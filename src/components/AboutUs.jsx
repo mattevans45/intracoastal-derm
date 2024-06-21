@@ -31,7 +31,7 @@ const AboutUs = () => {
             <h2 className="mb-4 text-4xl font-bold">
               About Intracoastal Dermatology
             </h2>
-            <p className="text-lg text-gray-700">
+            <p className="prose-lg mx-auto text-gray-700">
               Welcome to Intracoalstal Dermatology. We are dedicated to
               providing the best skin care solutions tailored to your needs. Dr.
               Harris and his team are committed to providing the highest quality

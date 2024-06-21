@@ -1,10 +1,9 @@
-import React from "react";
-import { useEffect, useRef } from "react";
-import { delay, motion, useAnimation, useInView } from "framer-motion";
+import React, { useEffect, useRef } from "react";
+import { motion, useAnimation, useInView } from "framer-motion";
 import { Link } from "react-router-dom";
 import { GiScalpel, GiSyringe } from "react-icons/gi";
 import boardwalk from "./assets/alex-CWwdzVtaGKs-unsplash.jpg";
-import image from "./assets/sean.jpg";
+import cosmeticDerm from "./assets/alexander-krivitskiy-zle2_jp-AUw-unsplash.jpg";
 import cream from "./assets/kelsey-curtis-kD9qprR6HBI-unsplash.jpg";
 import GeneralDermIcon from "./components/Icon";
 
@@ -21,29 +20,33 @@ const containerVariants = {
 
 const cardVariants = {
   hidden: { opacity: 0, y: 72 },
-  visible: { opacity: 1, y: 0, delay:2, transition: { duration: 0.6, ease: "easeOut" } },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: "easeOut" },
+  },
 };
 
 const HeroServices = () => {
   const controls = useAnimation();
   const ref = useRef(null);
-  const inView = useInView(ref, { once: false });
+  const isInView = useInView(ref, { once: true });
 
   useEffect(() => {
-    if (inView) {
+    if (isInView) {
       controls.start("visible");
     }
-  }, [controls, inView]);
+  }, [controls, isInView]);
 
   return (
     <section className="body-font mt-24 text-gray-600">
       <h2 className="mx-auto text-center text-4xl font-bold md:text-5xl">
-        <span className="text-slate-600">Services Offered</span>
+        <span className="text-gray-600">Services Offered</span>
       </h2>
-      <div className="container mx-auto px-5 py-5">
+      <div className="container mx-auto rounded-lg px-5 py-5">
         <motion.div
           ref={ref}
-          className="-m-4 flex flex-wrap"
+          className="flex flex-wrap"
           initial="hidden"
           animate={controls}
           variants={containerVariants}
@@ -64,22 +67,18 @@ const ServiceCard = ({ icon: Icon, title, description, backgroundImage, to }) =>
       whileHover={{ scale: 1.02 }}
       variants={cardVariants}
     >
-      <div className="flex h-full flex-col overflow-hidden rounded-lg border-2 border-gray-200 border-opacity-60 bg-gray-100 shadow-sm">
+      <div className="flex h-full flex-col rounded-lg border-opacity-60 bg-gray-100 shadow-sm">
         <img
           className="w-full object-cover object-center md:h-36 lg:h-48"
           src={backgroundImage}
           alt={title}
         />
         <div className="flex flex-grow flex-col p-6">
-          <div className="mb-3 flex items-center justify-start">
-            <Icon className="h-12 w-12 fill-[#30548B] stroke-[#30548B] text-[#30548B] drop-shadow-2xl" />
-            <h1 className="title-font ml-4 text-lg font-medium text-gray-900">
-              {title}
-            </h1>
+          <div className="mb-3 flex items-center">
+            <Icon className="h-12 w-12 text-[#30548B]" />
+            <h1 className="ml-4 font-display text-xl font-semibold">{title}</h1>
           </div>
-          <p className="mb-3 flex-grow font-captain text-lg leading-relaxed">
-            {description}
-          </p>
+          <p className="mb-3 flex-grow text-lg leading-relaxed">{description}</p>
           <div className="mt-auto">
             <motion.button
               whileHover={{ scale: 1.05 }}
@@ -88,7 +87,7 @@ const ServiceCard = ({ icon: Icon, title, description, backgroundImage, to }) =>
             >
               <Link
                 to={to}
-                className="text-md mt-3 inline-flex items-center rounded-xl bg-[#30548B] p-2 leading-6 text-white duration-500 ease-in-out hover:bg-[#30548B]/90 hover:text-white hover:shadow-lg hover:transition-all"
+                className="text-md mt-3 inline-flex items-center rounded-xl bg-[#30548B] p-2 leading-6 text-white duration-500 ease-in-out hover:bg-[#30548B]/90"
               >
                 Learn More
                 <svg
@@ -125,7 +124,7 @@ const services = [
     title: "Cosmetic Dermatology",
     description:
       "Neuromodulators like Botox, Dermal Filler, and laser-based treatments.",
-    backgroundImage: image,
+    backgroundImage: cosmeticDerm,
     to: "/services/cosmetic",
   },
   {

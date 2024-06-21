@@ -3,8 +3,8 @@ import React from 'react';
 
 const ContactBar = ({className}) => {
   return (
-    <div className="contact-bar bg-[#1a3660d9] text-white h-13 max-h-13 text-center py-1 fixed flex md:items-center   flex-nowrap justify-center items-center gap-x-2 w-full z-50">
-      <address className='text-sm w-full mx-auto sm:w-1/2 leading-tight'>
+    <div className="contact-bar bg-[#1a3660d9] text-white h-13 max-h-13 text-center py-1 flex md:items-center flex-nowrap justify-center items-center gap-x-2 w-full z-50">
+      <address className='font-normal w-full mx-auto sm:w-1/2 leading-tight'>
         📍 509 Olde Waterford Way,
             Suite 103
             Leland, NC 28451  

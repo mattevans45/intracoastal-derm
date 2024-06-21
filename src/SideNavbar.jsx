@@ -50,7 +50,7 @@ const Sidebar = () => {
   const { categoryId } = useParams();
 
   return (
-    <div className="w-1/2 flex-1 p-2 bg-gray-200 rounded-lg shadow-md">
+    <div className="shrink ml-0 mx-auto p-2 font-bold text-md font-poppins bg-gray-200 rounded-lg shadow-md">
       {/* <h2 className="text-lg text-center font-bold mb-4">Services</h2> */}
       <ul className="space-y-4">
         {categories.map(category => (

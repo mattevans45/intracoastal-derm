@@ -5,7 +5,7 @@ const GoogleMap = ({ center, zoom, mapId }) => {
     const [markerRef, marker] = useAdvancedMarkerRef();
 
     return (
-        <APIProvider apiKey="AIzaSyAQitt3NmZldrxsABebqQ_Ble-MsMKEse0">
+        <APIProvider apiKey="secret">
             <Map
                 style={{ width: '100%', height: '100%', marginBottom: '32px'}}
                 center={center}

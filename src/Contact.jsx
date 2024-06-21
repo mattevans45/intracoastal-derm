@@ -12,32 +12,21 @@ const Contact = () => {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-
-    try {
-      const response = await fetch('/api/send-email', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(formData)
-      });
-      if (response.ok) {
-        console.log('Email sent successfully!');
-        setFormData({ name: '', email: '', message: '' });
-      } else {
-        console.error('Failed to send email');
-      }
-    } catch (error) {
-      console.error('Error sending email:', error);
-    }
+    
+    const { name, email, message } = formData;
+    const subject = encodeURIComponent('Website Contact Form Submission');
+    const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
+    const mailtoUrl = `mailto:intracoastaldermatology@gmail.com?subject=${subject}&body=${body}`;
+    
+    window.location.href = mailtoUrl;
+    setFormData({ name: '', email: '', message: '' });
   };
-
 
   return (
     <section className='container max-w-4xl mx-auto p-6 z-10'>
-       <div className="flex justify-center mb-10 lg:flex-row">
+      <div className="flex justify-center mb-10 lg:flex-row">
         <div className="title-font text-center transition-all duration-300 ease-in-out text-gray-900 tracking-widest mx-4">
           <h2 className="font-semibold text-gray-900 tracking-widest text-sm">
             OFFICE ADDRESS
@@ -52,7 +41,7 @@ const Contact = () => {
         <div className="flex flex-col lg:w-1/2 px-6 mt-4 lg:mt-0">
           <h2 className="font-semibold text-gray-900">EMAIL</h2>
           <a
-            href="mailto:example@email.com"
+            href="mailto:intracoastaldermatology@gmail.com"
             className="text-md overflow-y-auto text-[#30648B] leading-tight max-w-full break-all"
           >
             intracoastaldermatology@gmail.com

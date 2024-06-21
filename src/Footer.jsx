@@ -36,11 +36,11 @@ const Footer = () => {
               </Link>
             </li>
             <li className="mb-2">
-              <Link to="/services" className="block hover:underline">
+              <Link to="/services/general" className="block hover:underline">
                 Services
               </Link>
             </li>
-            <li className="mb-2">
+            {/* <li className="mb-2">
               <Link to="/telederm" className="block hover:underline">
                 TeleDerm
               </Link>
@@ -54,7 +54,7 @@ const Footer = () => {
               <Link to="/intracoastal-derm/make-payment/" className="block hover:underline">
                 Make Payment
               </Link>
-            </li>
+            </li> */}
           </ul>
         </div>
         <div className="mx-auto place-items-start justify-items-center z-20">
@@ -63,7 +63,7 @@ const Footer = () => {
           </h2>
           <ul className="bg-transparent font-display font-[500] text-white">
             <li className="mb-2">
-              <Link to="/" className="block flex-grow hover:underline">
+              <Link to="/insurances-accepted" className="block flex-grow hover:underline">
                 Insurance Accepted
               </Link>
             </li>
@@ -75,6 +75,11 @@ const Footer = () => {
             <li className="mb-2">
               <Link to="/" className="block flex-grow hover:underline">
                 Medical Release Form
+              </Link>
+            </li>
+            <li className="mb-2">
+              <Link to="/medical-disclaimer" className="block flex-grow hover:underline">
+                Medical Disclaimer
               </Link>
             </li>
           </ul>

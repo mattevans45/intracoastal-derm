@@ -2,7 +2,9 @@ import React from "react";
 import { useEffect, useRef } from "react";
 import { motion, useAnimation, useInView } from "framer-motion";
 import photo from '../assets/matt-hardy-tt2Oui1hKAM-unsplash.jpg';
+import photo2 from '../assets/mourad-saadi-GyDktTa0Nmw-unsplash.jpg';
 import { PhotoIcon } from '@heroicons/react/24/solid';
+import { LuSmile } from "react-icons/lu";
 
 const containerVariants = {
     hidden: { opacity: 0, y: -72 },
@@ -15,9 +17,8 @@ const containerVariants = {
   };
   
   const testimonials = [
-    { id: 1, name: 'John Doe', content: 'Excellent service! My skin has never looked better.', photo: photo },
-    { id: 2, name: 'Jane Smith', content: 'Highly recommend this office for all your dermatology needs.', photo: PhotoIcon },
-    // Add more testimonials as needed
+    { id: 1, name: 'Matt Evans', content: 'Excellent service! My skin has never looked better.', photo: photo },
+    { id: 2, name: 'Connie Lewis', content: 'Highly recommend this office for all your dermatology needs.', photo: photo2 },
   ];
   
 

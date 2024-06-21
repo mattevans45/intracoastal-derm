@@ -6,8 +6,44 @@ import cream from "./assets/kelsey-curtis-kD9qprR6HBI-unsplash.jpg";
 
 const servicesData = {
   general: [
-    { id: 1, name: "Psoriasis", description: "Psoriasis.", details: "Detailed info about Psoriasis...", photoUrl: cream },
-    { id: 2, name: "Atropic Dermatitis", description: "Atropic Dermatitis.", details: "Detailed info about Atropic Dermatitis...", photoUrl: cream },
+    { id: 1, name: "Psoriasis",
+      description: "Psoriasis is a chronic autoimmune skin disorder characterized by the rapid overproduction of skin cells, leading to the formation of thick, red, and scaly patches.",
+      details: `<p><strong>Overview:</strong> Psoriasis is a chronic autoimmune skin disorder characterized by the rapid overproduction of skin cells, leading to the formation of thick, red, and scaly patches. This condition occurs when the immune system mistakenly targets healthy skin cells, causing an inflammatory response that accelerates the skin cell turnover process. Normally, skin cells mature and shed in about a month, but in psoriasis, this process takes just a few days, resulting in the accumulation of excess skin cells on the surface.</p>
+      
+      <p><strong>Cause:</strong> The exact cause of psoriasis is not fully understood, but genetic and environmental factors are believed to play a role. Triggers such as infections, stress, certain medications, and injuries can exacerbate psoriasis symptoms.</p>
+      
+      <p><strong>Types:</strong> Psoriasis has several types, with plaque psoriasis being the most common. Plaque psoriasis presents as raised, inflamed patches covered with silvery-white scales. Other forms include guttate, inverse, pustular, and erythrodermic psoriasis, each with its own distinctive features.</p>
+      <p><strong>Treatment Approaches:</strong> Treatment for psoriasis aims to alleviate symptoms, reduce inflammation, and slow down excessive skin cell growth. The choice of treatment depends on the severity, type of psoriasis, and individual factors.</p>
+      <ul>
+        <li><strong>Topical Treatments:</strong> Include corticosteroids, topical retinoids, calcineurin inhibitors, phosphodiesterase inhibitor, and aryl hydrocarbon receptor agonist.</li>
+        <li><strong>Phototherapy (Light Therapy):</strong> Exposure to ultraviolet (UV) light can slow down skin cell turnover.</li>
+        <li><strong>Systemic Medications:</strong> Oral or injected medications such as methotrexate, cyclosporine, and acitretin.</li>
+        <li><strong>Biologics:</strong> Target specific parts of the immune system involved in psoriasis development, administered through injections or infusions.</li>
+        <li><strong>Lifestyle and Home Remedies:</strong> Include moisturizing, stress management, and avoiding triggers.</li>
+      </ul>
+      
+      <p><strong>Management:</strong> It's crucial for individuals with psoriasis to work closely with healthcare providers to develop a personalized treatment plan. Regular follow-ups and adjustments may be necessary to effectively manage the condition and improve quality of life.</p>`,
+      photoUrl: cream },
+    { id: 2,   name: "Atopic Dermatitis (Eczema)",
+      description: "Atopic dermatitis, commonly known as eczema, is a chronic inflammatory skin condition characterized by red, itchy, and inflamed skin. It often appears in patches on the face, hands, feet, and other parts of the body. Atopic dermatitis is considered a type of eczema that is closely linked to allergic conditions such as asthma and hay fever.",
+      details: `<p><strong>Overview:</strong> Atopic dermatitis, commonly known as eczema, is a chronic inflammatory skin condition characterized by red, itchy, and inflamed skin. It often appears in patches on the face, hands, feet, and other parts of the body. Atopic dermatitis is considered a type of eczema that is closely linked to allergic conditions such as asthma and hay fever. While it can affect individuals of any age, it is particularly prevalent in children, with symptoms often improving as they grow older.</p>
+      
+      <p><strong>Cause:</strong> The exact cause of atopic dermatitis is not fully understood, but it is believed to involve a combination of genetic, environmental, and immune system factors. People with a family history of atopic dermatitis or other allergic conditions may be more susceptible.</p>
+      
+      <p><strong>Treatment Approaches:</strong> Treatment for atopic dermatitis aims to relieve symptoms, reduce inflammation, and prevent flare-ups. Here are some common approaches:</p>
+      
+      <ul>
+        <li><strong>Topical Corticosteroids:</strong> Anti-inflammatory creams or ointments that help reduce redness and itching. They come in varying strengths and are applied directly to the affected skin. Long-term use may have side effects, so it's important to use them as prescribed.</li>
+        <li><strong>Topical Calcineurin Inhibitors:</strong> Non-steroidal creams or ointments that reduce inflammation and can be used in sensitive areas like the face and neck, often recommended when corticosteroids are not suitable.</li>
+        <li><strong>Emollients/Moisturizers:</strong> Regular use helps keep the skin hydrated, reducing dryness and itching. Emollients are essential in managing atopic dermatitis and are often used alongside other treatments.</li>
+        <li><strong>Antihistamines:</strong> Oral medications that help control itching and improve sleep. Non-drowsy formulations are available for daytime use.</li>
+        <li><strong>Phototherapy (Light Therapy):</strong> Controlled exposure to ultraviolet (UV) light under medical supervision can effectively treat moderate to severe cases.</li>
+        <li><strong>Oral or Topical Antibiotics:</strong> Prescribed in cases of bacterial infection due to scratching and broken skin.</li>
+        <li><strong>Immunosuppressants:</strong> Oral medications for severe cases to modulate the immune response and reduce inflammation, typically used when other treatments are ineffective.</li>
+        <li><strong>Biologics:</strong> Target specific parts of the immune system involved in atopic dermatitis development, administered through injections or infusions.</li>
+      </ul>
+      
+      <p><strong>Management:</strong> Atopic dermatitis varies from person to person. Dr. Harris can tailor a treatment plan based on symptom severity and individual factors. Lifestyle adjustments, such as identifying triggers, maintaining skincare routines, and managing stress, are essential. Regular follow-ups are crucial for monitoring progress and adjusting the treatment plan as needed.</p>`, photoUrl: cream },
     { id: 3, name: "Bullous Diseases", description: "Various blood tests.", details: "Detailed info about Bullous Diseases...", photoUrl: cream },
     { id: 4, name: "Lichen Planus", description: "Lichen Planus.", details: "Detailed info about Lichen Planus...", photoUrl: cream },
     { id: 5, name: "Vitiligo", description: "Vitiligo.", details: "Detailed info about Vitiligo...", photoUrl: cream },

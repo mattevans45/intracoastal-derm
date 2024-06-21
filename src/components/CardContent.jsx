@@ -1,22 +1,41 @@
-import { motion, useTransform, useScroll } from "framer-motion";
+import { motion, useAnimation, useInView } from "framer-motion";
 import { Link } from "react-router-dom";
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
+
+const containerVariants = {
+  hidden: { opacity: 0, y: 250 },
+  visible: { opacity: 1, y: 0, transition: { staggerChildren: 0.2 } },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 152 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeInOut" } },
+};
 
 const CardContent = () => {
-//   const ref = useRef();
-//   const { scrollYProgress } = useScroll({ target: ref });
+  const controls = useAnimation();
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: false });
 
-//   // Define the transformations based on scrollYProgress
-//   const translateY = useTransform(scrollYProgress, [0, 1], [0, -350]);
-//   const opacity = useTransform(scrollYProgress, [0, 1], [0, 1]);
+  useEffect(() => {
+    if (isInView) {
+      controls.start("visible");
+    } else {
+      controls.start("hidden");
+    }
+  }, [controls, isInView]);
 
   return (
-    <div className="flex justify-center items-start w-full mt-14  h-[140dvh]">
-      <div
-        className="card-content flex items-stretch justify-center w-full"
-      >
+    <motion.div
+      ref={ref}
+      animate={controls}
+      initial="hidden"
+      variants={containerVariants}
+      className="flex justify-center items-start w-full mt-14 h-[140vh]"
+    >
+      <motion.div variants={itemVariants} className="card-content flex items-stretch justify-center w-full">
         <div className="rounded-3xl bg-black bg-opacity-40 p-4 shadow-lg md:p-6">
-          <div className="flex w-fit flex-col items-center justify-center rounded-xl bg-white bg-opacity-15 p-6 text-center font-cursive text-lg font-medium text-white shadow-inner sm:w-full sm:text-xl  md:text-2xl lg:text-3xl">
+          <div className="flex w-fit flex-col items-center justify-center rounded-xl bg-white bg-opacity-15 p-6 text-center font-cursive text-lg font-medium text-white shadow-inner sm:w-full sm:text-xl md:text-2xl lg:text-3xl">
             <span className="font-display font-light capitalize tracking-wide text-yellow-50/90">
               Expert care
             </span>
@@ -41,8 +60,8 @@ const CardContent = () => {
             </Link>
           </div>
         </div>
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 };
 
