@@ -62,14 +62,16 @@ const HeroServices = () => {
 
 const ServiceCard = ({ icon: Icon, title, description, backgroundImage, to }) => {
   return (
+    <>
+    
     <motion.div
       className="relative p-4 md:w-1/3"
       whileHover={{ scale: 1.02 }}
       variants={cardVariants}
     >
-      <div className="flex h-full flex-col rounded-lg border-opacity-60 bg-gray-100 shadow-sm">
+      <div className="flex h-full flex-col rounded-3xl border-opacity-60 bg-gray-100 shadow-sm">
         <img
-          className="w-full object-cover object-center md:h-36 lg:h-48"
+          className="w-full object-cover rounded-t-3xl object-center md:h-36 lg:h-48"
           src={backgroundImage}
           alt={title}
         />
@@ -107,6 +109,7 @@ const ServiceCard = ({ icon: Icon, title, description, backgroundImage, to }) =>
         </div>
       </div>
     </motion.div>
+    </>
   );
 };
 

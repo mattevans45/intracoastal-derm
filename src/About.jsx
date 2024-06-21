@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import { HiMenuAlt3 } from "react-icons/hi";
-import headshot from "./assets/drharrisheadshot.jpg";
+import headshot from "./assets/DrHarrisHeadshotFinal.jpg";
 import family from "./assets/HarrisFamily.webp";
 import aadlogo from "./assets/American_Academy_of_Dermatology_logo.svg.png";
+import acms from "./assets/acms-mohs-surgeon.png";
 
 const Image = ({ src, alt, className }) => (
   <div className="">
@@ -26,7 +27,7 @@ export default function About() {
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 50 }}
+      initial={{ opacity: 0, y: 0 }}
       animate={headerControls}
       className="py-8 mb-1 bg-gray-100"
     >
@@ -40,14 +41,16 @@ export default function About() {
             Dr. Blair Harris, DO, FAAD
           </motion.h2>
           <motion.h3
-            initial={{ opacity: 0, y: -50 }}
+            initial={{ opacity: 0, y: -100 }}
             animate={headerControls}
             className="font-poppins text-xl lg:text-2xl font-medium text-[#4d4d4d] mb-7"
           >
             Board-Certified Dermatologist, Fellowship-Trained Mohs Surgeon
-            <div>
+            <div className='flex justify-center gap-x-8'>
               <Image src={aadlogo} alt="AAD Logo" className="w-20 mx-auto" />
+              <Image src={acms} alt = 'ACMS American College of Mohs Surgery' className="w-20 mx-auto" />
             </div>
+            
           </motion.h3>
         </header>
 

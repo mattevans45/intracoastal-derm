@@ -31,34 +31,33 @@ const CardContent = () => {
       animate={controls}
       initial="hidden"
       variants={containerVariants}
-      className="flex justify-center items-start w-full mt-14 h-[140vh]"
+      className="flex justify-center items-center mt-3 w-full h-auto min-h-[40vh] p-4 sm:p-6 md:p-8 lg:p-10"
     >
-      <motion.div variants={itemVariants} className="card-content flex items-stretch justify-center w-full">
-        <div className="rounded-3xl bg-black bg-opacity-40 p-4 shadow-lg md:p-6">
-          <div className="flex w-fit flex-col items-center justify-center rounded-xl bg-white bg-opacity-15 p-6 text-center font-cursive text-lg font-medium text-white shadow-inner sm:w-full sm:text-xl md:text-2xl lg:text-3xl">
-            <span className="font-display font-light capitalize tracking-wide text-yellow-50/90">
-              Expert care
-            </span>
-            <span className="lowercase">for</span>
-            <span className="mx-4 font-cursive text-4xl font-bold lowercase sm:text-5xl">
-              healthy
-            </span>
-            <span className="text-end font-medium lowercase">skin.</span>
-          </div>
-          <div className="mt-4 flex flex-col items-center gap-y-2 sm:mt-8 sm:flex-row sm:justify-center sm:gap-x-4 sm:gap-y-4">
-            <Link
-              to="/schedule-appointment"
-              className="rounded-md bg-[#30648B] px-4 py-2 text-sm font-semibold text-white shadow-sm transition-colors duration-300 hover:bg-[#224966] sm:text-base"
-            >
-              Schedule an Appointment
-            </Link>
-            <Link
-              to="/intracoastal-derm/schedule-appointment"
-              className="mt-2 rounded-md px-4 py-2 text-sm font-semibold leading-6 text-gray-200 transition-colors duration-300 hover:bg-slate-50/10 sm:mt-0 sm:text-base"
-            >
-              Learn more <span aria-hidden="true">→</span>
-            </Link>
-          </div>
+      <motion.div
+        variants={itemVariants}
+        className="flex flex-col bg-black/25 rounded-3xl w-full max-w-lg sm:max-w-md md:max-w-lg p-4 sm:p-6 md:p-8 lg:p-10"
+      >
+        <div className="flex flex-col w-full bg-black backdrop-blur-2xl mix-blend-difference bg-clip-text items-center justify-center rounded-xl p-6 text-center">
+          <span className="font-display font-light text-3xl sm:text-2xl md:text-3xl lg:text-4xl text-slate-50/80">
+            Tailored treatments,
+          </span>
+          <span className="mx-4 font-cursive font-pretty text-3xl sm:text-2xl md:text-3xl lg:text-4xl font-bold lowercase">
+            Timeless results
+          </span>
+        </div>
+        <div className="mt-4 flex flex-col items-center gap-y-2 sm:mt-8 sm:flex-row sm:justify-center sm:gap-x-4 sm:gap-y-4">
+          <Link
+            to="/schedule-appointment"
+            className="rounded-md bg-[#30648B] px-4 py-2 text-sm font-semibold text-white shadow-sm transition-colors duration-300 hover:bg-[#224966] sm:text-base"
+          >
+            Schedule an Appointment
+          </Link>
+          <Link
+            to="/intracoastal-derm/schedule-appointment"
+            className="mt-2 sm:mt-0 rounded-md px-4 py-2 text-sm font-semibold leading-6 text-gray-200 transition-colors duration-300 hover:bg-slate-50/10 sm:text-base"
+          >
+            Learn more <span aria-hidden="true">→</span>
+          </Link>
         </div>
       </motion.div>
     </motion.div>

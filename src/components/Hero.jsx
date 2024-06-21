@@ -9,7 +9,7 @@ import CardContent from './CardContent';
 const IMG_PADDING = 12;
 const OverlayCopy = ({ subheading, heading }) => {
   const { scrollYProgress } = useScroll();
-  const y = useTransform(scrollYProgress, [0, 1], [500, -250]);
+  const y = useTransform(scrollYProgress, [0, 1], [280, -250]);
 
   const logoControls = useAnimation();
   const contentControls = useAnimation();
@@ -24,16 +24,16 @@ const OverlayCopy = ({ subheading, heading }) => {
       style={{ y }}
       exit={{ scale: 0.95 }}
       transition={{ y: { type: 'spring', stiffness: 300, damping: 30 }, scale: { duration: 0.5 }}}
-      className="absolute left-0 top-0 flex h-[80dvh] w-full flex-col justify-center items-center z-10 text-white text-center"
+      className="absolute left-0 top-0 flex h-2 w-full flex-col justify-center items-center z-10 text-white text-center"
     >
       <motion.img
         src={whiteLogo}
         alt="Logo"
-        initial={{ opacity: 0, y: -450 }}
+        initial={{ opacity: 0, y: -150 }}
         animate={logoControls}
-        className="px-6 mb-2 object-cover object-center w-full h-full sm:w-full md:w-full lg:h-80 md:h-64 sm:h-64 text-center text-xl md:mb-4 md:text-3xl"
+        className="px-6 mb-2 object-cover object-center w-full sm:w-full md:w-full lg:h-80 md:h-64 sm:h-64 text-center text-xl md:mb-4 md:text-3xl"
       />
-      <motion.div initial={{ opacity: 0, y: 50 }} animate={contentControls}>
+      <motion.div initial={{ opacity: 0, y: 0 }} animate={contentControls}>
         <CardContent />
       </motion.div>
     </motion.div>
@@ -43,7 +43,7 @@ const OverlayCopy = ({ subheading, heading }) => {
 const TextParallaxContent = ({ img, subheading, heading, children }) => {
   return (
     <div style={{ paddingLeft: IMG_PADDING, paddingRight: IMG_PADDING }}>
-      <div className="relative hero-image bg-inherit h-[100dvh]">
+      <div className="relative hero-image bg-inherit  my-auto">
         <StickyImage img={img} />
         <OverlayCopy heading={heading} subheading={subheading} />
       </div>

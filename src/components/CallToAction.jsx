@@ -13,7 +13,7 @@ const CallToAction = ({ className }) => {
   return (
     <motion.div
     className="card-content absolute bottom-0 flex items-center justify-center w-full"
-      initial={{ opacity: 0, y: 400 }}
+      initial={{ opacity: 0, y: 0 }}
       animate={{
         opacity: opacity,
         y: translateY,
