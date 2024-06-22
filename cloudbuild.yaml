@@ -1,0 +1,9 @@
+steps:
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'gcr.io/symmetric-hull-427018-q6/intracoastal-derm-app:latest', '.']
+
+images:
+- 'gcr.io/$PROJECT_ID/my-react-app:latest'
+
+options:
+  logging: CLOUD_LOGGING_ONLY
