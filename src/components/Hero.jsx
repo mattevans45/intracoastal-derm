@@ -31,7 +31,7 @@ const OverlayCopy = ({ subheading, heading }) => {
         alt="Logo"
         initial={{ opacity: 0, y: -150 }}
         animate={logoControls}
-        className="px-6 mb-2 object-cover object-center w-full sm:w-full md:w-full lg:h-80 md:h-64 sm:h-64 text-center text-xl md:mb-4 md:text-3xl"
+        className="px-6 mb-2 object-cover object-center mt-24 w-full sm:w-full md:w-full lg:h-80 md:h-64 sm:h-64 text-center text-xl md:mb-4 md:text-3xl"
       />
       <motion.div initial={{ opacity: 0, y: 0 }} animate={contentControls}>
         <CardContent />
