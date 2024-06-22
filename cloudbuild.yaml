@@ -7,6 +7,4 @@ images:
 
 options:
   logging: CLOUD_LOGGING_ONLY
-
-# Specify the region for the build
-region: us-east1
+  defaultLogsBucketBehavior: REGIONAL_USER_OWNED_BUCKET
