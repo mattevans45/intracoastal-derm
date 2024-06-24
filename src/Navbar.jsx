@@ -44,7 +44,7 @@ const Navbar = () => {
   const toggleMobileMenu = () => setMobileMenuOpen(prevState => !prevState);
 
   return (
-    <div className={!mobileMenuOpen ? "sticky top-0 z-40 mx-auto flex flex-col bg-white/90 backdrop-saturate-125 backdrop-blur-[2.5px]" : " z-40 sticky top-0 mx-auto flex flex-col bg-white/90 bg-clip-text mix-blend-normal"}>
+    <div className={!mobileMenuOpen ? "sticky w-full top-0 z-40 mx-auto flex flex-col bg-white/80 backdrop-saturate-125 backdrop-blur-[2.5px]" : " z-40 sticky top-0 mx-auto flex flex-col bg-white/90 bg-clip-text mix-blend-normal"}>
       <AlertBar />
       <ContactBar />
       <motion.header

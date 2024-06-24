@@ -40,15 +40,17 @@ const MeetTheTeam = () => {
   }, [controls, isInView]);
 
   return (
+    <div className="container mx-auto">
+  
     <motion.section
       animate={controls}
       variants={containerVariants}
       ref={ref}
-      className="bg-white py-16"
+      className="bg-white rounded-xl mx-4 py-16"
     >
 
-      <div className="container mx-auto px-6">
-        <h2 className="mb-8 text-center text-4xl font-bold">Meet Our Team</h2>
+      <div className="">
+        <h2 className="mb-8 text-gray-600 text-center text-4xl font-bold">Meet Our Team</h2>
         <motion.div
           variants={containerVariants}
           className="flex flex-wrap justify-center"
@@ -73,6 +75,7 @@ const MeetTheTeam = () => {
         </motion.div>
       </div>
     </motion.section>
+    </div>
   );
 };
 

@@ -27,7 +27,6 @@ const Contact = () => {
 
   return (
     <section className='container max-w-4xl mx-auto p-6 z-10'>
-      <CardContent />
       <div className="flex justify-center mb-10 lg:flex-row">
         <div className="title-font text-center transition-all duration-300 ease-in-out text-gray-900 tracking-widest mx-4">
           <h2 className="font-semibold text-gray-900 tracking-widest text-sm">

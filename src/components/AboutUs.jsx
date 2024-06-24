@@ -1,16 +1,15 @@
-import React from "react";
-import { useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { motion, useAnimation, useInView } from "framer-motion";
 
 const containerVariants = {
-  hidden: { opacity: 0, y: -450 },
-  visible: { opacity: 1, y: 0, transition: { staggerChildren: 0.2 } },
+  hidden: { opacity: 0, y: -50 },
+  visible: { opacity: 1, y: 0, transition: { duration: 1, staggerChildren: 0.2 } },
 };
 
 const AboutUs = () => {
   const controls = useAnimation();
   const ref = useRef(null);
-  const inView = useInView(ref, { once: false });
+  const inView = useInView(ref, { once: true });
 
   useEffect(() => {
     if (inView) {
@@ -19,30 +18,41 @@ const AboutUs = () => {
   }, [controls, inView]);
 
   return (
-    <div ref={ref}>
-      <motion.section
+    <div ref={ref} className="mx-auto container rounded-lg">
+      <motion.div
         initial="hidden"
         animate={controls}
         variants={containerVariants}
-        className="body-font mt-24 text-gray-600"
+        className="mx-5 py-5 text-gray-600"
       >
-        <section className="bg-gray-100 py-16 shadow-sm backdrop-blur-0">
-          <div className="container mx-auto px-6 text-center">
-            <h2 className="mb-4 text-4xl font-bold">
-              About Intracoastal Dermatology
-            </h2>
-            <p className="prose-lg mx-auto text-gray-700">
-              Welcome to Intracoalstal Dermatology. We are dedicated to
-              providing the best skin care solutions tailored to your needs. Dr.
-              Harris and his team are committed to providing the highest quality
-              of care to our patients. We offer a wide range of services to help
-              you achieve healthy, beautiful skin. Our team of experts is here
-              to help you look and feel your best. Contact us today to schedule
-              an appointment. We look forward to meeting you!
-            </p>
+
+
+        <motion.section
+          variants={containerVariants}
+          className="bg-white py-10 shadow-sm rounded-xl"
+        >
+                  <motion.h2
+          variants={containerVariants}
+          className="text-4xl  rounded-xl text-center py-2 mb-10 bg-white  text-gray-600 font-bold"
+        >
+          About Intracoastal Dermatology
+        </motion.h2>
+          <div className="rounded-xl px-6 text-center">
+            <motion.span
+              variants={containerVariants}
+              className="text-pretty leading-relaxed text-gray-700"
+            >
+              Welcome to Intracoastal Dermatology. We are dedicated to providing the best skin care solutions tailored to your needs.
+              <p className="mt-1">
+                Dr. Harris and his team are committed to providing the highest quality of care to our patients. We offer a wide range of services to help you achieve healthy, beautiful skin.
+              </p>
+              <p>
+                Our team of experts is here to help you look and feel your best. Contact us today to schedule an appointment. We look forward to meeting you!
+              </p>
+            </motion.span>
           </div>
-        </section>
-      </motion.section>
+        </motion.section>
+      </motion.div>
     </div>
   );
 };

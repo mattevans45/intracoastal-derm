@@ -42,11 +42,12 @@ const services = [
         ref={ref}
         animate={controls}
         variants={containerVariants}
-        className="body-font mt-24 text-gray-600"
+        className="body-font mx-auto text-gray-600 container"
       >
-        <section className="py-16 bg-white">
-          <div className="container mx-auto px-6">
-            <h2 className="text-4xl font-bold text-center mb-8">Our Services</h2>
+       
+        <section className="mx-4 mt-4 py-14 rounded-xl bg-white">
+          <div className="px-6">
+          <h2 className="text-4xl font-bold text-gray-600 text-center mb-12 mx-3 ">Our Services</h2>
             <motion.div className="flex flex-wrap justify-center" variants={containerVariants}>
               {services.map((service) => (
                 <motion.div

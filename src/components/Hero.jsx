@@ -1,112 +1,180 @@
-import React, { useRef, useEffect } from 'react';
-import { useScroll, useTransform, useAnimation, motion } from 'framer-motion';
-import beachpier from "../assets/vecteezy_stairs-to-the-beach_1759830.jpeg";
-import logo from "../assets/white-transparent-nameonly.png";
-
+import React, { useRef, useEffect, useState } from 'react';
+import { useScroll, useTransform, useAnimation, motion, useInView, calcLength} from 'framer-motion';
+import FontSwitcher from './FontSwitcher';
+import smallwave from "../assets/smallwave.jpg";
+import background2 from "../assets/heroback1.jpg";
+import background3 from "../assets/heroback2.jpg";
+import background4 from "../assets/heroback3.jpg";
 import whiteLogo from '../assets/white-transparent-nameonly.png';
 import CardContent from './CardContent';
 
-const IMG_PADDING = 12;
-const OverlayCopy = ({ subheading, heading }) => {
-  const { scrollYProgress } = useScroll();
-  const y = useTransform(scrollYProgress, [0, 1], [280, -250]);
+// const IMG_PADDING = 12;
 
+// const OverlayCopy = ({ subheading, heading }) => {
+//   const { scrollYProgress } = useScroll();
+//   const y = useTransform(scrollYProgress, [0, 1], [280, -250]);
+
+//   const logoControls = useAnimation();
+//   const contentControls = useAnimation();
+
+//   useEffect(() => {
+//     logoControls.start({ opacity: 1, y: 0, transition: { duration: 1, delay: 0.5 } });
+//     contentControls.start({ opacity: 1, y: 0, transition: { duration: 1, delay: 1 } });
+//   }, [logoControls, contentControls]);
+
+//   return (
+//     <motion.div
+//       style={{ y }}
+//       exit={{ scale: 0.95 }}
+//       transition={{ y: { type: 'spring', stiffness: 300, damping: 30 }, scale: { duration: 0.5 } }}
+//       className="absolute inset-0 flex h-full w-full flex-col justify-center items-center z-10 text-white text-center"
+//     >
+//       <motion.img
+//         src={whiteLogo}
+//         alt="Logo"
+//         initial={{ opacity: 0, y: -50 }}
+//         animate={logoControls}
+//         className="object-cover object-center w-1/3 md:w-1/4 lg:w-1/5"
+//       />
+//       <motion.div initial={{ opacity: 0, y: 20 }} animate={contentControls} className="mt-4">
+//         <CardContent />
+//       </motion.div>
+//     </motion.div>
+//   );
+// };
+
+// const StickyImage = ({ img }) => {
+//   const targetRef = useRef(null);
+//   const { scrollYProgress } = useScroll({
+//     target: targetRef,
+//     offset: ["start start", "end start"],
+//   });
+//   const scale = useTransform(scrollYProgress, [0, 1], [1, 0.98]);
+//   const opacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
+
+//   const imgControls = useAnimation();
+
+//   useEffect(() => {
+//     imgControls.start({ opacity: 1, scale: 1, transition: { duration: 1 } });
+//   }, [imgControls]);
+
+//   return (
+//     <motion.div
+//       style={{
+//         backgroundImage: `url(${img})`,
+//         backgroundSize: 'cover',
+//         backgroundPosition: 'center',
+//         height: `calc(100vh - ${IMG_PADDING * 2}px)`,
+//         width: '100%',
+//         scale,
+//       }}
+//       transition={{ scale: { duration: 0.1 } }}
+//       ref={targetRef}
+//       initial={{ opacity: 0, scale: 1.1 }}
+//       animate={imgControls}
+//       className="sticky top-0 z-0 h-full"
+//     />
+//   );
+// };
+
+// const TextParallaxContent = ({ img, subheading, heading, children }) => {
+//   return (
+//     <div className="relative w-screen h-screen">
+//       <StickyImage img={img} />
+//       <OverlayCopy heading={heading} subheading={subheading} />
+//       {children}
+//     </div>
+//   );
+// };
+
+const Hero = () => {
   const logoControls = useAnimation();
   const contentControls = useAnimation();
+  const ref = useRef(null);
+  const [selectedFont, setSelectedFont] = useState('font-sans');
+  const [selectedWeight, setSelectedWeight] = useState('400'); // Initial font weight
+  const [selectedCasing, setSelectedCasing] = useState('normal'); // Initial font casing
 
-  useEffect(() => {
-    logoControls.start({ opacity: 1, y: 0, transition: { duration: 1, delay: 0.5 } });
-    contentControls.start({ opacity: 1, y: 0, transition: { duration: 1, delay: 1 } });
-  }, [logoControls, contentControls]);
-
-  return (
-    <motion.div
-      style={{ y }}
-      exit={{ scale: 0.95 }}
-      transition={{ y: { type: 'spring', stiffness: 300, damping: 30 }, scale: { duration: 0.5 }}}
-      className="absolute left-0 top-0 flex h-2 w-full flex-col justify-center items-center z-10 text-white text-center"
-    >
-      <motion.img
-        src={whiteLogo}
-        alt="Logo"
-        initial={{ opacity: 0, y: -150 }}
-        animate={logoControls}
-        className="px-6 mb-2 object-cover object-center mt-24 w-full sm:w-full md:w-full lg:h-80 md:h-64 sm:h-64 text-center text-xl md:mb-4 md:text-3xl"
-      />
-      <motion.div initial={{ opacity: 0, y: 0 }} animate={contentControls}>
-        <CardContent />
-      </motion.div>
-    </motion.div>
-  );
-};
-
-const TextParallaxContent = ({ img, subheading, heading, children }) => {
-  return (
-    <div style={{ paddingLeft: IMG_PADDING, paddingRight: IMG_PADDING }}>
-      <div className="relative hero-image bg-inherit  my-auto">
-        <StickyImage img={img} />
-        <OverlayCopy heading={heading} subheading={subheading} />
-      </div>
-      {children}
-    </div>
-  );
-};
-
-const StickyImage = ({ img }) => {
+  const isInView = useInView(ref, { amount: 0.1 });
   const targetRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: targetRef,
     offset: ["start start", "end start"],
   });
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 0.98]);
+
+  const y = useTransform(scrollYProgress, [0, 1], [1, 0]);
   const opacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
 
-  const imgControls = useAnimation();
+  const backgroundImages = [
+   `url(${smallwave})`,
+ `url(${background2})`,
+`url(${background3})`,
+`url(${background4})`,
+
+  ];
+  const [currentBackgroundIndex, setCurrentBackgroundIndex] = useState(0);
 
   useEffect(() => {
-    imgControls.start({ opacity: 1, scale: 1, transition: { duration: 1 } });
-  }, [imgControls]);
+    const interval = setInterval(() => {
+      setCurrentBackgroundIndex((prevIndex) => (prevIndex + 1) % backgroundImages.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [backgroundImages.length]);
+
+
+  useEffect(() => {
+    logoControls.start({ opacity: 1, y: 0, transition: { duration: 1, delay: 0.5 } });
+  }, [logoControls]);
+
+  useEffect(() => {
+    if (isInView) {
+      contentControls.start({ opacity: 1, y: 0, transition: { duration: 1, delay: 0.5 } });
+    }
+  }, [isInView, contentControls]);
 
   return (
-    <motion.div
+
+    <div ref={ref} className={`${selectedFont} relative z-10 h-screen bg-cover bg-center bg-no-repeat bg-fixed`} 
       style={{
-        backgroundImage: `url(${img})`,
+        backgroundImage: backgroundImages[currentBackgroundIndex],
         backgroundSize: 'cover',
         backgroundPosition: 'center',
-        height: `calc(100dvh - ${IMG_PADDING * 2}px)`,
-        top: IMG_PADDING,
-        scale,
+        height: `calc(100dvh - ${-20 * 2}px)`,
+        width: '100%',
       }}
-
-      transition={{ scale: { duration: 0.1 } }}
-      ref={targetRef}
-      initial={{ opacity: 0, scale: 1.1 }}
-      animate={imgControls}
-      
-      className="sticky z-0 h-full overflow-hidden rounded-xl"
     >
-      <motion.div
-        className="absolute inset-0 bg-gray-400 backdrop-blur-[1px] mix-blend-multiply z-10"
-        style={{ opacity }}
+        <FontSwitcher
+        selectedFont={selectedFont}
+        setSelectedFont={setSelectedFont}
+        selectedWeight={selectedWeight}
+        setSelectedWeight={setSelectedWeight}
+        selectedCasing={selectedCasing}
+        setSelectedCasing={setSelectedCasing}
       />
-    </motion.div>
-  );
-};
-
-const Hero = () => {
-  return (
-    <div className="bg-inherit container">
-      <TextParallaxContent
-        img={beachpier}
-        subheading="Intracoastal"
-        heading="Dermatology"
-      >
-      </TextParallaxContent>
+      <div className="inline-flex mt-40 items-start justify-center h-full">
+        <motion.img
+          src={whiteLogo}
+          alt="Logo"
+          className="w-fit h-fit object-cover mx-auto p-4 md:p-4 sm:p-3 lg:p-20"
+          transition={{ y: { duration: 0.4 } }}
+          ref={targetRef}
+          initial={{ opacity: 0, y: -150 }}
+          animate={logoControls}
+          style={{ y}}
+       
+        />
+      </div>
+      <div className="absolute lg:bottom-20 sm:bottom-36 md:bottom-30 bottom-36 h-fit w-full text-white z-0 flex justify-center">
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={contentControls}
+          transition={{ duration: 1 }}
+        >
+          <CardContent />
+        </motion.div>
+      </div>
     </div>
   );
 };
 
 export default Hero;
-
-
-

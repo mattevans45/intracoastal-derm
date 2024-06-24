@@ -54,18 +54,18 @@ const ServicesPage = () => {
 
   return (
     <motion.div 
-      className="services-page bg-gray-50 mx-auto max-w-7xl p-6"
+      className="services-page container bg-gray-50 mx-auto max-w-7xl p-6"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.6 }}
     >
       <CategoryList categories={categories} />
-      <div className="services-list mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="services-list mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-flow-row lg:items-start">
         {services.map((service) => (
           <Link
             key={service.id}
             to={`/services/${categoryId}/${service.id}`}
-            className="block border border-gray-200 rounded-lg p-4 bg-white shadow-sm hover:bg-gray-100 transition duration-150 ease-in-out"
+            className="block border border-gray-400 rounded-lg p-4 bg-white shadow-sm hover:bg-gray-100 transition duration-150 ease-in-out"
           >
             <ServiceCard service={service} />
           </Link>

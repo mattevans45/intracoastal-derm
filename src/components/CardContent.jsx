@@ -37,11 +37,11 @@ const CardContent = () => {
         variants={itemVariants}
         className="flex flex-col bg-black/25 rounded-3xl w-full max-w-lg sm:max-w-md md:max-w-lg p-4 sm:p-6 md:p-8 lg:p-10"
       >
-        <div className="flex flex-col w-full bg-black backdrop-blur-2xl mix-blend-difference bg-clip-text items-center justify-center rounded-xl p-6 text-center">
-          <span className="font-display font-light text-3xl sm:text-2xl md:text-3xl lg:text-4xl text-slate-50/80">
+        <div className="font-playfair font-300 flex flex-col w-full bg-black backdrop-blur-2xl mix-blend-difference bg-clip-text items-center justify-center rounded-xl p-6 text-center">
+          <span className="text-3xl sm:text-2xl font-light  md:text-3xl lg:text-4xl ">
             Tailored treatments,
           </span>
-          <span className="mx-4 font-cursive font-pretty text-3xl sm:text-2xl md:text-3xl lg:text-4xl font-bold lowercase">
+          <span className="mx-4 uppercase font-light font-pretty text-3xl sm:text-2xl md:text-3xl lg:text-4xl">
             Timeless results
           </span>
         </div>

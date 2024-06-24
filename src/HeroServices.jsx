@@ -39,7 +39,7 @@ const HeroServices = () => {
   }, [controls, isInView]);
 
   return (
-    <section className="body-font mt-24 text-gray-600">
+    <section className="body-font mx-auto mt-24">
       <h2 className="mx-auto text-center text-4xl font-bold md:text-5xl">
         <span className="text-gray-600">Services Offered</span>
       </h2>

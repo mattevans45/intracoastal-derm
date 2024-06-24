@@ -99,14 +99,15 @@ const ServiceDetailPage = () => {
           currentServiceId={serviceId}
         />
       </div>
-      <div className="md:col-span-3 sm:col-span-1 service-detail-page prose prose-fuchsia max-w-prose font-poppins bg-white rounded-lg shadow-md p-4">
+      <div className="md:col-span-2 sm:col-span-1 flex flex-col justify-center items-center service-detail-page text-pretty prose-base font-poppins bg-white rounded-lg shadow-md p-4">
         <Breadcrumb categories={categories} />
+        <img src={service.photoUrl} alt={service.name} className="inline-flex w-40 rounded-lg shadow-md mb-4" />
         <h2 className="text-3xl mt-5 mb-2 font-bold">{service.name}</h2>
         <p className="text-gray-700 mb-6">{service.description}</p>
         <div className="text-gray-800 space-y-4" dangerouslySetInnerHTML={{ __html: service.details }}></div>
       </div>
       <div>
-        <img src={service.photoUrl} alt={service.name} className="rounded-lg shadow-md w-full h-auto mb-4" />
+       
         <button onClick={() => navigate(-1)} className="text-md inline-flex items-center rounded-xl bg-[#30548B] p-2 leading-6 text-white duration-500 ease-in-out hover:bg-[#30548B]/90 hover:text-white hover:shadow-lg hover:transition-all">
           &larr; Back
         </button>

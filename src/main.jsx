@@ -126,5 +126,6 @@ ReactDOM.createRoot(rootElement).render(
         element={<Navigate to="/services/" />}
       />
     </Routes>
+
   </HashRouter>
 );

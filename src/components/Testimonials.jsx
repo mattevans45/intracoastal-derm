@@ -46,10 +46,10 @@ const containerVariants = {
         ref={ref}
         animate={controls}
         variants={containerVariants}
-        className="body-font text-gray-600"
+        className="body-font container mx-auto mb-10  text-gray-600"
       >
-      <section className="py-14 bg-gray-100">
-        <div className="container mx-auto px-6 text-center">
+      <section className="py-14 rounded-xl mx-4 mt-10 bg-gray-100">
+        <div className="mx-auto px-6 text-center">
           <h2 className="text-4xl font-captain font-bold mb-8">What Our Patients Say</h2>
           <motion.div className="flex flex-wrap justify-center" ref={ref} variants={containerVariants}>
             {testimonials.map((testimonial) => (

@@ -48,7 +48,7 @@ export default function About() {
             Board-Certified Dermatologist, Fellowship-Trained Mohs Surgeon
             <div className='flex justify-center gap-x-8'>
               <Image src={aadlogo} alt="AAD Logo" className="w-20 mx-auto" />
-              <Image src={acms} alt = 'ACMS American College of Mohs Surgery' className="w-20 mx-auto" />
+              {/* <Image src={acms} alt = 'ACMS American College of Mohs Surgery' className="w-20 mx-auto" /> */}
             </div>
             
           </motion.h3>
