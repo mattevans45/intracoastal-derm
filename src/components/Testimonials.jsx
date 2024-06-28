@@ -50,14 +50,14 @@ const containerVariants = {
       >
       <section className="py-14 rounded-xl mx-4 mt-10 bg-gray-100">
         <div className="mx-auto px-6 text-center">
-          <h2 className="text-4xl font-captain font-bold mb-8">What Our Patients Say</h2>
+          <h2 className="text-4xl font-Playfair font-bold mb-8">What Our Patients Say</h2>
           <motion.div className="flex flex-wrap justify-center" ref={ref} variants={containerVariants}>
             {testimonials.map((testimonial) => (
               <motion.div variants={itemVariants} key={testimonial.id} className="w-full md:w-1/2 lg:w-1/3 p-4">
                 <div className="bg-white rounded-lg p-6 shadow-lg">
                   <img src={testimonial.photo} alt={testimonial.name} className="w-16 h-16 rounded-full mx-auto mb-4" />
-                  <p className="text-lg italic font-poppins mb-4">"{testimonial.content}"</p>
-                  <p className="text-sm font-poppins font-bold">{testimonial.name}</p>
+                  <p className="text-lg italic font-Playfair  mb-4">"{testimonial.content}"</p>
+                  <p className="text-sm font-Playfair  font-bold">{testimonial.name}</p>
                 </div>
               </motion.div>
             ))}

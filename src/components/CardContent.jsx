@@ -31,18 +31,18 @@ const CardContent = () => {
       animate={controls}
       initial="hidden"
       variants={containerVariants}
-      className="flex justify-center items-center mt-3 w-full h-auto min-h-[40vh] p-4 sm:p-6 md:p-8 lg:p-10"
+      className="flex justify-center items-center w-full h-auto min-h-[40vh] p-4 sm:p-6 md:p-8 lg:p-10"
     >
       <motion.div
         variants={itemVariants}
-        className="flex flex-col bg-black/25 rounded-3xl w-full max-w-lg sm:max-w-md md:max-w-lg p-4 sm:p-6 md:p-8 lg:p-10"
+        className="flex flex-col bg-black/25 text-white backdrop-blur-sm rounded-3xl w-full max-w-lg sm:max-w-md md:max-w-lg p-4 sm:p-6 md:p-8 lg:p-10"
       >
-        <div className="font-playfair font-300 flex flex-col w-full bg-black backdrop-blur-2xl mix-blend-difference bg-clip-text items-center justify-center rounded-xl p-6 text-center">
-          <span className="text-3xl sm:text-2xl font-light  md:text-3xl lg:text-4xl ">
+        <div className="font-Playfair capitalize flex z-10 text-white flex-col w-full backdrop-opacity-75 backdrop-blur-xl items-center justify-center rounded-xl p-6 text-center">
+          <span className="text-3xl text-white sm:text-2xl font-400 md:text-3xl lg:text-4xl">
             Tailored treatments,
           </span>
-          <span className="mx-4 uppercase font-light font-pretty text-3xl sm:text-2xl md:text-3xl lg:text-4xl">
-            Timeless results
+          <span className="mx-4  text-white font-pretty font-400 text-3xl sm:text-2xl md:text-3xl lg:text-4xl">
+            Timeless results.
           </span>
         </div>
         <div className="mt-4 flex flex-col items-center gap-y-2 sm:mt-8 sm:flex-row sm:justify-center sm:gap-x-4 sm:gap-y-4">
@@ -54,7 +54,7 @@ const CardContent = () => {
           </Link>
           <Link
             to="/intracoastal-derm/schedule-appointment"
-            className="mt-2 sm:mt-0 rounded-md px-4 py-2 text-sm font-semibold leading-6 text-gray-200 transition-colors duration-300 hover:bg-slate-50/10 sm:text-base"
+            className="mt-2 sm:mt-0 rounded-md px-4 py-2 text-sm font-semibold leading-6 text-white transition-colors duration-300 hover:bg-slate-50/10 sm:text-base"
           >
             Learn more <span aria-hidden="true">→</span>
           </Link>

@@ -60,7 +60,7 @@ const ServicesPage = () => {
       transition={{ duration: 0.6 }}
     >
       <CategoryList categories={categories} />
-      <div className="services-list mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-flow-row lg:items-start">
+      <div className="services-list mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-1 lg:grid-flow-row lg:items-start">
         {services.map((service) => (
           <Link
             key={service.id}

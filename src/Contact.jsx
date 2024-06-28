@@ -53,7 +53,20 @@ const Contact = () => {
           <p className="leading-relaxed">(910) 631-0301</p>
         </div>
       </div>
-      <div className="justify-center rounded-lg p-4 bg-white flex flex-col mx-10">
+          
+      <div className="flex flex-col justify-center items-center min-h-screen mt-10 rounded-lg bg-white p-2">
+         <h2 className="mb-8 text-gray-600 text-center text-4xl font-bold">Appointment Form</h2>
+  <div className="w-full max-w-4xl  bg-white rounded-lg shadow-lg">
+    <iframe
+      src="https://docs.google.com/forms/d/e/1FAIpQLScUZCOgPHXlIyHcbbIIInU8Ud6PeUqt_3h-pxqk2_LTXihmtA/viewform?embedded=true"
+      className="w-full h-screen rounded-lg"
+    >
+      Loading…
+    </iframe>
+  </div>
+</div>
+
+      <div className="justify-center rounded-lg p-4 mt-10 bg-white flex flex-col mx-10">
         <h2 className="text-gray-900 text-lg mb-1 font-medium title-font">
           Contact
         </h2>
@@ -106,6 +119,7 @@ const Contact = () => {
         </form>
         <p className="text-xs text-gray-500 mt-3">Thank you!</p>
       </div>
+      
     </section>
   );
 };

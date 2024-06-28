@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { LuChevronDown, LuChevronUp } from "react-icons/lu";
 import { motion, AnimatePresence } from 'framer-motion';
-import GoogleMap from './components/GoogleMap'; // Import the GoogleMap component
+
 
 const Location = () => {
     const address = "509 Olde Waterford Way Suite 103, Leland, NC 28451";
@@ -24,7 +24,9 @@ const Location = () => {
     };
 
     return (
-        <section className="h-[100dvh] px-4 md:px-10 font-display bg-slate-100 flex flex-col md:flex-row justify-center items-start mx-auto w-full">
+        <>
+      
+        <section className="h-full px-4 md:px-10 font-display bg-slate-100 flex flex-col justify-center items-center mx-auto w-full pt-10">
             <div className="prose text-center flex flex-col justify-center items-center md:text-left md:mr-10 md:w-1/2">
                 <h1 className="prose-2xl md:text-3xl text-[#4d4d4d] text-center font-semibold mt-5">Office Location</h1>
                 <address className="mt-2 text-[#4d4d4d]">
@@ -110,6 +112,8 @@ const Location = () => {
                 </div>
             </div>
         </section>
+        </>
+
     );
 };
 

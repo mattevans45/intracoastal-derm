@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { ChevronDownIcon, PhoneIcon, QuestionMarkCircleIcon } from '@heroicons/react/20/solid';
+import { ChevronDownIcon, CalendarIcon, QuestionMarkCircleIcon } from '@heroicons/react/20/solid';
 import { Link } from 'react-router-dom';
 import { MdOutlineVaccines } from "react-icons/md";
 import { GiScalpel } from "react-icons/gi";
@@ -29,8 +29,8 @@ const services = [
 ];
 
 const callsToAction = [
-  { name: 'Learn More', href: '#', icon: QuestionMarkCircleIcon },
-  { name: 'Contact sales', href: '#', icon: PhoneIcon },
+  { name: 'Learn More', href: '/services', icon: QuestionMarkCircleIcon },
+  { name: 'Schedule an Appointment', href: '/schedule-appointment', icon: CalendarIcon },
 ];
 
 const menuVariants = {
@@ -59,7 +59,7 @@ export default function ServicesPopover() {
     <motion.div initial="hidden"
     animate="visible"
     variants={menuVariants}
-    ref={popoverRef} className="relative flex sm:hidden md:text-md lg:text-md md:flex md:flex-nowrap md:items-baseline md:justify-center lg:flex lg:justify-around lg:space-x-1">
+    ref={popoverRef} className="relative z-40 flex sm:hidden md:text-md lg:text-md md:flex md:flex-nowrap md:items-baseline md:justify-center lg:flex lg:justify-around lg:space-x-1">
       <div className="group inline-flex gap-x-2 uppercase rounded-lg px-2 py-1.5 text-[#4d4d4d] shadow-gray-400/20 drop-shadow-md transition-all duration-500 focus-within:outline-none ease-in-out hover:rounded-lg hover:border-gray-200 hover:bg-[#30648B]/90 hover:text-white hover:px-2 hover:py-1.5 focus:outline-none focus-visible:ring focus-visible:ring-gray-500/50"
         onClick={() => setIsOpen(!isOpen)}>
         <span>Services</span>

@@ -46,6 +46,7 @@ const HeroServices = () => {
       <div className="container mx-auto rounded-lg px-5 py-5">
         <motion.div
           ref={ref}
+          loading="lazy"
           className="flex flex-wrap"
           initial="hidden"
           animate={controls}

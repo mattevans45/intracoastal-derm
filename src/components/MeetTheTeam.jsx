@@ -20,7 +20,7 @@ const itemVariants = {
 const teamMembers = [
   {
     id: 1,
-    name: "Dr. Blair Harris (DO, FAAD)",
+    name: "Dr. Blair Harris DO, FAAD",
     role: "Board-Certified Dermatologist, Fellowship-Trained Mohs Surgeon",
     photo: headshot,
   },

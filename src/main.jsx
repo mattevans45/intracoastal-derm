@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { HashRouter, Route, Routes, Navigate } from "react-router-dom";
+import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import App from "./App.jsx";
 import Location from "./Location.jsx";
 import Contact from "./Contact.jsx";
@@ -9,123 +9,127 @@ import Surgical from "./Surgical.jsx";
 import General from "./General.jsx";
 import Cosmetic from "./Cosmetic.jsx";
 import About from "./About.jsx";
-import Layout from "./Layout.jsx";
-import ScrollToTop from "./ScrollToTop.js";
+import MainLayout from "./MainLayout.jsx";
+import ScrollToTop from "./ScrollToTop.jsx";
 import "./index.css";
 import ServicesPage from "./ServicesPage.jsx";
 import ServiceDetailPage from "./ServiceDetailPage.jsx";
 import MedicalDisclaimer from "./MedicalDisclaimer.jsx";
 import InsurancesAccepted from "./InsurancesAccepted.jsx";
+import ServicesLayout from "./ServicesLayout.jsx";
+import ScheduleAppointment from "./ScheduleAppointment.jsx";
+
 const rootElement = document.getElementById("root");
 
 ReactDOM.createRoot(rootElement).render(
-  <HashRouter basename="/">
+  <BrowserRouter>
     <ScrollToTop />
     <Routes>
       <Route
         path="/"
         element={
-          <Layout>
+          <MainLayout>
             <App />
-          </Layout>
+          </MainLayout>
         }
       />
       <Route
         path="/location"
         element={
-          <Layout>
+          <MainLayout>
             <Location />
-          </Layout>
+          </MainLayout>
+        }
+      />
+            <Route
+        path="/schedule-appointment"
+        element={
+          <MainLayout>
+            <ScheduleAppointment />
+          </MainLayout>
         }
       />
       <Route
         path="/contact"
         element={
-          <Layout>
+          <MainLayout>
             <Contact />
-          </Layout>
+          </MainLayout>
         }
       />
       <Route
         path="/services"
         element={
-          <Layout>
+          <ServicesLayout>
             <Services />
-          </Layout>
+          </ServicesLayout>
         }
       />
       <Route
         path="/services/general-dermatology"
         element={
-          <Layout>
+          <ServicesLayout>
             <General />
-          </Layout>
+          </ServicesLayout>
         }
       />
       <Route
         path="/services/cosmetic-dermatology"
         element={
-          <Layout>
+          <ServicesLayout>
             <Cosmetic />
-          </Layout>
+          </ServicesLayout>
         }
       />
       <Route
         path="/services/surgical-dermatology"
         element={
-          <Layout>
+          <ServicesLayout>
             <Surgical />
-          </Layout>
+          </ServicesLayout>
         }
       />
       <Route
         path="/about"
         element={
-          <Layout>
+          <MainLayout>
             <About />
-          </Layout>
+          </MainLayout>
         }
-      
       />
-            <Route
+      <Route
         path="/medical-disclaimer"
         element={
-          <Layout>
+          <MainLayout>
             <MedicalDisclaimer />
-          </Layout>
+          </MainLayout>
         }
-      
       />
       <Route
         path="/insurances-accepted"
         element={
-          <Layout>
+          <MainLayout>
             <InsurancesAccepted />
-          </Layout>
+          </MainLayout>
         }
-      
       />
-       <Route
+      <Route
         path="/services/:categoryId"
         element={
-          <Layout>
+          <ServicesLayout>
             <ServicesPage />
-          </Layout>
+          </ServicesLayout>
         }
       />
-       <Route
+      <Route
         path="/services/:categoryId/:serviceId"
         element={
-          <Layout>
+          <ServicesLayout>
             <ServiceDetailPage />
-          </Layout>
+          </ServicesLayout>
         }
       />
-         <Route
-        path="*"
-        element={<Navigate to="/services/" />}
-      />
+      <Route path="*" element={<Navigate to="/services/" />} />
     </Routes>
-
-  </HashRouter>
+  </BrowserRouter>
 );

@@ -1,11 +1,11 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import AlertBar from "./components/Alertbar.jsx";
 import ContactBar from "./components/ContactBar.jsx";
 
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import { Bars3Icon } from "@heroicons/react/24/outline";
 
 import { MdOutlineVaccines } from "react-icons/md";
-import { Link, Navigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import SidebarMenu from "./SideBarMenu";
 import LOGO from "./assets/bestlogoupdated.webp";
 import ServicesPopover from "./ServicesPopover.jsx";
@@ -41,10 +41,19 @@ const services = [
 
 const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const toggleMobileMenu = () => setMobileMenuOpen(prevState => !prevState);
+  const sidebarRef = useRef(null);
+
+  const toggleMobileMenu = () => setMobileMenuOpen((prevState) => !prevState);
+
 
   return (
-    <div className={!mobileMenuOpen ? "sticky w-full top-0 z-40 mx-auto flex flex-col bg-white/80 backdrop-saturate-125 backdrop-blur-[2.5px]" : " z-40 sticky top-0 mx-auto flex flex-col bg-white/90 bg-clip-text mix-blend-normal"}>
+    <div
+      className={
+        !mobileMenuOpen
+          ? "backdrop-saturate-125 sticky top-0 z-40 mx-auto flex w-full flex-col bg-white/80 backdrop-blur-[2.5px]"
+          : "sticky top-0 z-40 mx-auto flex flex-col bg-white/90 bg-clip-text mix-blend-normal"
+      }
+    >
       <AlertBar />
       <ContactBar />
       <motion.header
@@ -60,7 +69,7 @@ const Navbar = () => {
         >
           <Link to="/">
             <img
-              className="relative z-40 mx-auto max-w-44 object-center sm:max-h-40 sm:max-w-40 md:max-h-40 md:max-w-40 lg:max-h-48 lg:max-w-48"
+              className="relative z-40 mx-auto max-w-44 sm:max-h-40 sm:max-w-40 md:max-h-40 md:max-w-40 lg:max-h-48 lg:max-w-48"
               src={LOGO}
               alt="Intracoastal Dermatology Logo"
             />
@@ -88,19 +97,20 @@ const Navbar = () => {
         {mobileMenuOpen && (
           <motion.div
             initial={{ x: "100%" }}
-            animate={{ x: 0 }}
-            exit={{ x: "100%" }}
+            animate={{ x: 0, opacity: 1 }}
+            exit={{ x: "100%", opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-50 w-full bg-black bg-opacity-55"
-            
+            className="fixed top-0 right-0 overflow-y-auto h-screen z-50 w-full p-3 bg-gray-200/65 rounded-lg shadow-lg backdrop-blur-md"
+            ref={sidebarRef}
           >
-            <MenuToggle toggle={toggleMobileMenu} />
-
             <SidebarMenu
+              toggle={toggleMobileMenu}
               mobileMenuOpen={mobileMenuOpen}
               setMobileMenuOpen={setMobileMenuOpen}
               services={services}
-            />
+            >
+              <MenuToggle></MenuToggle>
+            </SidebarMenu>
           </motion.div>
         )}
       </AnimatePresence>
@@ -109,7 +119,7 @@ const Navbar = () => {
 };
 
 const DesktopMenu = () => (
-  <div className="md:text-md lg:text-md hidden font-display font-semibold md:flex md:justify-evenly lg:flex lg:justify-center lg:space-x-1">
+  <div className="md:text-md lg:text-md hidden font-display font-500 md:flex md:justify-evenly lg:flex lg:justify-center lg:space-x-1">
     <ServicesPopover />
     <Link
       to="/location"
@@ -129,29 +139,14 @@ const DesktopMenu = () => (
     >
       ABOUT
     </Link>
-  </div>
-);
-
-const UtilityLinks = () => (
-  <div className="md:text-md lg:text-md hidden w-fit font-display font-semibold md:flex md:flex-wrap md:items-baseline md:justify-center lg:flex lg:justify-center lg:space-x-1">
-    <Link
-      to="/patient-portal"
-      className="lg:text-md min-w-fit rounded-lg border-2 border-[#4d4d4d] border-opacity-5 bg-[#30648B]/5 px-1.5 py-1 text-center  text-[#4d4d4d] shadow-gray-400/20 transition-all duration-500  ease-in-out hover:rounded-lg hover:bg-[#30648B]/90 hover:text-white hover:drop-shadow-md focus:outline-none focus-visible:ring focus-visible:ring-gray-500/50"
-    >
-      PATIENT PORTAL
-    </Link>
-    <Link
-      to="/payment"
-      className="lg:text-md min-w-fit rounded-lg border-2 border-[#4d4d4d] border-opacity-5 bg-[#30648B]/5 px-1.5 py-1 text-center  text-[#4d4d4d] shadow-gray-400/20 transition-all duration-500  ease-in-out hover:rounded-lg hover:bg-[#30648B]/90 hover:text-white hover:drop-shadow-md focus:outline-none focus-visible:ring focus-visible:ring-gray-500/50"
-    >
-      MAKE PAYMENT
-    </Link>
-    <Link
-      to="/telederm"
-      className="lg:text-md min-w-fit rounded-lg border-2 border-[#4d4d4d] border-opacity-5 bg-[#30648B]/5 px-1.5 py-1 text-center  text-[#4d4d4d] shadow-gray-400/20 transition-all duration-500  ease-in-out hover:rounded-lg hover:bg-[#30648B]/90 hover:text-white hover:drop-shadow-md focus:outline-none focus-visible:ring focus-visible:ring-gray-500/50"
-    >
-      TELEDERM
-    </Link>
+    <div className="inline-flex pl-20 pr-20 gap-20">
+      <Link
+        to="/schedule-appointment"
+        className="lg:text-md lg:space-x-20 space-x-5 uppercase rounded-lg border-2 border-[#4d4d4d] border-opacity-5 bg-[#30648B]/5 px-1.5 py-1 text-center text-[#4d4d4d] shadow-gray-400/20 transition-all duration-500 ease-in-out hover:rounded-lg hover:bg-[#30648B]/90 hover:text-white hover:drop-shadow-md focus:outline-none focus-visible:ring focus-visible:ring-gray-500/50"
+      >
+        Schedule an Appointment
+      </Link>
+    </div>
   </div>
 );
 

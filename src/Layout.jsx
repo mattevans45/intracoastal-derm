@@ -6,7 +6,7 @@ import { Content } from './Content.jsx';
 import AlertBar from './components/Alertbar.jsx';
 import ContactBar from './components/ContactBar.jsx';
 import { useLocation } from 'react-router-dom';
-import ScrollToTop from './ScrollToTop.js';
+import ScrollToTop from './ScrollToTop.jsx';
 import AboutUs from './components/AboutUs.jsx';
 
 const Layout = ({ children }) => {
@@ -27,7 +27,7 @@ const Layout = ({ children }) => {
           </main>
         </div>
       ) : (
-        <div className="mx-auto">
+        <div className="max-w-screen-2xl mx-auto my-auto min-h-screen">
           {children}
         </div>
       )}
