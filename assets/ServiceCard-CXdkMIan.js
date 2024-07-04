@@ -1,0 +1,1 @@
+import{j as s}from"./index-DK2AxGTb.js";const t=({className:r,service:e})=>s.jsxs("div",{className:`service-card bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"${r}`,children:[s.jsx("h3",{className:"text-xl font-semibold mb-2",children:e.name}),s.jsx("p",{className:"text-gray-600",children:e.description})]});export{t as S};
