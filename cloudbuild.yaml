@@ -1,10 +1,25 @@
 steps:
+# Build the container image
 - name: 'gcr.io/cloud-builders/docker'
   args: ['build', '-t', 'gcr.io/symmetric-hull-427018-q6/intracoastal-derm-app:latest', '.']
-
+# Push the container image to Container Registry
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['push', 'gcr.io/'gcr.io/symmetric-hull-427018-q6/intracoastal-derm-app:latest']
+# Deploy container image to Cloud Run
+- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+  entrypoint: gcloud
+  args: ['run', 'deploy', 'intracoastal-derm-app', '--image', 'gcr.io/symmetric-hull-427018-q6/intracoastal-derm-app:latest', '--region', 'us-east1']
 images:
-- 'gcr.io/symmetric-hull-427018-q6/intracoastal-derm-app:latest'
+- gcr.io/'gcr.io/symmetric-hull-427018-q6/intracoastal-derm-app:latest'
 
-options:
-  logging: CLOUD_LOGGING_ONLY
-  defaultLogsBucketBehavior: REGIONAL_USER_OWNED_BUCKET
+
+# steps:
+# - name: 'gcr.io/cloud-builders/docker'
+#   args: ['build', '-t', 'gcr.io/symmetric-hull-427018-q6/intracoastal-derm-app:latest', '.']
+
+# images:
+# - 'gcr.io/symmetric-hull-427018-q6/intracoastal-derm-app:latest'
+
+# options:
+#   logging: CLOUD_LOGGING_ONLY
+#   defaultLogsBucketBehavior: REGIONAL_USER_OWNED_BUCKET
