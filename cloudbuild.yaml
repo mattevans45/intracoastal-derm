@@ -1,27 +1,24 @@
 steps:
-# Build the container image
-- name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'gcr.io/symmetric-hull-427018-q6/intracoastal-derm-app:latest', '.']
-# Push the container image to Container Registry
-- name: 'gcr.io/cloud-builders/docker'
-  args: ['push', 'gcr.io/symmetric-hull-427018-q6/intracoastal-derm-app:latest']
-# Deploy container image to Cloud Run
-- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
-  entrypoint: gcloud
-  args: ['run', 'deploy', 'intracoastal-derm-app', '--image', 'gcr.io/symmetric-hull-427018-q6/intracoastal-derm-app:latest', '--region', 'us-east1']
+  # Build the container image
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', 'gcr.io/symmetric-hull-427018-q6/intracoastal-derm-app', '.']
+  
+  # Tag the container image
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['tag', 'gcr.io/symmetric-hull-427018-q6/intracoastal-derm-app', 'gcr.io/symmetric-hull-427018-q6/intracoastal-derm-app:latest']
+  
+  # Push the container image to Container Registry
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 'gcr.io/symmetric-hull-427018-q6/intracoastal-derm-app:latest']
+  
+  # Deploy container image to Cloud Run
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: gcloud
+    args: ['run', 'deploy', 'intracoastal-derm-app', '--image', 'gcr.io/symmetric-hull-427018-q6/intracoastal-derm-app:latest', '--region', 'us-east1', '--platform', 'managed']
+
 images:
-- gcr.io/'gcr.io/symmetric-hull-427018-q6/intracoastal-derm-app:latest'
+  - 'gcr.io/symmetric-hull-427018-q6/intracoastal-derm-app:latest'
+
 options:
   logging: CLOUD_LOGGING_ONLY
   defaultLogsBucketBehavior: REGIONAL_USER_OWNED_BUCKET
-
-# steps:
-# - name: 'gcr.io/cloud-builders/docker'
-#   args: ['build', '-t', 'gcr.io/symmetric-hull-427018-q6/intracoastal-derm-app:latest', '.']
-
-# images:
-# - 'gcr.io/symmetric-hull-427018-q6/intracoastal-derm-app:latest'
-
-# options:
-#   logging: CLOUD_LOGGING_ONLY
-#   defaultLogsBucketBehavior: REGIONAL_USER_OWNED_BUCKET
