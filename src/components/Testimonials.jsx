@@ -1,10 +1,9 @@
 import React from "react";
 import { useEffect, useRef } from "react";
 import { motion, useAnimation, useInView } from "framer-motion";
-import photo from '../assets/matt-hardy-tt2Oui1hKAM-unsplash.jpg';
-import photo2 from '../assets/mourad-saadi-GyDktTa0Nmw-unsplash.jpg';
-import { PhotoIcon } from '@heroicons/react/24/solid';
-import { LuSmile } from "react-icons/lu";
+import photo from '../assets/images/optimizations/matt-hardy-tt2Oui1hKAM-unsplash.webp';
+import photo2 from '../assets/images/optimizations/mourad-saadi-GyDktTa0Nmw-unsplash.webp';
+
 
 const containerVariants = {
     hidden: { opacity: 0, y: -72 },

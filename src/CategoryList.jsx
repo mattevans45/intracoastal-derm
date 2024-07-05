@@ -2,16 +2,22 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/20/solid';
+import slugify from './slugify'; // Import your slugify function
 
 const CategoryList = ({ categories, currentCategoryId, currentServiceId }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const currentCategory = categories.find(category => category.id === currentCategoryId);
 
+  const toggleDropdown = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
-    <div className="mx-auto w-fit container">
+    <div className="md:hidden relative mx-auto w-fit container">
       <button 
-        onClick={() => setIsOpen(!isOpen)} 
+        onClick={toggleDropdown}
+        aria-expanded={isOpen}
         className="flex items-center justify-between w-full px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-colors duration-300"
       >
         <span>{currentCategory ? currentCategory.name : 'Select Category'}</span>
@@ -29,8 +35,8 @@ const CategoryList = ({ categories, currentCategoryId, currentServiceId }) => {
             {categories.map(category => (
               <div key={category.id}>
                 <Link
-                 onClick={() => setIsOpen(!isOpen)} 
                   to={`/services/${category.id}`}
+                  onClick={toggleDropdown}
                   className={`inline-flex px-4 py-2 mt-1 bg-white text-gray-700 rounded-lg border border-gray-200 hover:bg-gray-100 transition-colors duration-300 ${
                     category.id === currentCategoryId ? 'font-bold' : ''
                   }`}
@@ -41,11 +47,11 @@ const CategoryList = ({ categories, currentCategoryId, currentServiceId }) => {
                   <div className="pl-4 mt-1">
                     {category.services.map(service => (
                       <Link
-                      onClick={() => setIsOpen(!isOpen)} 
                         key={service.id}
-                        to={`/services/${category.id}/${service.id}`}
+                        to={`/services/${category.id}/${slugify(service.name)}`} // Use slugify for generating service slugs
+                        onClick={toggleDropdown}
                         className={`block px-4 py-2 mt-1 bg-white text-gray-700 rounded-lg border border-gray-200 hover:bg-gray-100 transition-colors duration-300 ${
-                          service.id.toString() === currentServiceId ? 'font-bold' : ''
+                          slugify(service.name) === currentServiceId ? 'font-bold' : ''
                         }`}
                       >
                         {service.name}

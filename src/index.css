@@ -1,186 +1,109 @@
-@import url('https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Amatic+SC&family=Poiret+One&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Grandiflora+One&display=swap');
+/* Font Imports */
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300..700;1,300..700&family=Inter:wght@100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
-:root {
-  --color-primary: lch(52.2345% 70.0687 264.7059);
-  --color-secondary: lch(67.2475% 83.1374 146.7059);
-  --color-accent: lch(58.2345% 90.0687 264.7059);
-  --color-neutral: lch(20.2345% 20.0687 54.7059);
-  --color-info: lch(60.2345% 50.0687 194.7059);
-  --color-success: lch(70.2345% 60.0687 120.7059);
-  --color-warning: lch(60.2345% 90.0687 84.7059);
-  --color-error: lch(50.2345% 70.0687 14.7059);
-  --color-primary: #646cff;
-  --color-secondary: #f9f9f9;
-  --color-background: #1a1a1a;
-  --color-text: #f9f9f9;
-  --color-accent: #535bf2;
-  --color-accent-hover: #747bff;
-  --color-accent-focus: #646cff;
-  --color-accent-active: #535bf2;
-  --color-accent-disabled: #747bff;
-  --color-accent-text: #f9f9f9;
-  --color-accent-text-hover: #f9f9f9;
-  --color-accent-text-focus: #f9f9f9;
-  --color-accent-text-active: #f9f9f9;
-  --color-accent-text-disabled: #f9f9f9;
-  --color-accent-background: #535bf2;
-  --color-accent-background-hover: #747bff;
-  --color-accent-background-focus: #646cff;
-  --color-accent-background-active: #535bf2;
-  --color-accent-background-disabled: #747bff;
-  --color-accent-border: #535bf2;
-  --color-accent-border-hover: #747bff;
-  --color-accent-border-focus: #646cff;
-  --color-accent-border-active: #535bf2;
-  --color-accent-border-disabled: #747bff;
-  --color-accent-shadow: #535bf2;
-  --color-accent-shadow-hover: #747bff;
-  --color-accent-shadow-focus: #646cff;
-  --color-accent-shadow-active: #535bf2;
-  --color-accent-shadow-disabled: #747bff;
-  --color-accent-fill: #535bf2;
-  --color-accent-fill-hover: #747bff;
-  --color-accent-fill-focus: #646cff;
-  --color-accent-fill-active: #535bf2;
-  --color-accent-fill-disabled: #747bff;
-  --color-accent-fill-text: #f9f9f9;
-  --color-accent-fill-text-hover: #f9f9f9;
-  --color-accent-fill-text-focus: #f9f9f9;
-  --color-accent-fill-text-active: #f9f9f9;
-  --color-accent-fill-text-disabled: #f9f9f9;
-  --color-accent-fill-background: #535bf2;
-  --color-accent-fill-background-hover: #747bff;
-  --color-accent-fill-background-focus: #646cff;
-  --color-accent-fill-background-active: #535bf2;
-  --color-accent-fill-background-disabled: #747bff;
-  --color-accent-fill-border: #535bf2;
-  --color-accent-fill-border-hover: #747bff;
-  --color-accent-fill-border-focus: #646cff;
-  --color-accent-fill-border-active: #535bf2;
-  --color-accent-fill-border-disabled: #747bff;
-  --color-accent-fill-shadow: #535bf2;
-  --color-accent-fill-shadow-hover: #747bff;
-  --color-accent-fill-shadow-focus: #646cff;
-  --color-accent-fill-shadow-active: #535bf2;
-  --color-accent-fill-shadow-disabled: #747bff;
-  text-rendering: optimizeLegibility;
 
-  -webkit-font-smoothing: antialiased;
-
-  scroll-behavior: smooth;
-
-  font:'Playfair', sans-serif;
-
-  scroll-snap-type: proximity;
-
-
-  color: #213547;
-  background-color: #f9f9f9;
-}
-
+/* Tailwind CSS */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* Base Styles */
 @layer base {
-  .text-primary {
-    color: var(--color-primary);
-  }
-  .bg-primary {
-    background-color: var(--color-primary);
-  }
-  .text-secondary {
-    color: var(--color-secondary);
-  }
-  .bg-secondary {
-    background-color: var(--color-secondary);
-  }
-  .text-accent {
-    color: var(--color-accent);
-  }
-  .bg-accent {
-    background-color: var(--color-accent);
-  }
-  .text-neutral {
-    color: var(--color-neutral);
-  }
-  .bg-neutral {
-    background-color: var(--color-neutral);
-  }
-  .text-info {
-    color: var(--color-info);
-  }
-  .bg-info {
-    background-color: var(--color-info);
-  }
-  .text-success {
-    color: var(--color-success);
-  }
-  .bg-success {
-    background-color: var(--color-success);
-  }
-  .text-warning {
-    color: var(--color-warning);
-  }
-  .bg-warning {
-    background-color: var(--color-warning);
-  }
-  .text-error {
-    color: var(--color-error);
-  }
-  .bg-error {
-    background-color: var(--color-error);
-  }
-}
 
-
-  body {
-    background-color: #E4EBF5;
-    
-  
-  }
-  
   * {
     margin: 0;
     touch-action: auto;
-    font: 'Playfair', sans-serif;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    /* font-family: 'Playfair Display', serif;
+    font-size: 1rem; 
+    line-height: 1.5; */
+    background-color: #E4EBF5;
+    color: #333;
+  }
+  iframe {
+    border-style: none;
+    margin: 0;
+    padding: 0;
     
-    /* text-transform: uppercase; */
-  } 
-  
+  }
 
 
 
- /* .service-card {
-  @apply bg-white p-4 shadow rounded-lg;
+@keyframes autoShowAnimation {
+  from {
+    opacity: 0;
+    transform: translateY(200px) scale(0.3);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+.loader {
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  animation: spin 1.2s linear infinite;
+  border: 2px solid transparent;
+  border-top-color: #30548B; /* Change color as needed */
 }
 
-.category-list a {
-  @apply text-blue-500 hover:underline;
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
-
-.services-page {
-  @apply p-6;
-} 
-
-.services-list {
-  @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6;
-}
-
-.service-detail-page {
-
-  @apply  ml-0 bg-gray-100 prose;
-}
- */
 
 
 iframe {
   border-style: none;
 }
+/* Component Styles */
+.hero-welcome {
+  background-color: #E4EBF5;
+  color: #333;
+  padding: 2rem 0;
+  text-align: center;
+}
 
- 
+.autoShow {
+  animation: autoShowAnimations both;
+  animation-timeline: view(70% 5%);
+}
+
+@keyframes autoShowAnimations {
+  from {
+    opacity: 0;
+    transform: translateY(100px) scale(0.8); /* Adjusted for mobile */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (max-width: 640px) {
+  /* Adjustments for smaller screens */
+  .autoShow {
+    animation-timeline: view(100% 5%);
+  }
+
+  @keyframes autoShowAnimations {
+    from {
+      opacity: .5;
+      transform: translateY(25px) scale(0.9); /* Further adjusted for smaller screens */
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+}}

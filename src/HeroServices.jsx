@@ -2,10 +2,21 @@ import React, { useEffect, useRef } from "react";
 import { motion, useAnimation, useInView } from "framer-motion";
 import { Link } from "react-router-dom";
 import { GiScalpel, GiSyringe } from "react-icons/gi";
-import boardwalk from "./assets/alex-CWwdzVtaGKs-unsplash.jpg";
-import cosmeticDerm from "./assets/alexander-krivitskiy-zle2_jp-AUw-unsplash.jpg";
-import cream from "./assets/kelsey-curtis-kD9qprR6HBI-unsplash.jpg";
+import boardwalk from "./assets/images/optimizations/alex-CWwdzVtaGKs-unsplash.webp";
+import cosmeticDerm from "./assets/images/optimizations/alexander-krivitskiy-zle2_jp-AUw-unsplash.webp";
+import cream from "./assets/images/optimizations/kelsey-curtis-kD9qprR6HBI-unsplash.webp";
 import GeneralDermIcon from "./components/Icon";
+
+const ImageCompressed = ({ src, alt, className }) => (
+  <img
+    src={src}
+    loading='lazy'
+    srcSet={`${src} 1x, ${src} 2x`}
+    sizes="(max-width:600) 100vw, 50vw"
+    alt={alt}
+    className={className}
+  />
+);
 
 const containerVariants = {
   hidden: { opacity: 0, y: -220 },
@@ -39,9 +50,9 @@ const HeroServices = () => {
   }, [controls, isInView]);
 
   return (
-    <section className="body-font mx-auto mt-24">
+    <section className="body-font mx-auto mt-4">
       <h2 className="mx-auto text-center text-4xl font-bold md:text-5xl">
-        <span className="text-gray-600">Services Offered</span>
+        <span className="text-[#4d4d4d]">Services Offered</span>
       </h2>
       <div className="container mx-auto rounded-lg px-5 py-5">
         <motion.div
@@ -71,7 +82,7 @@ const ServiceCard = ({ icon: Icon, title, description, backgroundImage, to }) =>
       variants={cardVariants}
     >
       <div className="flex h-full flex-col rounded-3xl border-opacity-60 bg-gray-100 shadow-sm">
-        <img
+        <ImageCompressed
           className="w-full object-cover rounded-t-3xl object-center md:h-36 lg:h-48"
           src={backgroundImage}
           alt={title}
@@ -79,9 +90,9 @@ const ServiceCard = ({ icon: Icon, title, description, backgroundImage, to }) =>
         <div className="flex flex-grow flex-col p-6">
           <div className="mb-3 flex items-center">
             <Icon className="h-12 w-12 text-[#30548B]" />
-            <h1 className="ml-4 font-display text-xl font-semibold">{title}</h1>
+            <h1 className="ml-4 font-display text-[#4d4d4d] text-xl font-600">{title}</h1>
           </div>
-          <p className="mb-3 flex-grow text-lg leading-relaxed">{description}</p>
+          <p className="mb-3 flex-grow prose leading-relaxed">{description}</p>
           <div className="mt-auto">
             <motion.button
               whileHover={{ scale: 1.05 }}
@@ -119,7 +130,7 @@ const services = [
     icon: GeneralDermIcon,
     title: "General Dermatology",
     description:
-      "Psoriasis, Atopic Dermatitis, Bullous Diseases, Lichen Planus, Vitiligo, Acne, Rosacea, Skin Cancer Screening, Rash, Growths, Skin Discoloration, and excessive sweating.",
+      "Psoriasis, Atopic Dermatitis (Eczema), Bullous Diseases, Lichen Planus, Vitiligo, Acne, Rosacea, Skin Cancer Screening, Rash, Growths, Skin Discoloration, and excessive sweating.",
     backgroundImage: cream,
     to: "/services/general",
   },

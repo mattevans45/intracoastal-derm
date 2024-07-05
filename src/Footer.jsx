@@ -2,8 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { MdOutlineFacebook } from 'react-icons/md';
 import { LuInstagram, LuTwitter } from 'react-icons/lu';
-import whiteLogo from "./assets/white Transparent PNG logo.png";
-import footerimg from "./assets/erda-estremera-aSFZKeZiHPc-unsplash.jpg";
+import whiteLogo from "./assets/images/optimizations/white Transparent PNG logo.webp";
+import footerimg from "./assets/images/optimizations/erda-estremera-aSFZKeZiHPc-unsplash.webp";
 
 const Footer = () => {
   return (
@@ -26,10 +26,10 @@ const Footer = () => {
           </Link>
         </div>
         <div className="mx-auto z-20">
-          <h2 className="text-md mb-6 bg-transparent font-semibold uppercase text-white">
+          <h2 className="text-md mb-6 bg-transparent font-display font-600 uppercase text-white">
             Important Links
           </h2>
-          <ul className="bg-transparent font-medium text-white">
+          <ul className="bg-transparent text-md antialiased text-white">
             <li className="mb-2">
               <Link to="/location/" className="block hover:underline">
                 Office Location
@@ -58,10 +58,10 @@ const Footer = () => {
           </ul>
         </div>
         <div className="mx-auto place-items-start justify-items-center z-20">
-          <h2 className="text-md mb-6 bg-transparent font-bold uppercase text-white">
+          <h2 className="text-md mb-6 bg-transparent font-display font-600 uppercase text-white">
             Forms and Documents
           </h2>
-          <ul className="bg-transparent font-display font-[500] text-white">
+          <ul className="bg-transparent font-display text-md text-white">
             <li className="mb-2">
               <Link to="/insurances-accepted" className="block flex-grow hover:underline">
                 Insurance Accepted
@@ -85,7 +85,7 @@ const Footer = () => {
           </ul>
         </div>
         <div className="mx-auto flex flex-col items-start justify-center md:mx-0 z-20">
-          <h2 className="max-w-30 text-md mb-6 bg-transparent font-semibold uppercase text-white">
+          <h2 className="max-w-30 text-md mb-6 bg-transparent font-display font-600 uppercase text-white">
             Follow Us
           </h2>
           <ul className="font-medium text-gray-500 dark:text-gray-400">
@@ -116,8 +116,8 @@ const Footer = () => {
           </ul>
         </div>
       </div>
-      <hr className="my-6 border-gray-200 sm:mx-auto lg:my-8 z-20" />
-      <div className="flex flex-row p-4 sm:flex sm:items-center sm:justify-around z-20">
+      <hr className="relative self-center my-3 border-gray-200 sm:mx-auto lg:my-3 z-50" />
+      <div className="relative flex flex-row p-4 sm:flex sm:items-center sm:justify-around z-50">
         <span className="text-sm text-white sm:text-center">
           © 2024
           <Link to="/" className="px-1 hover:underline">

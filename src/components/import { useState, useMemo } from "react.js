@@ -11,7 +11,7 @@ import {
 import { MdOutlineVaccines } from "react-icons/md";
 import { Link, Navigate } from "react-router-dom";
 import SidebarMenu from "./SideBarMenu";
-import LOGO from "./assets/bestlogoupdated.webp";
+import LOGO from "./assets/IntracoastalDermatologyLogo.webp";
 import ServicesPopover from "./ServicesPopover.jsx";
 
 import { GiScalpel } from "react-icons/gi";
@@ -22,7 +22,7 @@ const services = [
   {
     name: "General Dermatology",
     description:
-      "Psoriasis, Atropic Dermatitis, Bullous Diseases, Lichen Planus, Vitiligo, Acne, Rosacea, Skin Cancer Screening, Rash, Growths, Skin discoloration, and excessive sweating.",
+      "Psoriasis, Atopic Dermatitis (Eczema), Bullous Diseases, Lichen Planus, Vitiligo, Acne, Rosacea, Skin Cancer Screening, Rash, Growths, Skin discoloration, and excessive sweating.",
     to: "/services/general-dermatology",
     icon: Hair,
   },

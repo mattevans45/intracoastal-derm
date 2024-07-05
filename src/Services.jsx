@@ -3,6 +3,7 @@ import { useParams, Link } from "react-router-dom";
 import { motion } from 'framer-motion';
 import ServiceCard from "./ServiceCard";
 import { getServicesByCategory, getAllCategories } from './serviceUtils';
+import slugify from "./slugify";
 
 const Services = () => {
   const { categoryId } = useParams();
@@ -39,7 +40,7 @@ const Services = () => {
           {services.map((service) => (
             <Link
               key={service.id}
-              to={`/services/${selectedCategory}/${service.id}`}
+              to={`/services/${selectedCategory}/${slugify(service.name)}`}
               className="block border border-gray-200 rounded-lg p-4 bg-white shadow-sm hover:bg-gray-100 transition duration-150 ease-in-out"
             >
               <ServiceCard service={service} />

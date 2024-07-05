@@ -10,7 +10,7 @@ import { doc } from 'prettier';
 const services = [
   {
     name: "General Dermatology",
-    description: "Psoriasis, Atropic Dermatitis, Bullous Diseases, Lichen Planus, Vitiligo, Acne, Rosacea, Skin Cancer Screening, Rash, Growths, Skin discoloration, and excessive sweating.",
+    description: "Psoriasis, Atopic Dermatitis (Eczema), Bullous Diseases, Lichen Planus, Vitiligo, Acne, Rosacea, Skin Cancer Screening, Rash, Growths, Skin discoloration, and excessive sweating.",
     to: "/services/general",
     icon: Hair,
   },

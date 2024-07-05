@@ -1,8 +1,9 @@
-# Stage 1: Build
-FROM node:18-alpine as build
+# Use an official Node runtime as the parent image
+FROM node:18-alpine
 
-# Set the working directory
+# Set the working directory in the container
 WORKDIR /app
+
 
 # Copy package.json and package-lock.json
 COPY package*.json ./
@@ -16,14 +17,13 @@ COPY . .
 # Build the application
 RUN npm run build
 
-# Stage 2: Serve
-FROM nginx:1-alpine-slim
+COPY sitemap.xml /app/dist/sitemap.xml
+COPY robots.txt /app/dist/robots.txt
 
-# Copy the build output from the previous stage
-COPY --from=build /app/dist /usr/share/nginx/html
 
-# Expose port 80
-EXPOSE 80
+# Serve the app
 
-# Start Nginx server
-CMD ["nginx", "-g", "daemon off;"]
+RUN npm install -g serve
+
+# Specify the command to run on container start
+CMD serve -s dist -l $PORT

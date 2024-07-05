@@ -53,7 +53,7 @@ const CardContent = () => {
             Schedule an Appointment
           </Link>
           <Link
-            to="/intracoastal-derm/schedule-appointment"
+            to="/services"
             className="mt-2 sm:mt-0 rounded-md px-4 py-2 text-sm font-semibold leading-6 text-white transition-colors duration-300 hover:bg-slate-50/10 sm:text-base"
           >
             Learn more <span aria-hidden="true">→</span>

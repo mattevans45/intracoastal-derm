@@ -1,135 +1,125 @@
-import React from "react";
+import React, { Suspense, lazy } from "react";
 import ReactDOM from "react-dom/client";
-import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
-import App from "./App.jsx";
-import Location from "./Location.jsx";
-import Contact from "./Contact.jsx";
-import Services from "./Services.jsx";
-import Surgical from "./Surgical.jsx";
-import General from "./General.jsx";
-import Cosmetic from "./Cosmetic.jsx";
-import About from "./About.jsx";
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  Navigate,
+} from "react-router-dom";
+
 import MainLayout from "./MainLayout.jsx";
-import ScrollToTop from "./ScrollToTop.jsx";
-import "./index.css";
-import ServicesPage from "./ServicesPage.jsx";
-import ServiceDetailPage from "./ServiceDetailPage.jsx";
-import MedicalDisclaimer from "./MedicalDisclaimer.jsx";
-import InsurancesAccepted from "./InsurancesAccepted.jsx";
 import ServicesLayout from "./ServicesLayout.jsx";
-import ScheduleAppointment from "./ScheduleAppointment.jsx";
+import LoadingSpinner from "./LoadingSpinner.jsx";
+import App from "./App.jsx";
+
+const ScheduleAppointment = lazy(() => import("./ScheduleAppointment.jsx"));
+const Contact = lazy(() => import("./Contact.jsx"));
+const Services = lazy(() => import("./Services.jsx"));
+const About = lazy(() => import("./About.jsx"));
+const MedicalDisclaimer = lazy(() => import("./MedicalDisclaimer.jsx"));
+const InsurancesAccepted = lazy(() => import("./InsurancesAccepted.jsx"));
+const ServicesPage = lazy(() => import("./ServicesPage.jsx"));
+const ServiceDetailPage = lazy(() => import("./ServiceDetailPage.jsx"));
+const NotFound = lazy(() => import("./NotFound.jsx"));
+const Location = lazy(() => import("./Location.jsx"));
+
+const AppRoutes = () => (
+  <Routes>
+    <Route path="/" element={<MainLayout />}>
+      <Route index element={<App />} />
+      <Route
+        path="location"
+        element={
+          <Suspense fallback={<LoadingSpinner />}>
+            <Location />
+          </Suspense>
+        }
+      />
+      <Route
+        path="schedule-appointment"
+        element={
+          <Suspense fallback={<LoadingSpinner />}>
+            <ScheduleAppointment />
+          </Suspense>
+        }
+      />
+      <Route
+        path="contact"
+        element={
+          <Suspense fallback={<LoadingSpinner />}>
+            <Contact />
+          </Suspense>
+        }
+      />
+      <Route
+        path="about"
+        element={
+          <Suspense fallback={<LoadingSpinner />}>
+            <About />
+          </Suspense>
+        }
+      />
+      <Route
+        path="medical-disclaimer"
+        element={
+          <Suspense fallback={<LoadingSpinner />}>
+            <MedicalDisclaimer />
+          </Suspense>
+        }
+      />
+      <Route
+        path="insurances-accepted"
+        element={
+          <Suspense fallback={<LoadingSpinner />}>
+            <InsurancesAccepted />
+          </Suspense>
+        }
+      />
+    </Route>
+    <Route path="/services" element={<ServicesLayout />}>
+      <Route
+        index
+        element={
+          <Suspense fallback={<LoadingSpinner />}>
+            <Services />
+          </Suspense>
+        }
+      />
+      <Route
+        path=":categoryId"
+        element={
+          <Suspense fallback={<LoadingSpinner />}>
+            <ServicesPage />
+          </Suspense>
+        }
+      />
+      <Route
+        path=":categoryId/:serviceSlug"
+        element={
+          <Suspense fallback={<LoadingSpinner />}>
+            <ServiceDetailPage />
+          </Suspense>
+        }
+      />
+      <Route path="*" element={<Navigate to="/services/" />} />
+    </Route>
+    <Route
+      path="*"
+      element={
+        <Suspense fallback={<LoadingSpinner />}>
+          <NotFound />
+        </Suspense>
+      }
+    />
+  </Routes>
+);
 
 const rootElement = document.getElementById("root");
 
 ReactDOM.createRoot(rootElement).render(
-  <BrowserRouter>
-    <ScrollToTop />
-    <Routes>
-      <Route
-        path="/"
-        element={
-          <MainLayout>
-            <App />
-          </MainLayout>
-        }
-      />
-      <Route
-        path="/location"
-        element={
-          <MainLayout>
-            <Location />
-          </MainLayout>
-        }
-      />
-            <Route
-        path="/schedule-appointment"
-        element={
-          <MainLayout>
-            <ScheduleAppointment />
-          </MainLayout>
-        }
-      />
-      <Route
-        path="/contact"
-        element={
-          <MainLayout>
-            <Contact />
-          </MainLayout>
-        }
-      />
-      <Route
-        path="/services"
-        element={
-          <ServicesLayout>
-            <Services />
-          </ServicesLayout>
-        }
-      />
-      <Route
-        path="/services/general-dermatology"
-        element={
-          <ServicesLayout>
-            <General />
-          </ServicesLayout>
-        }
-      />
-      <Route
-        path="/services/cosmetic-dermatology"
-        element={
-          <ServicesLayout>
-            <Cosmetic />
-          </ServicesLayout>
-        }
-      />
-      <Route
-        path="/services/surgical-dermatology"
-        element={
-          <ServicesLayout>
-            <Surgical />
-          </ServicesLayout>
-        }
-      />
-      <Route
-        path="/about"
-        element={
-          <MainLayout>
-            <About />
-          </MainLayout>
-        }
-      />
-      <Route
-        path="/medical-disclaimer"
-        element={
-          <MainLayout>
-            <MedicalDisclaimer />
-          </MainLayout>
-        }
-      />
-      <Route
-        path="/insurances-accepted"
-        element={
-          <MainLayout>
-            <InsurancesAccepted />
-          </MainLayout>
-        }
-      />
-      <Route
-        path="/services/:categoryId"
-        element={
-          <ServicesLayout>
-            <ServicesPage />
-          </ServicesLayout>
-        }
-      />
-      <Route
-        path="/services/:categoryId/:serviceId"
-        element={
-          <ServicesLayout>
-            <ServiceDetailPage />
-          </ServicesLayout>
-        }
-      />
-      <Route path="*" element={<Navigate to="/services/" />} />
-    </Routes>
-  </BrowserRouter>
+  <Router>
+    <Suspense fallback={<LoadingSpinner />}>
+      <AppRoutes />
+    </Suspense>
+  </Router>,
 );

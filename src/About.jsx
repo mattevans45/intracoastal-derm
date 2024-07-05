@@ -1,21 +1,20 @@
 import React, { useEffect } from 'react';
 import { motion, useAnimation } from 'framer-motion';
-import { HiMenuAlt3 } from "react-icons/hi";
-import headshot from "./assets/DrHarrisHeadshotFinal.jpg";
-import family from "./assets/HarrisFamily.webp";
-import aadlogo from "./assets/American_Academy_of_Dermatology_logo.svg.png";
-import acms from "./assets/acms-mohs-surgeon.png";
+
+import headshot from "./assets/images/optimizations/DrHarrisHeadshotFinal.webp";
+import family from "./assets/images/optimizations/HarrisFamily.webp";
+import aadlogo from "./assets/images/optimizations/American_Academy_of_Dermatology_logo.svg.webp";
+// import acms from "./assets/acms-mohs-surgeon.png";
 
 const Image = ({ src, alt, className }) => (
-  <div className="">
-    <img
-      src={src}
-      alt={alt}
-      className={className}
-    />
-  </div>
+  <img
+    src={src}
+    srcSet={`${src} 1x, ${src} 2x`}
+    sizes="(max-width: 600px) 100vw, 100vw"
+    alt={alt}
+    className={className}
+  />
 );
-
 export default function About() {
   const headerControls = useAnimation();
   const contentControls = useAnimation();
@@ -60,7 +59,7 @@ export default function About() {
             animate={contentControls}
             className="w-full lg:w-1/2"
           >
-            <Image src={headshot} alt="Dr. Blair Harris" className="w-full rounded-lg mb-8 lg:mb-0" />
+            <Image src={headshot} alt="Dr. Blair Harris" className="w-fit h-auto rounded-lg mb-8 lg:mb-0" />
           </motion.div>
 
           <motion.div

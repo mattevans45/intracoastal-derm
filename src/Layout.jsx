@@ -2,9 +2,7 @@ import React from 'react';
 import Footer from './Footer.jsx';
 import Navbar from './Navbar.jsx';
 import Sidebar from "./SideNavbar.jsx";
-import { Content } from './Content.jsx';
-import AlertBar from './components/Alertbar.jsx';
-import ContactBar from './components/ContactBar.jsx';
+
 import { useLocation } from 'react-router-dom';
 import ScrollToTop from './ScrollToTop.jsx';
 import AboutUs from './components/AboutUs.jsx';

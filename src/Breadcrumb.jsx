@@ -3,7 +3,10 @@ import { Link, useParams } from "react-router-dom";
 
 const Breadcrumb = ({ categories }) => {
   const { categoryId, serviceId } = useParams();
+
+
   const currentCategory = categories.find(category => category.id === categoryId);
+
   const currentService = currentCategory?.services.find(service => service.id.toString() === serviceId);
 
   return (
@@ -26,3 +29,4 @@ const Breadcrumb = ({ categories }) => {
 };
 
 export default Breadcrumb;
+

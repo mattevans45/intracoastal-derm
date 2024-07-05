@@ -86,13 +86,13 @@ const flipVariants = {
 
 const FlipClock = ({ time, label }) => {
   return (
-    <div className="flex flex-col w-full h-full justify-center items-center text-white font-Playfair capitalize">
+    <div className="flex flex-col mb-1 w-full h-full justify-center items-center text-white font-Playfair capitalize">
       <motion.div
         initial="hidden"
         animate="visible"
         exit="hidden"
         variants={flipVariants}
-        className="w-14 h-auto py-1.5 px-2 text-white text-center pb-4 text-2xl sm:text-3xl rounded-b-lg border border-t border-white border-opacity-10 backdrop-blur-md bg-black bg-opacity-5 md:text-3xl lg:text-4xl rounded-md shadow-lg"
+        className="w-14 h-auto py-1.5 px-2 text-white text-center pb-4 text-2xl sm:text-3xl rounded-b-lg border border-t border-white border-opacity-10 backdrop-blur-md bg-blend-multiply bg-black bg-opacity-20 md:text-3xl lg:text-4xl rounded-md shadow-lg"
       >
         {time}
       </motion.div>

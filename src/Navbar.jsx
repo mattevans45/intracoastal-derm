@@ -7,7 +7,9 @@ import { Bars3Icon } from "@heroicons/react/24/outline";
 import { MdOutlineVaccines } from "react-icons/md";
 import { Link } from "react-router-dom";
 import SidebarMenu from "./SideBarMenu";
-import LOGO from "./assets/bestlogoupdated.webp";
+
+import LOGO from "./assets/images/optimizations/IntracoastalDermatologyLogo.webp";
+
 import ServicesPopover from "./ServicesPopover.jsx";
 
 import { GiScalpel } from "react-icons/gi";
@@ -19,7 +21,7 @@ const services = [
   {
     name: "General Dermatology",
     description:
-      "Psoriasis, Atropic Dermatitis, Bullous Diseases, Lichen Planus, Vitiligo, Acne, Rosacea, Skin Cancer Screening, Rash, Growths, Skin discoloration, and excessive sweating.",
+      "Psoriasis, Atopic Dermatitis (Eczema), Bullous Diseases, Lichen Planus, Vitiligo, Acne, Rosacea, Skin Cancer Screening, Rash, Growths, Skin discoloration, and excessive sweating.",
     to: "/services/general",
     icon: Hair,
   },
@@ -50,8 +52,8 @@ const Navbar = () => {
     <div
       className={
         !mobileMenuOpen
-          ? "backdrop-saturate-125 sticky top-0 z-40 mx-auto flex w-full flex-col bg-white/80 backdrop-blur-[2.5px]"
-          : "sticky top-0 z-40 mx-auto flex flex-col bg-white/90 bg-clip-text mix-blend-normal"
+          ? "sticky top-0 z-40 bg-white/80 backdrop-blur-[2.5px]"
+          : "sticky top-0 z-40 bg-white/90 backdrop-blur-[2.5px]"
       }
     >
       <AlertBar />
@@ -61,7 +63,7 @@ const Navbar = () => {
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         transition={{ duration: 0.2 }}
-        className="navbar sticky z-[50] bg-white/90 px-2 shadow md:pr-3"
+        className="navbar w-full bg-white/75 sticky z-[50] shadow md:pr-3"
       >
         <nav
           className="z-50 mx-auto ml-auto flex items-center justify-between space-x-6 md:w-full lg:justify-around"
@@ -69,8 +71,11 @@ const Navbar = () => {
         >
           <Link to="/">
             <img
-              className="relative z-40 mx-auto max-w-44 sm:max-h-40 sm:max-w-40 md:max-h-40 md:max-w-40 lg:max-h-48 lg:max-w-48"
+              className="z-40 mx-auto object-cover h-32 max-w-52 max-h-32 sm:max-h-32  md:max-h-32  lg:max-h-32 "
               src={LOGO}
+              srcSet={`${LOGO} 1x, ${LOGO} 2x`}
+              sizes="(max-width:200px) 8rem, 10rem"
+              loading="eager"
               alt="Intracoastal Dermatology Logo"
             />
           </Link>
@@ -139,10 +144,10 @@ const DesktopMenu = () => (
     >
       ABOUT
     </Link>
-    <div className="inline-flex pl-20 pr-20 gap-20">
+    <div className="mx-auto inline-flex px-5 gap-20">
       <Link
         to="/schedule-appointment"
-        className="lg:text-md lg:space-x-20 space-x-5 uppercase rounded-lg border-2 border-[#4d4d4d] border-opacity-5 bg-[#30648B]/5 px-1.5 py-1 text-center text-[#4d4d4d] shadow-gray-400/20 transition-all duration-500 ease-in-out hover:rounded-lg hover:bg-[#30648B]/90 hover:text-white hover:drop-shadow-md focus:outline-none focus-visible:ring focus-visible:ring-gray-500/50"
+        className="lg:text-md space-x-5 uppercase rounded-lg border-2 border-[#4d4d4d] border-opacity-5 bg-[#30648B]/5 px-1.5 py-1 text-center text-[#4d4d4d] shadow-gray-400/20 transition-all duration-500 ease-in-out hover:rounded-lg hover:bg-[#30648B]/90 hover:text-white hover:drop-shadow-md focus:outline-none focus-visible:ring focus-visible:ring-gray-500/50"
       >
         Schedule an Appointment
       </Link>

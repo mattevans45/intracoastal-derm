@@ -1,4 +1,4 @@
-import headshot from "../assets/DrHarrisHeadshotFinal.jpg";
+import headshot from "../assets/images/optimizations/DrHarrisHeadshotFinal.webp";
 import React from "react";
 import { useEffect, useRef } from "react";
 import { motion, useAnimation, useInView } from "framer-motion";
@@ -65,6 +65,7 @@ const MeetTheTeam = () => {
                 <img
                   src={member.photo}
                   alt={member.name}
+                  loading="lazy"
                   className="mx-auto mb-4 rounded-full object-cover object-center"
                 />
                 <h3 className="mb-2 text-xl font-bold">{member.name}</h3>
