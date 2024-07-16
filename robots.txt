@@ -1,5 +1,7 @@
 User-agent: *
-Disallow: /private/
-Allow: /
+Allow: /services/general
+Allow: /services/cosmetic
+Allow: /services/surgical
+Disallow: /services/*/
 
 Sitemap: https://intracoastal-dermatology.com/sitemap.xml
