@@ -1,57 +1,49 @@
-import React from 'react';
-import { Link, useParams } from 'react-router-dom';
-import slugify from './slugify';
-import servicesData from './servicesData.json';
-
+import React from "react";
+import { Link, useParams } from "react-router-dom";
+import slugify from "./slugify";
+import servicesData from "./servicesData.json";
 
 const ServiceLink = ({ categoryId, service }) => (
   <li key={service.id}>
     <Link
       to={`/services/${categoryId}/${slugify(service.name)}`}
-      className="block font-poppins font-medium px-2 py-1 text-[#4d4d4d] transition-all duration-200 hover:bg-[#30648B] hover:text-white rounded"
+      className="block rounded px-2 py-1 font-Playfair font-medium text-[#4d4d4d] transition-all duration-200 hover:bg-[#30648B] hover:text-white active:bg-[#30648B] active:text-white"
     >
       {service.name}
     </Link>
   </li>
 );
 
-const categories = [
-  {
-    id: "general",
-    name: "General Dermatology",
-    services: servicesData.general,
-  },
-  {
-    id: "cosmetic",
-    name: "Cosmetic Dermatology",
-    services: servicesData.cosmetic,
-  },
-  {
-    id: "surgical",
-    name: "Surgical Dermatology",
-    services: servicesData.surgical,
-  },
-];
-
 const SideNavbar = () => {
   const { categoryId } = useParams();
 
+  const categories = Object.entries(servicesData).map(([key, value]) => ({
+    id: key,
+    name: key.charAt(0).toUpperCase() + key.slice(1),
+    services: value,
+  }));
+
   return (
-    <aside className="w-full ml-0 mx-auto p-2 font-bold text-md font-poppins bg-gray-200 rounded-lg shadow-md">
-  
+    <nav className="shrink text-md mx-auto ml-0 w-full rounded-lg bg-gray-200 p-2 font-Playfair font-bold shadow-md">
       <ul className="space-y-4">
-        {categories.map(category => (
+        {categories.map((category) => (
           <li key={category.id}>
-            <h3 className="font-captain text-md text-[#4d4d4d] font-semibold mb-2">{category.name}</h3>
+            <h3 className="text-md mb-2 font-Playfair font-semibold text-[#4d4d4d]">
+              {category.name}
+            </h3>
             <ul className="space-y-1 pl-2">
-              {servicesData[category.id].map(service => (
-                <ServiceLink key={service.id} categoryId={category.id} service={service} />
+              {category.services.map((service) => (
+                <ServiceLink
+                  key={service.id}
+                  categoryId={category.id}
+                  service={service}
+                />
               ))}
             </ul>
           </li>
         ))}
       </ul>
-    </aside>
+    </nav>
   );
 };
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Navigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 class ErrorBoundary extends React.Component {
   constructor(props) {
@@ -25,24 +25,46 @@ class ErrorBoundary extends React.Component {
 
   render() {
     if (this.state.hasError) {
-      // Implement redirect to previous page
-      return <ErrorFallback />;
+      return <ErrorFallback error={this.state.error} errorInfo={this.state.errorInfo} />;
     }
 
     return this.props.children;
   }
 }
 
-const ErrorFallback = () => {
+const ErrorFallback = ({ error, errorInfo }) => {
+  const navigate = useNavigate();
+
   const handleBack = () => {
-    return <Navigate to={-1} replace={true} />; // Use Navigate for redirection
+    navigate(-1);
+  
+    setTimeout(() => {
+      navigate('/', { replace: true });
+    }, 100);
   };
 
   return (
-    <div>
-      <h1>Something went wrong.</h1>
-      <p>An error occurred. Please try refreshing the page or go back to the previous page.</p>
-      <button onClick={handleBack}>Go Back</button>
+    <div className="text-center p-12 font-sans">
+      <h1 className="text-4xl font-bold text-gray-800 mb-4">Oops! Something went wrong.</h1>
+      <p className="text-xl text-gray-600 mb-8">
+        An error occurred. Please try refreshing the page or go back to the previous page.
+      </p>
+      <div className="mb-8 text-left">
+        <h2 className="text-2xl font-bold mb-2">Error Details:</h2>
+        <pre className="bg-gray-100 p-4 rounded overflow-auto">
+          <code>{error && error.toString()}</code>
+        </pre>
+        <h2 className="text-2xl font-bold mt-4 mb-2">Component Stack:</h2>
+        <pre className="bg-gray-100 p-4 rounded overflow-auto">
+          <code>{errorInfo && errorInfo.componentStack}</code>
+        </pre>
+      </div>
+      <button 
+        onClick={handleBack} 
+        className="px-6 py-2 text-white bg-[#30548B] rounded hover:bg-blue-600 transition duration-300"
+      >
+        Go Back
+      </button>
     </div>
   );
 };

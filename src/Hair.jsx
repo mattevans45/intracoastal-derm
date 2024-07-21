@@ -1,29 +1,3 @@
-// import React from "react";
-
-
-// const Hair = () => {
-//   return (
-//     <svg
-//     version="1.1"
-//     viewBox="0 0 992 784"
-
-//     xmlns="http://www.w3.org/2000/svg"
-
-   
- 
-//   >
-//     <path
-//       fill="#4d4d4d"
-//     />
-//     <path
-//       fill="#4d4d4d"
-//     />
-//   </svg>
-//   );
-// };
-
-// export default Hair;
-
 import React from "react";
 
 
@@ -34,7 +8,7 @@ function Hair({
 }, svgRef) {
   return /*#__PURE__*/React.createElement("svg", Object.assign({
     xmlns: "http://www.w3.org/2000/svg",
-    viewBox: "0 0 992 784",
+    viewBox:"0 0 992 784",
     fill: "currentColor",
     "aria-hidden": "true",
     "data-slot": "icon",

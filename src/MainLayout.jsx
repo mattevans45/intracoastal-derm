@@ -1,17 +1,21 @@
 import React from 'react';
+import { useEffect } from 'react';
 import Footer from './Footer.jsx';
 import Navbar from './Navbar.jsx';
-import ScrollToTop from './ScrollToTop.jsx';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useLocation } from 'react-router-dom';
 
 const MainLayout = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
   return (
     <>
-      <ScrollToTop />
       <Navbar />
-        <div className="font-display font-400 my-auto min-h-screen">
+      <main className="antialiased my-auto min-h-screen">
         <Outlet />
-      </div>
+      </main>
       <Footer />
     </>
   );

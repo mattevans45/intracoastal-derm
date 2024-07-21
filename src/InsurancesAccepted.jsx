@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { motion, useAnimation } from 'framer-motion';
+import { Helmet } from 'react-helmet-async';
 
 const InsurancesAccepted = () => {
   const headerControls = useAnimation();
@@ -11,17 +12,26 @@ const InsurancesAccepted = () => {
   }, [headerControls, contentControls]);
 
   return (
+    <>
+    <Helmet>
+      <title>Insurances Accepted - Intracoastal Dermatology and Skin Surgery</title>
+      <meta name="description" content="Intracoastal Dermatology accepts a wide range of insurance plans to ensure that our services are accessible to as many patients as possible." />
+      <link rel="canonical" href="https://intracoastal-dermatology.com/insurances-accepted" />
+      <meta property="og:title" content="Insurances Accepted - Intracoastal Dermatology and Skin Surgery" />
+      <meta property="og:description" content="Intracoastal Dermatology accepts a wide range of insurance plans to ensure that our services are accessible to as many patients as possible." />
+      <meta property="og:url" content="https://intracoastal-dermatology.com/insurances-accepted" />
+    </Helmet>
     <div className="flex items-center justify-center min-h-screen">
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         animate={headerControls}
         className="max-w-4xl container p-6 text-[#4d4d4d] bg-slate-100 rounded-lg"
-      >
+        >
         <motion.h2
           initial={{ opacity: 0, y: -50 }}
           animate={contentControls}
           className="text-3xl mb-4 text-center"
-        >
+          >
           Insurances Accepted
         </motion.h2>
 
@@ -41,7 +51,9 @@ const InsurancesAccepted = () => {
             <li className="mb-2">MEDCOST</li>
             <li className="mb-2">MULTIPLAN</li>
             <li className="mb-2">PHCS</li>
-            <li className="mb-2">First Health</li>
+            <li className="mb-2">UMR</li>
+            <li className="mb-2">United Health Care</li>
+            <li className="mb-2">VA Community Care Network</li>
             <li className="mb-2">Coventry-Wellpath Healthcare</li>
           </ul>
 
@@ -67,6 +79,7 @@ const InsurancesAccepted = () => {
         </motion.div>
       </motion.div>
     </div>
+          </>
   );
 };
 

@@ -1,8 +1,8 @@
 import React from "react";
 import { useEffect, useRef } from "react";
 import { motion, useAnimation, useInView } from "framer-motion";
-import photo from '../assets/images/optimizations/matt-hardy-tt2Oui1hKAM-unsplash.webp';
-import photo2 from '../assets/images/optimizations/mourad-saadi-GyDktTa0Nmw-unsplash.webp';
+import photo from '../assets/images/optimized/matt-hardy-tt2Oui1hKAM-unsplash.webp';
+import photo2 from '../assets/images/optimized/mourad-saadi-GyDktTa0Nmw-unsplash.webp';
 
 
 const containerVariants = {
@@ -47,16 +47,16 @@ const containerVariants = {
         variants={containerVariants}
         className="body-font container mx-auto mb-10  text-gray-600"
       >
-      <section className="py-14 rounded-xl mx-4 mt-10 bg-gray-100">
+      <section className="py-14 rounded-xl mx-4 mt-10 bg-white">
         <div className="mx-auto px-6 text-center">
-          <h2 className="text-4xl font-Playfair font-bold mb-8">What Our Patients Say</h2>
+          <h2 className="text-4xl font-display font-bold mb-8">What Our Patients Say</h2>
           <motion.div className="flex flex-wrap justify-center" ref={ref} variants={containerVariants}>
             {testimonials.map((testimonial) => (
               <motion.div variants={itemVariants} key={testimonial.id} className="w-full md:w-1/2 lg:w-1/3 p-4">
-                <div className="bg-white rounded-lg p-6 shadow-lg">
+                <div className="bg-gray-100 rounded-lg p-6 shadow-lg">
                   <img src={testimonial.photo} alt={testimonial.name} className="w-16 h-16 rounded-full mx-auto mb-4" />
-                  <p className="text-lg italic font-Playfair  mb-4">"{testimonial.content}"</p>
-                  <p className="text-sm font-Playfair  font-bold">{testimonial.name}</p>
+                  <p className="text-lg italic font-display  mb-4">"{testimonial.content}"</p>
+                  <p className="text-sm font-display  font-bold">{testimonial.name}</p>
                 </div>
               </motion.div>
             ))}

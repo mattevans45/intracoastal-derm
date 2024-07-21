@@ -1,26 +1,80 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useMemo } from 'react';
+import { Link, useParams, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/20/solid';
-import slugify from './slugify'; // Import your slugify function
+import servicesData from './servicesData'; 
+import slugify from './slugify'; 
 
-const CategoryList = ({ categories, currentCategoryId, currentServiceId }) => {
+const categories = Object.keys(servicesData).map(key => ({
+  id: key,
+  name: key.charAt(0).toUpperCase() + key.slice(1),
+  services: servicesData[key]
+}));
+
+const CategoryList = ({ currentCategoryId }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const { serviceName } = useParams();
+  const navigate = useNavigate();
 
-  const currentCategory = categories.find(category => category.id === currentCategoryId);
+  const toggleDropdown = () => setIsOpen(!isOpen);
 
-  const toggleDropdown = () => {
-    setIsOpen(!isOpen);
+  const handleCategoryClick = (categoryId) => {
+    navigate(`/services/${categoryId}`);
+    setIsOpen(false);
+  };
+
+  const handleServiceClick = (categoryId, serviceSlug) => {
+    navigate(`/services/${categoryId}/${serviceSlug}`);
+    setIsOpen(false);
+  };
+
+  const renderNestedCategories = (nestedCategories, level = 0) => {
+    return nestedCategories.map(category => (
+      <div key={category.id}>
+        <button
+          onClick={() => handleCategoryClick(category.id)}
+          aria-label={`Select ${category.name} category`}
+          className={`w-full text-left px-${2 + level * 4} py-2 text-gray-700 hover:bg-gray-100 transition-colors duration-300 ${
+            category.id === currentCategoryId ? 'font-bold bg-gray-100' : ''
+          }`}
+        >
+          {category.name}
+        </button>
+        {category.id === currentCategoryId && category.services && (
+          <div className="pl-4">
+            {category.services.map(service => (
+              <button
+                key={service.id}
+                onClick={() => handleServiceClick(category.id, slugify(service.name))}
+                aria-label={`Select ${service.name} service`}
+                className={`w-full text-left px-8 py-2 text-gray-700 hover:bg-gray-100 transition-colors duration-300 ${
+                  slugify(service.name) === serviceName ? 'font-bold bg-gray-100' : ''
+                }`}
+              >
+                {service.name}
+              </button>
+            ))}
+          </div>
+        )}
+        {category.categories && category.categories.length > 0 && (
+          <div className="pl-4">
+            {renderNestedCategories(category.categories, level + 1)}
+          </div>
+        )}
+      </div>
+    ));
   };
 
   return (
-    <div className="md:hidden relative mx-auto w-fit container">
+    <div className="md:hidden relative mx-auto w-full max-w-xs container">
       <button 
         onClick={toggleDropdown}
         aria-expanded={isOpen}
+        aria-label="Toggle category list"
         className="flex items-center justify-between w-full px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-colors duration-300"
       >
-        <span>{currentCategory ? currentCategory.name : 'Select Category'}</span>
+        <span>{currentCategoryId ? categories.find(cat => cat.id === currentCategoryId)?.name : 'Select Category'}</span>
+        
         {isOpen ? <ChevronUpIcon className="h-5 w-5" /> : <ChevronDownIcon className="h-5 w-5" />}
       </button>
       <AnimatePresence>
@@ -30,37 +84,9 @@ const CategoryList = ({ categories, currentCategoryId, currentServiceId }) => {
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="mt-2"
+            className="mt-2 bg-white rounded-lg shadow-lg overflow-hidden"
           >
-            {categories.map(category => (
-              <div key={category.id}>
-                <Link
-                  to={`/services/${category.id}`}
-                  onClick={toggleDropdown}
-                  className={`inline-flex px-4 py-2 mt-1 bg-white text-gray-700 rounded-lg border border-gray-200 hover:bg-gray-100 transition-colors duration-300 ${
-                    category.id === currentCategoryId ? 'font-bold' : ''
-                  }`}
-                >
-                  {category.name}
-                </Link>
-                {category.id === currentCategoryId && category.services && (
-                  <div className="pl-4 mt-1">
-                    {category.services.map(service => (
-                      <Link
-                        key={service.id}
-                        to={`/services/${category.id}/${slugify(service.name)}`} // Use slugify for generating service slugs
-                        onClick={toggleDropdown}
-                        className={`block px-4 py-2 mt-1 bg-white text-gray-700 rounded-lg border border-gray-200 hover:bg-gray-100 transition-colors duration-300 ${
-                          slugify(service.name) === currentServiceId ? 'font-bold' : ''
-                        }`}
-                      >
-                        {service.name}
-                      </Link>
-                    ))}
-                  </div>
-                )}
-              </div>
-            ))}
+            {renderNestedCategories(categories)}
           </motion.div>
         )}
       </AnimatePresence>

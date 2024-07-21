@@ -1,12 +1,27 @@
-import servicesData from './servicesData.json';
-
-export const getServicesByCategory = (category) => {
-  return servicesData[category] || [];
-};
+// serviceUtils.js
+import servicesData from "./servicesData";
 
 export const getAllCategories = () => {
-  return Object.keys(servicesData).map(key => ({
-    id: key,
-    name: key.charAt(0).toUpperCase() + key.slice(1) + " Dermatology"
-  }));
+  return [
+    {
+      id: "general",
+      name: "General Dermatology",
+      services: servicesData.general,
+    },
+    {
+      id: "cosmetic",
+      name: "Cosmetic Dermatology",
+      services: servicesData.cosmetic,
+    },
+    {
+      id: "surgical",
+      name: "Surgical Dermatology",
+      services: servicesData.surgical,
+    },
+  ];
+};
+
+export const getServicesByCategory = (categoryId) => {
+  const category = getAllCategories().find((cat) => cat.id === categoryId);
+  return category ? category.services : [];
 };

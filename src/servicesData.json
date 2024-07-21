@@ -1,5 +1,7 @@
 {
-  "general": [
+  "general": 
+  
+  [
     {
     "id": 1,
     "name": "Psoriasis",
@@ -28,6 +30,7 @@
         "description": "A severe form that affects most of the body surface."
       }
     ],
+     "icon": "CiMedicalClipboard",
     "treatments": [
       {
         "name": "Topical Treatments",
@@ -89,6 +92,7 @@
   {
     "id": 2,
     "name": "Atopic Dermatitis (Eczema)",
+     "icon": "CiMedicalClipboard",
     "description": "Atopic dermatitis, commonly known as eczema, is a chronic inflammatory skin condition characterized by red, itchy, and inflamed skin. It is a common condition that can affect people of all ages, from infants to adults. Eczema is often triggered by genetic factors, environmental allergens, irritants, and stress. The symptoms of eczema can vary in severity and may include dry, scaly patches, oozing blisters, and thickened skin.",
     "overview": "Atopic dermatitis, commonly known as eczema, is a chronic inflammatory skin condition characterized by red, itchy, and inflamed skin. It is a common condition that can affect people of all ages, from infants to adults. Eczema is often triggered by genetic factors, environmental allergens, irritants, and stress. The symptoms of eczema can vary in severity and may include dry, scaly patches, oozing blisters, and thickened skin.",
     "causes": "The exact cause of eczema is not fully understood, but genetic and environmental factors are believed to play a role. Triggers such as infections, stress, certain medications, and injuries can exacerbate eczema symptoms.",
@@ -209,6 +213,7 @@
   },
   {
     "id": 3,
+     "icon": "CiMedicalClipboard",
     "name": "Bullous Diseases",
     "description": "Bullous diseases are a group of dermatological disorders characterized by the formation of fluid-filled blisters, known as bullae, within or beneath the skin. These conditions can arise from various causes, including autoimmune reactions, genetic factors, infections, or exposure to certain medications. Bullous diseases can affect people of all ages and can manifest in different forms, ranging from localized blisters to widespread skin involvement.",
     "overview": "Bullous diseases encompass a spectrum of dermatological conditions characterized by the development of fluid-filled blisters (bullae) within or beneath the skin. These disorders can emerge due to diverse factors such as autoimmune responses, genetic predispositions, infections, or exposure to specific medications. They may affect individuals of all ages and can present with varying severity, from localized blistering to extensive skin lesions.",
@@ -291,6 +296,7 @@
   },  
   {
     "id": 4,
+     "icon": "CiMedicalClipboard",
     "name": "Lichen Planus",
     "description": "Lichen planus is a chronic inflammatory skin condition that can affect various parts of the body, including the skin, mucous membranes, nails, and hair. The exact cause of lichen planus is not well understood, but it is believed to involve an abnormal immune response that leads to inflammation. This condition is not contagious and typically affects adults, although it can occur in people of any age.",
     "overview": "Lichen planus often presents as flat-topped, shiny, purplish, or reddish-purple bumps on the skin, which may be accompanied by itching. The affected areas can form a characteristic polygonal or angular pattern. In addition to the skin, lichen planus can involve the mucous membranes of the mouth, genitals, and other areas, leading to white, lacy patches or sores.",
@@ -359,6 +365,8 @@
   },
   {
     "id": 5,
+     "icon": "CiMedicalClipboard",
+
     "name": "Vitiligo",
     "description": "Vitiligo is a skin disorder characterized by the development of white patches on the skin due to the loss of pigment-producing cells called melanocytes. Melanocytes are responsible for producing melanin, the pigment that gives color to the skin, hair, and eyes. When these cells are damaged or destroyed, it results in depigmentation, leading to the development of white patches on various parts of the body.",
     "overview": "Symptoms of vitiligo include the gradual appearance of white patches on the skin, often first noticeable in areas exposed to the sun, such as the face, hands, feet, and other extremities. The condition can also affect mucous membranes, like the inside of the mouth and nose, as well as the eyes.",
@@ -426,6 +434,7 @@
   {
     "id": 6,
     "name": "Acne",
+     "icon": "CiMedicalClipboard",
     "description": "Acne is a common skin condition characterized by the presence of pimples, blackheads, whiteheads, and often, inflamed and infected nodules or cysts. It typically occurs when hair follicles become clogged with oil and dead skin cells, leading to the formation of various types of lesions on the skin. While it most commonly affects teenagers during puberty due to hormonal changes, acne can occur at any age and may persist into adulthood.",
     "overview": "Acne is a common skin condition characterized by the presence of pimples, blackheads, whiteheads, and often, inflamed and infected nodules or cysts. It typically occurs when hair follicles become clogged with oil and dead skin cells, leading to the formation of various types of lesions on the skin. While it most commonly affects teenagers during puberty due to hormonal changes, acne can occur at any age and may persist into adulthood.",
     "types":[],
@@ -528,6 +537,8 @@
   {
     "id":7,
     "name": "Rosacea",
+     "icon": "CiMedicalClipboard",
+
     "description": "Rosacea is a chronic skin condition that primarily affects the face, causing redness, visible blood vessels, and often small, red, pus-filled bumps. It is a common condition, especially among individuals with fair skin, and tends to develop between the ages of 30 and 50. While the exact cause of rosacea remains unclear, factors such as genetics, environmental triggers, and abnormalities in the blood vessels of the face are believed to contribute to its development.",
     "overview": "Symptoms of rosacea can vary from person to person but commonly include persistent facial redness, flushing, bumps, and visible blood vessels. In more severe cases, individuals may experience eye irritation, a condition known as ocular rosacea.",
     "causes": "The exact cause of rosacea is not fully understood, but a combination of genetic, environmental, and vascular factors is believed to play a role. Triggers such as sun exposure, hot or spicy foods, alcohol, stress, and certain medications can exacerbate rosacea symptoms.",
@@ -609,7 +620,7 @@
 
   {
     "id": 8,
-    "name": "Skin Cancer Screening",
+    "name": "Skin Cancer Screening", "icon": "CiMedicalClipboard",
     "description": "Skin cancer screening is a preventive health measure that involves examining the skin for signs of skin cancer, including changes in moles, growths, or other skin lesions. Early detection of skin cancer is crucial for successful treatment and improved outcomes. Skin cancer screening may involve a visual examination of the skin by a healthcare provider, dermoscopy (skin surface microscopy), or other imaging techniques.",
     "overview": "Skin cancer screening is a preventive health measure that involves examining the skin for signs of skin cancer, including changes in moles, growths, or other skin lesions. Early detection of skin cancer is crucial for successful treatment and improved outcomes. Skin cancer screening may involve a visual examination of the skin by a healthcare provider, dermoscopy (skin surface microscopy), or other imaging techniques.",
     "causes": "Skin cancer is primarily caused by exposure to ultraviolet (UV) radiation from the sun or artificial sources like tanning beds. Risk factors for skin cancer include fair skin, a history of sunburns, a family history of skin cancer, a weakened immune system, and certain genetic conditions.",
@@ -674,6 +685,8 @@
   {
     "id": 9,
     "name": "Rash",
+     "icon": "CiMedicalClipboard",
+
     "description": "A rash is a change in the skin's appearance, often characterized by redness, itching, and irritation. Rashes can be caused by various factors, including allergies, infections, skin conditions, and environmental triggers. Common types of rashes include contact dermatitis, eczema, psoriasis, and hives. Treatment for rashes depends on the underlying cause and may involve topical medications, oral medications, lifestyle changes, or other interventions.",
     "overview": "A rash is a change in the skin's appearance, often characterized by redness, itching, and irritation. Rashes can be caused by various factors, including allergies, infections, skin conditions, and environmental triggers. Common types of rashes include contact dermatitis, eczema, psoriasis, and hives. Treatment for rashes depends on the underlying cause and may involve topical medications, oral medications, lifestyle changes, or other interventions.",
     "causes": "Rashes can be caused by a wide range of factors, including allergic reactions to foods, medications, or skincare products, infections such as fungal or bacterial, skin conditions like eczema or psoriasis, environmental triggers like heat or chemicals, and systemic conditions like autoimmune diseases.",
@@ -736,6 +749,7 @@
   {
     "id": 10,
     "name": "Growth",
+     "icon": "CiMedicalClipboard",
     "description": "Skin growths are common and can be caused by various factors, including infections, benign tumors, cysts, or skin conditions. Some growths may be harmless, while others may require medical evaluation and treatment. Common types of skin growths include moles, warts, skin tags, and seborrheic keratoses. Dr. Harris can provide a thorough evaluation of skin growths and recommend appropriate management based on the individual's specific needs.",
     "overview": "Skin growths are common and can be caused by various factors, including infections, benign tumors, cysts, or skin conditions. Some growths may be harmless, while others may require medical evaluation and treatment. Common types of skin growths include moles, warts, skin tags, and seborrheic keratoses. Dr. Harris can provide a thorough evaluation of skin growths and recommend appropriate management based on the individual's specific needs.",
     "causes": "Skin growths can be caused by a variety of factors, including viral infections like human papillomavirus (HPV) for warts, genetic predispositions for moles, friction or irritation for skin tags, and aging for seborrheic keratoses. Some growths may be associated with underlying medical conditions or skin diseases.",
@@ -798,6 +812,7 @@
   {
     "id": 11,
     "name": "Hair Loss",
+      "icon": "CiMedicalClipboard",
     "description": "Hair loss, also known as alopecia, can affect the scalp or other areas of the body and may be temporary or permanent. Common causes of hair loss include genetics, hormonal changes, medical conditions, medications, and stres.",
     "overview": "Hair loss, also known as alopecia, can affect the scalp or other areas of the body and may be temporary or permanent. Common causes of hair loss include genetics, hormonal changes, medical conditions, medications, and stress.",
     "causes": "Hair loss can be caused by a variety of factors, including genetics, hormonal changes, medical conditions, medications, and stress. Common types of hair loss include androgenetic alopecia.",
@@ -868,6 +883,7 @@
   {
     "id": 12,
     "name": "Skin discoloration",
+     "icon": "CiMedicalClipboard",
     "description": "Skin discoloration refers to changes in the skin's color, tone, or pigmentation. These changes can manifest as dark spots, redness, or uneven skin tone and may be caused by various factors, including sun exposure, hormonal changes, skin conditions, medications, or genetics. Common types of skin discoloration include hyperpigmentation, melasma, and vitiligo.",
     "overview": "Skin discoloration refers to changes in the skin's color, tone, or pigmentation. These changes can manifest as dark spots, redness, or uneven skin tone and may be caused by various factors, including sun exposure, hormonal changes, skin conditions, medications, or genetics. Common types of skin discoloration include hyperpigmentation, melasma, and vitiligo.",
     "causes": "Skin discoloration can be caused by a variety of factors, including sun exposure, hormonal changes, skin conditions, medications, genetics, and aging. Common types of skin discoloration include hyperpigmentation, melasma, and vitiligo.",
@@ -965,6 +981,7 @@
   {
     "id":13,
     "name": "Excessive Sweating",
+     "icon": "CiMedicalClipboard",
     "description": "Excessive sweating, also known as hyperhidrosis, is a common condition characterized by sweating beyond what is necessary to regulate body temperature. It can affect various parts of the body, such as the underarms, palms, feet, and face, and may be triggered by stress, heat, or other factors. Hyperhidrosis can have a significant impact on an individual's quality of life, leading to embarrassment, discomfort, and social anxiety.",
     "overview": "Excessive sweating, also known as hyperhidrosis, is a common condition characterized by sweating beyond what is necessary to regulate body temperature. It can affect various parts of the body, such as the underarms, palms, feet, and face, and may be triggered by stress, heat, or other factors. Hyperhidrosis can have a significant impact on an individual's quality of life, leading to embarrassment, discomfort, and social anxiety.",
     "causes": "The exact cause of hyperhidrosis is not fully understood, but it is believed to involve overactivity of the sweat glands due to an overactive sympathetic nervous system. Genetic factors may also play a role in the development of hyperhidrosis.",
@@ -1063,15 +1080,18 @@
     {
       "id": 1,
       "name": "Botox",
+       "icon": "CiMedicalClipboard",
       "description": "Reduces the appearance of wrinkles by temporarily paralyzing muscles."
     },
     {
       "id": 2,
+       "icon": "CiMedicalClipboard",
       "name": "Dermal Fillers",
       "description": "Plump and lift the skin."
     },
     {
       "id": 3,
+       "icon": "CiMedicalClipboard",
       "name": "Lasers",
       "description": "Lasers."
     }
@@ -1079,26 +1099,32 @@
   "surgical": [
     {
       "id": 2,
+       "icon": "CiMedicalClipboard",
       "name": "Skin Biopsy",
       "description": "Diagnose skin conditions."
     },
     {
       "id": 3,
+       "icon": "CiMedicalClipboard",
+
       "name": "Skin Cancer Removal",
       "description": "Skin Cancer Removal."
     },
     {
       "id": 4,
+       "icon": "CiMedicalClipboard",
       "name": "Mohs Surgery",
       "description": "Mohs Surgery."
     },
     {
       "id": 5,
+       "icon": "CiMedicalClipboard",
       "name": "Scar Revision",
       "description": "Scar Revision."
     },
     {
       "id": 6,
+       "icon": "CiMedicalClipboard",
       "name": "Mole Removal",
       "description": "Mole Removal."
     }

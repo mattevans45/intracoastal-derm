@@ -19,7 +19,7 @@ const CallToAction = ({ className }) => {
         y: translateY,
       }}
       transition={{ duration: 0.5 }}
-      style={{ willChange: "transform, opacity" }}
+
       ref={ref}
     >
       <div className="z-10 rounded-3xl bg-black bg-opacity-40 p-4 shadow-lg md:p-6">

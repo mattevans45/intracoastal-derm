@@ -37,17 +37,14 @@ const AboutUs = () => {
       ref={ref}
       animate={controls}
       variants={containerVariants}
-      className="z-20 container mx-auto rounded-lg"
+      className="container z-20 mx-auto rounded-lg"
     >
-      <motion.div
-      
-        className="mx-5 py-5 text-gray-600"
-      >
+      <motion.div className="mx-5 py-5 text-gray-600">
         <div className="rounded-xl bg-white py-10 shadow-sm">
           <motion.h2
-          key={"header"}
+            key={"header"}
             variants={itemVariants}
-            className="font-bold mb-10 rounded-xl bg-white py-2 text-center text-4xl text-gray-600"
+            className="mb-10 rounded-xl bg-white py-2 text-center text-4xl font-bold text-gray-600"
           >
             About Intracoastal Dermatology
           </motion.h2>

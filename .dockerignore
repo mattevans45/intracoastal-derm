@@ -1,5 +1,5 @@
 node_modules
-dist
+google-cloud-sdk
 .git
 Dockerfile
 .dockerignore

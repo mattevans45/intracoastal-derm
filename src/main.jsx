@@ -1,16 +1,14 @@
-import React, { Suspense, lazy } from "react";
+import React, { Suspense, lazy, useEffect } from "react";
 import ReactDOM from "react-dom/client";
-import {
-  BrowserRouter as Router,
-  Route,
-  Routes,
-  Navigate,
-} from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes, useLocation, useNavigate } from "react-router-dom";
+import { HelmetProvider } from "react-helmet-async";
 
 import MainLayout from "./MainLayout.jsx";
 import ServicesLayout from "./ServicesLayout.jsx";
 import LoadingSpinner from "./LoadingSpinner.jsx";
 import App from "./App.jsx";
+import ErrorBoundary from "./ErrorBoundary.jsx";
+
 
 const ScheduleAppointment = lazy(() => import("./ScheduleAppointment.jsx"));
 const Contact = lazy(() => import("./Contact.jsx"));
@@ -23,103 +21,72 @@ const ServiceDetailPage = lazy(() => import("./ServiceDetailPage.jsx"));
 const NotFound = lazy(() => import("./NotFound.jsx"));
 const Location = lazy(() => import("./Location.jsx"));
 
-const AppRoutes = () => (
-  <Routes>
-    <Route path="/" element={<MainLayout />}>
-      <Route index element={<App />} />
-      <Route
-        path="location"
-        element={
-          <Suspense fallback={<LoadingSpinner />}>
-            <Location />
-          </Suspense>
-        }
-      />
-      <Route
-        path="schedule-appointment"
-        element={
-          <Suspense fallback={<LoadingSpinner />}>
-            <ScheduleAppointment />
-          </Suspense>
-        }
-      />
-      <Route
-        path="contact"
-        element={
-          <Suspense fallback={<LoadingSpinner />}>
-            <Contact />
-          </Suspense>
-        }
-      />
-      <Route
-        path="about"
-        element={
-          <Suspense fallback={<LoadingSpinner />}>
-            <About />
-          </Suspense>
-        }
-      />
-      <Route
-        path="medical-disclaimer"
-        element={
-          <Suspense fallback={<LoadingSpinner />}>
-            <MedicalDisclaimer />
-          </Suspense>
-        }
-      />
-      <Route
-        path="insurances-accepted"
-        element={
-          <Suspense fallback={<LoadingSpinner />}>
-            <InsurancesAccepted />
-          </Suspense>
-        }
-      />
-    </Route>
-    <Route path="/services" element={<ServicesLayout />}>
-      <Route
-        index
-        element={
-          <Suspense fallback={<LoadingSpinner />}>
-            <Services />
-          </Suspense>
-        }
-      />
-      <Route
-        path=":categoryId"
-        element={
-          <Suspense fallback={<LoadingSpinner />}>
-            <ServicesPage />
-          </Suspense>
-        }
-      />
-      <Route
-        path=":categoryId/:serviceSlug"
-        element={
-          <Suspense fallback={<LoadingSpinner />}>
-            <ServiceDetailPage />
-          </Suspense>
-        }
-      />
-      <Route path="*" element={<Navigate to="/services/" />} />
-    </Route>
-    <Route
-      path="*"
-      element={
-        <Suspense fallback={<LoadingSpinner />}>
-          <NotFound />
-        </Suspense>
-      }
-    />
-  </Routes>
+const SuspenseWrapper = ({ children }) => (
+  <Suspense fallback={<LoadingSpinner />}>
+    <ErrorBoundary>
+      {children}
+    </ErrorBoundary>
+  </Suspense>
 );
 
-const rootElement = document.getElementById("root");
+const AppRoutes = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (location.pathname !== '/404') {
+      fetch(location.pathname)
+        .then(response => {
+          if (response.status === 404) {
+            navigate('/404.html', { replace: true });
+          }
+        })
+        .catch(error => {
+          if (error.response && error.response.status === 404) {
+            navigate('/404.html', { replace: true });
+          }
+        });
+    }
+  }, [location, navigate]);
+
+  return (
+    <Routes>
+      <Route path="/" element={<MainLayout />}>
+        <Route index element={<App />} />
+        <Route path="location" element={<SuspenseWrapper><Location /></SuspenseWrapper>} />
+        <Route path="schedule-appointment" element={<SuspenseWrapper><ScheduleAppointment /></SuspenseWrapper>} />
+        <Route path="contact" element={<SuspenseWrapper><Contact /></SuspenseWrapper>} />
+        <Route path="about" element={<SuspenseWrapper><About /></SuspenseWrapper>} />
+        <Route path="medical-disclaimer" element={<SuspenseWrapper><MedicalDisclaimer /></SuspenseWrapper>} />
+        <Route path="insurances-accepted" element={<SuspenseWrapper><InsurancesAccepted /></SuspenseWrapper>} />
+      </Route>
+      <Route path="/services" element={<ServicesLayout />}>
+        <Route index element={<SuspenseWrapper><Services /></SuspenseWrapper>} />
+        <Route path="general" element={<SuspenseWrapper><ServicesPage category="general" /></SuspenseWrapper>} />
+        <Route path="cosmetic" element={<SuspenseWrapper><ServicesPage category="cosmetic" /></SuspenseWrapper>} />
+        <Route path="surgical" element={<SuspenseWrapper><ServicesPage category="surgical" /></SuspenseWrapper>} />
+        <Route path=":category/:serviceName" element={<SuspenseWrapper><ServiceDetailPage /></SuspenseWrapper>} />
+      </Route>
+      <Route path="*" element={<SuspenseWrapper><NotFound /></SuspenseWrapper>} />
+      <Route path="/404" element={<NotFound />} />
+    </Routes>
+  );
+};
+
+const rootElement = document.getElementById('root');
 
 ReactDOM.createRoot(rootElement).render(
-  <Router>
-    <Suspense fallback={<LoadingSpinner />}>
-      <AppRoutes />
-    </Suspense>
-  </Router>,
+  <React.StrictMode>
+    <HelmetProvider>
+      <Router>
+        <ErrorBoundary>
+          <Suspense fallback={<LoadingSpinner />}>
+            <AppRoutes />
+          </Suspense>
+        </ErrorBoundary>
+      </Router>
+    </HelmetProvider>
+  </React.StrictMode>
 );
+
+export default AppRoutes;

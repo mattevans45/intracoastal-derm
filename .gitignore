@@ -11,6 +11,9 @@ node_modules
 dist
 dist-ssr
 *.local
+package-lock.json
+yarn.lock
+google-cloud-sdk
 
 # Editor directories and files
 .vscode/*

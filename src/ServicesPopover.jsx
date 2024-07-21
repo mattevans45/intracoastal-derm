@@ -1,11 +1,11 @@
-import { useState, useEffect, useRef } from 'react';
-import { motion } from 'framer-motion';
+import { useState, useEffect, useRef, useCallback } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDownIcon, CalendarIcon, QuestionMarkCircleIcon } from '@heroicons/react/20/solid';
 import { Link } from 'react-router-dom';
 import { MdOutlineVaccines } from "react-icons/md";
 import { GiScalpel } from "react-icons/gi";
 import Hair from "./Hair.jsx";
-import { doc } from 'prettier';
+
 
 const services = [
   {
@@ -35,41 +35,53 @@ const callsToAction = [
 
 const menuVariants = {
   hidden: { opacity: 0, y: -5 },
-  visible: { opacity: 1, y: 0, transition: { duration: .1, staggerChildren: 0.1 } },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.1, staggerChildren: 0.1 } },
+  exit: { opacity: 0, y: -5, transition: { duration: 0.1 } },
 };
 
 export default function ServicesPopover() {
   const [isOpen, setIsOpen] = useState(false);
   const popoverRef = useRef(null);
 
-  useEffect(() => {
-    function handleClickOutside(event) {
-      if (popoverRef.current && !popoverRef.current.contains(event.target)) {
-        setIsOpen(false);
-      }
+  const handleClickOutside = useCallback((event) => {
+    if (popoverRef.current && !popoverRef.current.contains(event.target)) {
+      setIsOpen(false);
     }
+  }, []);
+
+  useEffect(() => {
     document.addEventListener('mousedown', handleClickOutside);
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
-  }, [popoverRef]);
-
+  }, [handleClickOutside]);
 
   return (
-    <motion.div initial="hidden"
-    animate="visible"
-    variants={menuVariants}
-    ref={popoverRef} className="relative z-40 flex sm:hidden md:text-md lg:text-md md:flex md:flex-nowrap md:items-baseline md:justify-center lg:flex lg:justify-around lg:space-x-1">
-      <div className="group inline-flex gap-x-2 uppercase rounded-lg px-2 py-1.5 text-[#4d4d4d] shadow-gray-400/20 drop-shadow-md transition-all duration-500 focus-within:outline-none ease-in-out hover:rounded-lg hover:border-gray-200 hover:bg-[#30648B]/90 hover:text-white hover:px-2 hover:py-1.5 focus:outline-none focus-visible:ring focus-visible:ring-gray-500/50"
-        onClick={() => setIsOpen(!isOpen)}>
-        <span>Services</span>
+    <motion.div 
+      initial="hidden"
+      animate="visible"
+      variants={menuVariants}
+      ref={popoverRef} 
+      className="relative z-40 flex sm:hidden md:flex md:flex-nowrap md:items-baseline md:justify-center lg:flex lg:justify-around lg:space-x-1"
+    >
+      <button
+        className="group inline-flex gap-x-2 uppercase rounded-lg px-2 py-1.5 text-[#4d4d4d] transition-all duration-500 focus-within:outline-none ease-in-out hover:rounded-lg hover:border-gray-200 hover:bg-[#30648B]/90 hover:text-white hover:px-2 hover:py-1.5 focus:outline-none focus-visible:ring focus-visible:ring-gray-500/50"
+        onClick={() => setIsOpen(!isOpen)}
+        aria-expanded={isOpen}
+        aria-haspopup="true"
+      >
+        <span className='font-display shadow-gray-400/20 drop-shadow-md'>Services</span>
         <ChevronDownIcon className="h-5 w-5 group-hover:text-white" aria-hidden="true" />
-      </div>
-      {isOpen && (
-        <div
-
-          className="absolute rounded-2xl top-7 left-0 z-50 flex flex-col gap-y-1.5 bg-white text-sm leading-6 shadow-lg ring-1 ring-gray-900/5"
-        >
+      </button>
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+            variants={menuVariants}
+            className="absolute rounded-2xl top-7 left-0 z-50 flex flex-col gap-y-1.5 bg-white text-sm leading-6 shadow-lg ring-1 ring-gray-900/5"
+          >
           <div className="w-screen max-w-md flex-auto overflow-hidden rounded-3xl bg-white text-sm leading-6 shadow-lg ring-1 ring-gray-900/5">
             <div className="p-4">
               {services.map((item) => (
@@ -109,8 +121,9 @@ export default function ServicesPopover() {
               ))}
             </div>
           </div>
-        </div>
+        </motion.div>
       )}
+      </AnimatePresence>
     </motion.div>
   );
 }

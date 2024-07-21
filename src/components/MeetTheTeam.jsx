@@ -1,4 +1,4 @@
-import headshot from "../assets/images/optimizations/DrHarrisHeadshotFinal.webp";
+import headshot from "../assets/images/optimized/DrHarrisHeadshotFinal.webp";
 import React from "react";
 import { useEffect, useRef } from "react";
 import { motion, useAnimation, useInView } from "framer-motion";

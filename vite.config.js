@@ -1,51 +1,26 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
-import compression from 'vite-plugin-compression';
-import { VitePWA } from 'vite-plugin-pwa';
+import viteCompression from 'vite-plugin-compression';
 import { ViteImageOptimizer } from 'vite-plugin-image-optimizer';
 
 export default defineConfig({
   plugins: [
     react(),
-    compression({
-      algorithm: 'brotliCompress',
-      ext: '.br'
+    viteCompression({
+      ext: '.br',
+      brotli: true,
+      gzip: false,
     }),
-    // VitePWA({
-    //   registerType: 'autoUpdate',
-    //   includeAssets: ['favicon.ico', 'apple-icon.png'],
-    //   manifest: {
-    //     name: 'Intracoastal Dermatology and Skin Surgery',
-    //     short_name: 'Intracoastal Dermatology',
-    //     description: 'Intracoastal Dermatology offers expert care in general, cosmetic, and surgical dermatology. New office opening in Leland, NC. Schedule your consultation today.',
-    //     theme_color: '#ffffff',
-    //     icons: [
-    //       {
-    //         src: 'src/assets/images/optimizations/whiteLogo.webp',
-    //         sizes: '192x192',
-    //         type: 'image/webp'
-    //       },
-    //       {
-    //         src: 'src/assets/apple-icon.png',
-    //         sizes: '512x512',
-    //         type: 'image/png'
-    //       }
-    //     ]
-    //   }
-    // }),
+    viteCompression({
+      ext: '.gz',
+      brotli: false,
+      gzip: true,
+    }),
     ViteImageOptimizer({
-      png: {
-        quality: 70,
-      },
-      jpeg: {
-        quality: 70,
-      },
-      jpg: {
-        quality: 70,
-      },
-      webp: {
-        quality: 80,
-      },
+      png: { quality: 70 },
+      jpeg: { quality: 70 },
+      jpg: { quality: 70 },
+      webp: { quality: 80 },
     }),
   ],
   server: {
@@ -63,8 +38,8 @@ export default defineConfig({
         },
         entryFileNames: 'assets/[name].[hash].js',
         chunkFileNames: 'assets/[name].[hash].js',
-        assetFileNames: 'assets/[name].[hash].[ext]'
-      }
+        assetFileNames: 'assets/[name].[hash].[ext]',
+      },
     },
     sourcemap: false,
     minify: 'terser',
@@ -76,9 +51,6 @@ export default defineConfig({
     },
   },
   base: '/',
-  esbuild: {
-    
-  },
   optimizeDeps: {
     include: ['react', 'react-dom'],
   },

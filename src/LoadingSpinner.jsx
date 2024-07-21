@@ -1,5 +1,5 @@
 import React from 'react';
-import './index.css';
+
 const LoadingSpinner = () => {
   return (
     <div className="flex justify-center items-center min-h-screen bg-gray-100">

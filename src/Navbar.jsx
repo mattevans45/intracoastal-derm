@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react";
-import AlertBar from "./components/Alertbar.jsx";
+
 import ContactBar from "./components/ContactBar.jsx";
 
 import { Bars3Icon } from "@heroicons/react/24/outline";
@@ -8,7 +8,7 @@ import { MdOutlineVaccines } from "react-icons/md";
 import { Link } from "react-router-dom";
 import SidebarMenu from "./SideBarMenu";
 
-import LOGO from "./assets/images/optimizations/IntracoastalDermatologyLogo.webp";
+import LOGO from "./assets/images/optimized/IntracoastalDermatologyandSkinSurgeryLogo.webp";
 
 import ServicesPopover from "./ServicesPopover.jsx";
 
@@ -16,7 +16,7 @@ import { GiScalpel } from "react-icons/gi";
 import Hair from "./Hair.jsx";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { MenuToggle } from "./MenuToggle.jsx";
+
 const services = [
   {
     name: "General Dermatology",
@@ -41,22 +41,19 @@ const services = [
   },
 ];
 
+
 const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const sidebarRef = useRef(null);
 
   const toggleMobileMenu = () => setMobileMenuOpen((prevState) => !prevState);
 
-
   return (
-    <div
-      className={
-        !mobileMenuOpen
-          ? "sticky top-0 z-40 bg-white/80 backdrop-blur-[2.5px]"
-          : "sticky top-0 z-40 bg-white/90 backdrop-blur-[2.5px]"
-      }
+    <header
+      className={`sticky top-0 z-40 backdrop-blur-[2.5px] ${
+        mobileMenuOpen ? 'bg-white/90' : 'bg-white/80'
+      }`}
     >
-      <AlertBar />
       <ContactBar />
       <motion.header
         initial={{ opacity: 0 }}
@@ -71,7 +68,7 @@ const Navbar = () => {
         >
           <Link to="/">
             <img
-              className="z-40 mx-auto object-cover h-32 max-w-52 max-h-32 sm:max-h-32  md:max-h-32  lg:max-h-32 "
+              className="z-40 mx-auto object-cover h-32 max-w-52 max-h-32 sm:max-h-32 md:max-h-32 lg:max-h-32"
               src={LOGO}
               srcSet={`${LOGO} 1x, ${LOGO} 2x`}
               sizes="(max-width:200px) 8rem, 10rem"
@@ -109,17 +106,14 @@ const Navbar = () => {
             ref={sidebarRef}
           >
             <SidebarMenu
-              toggle={toggleMobileMenu}
               mobileMenuOpen={mobileMenuOpen}
               setMobileMenuOpen={setMobileMenuOpen}
               services={services}
-            >
-              <MenuToggle></MenuToggle>
-            </SidebarMenu>
+            />
           </motion.div>
         )}
       </AnimatePresence>
-    </div>
+    </header>
   );
 };
 
@@ -128,26 +122,26 @@ const DesktopMenu = () => (
     <ServicesPopover />
     <Link
       to="/location"
-      className="rounded-lg px-2 py-1.5 text-[#4d4d4d] shadow-gray-400/20 drop-shadow-md transition-all duration-500 ease-in-out focus-within:outline-none hover:rounded-lg hover:border-gray-200 hover:bg-[#30648B]/90 hover:px-2 hover:py-1.5 hover:text-white focus:outline-none focus-visible:ring focus-visible:ring-gray-500/50"
+      className="rounded-lg px-2 py-1.5 text-[#4d4d4d] font-display shadow-gray-400/20 drop-shadow-md transition-all duration-500 ease-in-out focus-within:outline-none hover:rounded-lg hover:border-gray-200 hover:bg-[#30648B]/90 hover:px-2 hover:py-1.5 hover:text-white focus:outline-none focus-visible:ring focus-visible:ring-gray-500/50"
     >
       LOCATION
     </Link>
     <Link
       to="/contact"
-      className="rounded-lg px-2 py-1.5 text-[#4d4d4d] shadow-gray-400/20 drop-shadow-md transition-all duration-500 ease-in-out focus-within:outline-none hover:rounded-lg hover:border-gray-200 hover:bg-[#30648B]/90 hover:px-2 hover:py-1.5 hover:text-white focus:outline-none focus-visible:ring focus-visible:ring-gray-500/50"
+      className="rounded-lg px-2 py-1.5 text-[#4d4d4d] font-display shadow-gray-400/20 drop-shadow-md transition-all duration-500 ease-in-out focus-within:outline-none hover:rounded-lg hover:border-gray-200 hover:bg-[#30648B]/90 hover:px-2 hover:py-1.5 hover:text-white focus:outline-none focus-visible:ring focus-visible:ring-gray-500/50"
     >
       CONTACT
     </Link>
     <Link
       to="/about"
-      className="rounded-lg px-2 py-1.5 text-[#4d4d4d] shadow-gray-400/20 drop-shadow-md transition-all duration-500 ease-in-out focus-within:outline-none hover:rounded-lg hover:border-gray-200 hover:bg-[#30648B]/90 hover:px-2 hover:py-1.5 hover:text-white focus:outline-none focus-visible:ring focus-visible:ring-gray-500/50"
+      className="rounded-lg px-2 py-1.5 text-[#4d4d4d] font-display shadow-gray-400/20 drop-shadow-md transition-all duration-500 ease-in-out focus-within:outline-none hover:rounded-lg hover:border-gray-200 hover:bg-[#30648B]/90 hover:px-2 hover:py-1.5 hover:text-white focus:outline-none focus-visible:ring focus-visible:ring-gray-500/50"
     >
       ABOUT
     </Link>
     <div className="mx-auto inline-flex px-5 gap-20">
       <Link
         to="/schedule-appointment"
-        className="lg:text-md space-x-5 uppercase rounded-lg border-2 border-[#4d4d4d] border-opacity-5 bg-[#30648B]/5 px-1.5 py-1 text-center text-[#4d4d4d] shadow-gray-400/20 transition-all duration-500 ease-in-out hover:rounded-lg hover:bg-[#30648B]/90 hover:text-white hover:drop-shadow-md focus:outline-none focus-visible:ring focus-visible:ring-gray-500/50"
+        className="lg:text-md space-x-5 font-display uppercase rounded-lg border-2 border-[#4d4d4d] border-opacity-5 bg-[#30648B]/5 px-1.5 py-1 text-center text-[#4d4d4d] shadow-gray-400/20 transition-all duration-500 ease-in-out hover:rounded-lg hover:bg-[#30648B]/90 hover:text-white hover:drop-shadow-md focus:outline-none focus-visible:ring focus-visible:ring-gray-500/50"
       >
         Schedule an Appointment
       </Link>

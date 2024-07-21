@@ -1,29 +1,38 @@
-# Use an official Node runtime as the parent image
-FROM node:18-alpine
+# Stage 1: Build
+FROM node:18-alpine AS build
 
-# Set the working directory in the container
+# Set the working directory
 WORKDIR /app
-
 
 # Copy package.json and package-lock.json
 COPY package*.json ./
 
-# Install dependencies
-RUN npm install && npm cache clean --force
+RUN npm ci && npm cache clean --force
 
-# Copy the rest of the application code
+# Copy the rest of the application files
 COPY . .
 
-# Build the application
+# Build the React application
 RUN npm run build
 
+# Copy static files
 COPY sitemap.xml /app/dist/sitemap.xml
 COPY robots.txt /app/dist/robots.txt
 
+# Stage 2: Serve
+FROM nginx:1.23-alpine-slim
 
-# Serve the app
+# Copy the build output from the previous stage
+COPY --from=build /app/dist /usr/share/nginx/html
 
-RUN npm install -g serve
+# We don't need a separate 404.html file anymore
+COPY public/404.html /usr/share/nginx/html/404.html
 
-# Specify the command to run on container start
-CMD serve -s dist -l $PORT
+# Copy custom Nginx configuration
+COPY nginx.conf /etc/nginx/templates/default.conf.template
+
+# Expose port 8080 (Cloud Run prefers this port)
+EXPOSE 8080
+
+# Use the shell form of CMD to expand the PORT variable
+CMD sh -c "envsubst '\$PORT' < /etc/nginx/templates/default.conf.template > /etc/nginx/conf.d/default.conf && nginx -g 'daemon off;'"

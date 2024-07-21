@@ -1,196 +1,172 @@
-import React, { useRef, useEffect, useState, useMemo } from "react";
-import {
-  useAnimation,
-  motion,
-  AnimatePresence,
-  useInView,
-  useScroll,
-  useTransform,
-} from "framer-motion";
-import whiteLogo from "../assets/images/optimizations/white-transparent-nameonly.webp";
-import smallwave from "../assets/images/optimizations/smallwave.webp";
-import background2 from "../assets/images/optimizations/heroback1.webp";
-import background3 from "../assets/images/optimizations/heroback3.webp";
-import background4 from "../assets/images/optimizations/heroback2.webp";
+import React, { useEffect, useLayoutEffect, useState, Suspense, useMemo, useCallback } from "react";
+import { motion } from "framer-motion";
+import LoadingSpinner from "../LoadingSpinner";
+import whiteLogo from "../assets/images/optimized/white-transparent-nameonly.webp";
+import smallwave640 from "../assets/images/optimized/matt-hardy-6ArTTluciuA-unsplash-640w-q80.webp";
+import smallwave1280 from "../assets/images/optimized/matt-hardy-6ArTTluciuA-unsplash-1280w-q80.webp";
+import smallwave1920 from "../assets/images/optimized/matt-hardy-6ArTTluciuA-unsplash-1920w-q80.webp";
+import background2_640 from "../assets/images/optimized/alex-CWwdzVtaGKs-unsplash-640w-q80.webp";
+import background2_1280 from "../assets/images/optimized/alex-CWwdzVtaGKs-unsplash-1280w-q80.webp";
+import background2_1920 from "../assets/images/optimized/alex-CWwdzVtaGKs-unsplash-1920w-q80.webp";
+import background3_640 from "../assets/images/optimized/nick-jio-Pj2TaFMH0pE-unsplash-640w-q80.webp";
+import background3_1280 from "../assets/images/optimized/nick-jio-Pj2TaFMH0pE-unsplash-1280w-q80.webp";
+import background3_1920 from "../assets/images/optimized/nick-jio-Pj2TaFMH0pE-unsplash-1920w-q80.webp";
+import background4_640 from "../assets/images/optimized/mourad-saadi-GyDktTa0Nmw-unsplash-640w-q80.webp";
+import background4_1280 from "../assets/images/optimized/mourad-saadi-GyDktTa0Nmw-unsplash-1280w-q80.webp";
+import background4_1920 from "../assets/images/optimized/mourad-saadi-GyDktTa0Nmw-unsplash-1920w-q80.webp";
+import useCountdown from "./useCountdown";
+import ErrorBoundary from "../ErrorBoundary";
 
-import FlipClock from "./FlipClock";
-import CardContent from "./CardContent";
+const LazyFlipClock = React.lazy(() => import("./FlipClock"));
+const LazyCardContent = React.lazy(() => import("./CardContent"));
 
-const ImageCompressed = ({ src, alt, className }) => (
-  <img
-    src={src}
-    srcSet={`${src} 1x, ${src} 2x`}
-    sizes="(max-width: 1400px) 100vw, 100vw"
-    alt={alt}
-    className={className}
-  />
+const ProgressiveImage = React.memo(
+  ({ srcSet, sizes, alt, className, loading = "eager", fetchpriority }) => (
+    <img
+      srcSet={srcSet}
+      sizes={sizes}
+      alt={alt}
+      className={className}
+      loading={loading}
+      fetchpriority={fetchpriority}
+    />
+  )
 );
 
-const usePreloadImages = (images) => {
-  useEffect(() => {
-    images.forEach((imageObj) => {
-      const img = new Image();
-      img.onload = () => {
-        imageObj.loaded = true;
-      };
-      img.onerror = (error) => {
-        console.error(`Failed to preload image: ${imageObj.src}`, error);
-      };
-      img.src = imageObj.src;
-      img.loading = "lazy";
-      img.srcSet = `${imageObj.src} 1x, ${imageObj.src} 2x`;
-      img.sizes = `
-        (min-width: 60em) 50em,
-        (min-width: 50em) 50em,
-        (min-width: 30em) 30em,
-        (max-width: 30em) 20em,
-        100vw
-      `;
-    });
-  }, [images]);
-};
-
 const Hero = () => {
-  const ref = useRef(null);
-  const logoControls = useAnimation();
-  const flipClockControls = useAnimation();
-
   const backgroundImages = useMemo(
     () => [
-      { src: smallwave, loaded: false },
-      { src: background3, loaded: false },
-      { src: background2, loaded: false },
-      { src: background4, loaded: false },
+      {
+        srcSet: `${smallwave640} 640w, ${smallwave1280} 1280w, ${smallwave1920} 1920w`,
+        sizes: "(max-width: 640px) 640px, (max-width: 1280px) 1280px, 1920px",
+      },
+      {
+        srcSet: `${background3_640} 640w, ${background3_1280} 1280w, ${background3_1920} 1920w`,
+        sizes: "(max-width: 640px) 640px, (max-width: 1280px) 1280px, 1920px",
+      },
+      {
+        srcSet: `${background4_640} 640w, ${background4_1280} 1280w, ${background4_1920} 1920w`,
+        sizes: "(max-width: 640px) 640px, (max-width: 1280px) 1280px, 1920px",
+      },
+      {
+        srcSet: `${background2_640} 640w, ${background2_1280} 1280w, ${background2_1920} 1920w`,
+        sizes: "(max-width: 640px) 640px, (max-width: 1280px) 1280px, 1920px",
+      },
     ],
-    [],
+    []
   );
 
   const [currentBackgroundIndex, setCurrentBackgroundIndex] = useState(0);
-  usePreloadImages(backgroundImages);
+  const targetDate = useMemo(() => new Date("August 1, 2024 00:00:00").getTime(), []);
+  const timeLeft = useCountdown(targetDate);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentBackgroundIndex(
-        (prevIndex) => (prevIndex + 1) % backgroundImages.length,
-      );
-    }, 8000);
-    return () => clearInterval(interval);
+  const [loadedImages, setLoadedImages] = useState([backgroundImages[0]]);
+
+  const loadNextImage = useCallback(
+    async (index) => {
+      const nextImage = backgroundImages[index];
+      if (nextImage && !loadedImages.includes(nextImage)) {
+        setLoadedImages((prev) => [...prev, nextImage]);
+      }
+    },
+    [loadedImages, backgroundImages]
+  );
+
+  useLayoutEffect(() => {
+    loadNextImage((currentBackgroundIndex + 1) % backgroundImages.length);
+  }, [currentBackgroundIndex, loadNextImage, backgroundImages.length]);
+
+  const updateBackgroundIndex = useCallback(() => {
+    setCurrentBackgroundIndex(
+      (prevIndex) => (prevIndex + 1) % backgroundImages.length
+    );
   }, [backgroundImages.length]);
 
   useEffect(() => {
-    logoControls.start({
-      opacity: 1,
-      y: 0,
-      transition: { duration: 1, ease: "easeInOut" },
-    });
-  }, [logoControls]);
-
-  useEffect(() => {
-    flipClockControls.start({
-      opacity: 1,
-      x: 0,
-      transition: { duration: 1, delay: 0.5 },
-    });
-  }, [flipClockControls]);
-
-  const calculateTimeLeft = () => {
-    const targetDate = new Date("August 1, 2024 00:00:00").getTime();
-    const now = new Date().getTime();
-    const difference = targetDate - now;
-
-    let timeLeft = {};
-    if (difference > 0) {
-      timeLeft = {
-        days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-        hours: Math.floor(
-          (difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60),
-        ),
-        minutes: Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60)),
-        seconds: Math.floor((difference % (1000 * 60)) / 1000),
-      };
-    }
-
-    return timeLeft;
-  };
-
-  const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setTimeLeft(calculateTimeLeft());
-    }, 1000);
-    return () => clearInterval(timer);
-  }, []);
+    const interval = setInterval(updateBackgroundIndex, 8000);
+    return () => clearInterval(interval);
+  }, [updateBackgroundIndex]);
 
   return (
-    <div className="relative mx-auto h-full min-h-[120vh] overflow-hidden text-white">
-      <ImageCompressed
-        src={backgroundImages[currentBackgroundIndex].src}
-        alt="Background image description"
-        className="absolute inset-0 z-0 h-full w-full object-cover brightness-90"
-      />
-      <>
-        <motion.div
-          animate={flipClockControls}
-          ref={ref}
-          initial={{ opacity: 0, x: -150 }}
-          className="mb-14 flex w-fit flex-1 flex-col flex-wrap items-start justify-center gap-6 rounded-b-lg bg-black/25 px-4 font-Playfair backdrop-blur-sm sm:gap-1"
+    <div className="relative mx-auto min-h-screen h-[110dvh] overflow-hidden text-white flex flex-col">
+      {backgroundImages.map((image, index) => (
+        <div
+          key={index}
+          className={`absolute inset-0 z-0 will-change-[opacity] transition-opacity duration-300 ease-in-out ${
+            index === currentBackgroundIndex ? "opacity-100" : "opacity-0"
+          }`}
         >
-          <h2 className="sm:text-md font-Playfair text-xl capitalize md:text-lg lg:text-2xl">
-            Countdown until our Grand Opening
-          </h2>
-          <AnimatePresence>
-            <motion.div
-              className="mt-4 flex items-center justify-start gap-x-3"
-              animate={flipClockControls}
-              initial={{ opacity: 0, x: -50 }}
-            >
-              <FlipClock
-                key={`days-${timeLeft.days}`}
-                time={timeLeft.days?.toString().padStart(2, "0") || "00"}
-                label="Days"
-              />
-              <FlipClock
-                key={`hours-${timeLeft.hours}`}
-                time={timeLeft.hours?.toString().padStart(2, "0") || "00"}
-                label="Hours"
-              />
-              <FlipClock
-                key={`minutes-${timeLeft.minutes}`}
-                time={timeLeft.minutes?.toString().padStart(2, "0") || "00"}
-                label="Minutes"
-              />
-              <FlipClock
-                key={`seconds-${timeLeft.seconds}`}
-                time={timeLeft.seconds?.toString().padStart(2, "0") || "00"}
-                label="Seconds"
-              />
-            </motion.div>
-          </AnimatePresence>
-        </motion.div>
-      </>
+          <ProgressiveImage
+            srcSet={image.srcSet}
+            sizes={image.sizes}
+            alt={`Background image ${index + 1}`}
+            className="h-full w-full object-cover brightness-90 aspect-9 aspect-w-16"
+            fetchpriority={index === 0 ? "high" : "auto"}
+          />
+        </div>
+      ))}
 
-      <>
+      <div className="relative z-10">
         <motion.div
-          className="relative mx-auto my-2 h-auto w-fit"
-          initial={{ opacity: 0 }}
-          animate={logoControls}
+          initial={{ opacity: 0, transform: "translateX(-150px)" }}
+          animate={{ opacity: 1, transform: "translateX(0)" }}
+          transition={{ duration: 1, delay: 0.5 }}
+          className="mx-3 flex w-fit flex-1 flex-col items-start justify-center rounded-b-lg bg-black/25 px-2 font-display backdrop-blur-sm sm:gap-1"
         >
-          <ImageCompressed
+          <h2 className="sm:text-md text-md text-center font-Playfair capitalize md:text-lg lg:text-2xl">
+            Countdown until our Grand Opening!
+          </h2>
+          <ErrorBoundary fallback={<div>Error loading countdown</div>}>
+            <Suspense fallback={<LoadingSpinner />}>
+              <div className="mx-auto mt-4 flex items-center justify-start gap-x-3">
+                {Object.entries(timeLeft).map(([unit, value]) => (
+                  <LazyFlipClock
+                    key={`${unit}-${value}`}
+                    time={value.toString().padStart(2, "0")}
+                    label={unit.charAt(0).toUpperCase() + unit.slice(1)}
+                  />
+                ))}
+              </div>
+            </Suspense>
+          </ErrorBoundary>
+        </motion.div>
+
+        <motion.div
+          className="relative flex-grow-0"
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+        >
+          <img
             src={whiteLogo}
+            srcSet={`${whiteLogo} 1x, ${whiteLogo} 2x`}
             alt="Logo"
-            className="mx-auto h-auto w-fit object-cover p-4 sm:p-3 md:p-4 lg:px-20"
+            width={800}
+            height={200}
+            className="h-36 w-full object-contain px-3 sm:mt-3"
           />
         </motion.div>
-      </>
 
-      <div className="relative z-10 w-full text-center text-white">
-        <div className="w-full text-white">
-          <CardContent />
+        <div className= "flex items-center justify-center mt-1 lg:mt-10 sm:mt-4 sm:px-6 pb-10">
+          <ErrorBoundary fallback={<div>Error loading content</div>}>
+            <Suspense
+              fallback={
+                <div className="w-full max-w-lg rounded-3xl border border-white/10 bg-gray-300/50 p-4 sm:max-w-md sm:p-6 md:max-w-lg md:p-8 lg:p-7 backdrop-blur-sm">
+                  <div className="animate-pulse">
+                    <div className="mb-4 h-16 rounded bg-gray-400/50"></div>
+                    <div className="mb-4 h-16 rounded bg-gray-400/50"></div>
+                    <div className="h-10 w-full rounded bg-gray-400/50 sm:w-1/2"></div>
+                  </div>
+                </div>
+              }
+            >
+              <LazyCardContent />
+            </Suspense>
+          </ErrorBoundary>
         </div>
       </div>
     </div>
   );
 };
 
-export default Hero;
+export default React.memo(Hero);

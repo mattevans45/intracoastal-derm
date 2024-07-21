@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { motion, useAnimation } from 'framer-motion';
+import { Helmet } from 'react-helmet-async';
 
 const MedicalDisclaimer = () => {
   const headerControls = useAnimation();
@@ -11,12 +12,21 @@ const MedicalDisclaimer = () => {
   }, [headerControls, contentControls]);
 
   return (
+    <>
+    <Helmet>
+      <title>Medical Disclaimer - Intracoastal Dermatology and Skin Surgery</title>
+      <meta name="description" content="Read the medical disclaimer for Intracoastal Dermatology and Skin Surgery. Understand the terms and conditions governing the use of our website." />
+      <link rel="canonical" href="https://intracoastal-dermatology.com/medical-disclaimer" />
+      <meta property="og:title" content="Medical Disclaimer - Intracoastal Dermatology and Skin Surgery" />
+      <meta property="og:description" content="Read the medical disclaimer for Intracoastal Dermatology and Skin Surgery. Understand the terms and conditions governing the use of our website." />
+      <meta property="og:url" content="https://intracoastal-dermatology.com/medical-disclaimer" />
+    </Helmet>
     <div className="flex items-center justify-center min-h-screen">
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         animate={headerControls}
         className="max-w-4xl container p-6 text-[#4d4d4d] bg-slate-100 rounded-lg"
-      >
+        >
         <motion.h2
           initial={{ opacity: 0, y: -50 }}
           animate={contentControls}
@@ -28,7 +38,7 @@ const MedicalDisclaimer = () => {
         <motion.div initial={{ opacity: 0, y: 50 }} animate={contentControls}>
           <h3 className="text-xl mb-2">Introduction</h3>
           <p className="mb-4">
-            Welcome to our website. Before accessing or using any information provided on this platform, it’s essential to understand the following disclaimer. This disclaimer outlines the terms and conditions governing the use of our website and the information contained herein. By accessing this website, you agree to abide by the terms of this disclaimer:
+            Welcome to the website for Intracoastal Dermatology and Skin Surgery. Before accessing or using any information provided on this platform, it is essential to understand the following disclaimer. This disclaimer outlines the terms and conditions governing the use of our website and the information contained herein. By accessing this website, you agree to abide by the terms of this disclaimer:
           </p>
 
           <h3 className="text-xl mb-2">Educational Purpose</h3>
@@ -79,7 +89,7 @@ const MedicalDisclaimer = () => {
             For any questions or concerns regarding this disclaimer, please contact us at (910) 631-0301.
           </p>
 
-          <p className="mb-4">Date of Last Update: 06-20-2024</p>
+          <p className="mb-4">Date of Last Update: 07-14-2024</p>
 
           <p className="mb-4">
             Thank you for taking the time to review this medical disclaimer. We value transparency and integrity in providing health-related information to our users. By adhering to the terms outlined in this disclaimer, we aim to promote informed decision-making and responsible health management among our audience.
@@ -87,6 +97,7 @@ const MedicalDisclaimer = () => {
         </motion.div>
       </motion.div>
     </div>
+          </>
   );
 };
 
