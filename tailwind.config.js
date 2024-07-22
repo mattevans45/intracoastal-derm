@@ -21,6 +21,12 @@ module.exports = {
           '50%': { opacity: 1 },
         },
       },
+      boxShadow: {
+        'lg': '0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08)',
+      },
+      textShadow: {
+        'lg': '2px 2px 4px rgba(0, 0, 0, 0.5)',
+      },
       colors: {
         brown: 'hsl(39, 53%, 24%)',
         darkbrown: 'hsl(34, 75%, 9%)',
@@ -69,10 +75,12 @@ module.exports = {
   plugins: [
     require('@tailwindcss/typography'),
     require('@tailwindcss/aspect-ratio'),
+
     postcss({
       plugins: [
         require('tailwindcss'),
         require('autoprefixer'),
+        
         require('@fullhuman/postcss-purgecss')({
           content: ['./index.html', './src/**/*.{js,jsx,ts,tsx}'],
           defaultExtractor: content => content.match(/[\w-/:]+(?<!:)/g) || [],

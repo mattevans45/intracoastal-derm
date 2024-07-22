@@ -88,11 +88,11 @@ const Hero = () => {
   }, [updateBackgroundIndex]);
 
   return (
-    <div className="relative mx-auto min-h-screen h-[110dvh] overflow-hidden text-white flex flex-col">
+    <div className="relative h-full min-h-screen overflow-hidden text-white">
       {backgroundImages.map((image, index) => (
         <div
           key={index}
-          className={`absolute inset-0 z-0 will-change-[opacity] transition-opacity duration-300 ease-in-out ${
+          className={`absolute inset-0 z-0 transition-opacity duration-300 ease-in-out ${
             index === currentBackgroundIndex ? "opacity-100" : "opacity-0"
           }`}
         >
@@ -132,7 +132,7 @@ const Hero = () => {
         </motion.div>
 
         <motion.div
-          className="relative flex-grow-0"
+          className="relative mx-auto h-auto w-full"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
@@ -143,27 +143,29 @@ const Hero = () => {
             alt="Logo"
             width={800}
             height={200}
-            className="h-36 w-full object-contain px-3 sm:mt-3"
+            className="min-h-24 sm:h-32 lg:h-44 max-h-56 w-full object-contain px-3 sm:mt-3"
+            loading="eager"
+            decoding="async"
           />
         </motion.div>
 
-        <div className= "flex items-center justify-center mt-1 lg:mt-10 sm:mt-4 sm:px-6 pb-10">
-          <ErrorBoundary fallback={<div>Error loading content</div>}>
-            <Suspense
-              fallback={
-                <div className="w-full max-w-lg rounded-3xl border border-white/10 bg-gray-300/50 p-4 sm:max-w-md sm:p-6 md:max-w-lg md:p-8 lg:p-7 backdrop-blur-sm">
-                  <div className="animate-pulse">
-                    <div className="mb-4 h-16 rounded bg-gray-400/50"></div>
-                    <div className="mb-4 h-16 rounded bg-gray-400/50"></div>
-                    <div className="h-10 w-full rounded bg-gray-400/50 sm:w-1/2"></div>
-                  </div>
+        <ErrorBoundary fallback={<div>Error loading content</div>}>
+          <Suspense
+            fallback={
+              <div className="mx-auto mt-auto flex h-auto min-h-[35vh] w-full items-center justify-center p-1 sm:p-3 md:p-3 lg:p-2">
+                <div className="animate-pulse w-full max-w-lg rounded-3xl border border-white/10 bg-gray-300 p-4 sm:max-w-md sm:p-6 md:max-w-lg md:p-8 lg:p-7">
+                  <div className="mb-4 h-16 rounded bg-gray-400"></div>
+                  <div className="mb-4 h-16 rounded bg-gray-400"></div>
+                  <div className="h-10 w-full rounded bg-gray-400 sm:w-1/2"></div>
                 </div>
-              }
-            >
+              </div>
+            }
+          >
+            <div className="mx-2 min-h-[35vh]">
               <LazyCardContent />
-            </Suspense>
-          </ErrorBoundary>
-        </div>
+            </div>
+          </Suspense>
+        </ErrorBoundary>
       </div>
     </div>
   );
