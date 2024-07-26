@@ -72,7 +72,7 @@ const ServicesPage = ({ category: categoryId }) => {
               key={cat.id}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className={`relative w-full max-w-screen-md cursor-pointer sm:flex flex flex-no-wrap sm:h-64 h-14 overflow-hidden rounded-3xl shadow-lg drop-shadow-lg sm:max-w-md lg:max-w-lg ${cat.id === categoryId ? 'ring-4 ring-blue-500 scale-105 ' : 'brightness-[45%] saturate-75 hover:blur-0 scale-90'}`}
+              className={`relative w-full max-w-screen-md cursor-pointer sm:flex flex flex-no-wrap sm:h-64 h-14 overflow-hidden rounded-3xl shadow-lg drop-shadow-lg sm:max-w-md lg:max-w-lg ${cat.id === categoryId ? 'ring-4 ring-blue-500 scale-105  transition-all duration-300 ease-out' : 'brightness-[45%] saturate-75 hover:blur-0 scale-90 transition-all duration-300 ease-in'}`}
             >
               <Link
                 to={`/services/${cat.id}`}
@@ -107,7 +107,7 @@ const ServicesPage = ({ category: categoryId }) => {
           onCategoryClick={handleCategoryClick}
         />
         </div>
-        <h2 className="text-3xl font-bold text-center mt-6 sm:mt-8">
+        <h2 className="text-3xl font-bold text-center mt-6 sm:mt-8 hidden sm:relative">
           {category ? category.name : "Services"}
         </h2>
         <div className="services-list mt-4 sm:mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">

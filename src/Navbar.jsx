@@ -12,6 +12,7 @@ import LOGO from "./assets/images/optimized/IntracoastalDermatologyandSkinSurger
 
 import ServicesPopover from "./ServicesPopover.jsx";
 
+
 import { GiScalpel } from "react-icons/gi";
 import Hair from "./Hair.jsx";
 
@@ -63,7 +64,7 @@ const Navbar = () => {
         className="navbar w-full bg-white/75 sticky z-[50] shadow md:pr-3"
       >
         <nav
-          className="z-50 mx-auto ml-auto flex items-center justify-between space-x-6 md:w-full lg:justify-around"
+          className="z-50 mx-auto ml-auto flex items-center justify-between space-x-6 md:w-full lg:justify-evenly"
           aria-label="Global"
         >
           <Link to="/">
@@ -117,9 +118,12 @@ const Navbar = () => {
   );
 };
 
+import PatientResourcesPopover from './PatientResourcesPopover';
+
 const DesktopMenu = () => (
-  <div className="md:text-md lg:text-md hidden font-display font-500 md:flex md:justify-evenly lg:flex lg:justify-center lg:space-x-1">
+  <div className="md:text-md lg:text-md hidden font-display font-500 md:flex md:justify-evenly lg:flex lg:justify-between lg:space-x-3">
     <ServicesPopover />
+    <PatientResourcesPopover />
     <Link
       to="/location"
       className="rounded-lg px-2 py-1.5 text-[#4d4d4d] font-display shadow-gray-400/20 drop-shadow-md transition-all duration-500 ease-in-out focus-within:outline-none hover:rounded-lg hover:border-gray-200 hover:bg-[#30648B]/90 hover:px-2 hover:py-1.5 hover:text-white focus:outline-none focus-visible:ring focus-visible:ring-gray-500/50"
@@ -138,14 +142,12 @@ const DesktopMenu = () => (
     >
       ABOUT
     </Link>
-    <div className="mx-auto inline-flex px-5 gap-20">
-      <Link
-        to="/schedule-appointment"
-        className="lg:text-md space-x-5 font-display uppercase rounded-lg border-2 border-[#4d4d4d] border-opacity-5 bg-[#30648B]/5 px-1.5 py-1 text-center text-[#4d4d4d] shadow-gray-400/20 transition-all duration-500 ease-in-out hover:rounded-lg hover:bg-[#30648B]/90 hover:text-white hover:drop-shadow-md focus:outline-none focus-visible:ring focus-visible:ring-gray-500/50"
-      >
-        Schedule an Appointment
-      </Link>
-    </div>
+    <Link
+      to="/schedule-appointment"
+      className="lg:text-md space-x-5  gap-x-8 font-display uppercase rounded-lg border-2 border-[#4d4d4d] border-opacity-5 bg-[#30648B]/5 px-1.5 py-1 text-center text-[#4d4d4d] shadow-gray-400/20 transition-all duration-500 ease-in-out hover:rounded-lg hover:bg-[#30648B]/90 hover:text-white hover:drop-shadow-md focus:outline-none focus-visible:ring focus-visible:ring-gray-500/50"
+    >
+      Schedule Appointment
+    </Link>
   </div>
 );
 

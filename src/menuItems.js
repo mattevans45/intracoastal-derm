@@ -2,8 +2,9 @@ import {
     HiOutlineOfficeBuilding,
     HiOutlineMail,
     HiOutlineIdentification,
+  
   } from "react-icons/hi";
-  import { RiCalendarLine, RiHealthBookLine } from "react-icons/ri";
+  import { RiCalendarLine, RiHealthBookLine, RiBillLine, RiAccountPinBoxLine } from "react-icons/ri";
   
   const menuItems = [
     {
@@ -35,6 +36,21 @@ import {
       text: "Schedule Appointment",
       to: "/schedule-appointment",
       description: "Schedule an appointment",
+    },
+
+    {
+      icon: RiBillLine,
+      text: "Pay Bill Online",
+      to: "https://intracoastaldermatology.ema.md/ema/pay/online",
+      description: "Pay Bill Online",
+      target:"_blank"
+    },
+    {
+      icon: RiAccountPinBoxLine,
+      text: "Patient Portal",
+      to: "https://intracoastaldermatology.ema.md",
+      description: "Link to external Patient Portal Application",
+      target:"_blank"
     },
   ];
   

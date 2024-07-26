@@ -20,7 +20,7 @@ COPY sitemap.xml /app/dist/sitemap.xml
 COPY robots.txt /app/dist/robots.txt
 
 # Stage 2: Serve
-FROM nginx:1.23-alpine-slim
+FROM nginx:1.26-alpine-slim
 
 # Copy the build output from the previous stage
 COPY --from=build /app/dist /usr/share/nginx/html

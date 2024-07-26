@@ -3,15 +3,15 @@ import { Helmet } from "react-helmet-async";
 import { useInView } from "react-intersection-observer";
 import Hero from "./components/Hero";
 import PageLoader from "./PageLoader.jsx";
-import ErrorBoundary from "./ErrorBoundary.jsx";
-import NotFound from "./NotFound.jsx";
+
+
 import "./index.css";
 import { Outlet } from "react-router-dom";
 
 const LazyLoadedComponent = ({ Component }) => {
   const { ref, inView } = useInView({
     triggerOnce: true,
-    rootMargin: "200px 0px",
+    rootMargin: "300px 0px",
   });
 
   return (
@@ -27,6 +27,7 @@ const ServicesLanding = lazy(() => import("./components/ServicesLanding.jsx"));
 const Testimonials = lazy(() => import("./components/Testimonials.jsx"));
 const MeetTheTeam = lazy(() => import("./components/MeetTheTeam.jsx"));
 const ContactSection = lazy(() => import("./ContactSection.jsx"));
+
 
 const App = () => {
   const ref = useRef(null);
@@ -205,7 +206,7 @@ const App = () => {
             </div>
           </div>
 
-          <ErrorBoundary fallback={NotFound}>
+         
             <Suspense fallback={<PageLoader />}>
               <LazyLoadedComponent Component={HeroServices} />
               <LazyLoadedComponent Component={AboutUs} />
@@ -214,7 +215,7 @@ const App = () => {
               <LazyLoadedComponent Component={MeetTheTeam} />
               <LazyLoadedComponent Component={ContactSection} />
             </Suspense>
-          </ErrorBoundary>
+       
         </div>
       </div>
 

@@ -6,6 +6,7 @@ const MenuItem = memo(({ item, setMobileMenuOpen }) => (
     <Link
       onClick={() => setMobileMenuOpen(false)}
       to={item.to}
+      target={item.target||"_self"}
       className="group mx-0 flex w-full items-center rounded-lg px-4 py-2 hover:bg-gray-100"
     >
       {item.icon && (

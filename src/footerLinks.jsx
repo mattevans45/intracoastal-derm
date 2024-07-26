@@ -10,14 +10,23 @@ export const ABOUT_LINKS = [
 export const SERVICE_LINKS = [
   { to: "/services/cosmetic", label: "Cosmetic Procedures" },
   { to: "/services/medical", label: "Medical Dermatology" },
-  { to: "/services/surgical", label: "Surgical Dermatology" }
+  { to: "/services/surgical", label: "Surgical Dermatology" },
 ];
 
 export const PATIENT_RESOURCES = [
-  { to: "/patient-portal", label: "Patient Portal" },
+  {
+    label: "Pay Bill Online",
+    to: "https://intracoastaldermatology.ema.md/ema/pay/online",
+
+    target: "_blank",
+  },
+  {
+    to: "https://intracoastaldermatology.ema.md",
+    label: "Patient Portal",
+    target: "_blank",
+  },
   { to: "/schedule-appointment", label: "Schedule Appointment" },
   { to: "/telemedicine", label: "Telemedicine" },
-  // { to: "/patient-education", label: "Patient Education" },
 ];
 
 export const DOCUMENTS_LINKS = [
