@@ -1,7 +1,10 @@
+'use client';
+
 import React from "react";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
+import Link from "next/link";
+import Image from "next/image";
+// import { Helmet } from "react-helmet-async";
 import { getAllCategories } from "./serviceUtils";
 import Breadcrumb from "./Breadcrumb";
 import { CalendarIcon } from "@heroicons/react/24/outline";
@@ -20,7 +23,7 @@ const Services = () => {
 
   return (
     <>
-      <Helmet>
+      {/* <Helmet>
         <title>Our Services - Intracoastal Dermatology</title>
         <meta
           name="description"
@@ -150,7 +153,7 @@ const Services = () => {
             ],
           })}
         </script>
-      </Helmet>
+      </Helmet> */}
 
       <motion.div
         className="services-page mx-auto flex w-full flex-col items-center justify-stretch bg-gray-50 p-4 font-Playfair"
@@ -177,13 +180,13 @@ const Services = () => {
               className="relative w-full max-w-screen-md cursor-pointer overflow-hidden rounded-3xl shadow-lg drop-shadow-lg sm:max-w-md lg:max-w-lg"
             >
               <Link
-                to={`/services/${category.id}`}
+                href={`/services/${category.id}`}
                 className="block h-full w-full"
               >
                 
-                <img
+                <Image
                   src={catgegoriesPhotos[category.id]}
-                  loading="eager"
+                  priority
                   width={500}
                   height={500}
                   alt={category.name}
@@ -224,7 +227,7 @@ const Services = () => {
           <div className="flex  justify-around w-full gap-x-10 items-center ">
           <div className="mt-5 flex min-h-[50px] w-full flex-col items-center justify-center gap-4 sm:mt-4 sm:flex-row">
             <Link
-              to="/schedule-appointment"
+              href="/schedule-appointment"
               className="flex w-full items-center justify-center rounded-md bg-[#30648B] px-3 py-3.5 text-sm font-semibold text-white shadow-sm transition-all duration-300 hover:scale-105 hover:bg-[#224966] sm:w-auto sm:min-w-[200px] sm:text-base"
               aria-label="Schedule your personalized treatment appointment"
             >
@@ -237,7 +240,7 @@ const Services = () => {
               Schedule Appointment
             </Link>
             <Link
-              to="/contact"
+              href="/contact"
               className="flex w-full items-center justify-center rounded-md border bg-neutral-300 border-white/30 px-3 py-3 text-sm font-semibold leading-6 text-black transition-all duration-300 hover:scale-105 hover:bg-white/10 sm:mt-0 sm:w-auto sm:min-w-[200px] sm:text-base"
               aria-label="Explore our range of tailored beauty treatments and services"
             >

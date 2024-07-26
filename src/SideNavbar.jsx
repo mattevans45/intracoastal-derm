@@ -1,12 +1,15 @@
+'use client'; 
+
 import React from "react";
-import { Link, useParams } from "react-router-dom";
+import Link from "next/link";
+import Router from "next/router";
 import slugify from "./slugify";
 import servicesData from "./servicesData.json";
 
 const ServiceLink = ({ categoryId, service }) => (
   <li key={service.id}>
     <Link
-      to={`/services/${categoryId}/${slugify(service.name)}`}
+      href={`/services/${categoryId}/${slugify(service.name)}`}
       className="block rounded px-2 py-1 font-Playfair font-medium text-[#4d4d4d] transition-all duration-200 hover:bg-[#30648B] hover:text-white active:bg-[#30648B] active:text-white"
     >
       {service.name}
@@ -15,7 +18,8 @@ const ServiceLink = ({ categoryId, service }) => (
 );
 
 const SideNavbar = () => {
-  const { categoryId } = useParams();
+  const router = router();
+  const { categoryId } = router.query;
 
   const categories = Object.entries(servicesData).map(([key, value]) => ({
     id: key,

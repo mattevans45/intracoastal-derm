@@ -1,5 +1,6 @@
+'use client';
+
 import React, { useState, useEffect } from "react";
-import { Helmet } from "react-helmet-async";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -65,7 +66,7 @@ const Contact = () => {
 
   return (
     <section className="container mx-auto max-w-7xl bg-gray-100 p-4 sm:p-6">
-      <Helmet>
+      {/* <Helmet>
         <title>Contact - Intracoastal Dermatology</title>
         <link
           rel="canonical"
@@ -169,7 +170,7 @@ const Contact = () => {
           property="og:url"
           content="https://intracoastal-dermatology.com/contact"
         />
-      </Helmet>
+      </Helmet> */}
 
       <h1 className="mb-8 text-center font-Playfair text-3xl font-bold text-gray-800 sm:mb-12 sm:text-4xl">
         Contact Us

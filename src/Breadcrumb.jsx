@@ -1,5 +1,6 @@
 import React, { useMemo } from "react";
-import { Link, useParams } from "react-router-dom";
+import Link from 'next/link';
+import { useParams } from 'next/navigation';
 import servicesData from "./servicesData";
 import slugify from "./slugify";
 
@@ -21,34 +22,41 @@ const useServiceData = (categoryId, serviceName) => {
   }, [categoryId, serviceName]);
 };
 
-const Breadcrumb = () => {
+const Breadcrumb = React.memo(() => {
   const { category: categoryId, serviceName } = useParams();
-  const { categories, category, service } = useServiceData(categoryId, serviceName);
+  const { category, service } = useServiceData(categoryId, serviceName);
 
   return (
-    <nav className="text-sm lg:hidden">
-      <Link to="/" className="text-blue-500 underline">
-        Home
-      </Link>
-      {category && (
-        <>
-          <span className="mx-2">/</span>
-          <Link
-            to={`/services/${category.id}`}
-            className="text-blue-500/85 underline"
-          >
-            {category.name}
+    <nav aria-label="Breadcrumb" className="text-sm lg:hidden">
+      <ol className="list-none p-0 inline-flex">
+        <li className="flex items-center">
+          <Link href="/" prefetch={false} className="text-blue-500 underline">
+            Home
           </Link>
-        </>
-      )}
-      {service && (
-        <>
-          <span className="mx-2">/</span>
-          <span className="underline">{service.name}</span>
-        </>
-      )}
+        </li>
+        {category && (
+          <li className="flex items-center">
+            <span className="mx-2">/</span>
+            <Link
+              href={`/services/${category.id}`}
+              prefetch={false}
+              className="text-blue-500/85 underline"
+            >
+              {category.name}
+            </Link>
+          </li>
+        )}
+        {service && (
+          <li className="flex items-center">
+            <span className="mx-2">/</span>
+            <span className="underline" aria-current="page">{service.name}</span>
+          </li>
+        )}
+      </ol>
     </nav>
   );
-};
+});
+
+
 
 export default Breadcrumb;

@@ -1,9 +1,11 @@
+'use client';
+
 import React from 'react';
 import Footer from './Footer.jsx';
 import Navbar from './Navbar.jsx';
 import Sidebar from "./SideNavbar.jsx";
 
-import { useLocation } from 'react-router-dom';
+
 import ScrollToTop from './ScrollToTop.jsx';
 import AboutUs from './components/AboutUs.jsx';
 

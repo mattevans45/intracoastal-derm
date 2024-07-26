@@ -1,21 +1,14 @@
-import React, { useEffect } from "react";
+'use client';
+import Image from 'next/image';
+import  { useEffect } from "react";
 import { motion, useAnimation } from "framer-motion";
-import { Helmet } from "react-helmet-async";
 
 import headshot from "./assets/images/optimized/DrHarrisHeadshotFinal.webp";
 import family from "./assets/images/optimized/HarrisFamily.webp";
 import aadlogo from "./assets/images/optimized/American_Academy_of_Dermatology_logo.svg.webp";
 // import acms from "./assets/acms-mohs-surgeon.png";
 
-const Image = ({ src, alt, className }) => (
-  <img
-    src={src}
-    srcSet={`${src} 1x, ${src} 2x`}
-    sizes="(max-width: 500px) 50vw, 100vw"
-    alt={alt}
-    className={className}
-  />
-);
+
 export default function About() {
   const headerControls = useAnimation();
   const contentControls = useAnimation();
@@ -35,7 +28,7 @@ export default function About() {
 
   return (
     <>
-      <Helmet>
+      {/* <Helmet>
         <title>
           About Dr. Blair Harris, DO, FAAD - Intracoastal Dermatology and Skin
           Surgery
@@ -95,7 +88,7 @@ export default function About() {
             medicalSpecialty: "Dermatology",
           })}
         </script>
-      </Helmet>
+      </Helmet> */}
       <motion.div
         initial={{ opacity: 0, y: 0 }}
         animate={headerControls}

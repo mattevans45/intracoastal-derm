@@ -1,6 +1,8 @@
+'use client'
 import React, { useMemo } from "react";
-import { useParams, Link } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
+import Image from "next/image";
+import Link  from "next/link";
+// import { Helmet } from "react-helmet-async";
 import NotFound from "./NotFound.jsx";
 import CategoryList from "./CategoryList.jsx";
 import Breadcrumb from "./Breadcrumb.jsx";
@@ -145,7 +147,7 @@ const ServiceDetailPage = () => {
  
   return (
     <>
-      <Helmet>
+      {/* <Helmet>
         <title>{`${service.name} - Intracoastal Dermatology`}</title>
         <meta
           name="description"
@@ -270,7 +272,7 @@ const ServiceDetailPage = () => {
             ],
           })}
         </script>
-      </Helmet>
+      </Helmet> */}
       <div className="services-page min-h-screen bg-gradient-to-b from-[#E6EDF7] to-white py-8 sm:py-1">
         <div className="mx-auto max-w-7xl px-4">
           <div className="mb-6 sm:mb-1">
@@ -292,7 +294,7 @@ const ServiceDetailPage = () => {
               </p>
             </div>
             <div className="p-2.5 sm:p-3">
-              <img
+              <Image
                 src={service.photoUrl || cream}
                 alt={service.name}
                 className="mb-4 h-48 w-full rounded-lg object-cover sm:mb-8 sm:h-64"

@@ -1,6 +1,8 @@
-import React from "react";
+'use client';
+
 import { useEffect, useRef } from "react";
 import { motion, useAnimation, useInView } from "framer-motion";
+import Image from "next/image";
 import photo from '../assets/images/optimized/matt-hardy-tt2Oui1hKAM-unsplash.webp';
 import photo2 from '../assets/images/optimized/mourad-saadi-GyDktTa0Nmw-unsplash.webp';
 
@@ -34,11 +36,6 @@ const containerVariants = {
         controls.start("hidden");
       }
     }, [controls, isInView]);
-  
-
-
-
-
 
     return (
         <motion.section
@@ -54,7 +51,7 @@ const containerVariants = {
             {testimonials.map((testimonial) => (
               <motion.div variants={itemVariants} key={testimonial.id} className="w-full md:w-1/2 lg:w-1/3 p-4">
                 <div className="bg-gray-100 rounded-lg p-6 shadow-lg">
-                  <img src={testimonial.photo} alt={testimonial.name} className="w-16 h-16 rounded-full mx-auto mb-4" />
+                  <Image src={testimonial.photo} alt={testimonial.name} className="w-16 h-16 rounded-full mx-auto mb-4" />
                   <p className="text-lg italic font-display  mb-4">"{testimonial.content}"</p>
                   <p className="text-sm font-display  font-bold">{testimonial.name}</p>
                 </div>

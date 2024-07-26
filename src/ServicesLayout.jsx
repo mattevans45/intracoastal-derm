@@ -1,12 +1,12 @@
 import React from "react";
-import { Outlet } from "react-router-dom";
+
 import Footer from "./Footer.jsx";
 import Navbar from "./Navbar.jsx";
 import SideNavbar from "./SideNavbar.jsx";
 import ScrollToTop from "./ScrollToTop.jsx";
 import AlertBar from "./components/Alertbar.jsx";
 
-const ServicesLayout = () => {
+const ServicesLayout = ({children}) => {
   return (
     <>
       <ScrollToTop />
@@ -17,7 +17,7 @@ const ServicesLayout = () => {
           <SideNavbar />
         </aside>
         <main className="col-span-3 w-full bg-gray-50">
-          <Outlet />
+          {children}
         </main>
       </div>
       <Footer />

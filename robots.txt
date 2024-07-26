@@ -1,7 +1,39 @@
 User-agent: *
-Allow: /services/general
-Allow: /services/cosmetic
-Allow: /services/surgical
-Disallow: /services/*/
+
+Allow: /services/general/
+Allow: /services/cosmetic/
+Allow: /services/surgical/
+Allow: /services/general/psoriasis
+Allow: /services/general/atopic-dermatitis-eczema
+Allow: /services/general/bullous-diseases
+Allow: /services/general/lichen-planus
+Allow: /services/general/vitiligo
+Allow: /services/general/acne
+Allow: /services/general/rosacea
+Allow: /services/general/skin-cancer-screening
+Allow: /services/general/rash
+Allow: /services/general/growth
+Allow: /services/general/hair-loss
+Allow: /services/general/skin-discoloration
+Allow: /services/general/excessive-sweating
+Allow: /services/cosmetic/botox
+Allow: /services/cosmetic/dermal-fillers
+Allow: /services/cosmetic/lasers
+Allow: /services/surgical/skin-biopsy
+Allow: /services/surgical/skin-cancer-removal
+Allow: /services/surgical/mohs-surgery
+Allow: /services/surgical/scar-revision
+Allow: /services/surgical/mole-removal
+
+Allow: /location
+Allow: /contact
+Allow: /about
+Allow: /schedule-appointment
+Allow: /patient-portal
+Allow: /telemedicine
+Allow: /insurances-accepted
+Allow: /medical-release-form
+Allow: /medical-disclaimer
 
 Sitemap: https://intracoastal-dermatology.com/sitemap.xml
+

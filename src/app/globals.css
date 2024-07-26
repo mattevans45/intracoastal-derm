@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg-color: #E4EBF5;
+    --text-color: #333;
+    --primary-color: #30648B;
+    --title-font-size: clamp(1.5rem, 5vw, 3rem);
+  }
+
+
+
+  body {
+    margin: 0;
+    touch-action: auto;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    -webkit-tap-highlight-color: transparent;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  iframe {
+    border: none;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+@layer utilities {
+  .text-shadow-custom {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+}
+
+@layer components {
+  .loader {
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    animation: spin 1.2s linear infinite;
+    border: 2px solid transparent;
+    border-top-color: var(--primary-color);
+  }
+
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  .schedule-appointment-button {
+    @apply rounded-lg border-2 border-[#4d4d4d] border-opacity-5 bg-[#30648B]/5 px-2 py-1.5 text-center font-display uppercase text-[#4d4d4d] shadow-gray-400/20 transition-all duration-500 ease-in-out hover:rounded-lg hover:bg-[#30648B]/90 hover:text-white hover:drop-shadow-md focus:outline-none focus-visible:ring focus-visible:ring-gray-500/50;
+  }
+}

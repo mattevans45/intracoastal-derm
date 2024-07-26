@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { motion, useAnimation } from 'framer-motion';
-import { Helmet } from 'react-helmet-async';
+// import { Helmet } from 'react-helmet-async';
 
 const MedicalDisclaimer = () => {
   const headerControls = useAnimation();
@@ -13,14 +13,14 @@ const MedicalDisclaimer = () => {
 
   return (
     <>
-    <Helmet>
+    {/* <Helmet>
       <title>Medical Disclaimer - Intracoastal Dermatology and Skin Surgery</title>
       <meta name="description" content="Read the medical disclaimer for Intracoastal Dermatology and Skin Surgery. Understand the terms and conditions governing the use of our website." />
       <link rel="canonical" href="https://intracoastal-dermatology.com/medical-disclaimer" />
       <meta property="og:title" content="Medical Disclaimer - Intracoastal Dermatology and Skin Surgery" />
       <meta property="og:description" content="Read the medical disclaimer for Intracoastal Dermatology and Skin Surgery. Understand the terms and conditions governing the use of our website." />
       <meta property="og:url" content="https://intracoastal-dermatology.com/medical-disclaimer" />
-    </Helmet>
+    </Helmet> */}
     <div className="flex items-center justify-center min-h-screen">
       <motion.div
         initial={{ opacity: 0, y: 50 }}

@@ -1,6 +1,8 @@
+'use client';
+
 import React, { useEffect, useRef, useMemo, useCallback, Suspense } from "react";
 import { motion, useAnimation, useInView } from "framer-motion";
-import { Link } from "react-router-dom";
+
 import { GiScalpel, GiSyringe } from "react-icons/gi";
 import boardwalk from "./assets/images/optimized/alex-CWwdzVtaGKs-unsplash.webp";
 import cosmeticDerm from "./assets/images/optimized/alexander-krivitskiy-zle2_jp-AUw-unsplash.webp";

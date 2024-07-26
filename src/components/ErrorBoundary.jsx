@@ -1,5 +1,7 @@
+'use client';
+
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useRouter } from 'next/navigation';
 
 class ErrorBoundary extends React.Component {
   constructor(props) {
@@ -33,14 +35,12 @@ class ErrorBoundary extends React.Component {
 }
 
 const ErrorFallback = ({ error, errorInfo }) => {
-  const navigate = useNavigate();
+ const router = useRouter();
 
   const handleBack = () => {
-    navigate(-1);
+    router.push('/'); 
   
-    setTimeout(() => {
-      navigate('/', { replace: true });
-    }, 100);
+    
   };
 
   return (

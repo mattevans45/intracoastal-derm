@@ -1,5 +1,7 @@
+'use client'; 
+
 import React, { memo } from "react";
-import { Link } from "react-router-dom";
+import Link  from "next/link";
 import { HiChevronDown, HiChevronRight } from "react-icons/hi"; // Import chevron icon
 import slugify from "./slugify";
 import { HiPencilSquare } from "react-icons/hi2";
@@ -14,7 +16,7 @@ const ServiceItem = memo(({ service, category, setMobileMenuOpen }) => (
   <li className="w-full rounded-lg bg-gray-100 flex justify-self-center  drop-shadow-sm hover:animate-pulse-slow hover:bg-gray-100 hover:shadow-lg hover:ring-2 hover:ring-white transition-colors duration-200">
     <Link
       onClick={() => setMobileMenuOpen(false)}
-      to={`/services/${category}/${slugify(service.name)}`}
+      href={`/services/${category}/${slugify(service.name)}`}
       className="flex items-center justify-between p-3 w-full group" // Added group for hover effects
     >
       <div className="flex prose items-center">

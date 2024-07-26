@@ -1,5 +1,6 @@
+'use client';
+
 import React, { useState } from "react";
-import { Helmet } from "react-helmet-async";
 import { LuChevronDown, LuChevronUp } from "react-icons/lu";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -25,7 +26,7 @@ const Location = () => {
 
   return (
     <>
-      <Helmet>
+      {/* <Helmet>
         <title>Our Location - Intracoastal Dermatology and Skin Surgery</title>
         <meta
           name="description"
@@ -94,7 +95,7 @@ const Location = () => {
           property="og:url"
           content="https://intracoastal-dermatology.com/location"
         />
-      </Helmet>
+      </Helmet> */}
 
       <section className="mx-auto flex h-full w-full flex-col items-center justify-center bg-gray-100  px-4 pt-10 font-display md:px-10">
         <div className="prose flex flex-col items-center justify-center text-center md:mr-10 md:w-1/2 md:text-left">

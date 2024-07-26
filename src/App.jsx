@@ -1,167 +1,48 @@
-import React, { Suspense, lazy, useRef } from "react";
-import { Helmet } from "react-helmet-async";
-import { useInView } from "react-intersection-observer";
+import Head from 'next/head';
+import dynamic from 'next/dynamic';
 import Hero from "./components/Hero";
 import PageLoader from "./PageLoader.jsx";
-import ErrorBoundary from "./ErrorBoundary.jsx";
-import NotFound from "./NotFound.jsx";
-import "./index.css";
-import { Outlet } from "react-router-dom";
 
-const LazyLoadedComponent = ({ Component }) => {
-  const { ref, inView } = useInView({
-    triggerOnce: true,
-    rootMargin: "200px 0px",
-  });
 
-  return (
-    <div ref={ref}>
-      {inView && <Component />}
-    </div>
-  );
-};
 
-const HeroServices = lazy(() => import("./HeroServices.jsx"));
-const AboutUs = lazy(() => import("./components/AboutUs.jsx"));
-const ServicesLanding = lazy(() => import("./components/ServicesLanding.jsx"));
-const Testimonials = lazy(() => import("./components/Testimonials.jsx"));
-const MeetTheTeam = lazy(() => import("./components/MeetTheTeam.jsx"));
-const ContactSection = lazy(() => import("./ContactSection.jsx"));
+import './app/globals.css';
+
+
+
+
+const HeroServices = dynamic(() => import('./HeroServices.jsx'), {
+  loading: () => <PageLoader />,ssr: false
+});
+
+const AboutUs = dynamic(() => import("./components/AboutUs.jsx"),{
+  loading: () => <PageLoader />,ssr: false
+});
+
+const ServicesLanding = dynamic(() => import("./components/ServicesLanding.jsx"),{
+  loading: () => <PageLoader />,ssr: false
+});
+
+const Testimonials = dynamic(() => import("./components/Testimonials.jsx"),{
+  loading: () => <PageLoader />,ssr: false
+});
+const MeetTheTeam = dynamic(() => import("./components/MeetTheTeam.jsx"),{
+  loading: () => <PageLoader />,ssr: false
+});
+const ContactSection = dynamic(() => import("./ContactSection.jsx"),{
+  loading: () => <PageLoader />,ssr: false
+});
+
 
 const App = () => {
-  const ref = useRef(null);
-
   return (
     <>
-      <Helmet>
+    <Head>
         <title>Home | Intracoastal Dermatology and Skin Surgery</title>
         <link rel="canonical" href="https://intracoastal-dermatology.com/" />
         <meta
           name="description"
           content="Intracoastal Dermatology offers expert care in general, cosmetic, and surgical dermatology. New office opening in Leland, NC. Schedule your consultation today."
         />
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@graph": [
-              {
-                "@type": [
-                  "Organization",
-                  "MedicalBusiness",
-                  "LocalBusiness",
-                  "MedicalOrganization",
-                ],
-                url: "https://intracoastal-dermatology.com/",
-                logo: "https://intracoastal-dermatology.com/IntracoastalDermatologyandSkinSurgeryLogo.png",
-                description:
-                  "Intracoastal Dermatology offers expert care in general, cosmetic, and surgical dermatology. New office opening in Leland, NC. Schedule your consultation today.",
-                geo: {
-                  "@type": "GeoCoordinates",
-                  latitude: 34.21687,
-                  longitude: -78.02111,
-                },
-                makesOffer: [
-                  {
-                    "@type": "Offer",
-                    name: "General Dermatology",
-                    description:
-                      "Comprehensive skin health examinations and treatments",
-                  },
-                  {
-                    "@type": "Offer",
-                    name: "Cosmetic Dermatology",
-                    description:
-                      "Advanced cosmetic procedures for skin rejuvenation",
-                  },
-                  {
-                    "@type": "Offer",
-                    name: "Surgical Dermatology",
-                    description:
-                      "Specialized surgical treatments for skin conditions",
-                  },
-                ],
-                potentialAction: {
-                  "@type": "ReserveAction",
-                  target: {
-                    "@type": "EntryPoint",
-                    urlTemplate:
-                      "https://intracoastal-dermatology.com/schedule-appointment",
-                    inLanguage: "en-US",
-                    actionPlatform: [
-                      "http://schema.org/DesktopWebPlatform",
-                      "http://schema.org/IOSPlatform",
-                      "http://schema.org/AndroidPlatform",
-                    ],
-                  },
-                  result: {
-                    "@type": "Reservation",
-                    name: "Schedule an appointment",
-                  },
-                },
-                openingHours: "Mo,Tu,We,Th,Fr 08:00-17:00",
-                contactPoint: [
-                  {
-                    "@type": "ContactPoint",
-                    telephone: "+1-910-631-0301",
-                    contactType: "appointment",
-                    areaServed: "Leland",
-                    availableLanguage: ["English"],
-                  },
-                ],
-                sameAs: [
-                  "https://www.facebook.com/people/Intracoastal-Dermatology-and-Skin-Surgery/61561782743005/",
-                  "https://www.instagram.com/intracoastaldermatology/",
-                ],
-                name: "Intracoastal Dermatology and Skin Surgery",
-                address: {
-                  "@type": "PostalAddress",
-                  streetAddress: "509 Olde Waterford Way Suite 103",
-                  addressLocality: "Leland",
-                  addressRegion: "NC",
-                  postalCode: "28451",
-                  addressCountry: "US",
-                },
-                image:
-                  "https://intracoastal-dermatology.com/IntracoastalDermatologyandSkinSurgeryMainLogo.webp",
-                email: "intracoastaldermatology@gmail.com",
-                telephone: "+1-910-631-0301",
-                priceRange: "$$",
-              },
-              {
-                "@context": "https://schema.org",
-                "@type": "Service",
-                "name": "Appointment Scheduling",
-                "description": "Schedule an appointment with Dr. Harris at Intracoastal Dermatology and Skin Surgery.",
-                "provider": {
-                  "@type": "MedicalBusiness",
-                  "name": "Intracoastal Dermatology and Skin Surgery"
-                },
-                "url": "https://intracoastal-dermatology.com/schedule-appointment",
-                "image": {
-                  "@type": "ImageObject",
-                  "url": "https://intracoastal-dermatology.com/IntracoastalDermatologyandSkinSurgeryLogo.png"
-                },
-                "potentialAction": {
-                  "@type": "ReserveAction",
-                  "target": {
-                    "@type": "EntryPoint",
-                    "urlTemplate": "https://intracoastal-dermatology.com/schedule-appointment",
-                    "inLanguage": "en-US",
-                    "actionPlatform": [
-                      "http://schema.org/DesktopWebPlatform",
-                      "http://schema.org/IOSPlatform",
-                      "http://schema.org/AndroidPlatform"
-                    ]
-                  },
-                  "result": {
-                    "@type": "Reservation",
-                    "name": "Dermatology Appointment"
-                  }
-                }
-              }
-            ],
-          })}
-        </script>
         <meta
           property="og:title"
           content="Intracoastal Dermatology and Skin Surgery"
@@ -178,10 +59,135 @@ const App = () => {
           property="og:url"
           content="https://intracoastal-dermatology.com/"
         />
-      </Helmet>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@graph": [
+                {
+                  "@type": [
+                    "Organization",
+                    "MedicalBusiness",
+                    "LocalBusiness",
+                    "MedicalOrganization",
+                  ],
+                  url: "https://intracoastal-dermatology.com/",
+                  logo: "https://intracoastal-dermatology.com/IntracoastalDermatologyandSkinSurgeryLogo.png",
+                  description:
+                    "Intracoastal Dermatology offers expert care in general, cosmetic, and surgical dermatology. New office opening in Leland, NC. Schedule your consultation today.",
+                  geo: {
+                    "@type": "GeoCoordinates",
+                    latitude: 34.21687,
+                    longitude: -78.02111,
+                  },
+                  makesOffer: [
+                    {
+                      "@type": "Offer",
+                      name: "General Dermatology",
+                      description:
+                        "Comprehensive skin health examinations and treatments",
+                    },
+                    {
+                      "@type": "Offer",
+                      name: "Cosmetic Dermatology",
+                      description:
+                        "Advanced cosmetic procedures for skin rejuvenation",
+                    },
+                    {
+                      "@type": "Offer",
+                      name: "Surgical Dermatology",
+                      description:
+                        "Specialized surgical treatments for skin conditions",
+                    },
+                  ],
+                  potentialAction: {
+                    "@type": "ReserveAction",
+                    target: {
+                      "@type": "EntryPoint",
+                      urlTemplate:
+                        "https://intracoastal-dermatology.com/schedule-appointment",
+                      inLanguage: "en-US",
+                      actionPlatform: [
+                        "http://schema.org/DesktopWebPlatform",
+                        "http://schema.org/IOSPlatform",
+                        "http://schema.org/AndroidPlatform",
+                      ],
+                    },
+                    result: {
+                      "@type": "Reservation",
+                      name: "Schedule an appointment",
+                    },
+                  },
+                  openingHours: "Mo,Tu,We,Th,Fr 08:00-17:00",
+                  contactPoint: [
+                    {
+                      "@type": "ContactPoint",
+                      telephone: "+1-910-631-0301",
+                      contactType: "appointment",
+                      areaServed: "Leland",
+                      availableLanguage: ["English"],
+                    },
+                  ],
+                  sameAs: [
+                    "https://www.facebook.com/people/Intracoastal-Dermatology-and-Skin-Surgery/61561782743005/",
+                    "https://www.instagram.com/intracoastaldermatology/",
+                  ],
+                  name: "Intracoastal Dermatology and Skin Surgery",
+                  address: {
+                    "@type": "PostalAddress",
+                    streetAddress: "509 Olde Waterford Way Suite 103",
+                    addressLocality: "Leland",
+                    addressRegion: "NC",
+                    postalCode: "28451",
+                    addressCountry: "US",
+                  },
+                  image:
+                    "https://intracoastal-dermatology.com/IntracoastalDermatologyandSkinSurgeryMainLogo.webp",
+                  email: "intracoastaldermatology@gmail.com",
+                  telephone: "+1-910-631-0301",
+                  priceRange: "$$",
+                },
+                {
+                  "@context": "https://schema.org",
+                  "@type": "Service",
+                  "name": "Appointment Scheduling",
+                  "description": "Schedule an appointment with Dr. Harris at Intracoastal Dermatology and Skin Surgery.",
+                  "provider": {
+                    "@type": "MedicalBusiness",
+                    "name": "Intracoastal Dermatology and Skin Surgery"
+                  },
+                  "url": "https://intracoastal-dermatology.com/schedule-appointment",
+                  "image": {
+                    "@type": "ImageObject",
+                    "url": "https://intracoastal-dermatology.com/IntracoastalDermatologyandSkinSurgeryLogo.png"
+                  },
+                  "potentialAction": {
+                    "@type": "ReserveAction",
+                    "target": {
+                      "@type": "EntryPoint",
+                      "urlTemplate": "https://intracoastal-dermatology.com/schedule-appointment",
+                      "inLanguage": "en-US",
+                      "actionPlatform": [
+                        "http://schema.org/DesktopWebPlatform",
+                        "http://schema.org/IOSPlatform",
+                        "http://schema.org/AndroidPlatform"
+                      ]
+                    },
+                    "result": {
+                      "@type": "Reservation",
+                      "name": "Dermatology Appointment"
+                    }
+                  }
+                }
+              ],
+            }),
+          }}
+        />
+      </Head>
+      <main>
 
-      <Hero />
-
+        <Hero />
       <div className="container mx-auto overflow-hidden">
         <div className="mx-5 py-5 text-[#4d4d4d]">
           <div className="mx-3 rounded-xl bg-white/85 px-2 py-2 shadow-sm backdrop-blur-md">
@@ -205,20 +211,21 @@ const App = () => {
             </div>
           </div>
 
-          <ErrorBoundary fallback={NotFound}>
-            <Suspense fallback={<PageLoader />}>
-              <LazyLoadedComponent Component={HeroServices} />
-              <LazyLoadedComponent Component={AboutUs} />
-              <LazyLoadedComponent Component={ServicesLanding} />
-              <LazyLoadedComponent Component={Testimonials} />
-              <LazyLoadedComponent Component={MeetTheTeam} />
-              <LazyLoadedComponent Component={ContactSection} />
-            </Suspense>
-          </ErrorBoundary>
+         
+          
+              <HeroServices />
+              <AboutUs />
+              <ServicesLanding />
+              <Testimonials />
+              <MeetTheTeam />
+              <ContactSection />
+           
+       
         </div>
       </div>
 
-      <Outlet />
+
+      </main>
     </>
   );
 };

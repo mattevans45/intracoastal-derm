@@ -1,9 +1,9 @@
+
 import { motion, useTransform, useScroll } from "framer-motion";
-import { Link } from "react-router-dom";
-import { useRef } from "react";
+import Link from "next/link";
 
 const CallToAction = ({ className }) => {
-  const ref = useRef();
+  
   const { scrollYProgress } = useScroll(ref);
 
   // Define the transformations based on scrollYProgress
@@ -19,8 +19,6 @@ const CallToAction = ({ className }) => {
         y: translateY,
       }}
       transition={{ duration: 0.5 }}
-
-      ref={ref}
     >
       <div className="z-10 rounded-3xl bg-black bg-opacity-40 p-4 shadow-lg md:p-6">
         <div className="flex w-fit flex-col items-center justify-center rounded-xl bg-gray-300 bg-opacity-40 p-6 text-center font-cursive text-lg font-medium text-white bg-blend-exclusion shadow-inner backdrop-blur-xl sm:w-full sm:text-xl md:w-2/3 md:text-2xl lg:text-3xl">
@@ -35,13 +33,13 @@ const CallToAction = ({ className }) => {
         </div>
         <div className="mt-4 flex flex-col items-center gap-y-2 sm:mt-8 sm:flex-row sm:justify-center sm:gap-x-4 sm:gap-y-4">
           <Link
-            to="/schedule-appointment"
+            href="/schedule-appointment"
             className="rounded-md bg-[#30648B] px-4 py-2 text-sm font-semibold text-white shadow-sm transition-colors duration-300 hover:bg-[#224966] sm:text-base"
           >
             Schedule an Appointment
           </Link>
           <Link
-            to="/intracoastal-derm/schedule-appointment"
+            href="/intracoastal-derm/schedule-appointment"
             className="mt-2 rounded-md px-4 py-2 text-sm font-semibold leading-6 text-gray-200 transition-colors duration-300 hover:bg-slate-50/10 sm:mt-0 sm:text-base"
           >
             Learn more <span aria-hidden="true">→</span>

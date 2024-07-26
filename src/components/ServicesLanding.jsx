@@ -1,7 +1,8 @@
+'use client'
 import React from "react";
 import { useEffect, useRef } from "react";
 import { motion, useAnimation, useInView } from "framer-motion";
-import { GiAncientRuins, GiCancer, GiCrackedMask, GiDoctorFace, GiLoveInjection, GiScalpel } from "react-icons/gi";
+import { GiDoctorFace, GiLoveInjection, GiScalpel } from "react-icons/gi";
 import { MdMedicalServices, MdOutlinePermCameraMic } from "react-icons/md";
 
 

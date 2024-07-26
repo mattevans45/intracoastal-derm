@@ -1,6 +1,8 @@
+'use client';
 import headshot from "../assets/images/optimized/DrHarrisHeadshotFinal.webp";
 import React from "react";
 import { useEffect, useRef } from "react";
+import Image from "next/image";
 import { motion, useAnimation, useInView } from "framer-motion";
 
 const containerVariants = {
@@ -62,7 +64,7 @@ const MeetTheTeam = () => {
               className="w-full p-4 md:w-1/2 lg:w-1/4"
             >
               <div className="rounded-lg bg-gray-100 p-6 text-center">
-                <img
+                <Image
                   src={member.photo}
                   alt={member.name}
                   loading="lazy"

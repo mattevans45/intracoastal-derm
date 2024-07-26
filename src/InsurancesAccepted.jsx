@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { motion, useAnimation } from 'framer-motion';
-import { Helmet } from 'react-helmet-async';
+// import { Helmet } from 'react-helmet-async';
 
 const InsurancesAccepted = () => {
   const headerControls = useAnimation();
@@ -13,14 +13,14 @@ const InsurancesAccepted = () => {
 
   return (
     <>
-    <Helmet>
+    {/* <Helmet>
       <title>Insurances Accepted - Intracoastal Dermatology and Skin Surgery</title>
       <meta name="description" content="Intracoastal Dermatology accepts a wide range of insurance plans to ensure that our services are accessible to as many patients as possible." />
       <link rel="canonical" href="https://intracoastal-dermatology.com/insurances-accepted" />
       <meta property="og:title" content="Insurances Accepted - Intracoastal Dermatology and Skin Surgery" />
       <meta property="og:description" content="Intracoastal Dermatology accepts a wide range of insurance plans to ensure that our services are accessible to as many patients as possible." />
       <meta property="og:url" content="https://intracoastal-dermatology.com/insurances-accepted" />
-    </Helmet>
+    </Helmet> */}
     <div className="flex items-center justify-center min-h-screen">
       <motion.div
         initial={{ opacity: 0, y: 50 }}
