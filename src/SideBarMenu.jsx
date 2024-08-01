@@ -1,23 +1,32 @@
-import React, { useRef, useMemo, useCallback, memo, lazy, Suspense } from "react";
+"use client";
+import dynamic from "next/dynamic";
+
+import React, { useRef, useMemo, useCallback, useEffect, useState } from "react";
 import { motion, useCycle, AnimatePresence } from "framer-motion";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { MdOutlineMedicalServices } from "react-icons/md";
-import ServicesList from "./ServicesList";
+
 import { XMarkIcon } from "@heroicons/react/24/outline";
-import { ChevronDownIcon } from "@heroicons/react/20/solid";
+import { ChevronDownIcon, ChevronUpIcon } from "@heroicons/react/20/solid";
 import LOGO from "./assets/images/optimized/IntracoastalDermatologyandSkinSurgeryLogo.webp";
 import menuItems from "./menuItems";
 import MenuItem from "./MenuItem";
 import useClickOutside from "./hooks/useClickOutside";
 import { useBodyScrollLock } from "./hooks/useBodyScrollLock";
+import Image from "next/image";
+import { cn } from "./library/utils";
+import LoadingSpinner from "./components/LoadingSpinner.jsx";
 
+const ServicesList = dynamic(() => import("./ServicesList.jsx"), {
+  loading: () => <LoadingSpinner />,
+});
 
-const MemoizedMenuItem = memo(MenuItem);
-
-
-const SidebarMenu = memo(({ mobileMenuOpen, setMobileMenuOpen }) => {
+const SideBarMenu = ({ mobileMenuOpen, setMobileMenuOpen }) => {
+ 
   const [isServicesOpen, toggleServicesOpen] = useCycle(false, true);
   const containerRef = useRef(null);
+  const scrollContainerRef = useRef(null);
+  const [showScrollToTop, setShowScrollToTop] = useState(false);
 
   useClickOutside(containerRef, () => setMobileMenuOpen(false), mobileMenuOpen);
   useBodyScrollLock(mobileMenuOpen);
@@ -29,6 +38,28 @@ const SidebarMenu = memo(({ mobileMenuOpen, setMobileMenuOpen }) => {
   const handleCloseMobileMenu = useCallback(() => {
     setMobileMenuOpen(false);
   }, [setMobileMenuOpen]);
+
+  const handleScroll = useCallback(() => {
+    if (scrollContainerRef.current) {
+      setShowScrollToTop(scrollContainerRef.current.scrollTop > 200);
+    }
+  }, []);
+
+  const scrollToTop = useCallback(() => {
+    scrollContainerRef.current?.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  }, []);
+
+
+  useEffect(() => {
+    const scrollContainer = scrollContainerRef.current;
+    if (scrollContainer) {
+      scrollContainer.addEventListener('scroll', handleScroll);
+      return () => scrollContainer.removeEventListener('scroll', handleScroll);
+    }
+  }, [handleScroll]);
 
   const menuVariants = useMemo(
     () => ({
@@ -62,109 +93,141 @@ const SidebarMenu = memo(({ mobileMenuOpen, setMobileMenuOpen }) => {
     []
   );
 
-  const renderMenuItems = useMemo(() => 
-    menuItems.map((item) => (
-      <MemoizedMenuItem
-        key={item.text}
-        item={item}
-        setMobileMenuOpen={setMobileMenuOpen}
-      />
-    ))
-  , [menuItems, setMobileMenuOpen]);
+  const renderMenuItems = useMemo(
+    () =>
+      menuItems.map((item) => (
+        <MenuItem
+          key={item.text}
+          item={item}
+          setMobileMenuOpen={setMobileMenuOpen}
+        />
+      )),
+    [setMobileMenuOpen]
+  );
 
   return (
     <motion.nav
-      initial={false}
+      initial="hidden"
       animate={mobileMenuOpen ? "open" : "closed"}
       variants={menuVariants}
       ref={containerRef}
-      className="absolute right-0 top-0 z-30 mx-auto h-screen w-full overflow-x-auto rounded-lg bg-gray-200/65 p-3 font-display shadow-lg backdrop-blur-md sm:w-1/2 sm:shadow-xl sm:backdrop-blur-lg md:w-1/2"
-      role="navigation"
+      className="fixed top-0 right-0 min-h-screen z-[50] w-full max-w-sm bg-gray-200 p-3 mx-auto shadow-xl backdrop-blur-lg sm:max-w-md flex flex-col"
+      role="dialog"
+      aria-modal="true"
       aria-label="Main Navigation"
     >
-      <div className="flex items-center justify-between p-4">
-        <Link to="/" onClick={handleCloseMobileMenu}>
-          <img
-            className="mx-auto my-2 max-h-48 w-full max-w-48 object-center p-1 bg-blend-multiply sm:max-h-52 sm:max-w-52 md:max-h-52 md:max-w-52"
-            srcSet={`${LOGO} 1x, ${LOGO} 2x`}
-            sizes="(max-width:300px) 10rem, 15rem"
-            loading="lazy"
+      <div className="flex items-center justify-between">
+      
+      <Link href="/" onClick={handleCloseMobileMenu} className="focus:outline-none focus:ring-2 focus:ring-neutral-500">
+          <Image
+            className="h-full w-48 object-cover p-1 sm:w-56"
+            src={LOGO}
+            height={155}
+            width={200}
+            sizes="(max-width: 640px) 10rem, 12rem"
             alt="Intracoastal Dermatology Logo"
           />
         </Link>
-        <AnimatePresence>
-      {mobileMenuOpen && (
-        <motion.button
-          className="z-50 w-fit rounded-full bg-gray-50 p-2.5 text-[#4d4d4d] drop-shadow-sm transition-all duration-300 hover:bg-gray-100 hover:shadow-lg hover:ring-1 hover:ring-white"
-          onClick={handleCloseMobileMenu}
-          aria-label="Close menu"
-          initial={{ opacity: 0, rotate: -90, scale: 0.7 }}
-          animate={{ opacity: 1, rotate: 0, scale: 1, y:-10 }}
-          exit={{ opacity: 0, rotate: 90, scale: 0.7 }}
-          transition={{ duration: 0.3, ease: "easeInOut" }}
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
-        >
-          <XMarkIcon
-            className="h-7 w-7 text-[#4d4d4d]"
-            aria-hidden="true"
+        <CloseButton onClick={handleCloseMobileMenu} />
+      </div>
+      <div ref={scrollContainerRef} className="mt-8 flex-grow overflow-y-auto">
+        <div className="space-y-2">
+          <ServicesButton
+            isOpen={isServicesOpen}
+            onClick={handleToggleServices}
           />
-        </motion.button>
-      )}
-    </AnimatePresence>
+          <AnimatePresence>
+            {isServicesOpen && (
+              <ServicesList
+              key={"services-list"}
+                setMobileMenuOpen={setMobileMenuOpen}
+                variants={servicesListVariants}
+              />
+            )}
+          </AnimatePresence>
+          <motion.ul
+            className="space-y-1.5"
+            initial="hidden"
+            key={"menu-items"}
+            animate="visible"
+            exit="exit"
+            variants={{
+              hidden: { opacity: 0 },
+              visible: { opacity: 1 },
+              exit: { opacity: 0 },
+            }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+          >
+            {renderMenuItems}
+          </motion.ul>
+        </div>
       </div>
-
-      <div className="w-full rounded-lg">
-        <button
-          onClick={handleToggleServices}
-          className="mx-auto flex w-full items-center justify-center text-[#4d4d4d]"
-          aria-expanded={isServicesOpen}
-          aria-controls="services-list"
-        >
-          <div className="mx-auto flex w-full items-center rounded-lg bg-gray-50 px-9 py-2 transition-all duration-300 hover:animate-pulse-slow hover:bg-gray-100 hover:ring-2 hover:ring-white">
-            <MdOutlineMedicalServices className="h-6 w-7 text-[#4d4d4d]" />
-            <span className="mx-auto w-full flex-grow px-7 py-2 text-left font-display font-600 capitalize leading-relaxed">
-            Our Services
-            </span>
-            <ChevronDownIcon
-              className={`h-6 w-7 rounded-lg bg-gray-50 text-[#4d4d4d] drop-shadow-sm transition-all duration-300 hover:bg-gray-50 ${
-                isServicesOpen ? "rotate-180" : ""
-              }`}
-              aria-hidden="true"
-            />
-          </div>
-        </button>
-        <AnimatePresence>
-          {isServicesOpen && (
-            <motion.div
-              id="services-list"
-              className="mx-auto mt-1 flex h-full w-full flex-col flex-wrap items-center justify-between gap-x-1 rounded-lg"
-              initial="closed"
-              animate="open"
-              exit="closed"
-              variants={servicesListVariants}
-            >
-              <Suspense fallback={<div>Loading...</div> }>
-                <div className="w-full">
-                  <ServicesList setMobileMenuOpen={setMobileMenuOpen} />
-                </div>
-              </Suspense>
-            </motion.div>
-          )}
-        </AnimatePresence>
-        <motion.ul
-          initial="hidden"
-          animate="visible"
-          exit="exit"
-          variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }}
-          transition={{ duration: 0.3, ease: "easeInOut" }}
-          className="mb-20 flex w-full flex-col flex-wrap items-stretch justify-center gap-1 rounded-lg px-0 py-1"
-        >
-          {renderMenuItems}
-        </motion.ul>
-      </div>
+      <AnimatePresence>
+        {showScrollToTop && <ScrollToTopButton onClick={scrollToTop} />}
+      </AnimatePresence>
     </motion.nav>
   );
-});
+};
+const CloseButton = ({ onClick }) => (
+  <AnimatePresence>
+    <motion.button
+      className="rounded-full bg-gray-50 p-2 text-gray-400 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
+      onClick={onClick}
+      aria-label="Close menu"
+      key={"close-button"}
+      initial={{ opacity: 0, rotate: -90, scale: 0.7 }}
+      animate={{ opacity: 1, rotate: 0, scale: 1 }}
+      exit={{ opacity: 0, rotate: 90, scale: 0.7 }}
+      transition={{ duration: 0.3, ease: "easeInOut" }}
+      whileHover={{ scale: 1.1 }}
+      whileTap={{ scale: 0.9 }}
+    >
+      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+    </motion.button>
+  </AnimatePresence>
+);
 
-export default SidebarMenu;
+const ScrollToTopButton = ({ onClick }) => (
+  <AnimatePresence>
+ 
+    <motion.button
+      className="fixed bottom-8 right-8 rounded-full bg-gray-50 p-4 text-gray-400 shadow-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
+      onClick={onClick}
+      key={"scroll-to-top"}
+      aria-label="Scroll to top"
+      initial={{ opacity: 0, scale: 0.7 }}
+      animate={{ opacity: 1, scale: 1 }}
+      exit={{ opacity: 0, scale: 0.7 }}
+      transition={{ duration: 0.3, ease: "easeInOut" }}
+      whileHover={{ scale: 1.1 }}
+      whileTap={{ scale: 0.9 }}
+    >
+      <ChevronUpIcon className="h-6 w-6" aria-hidden="true" />
+    </motion.button>
+</AnimatePresence>
+);
+
+const ServicesButton = ({ isOpen, onClick }) => (
+  <button
+    onClick={onClick}
+    className={cn(
+      "flex items-center justify-between w-full px-3 py-4 rounded-lg bg-gray-50 text-gray-700 shadow-md transition-all duration-300 hover:bg-gray-100 hover:shadow-lg hover:ring-1 focus-within:bg-neutral-200 hover:ring-white",
+      isOpen ? "bg-zinc-200" : ""
+    )}
+    aria-expanded={isOpen}
+    aria-controls="services-list"
+  >
+    <div className="flex items-center gap-x-7 justify-evenly">
+      <MdOutlineMedicalServices className="h-5 w-5 ml-5" />
+      <span className="font-medium">Our Services</span>
+    </div>
+    <ChevronDownIcon
+      className={`h-5 w-5 transform transition-transform duration-200 ${
+        isOpen ? "rotate-180" : ""
+      }`}
+      aria-hidden="true"
+    />
+  </button>
+);
+
+export default React.memo(SideBarMenu);

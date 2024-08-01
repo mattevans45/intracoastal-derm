@@ -1,15 +1,17 @@
-const postcss = require('postcss');
-
+/** @type {import('tailwindcss').Config} */
 module.exports = {
-  mode: 'jit',
-  purge: ['./index.html', './src/**/*.{js,jsx,ts,tsx}'],
-  darkMode: false, // or 'media' or 'class'
+  content: [
+    "./src/*.{js,ts,jsx,tsx,mdx}",
+    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/**/*.{js,ts,jsx,tsx,mdx}",
+  ],
   theme: {
     extend: {
       animation: {
         'pulse-slow': 'pulse 4s ease-in-out infinite',
         'skeleton': 'skeleton 1s ease-in-out infinite',
-        'auto-show': 'autoShowAnimations 1s both', // Ensure duration and fill mode are set
+        'auto-show': 'autoShowAnimations 1s both',
       },
       keyframes: {
         autoShowAnimations: {
@@ -31,61 +33,34 @@ module.exports = {
         brown: 'hsl(39, 53%, 24%)',
         darkbrown: 'hsl(34, 75%, 9%)',
         lightgrey: 'hsl(36, 15%, 87%)',
+        primary: 'hsl(198, 43%, 20% / <alpha-value>)',
         beige: 'hsl(39, 26%, 58%)',
         black: 'hsl(0, 0%, 0%)',
       },
       fontWeight: {
-        100: 100,
-        200: 200,
-        300: 300,
-        400: 400,
-        500: 500,
-        600: 600,
-        700: 700,
-        800: 800,
-        900: 900,
+        100: '100',
+        200: '200',
+        300: '300',
+        400: '400',
+        500: '500',
+        600: '600',
+        700: '700',
+        800: '800',
+        900: '900',
       },
       fontFamily: {
-        sans: ['Roboto', 'sans-serif'],
-        Playfair: ['Playfair Display', 'serif'],
+        mono: ['var(--font-roboto-mono)'],
+        playfair: ['var(--font-playfair)'],
+        playfairSC: ['var(--font-playfairSC)'],
         display: ['ui-sans-serif', 'system-ui', 'sans-serif', '"Apple Color Emoji"', '"Segoe UI Emoji"', '"Segoe UI Symbol"', '"Noto Color Emoji"'],
-      },
-      fontDisplay: {
-        auto: 'auto',
-        swap: 'swap',
-        block: 'block',
-        fallback: 'fallback',
-        optional: 'optional',
-      },
-      utilities: {
-        '.preload': {
-          'content-visibility': 'auto',
-        },
       },
     },
     container: {
       center: true,
     },
   },
-  variants: {
-    extend: {
-      animation: ['responsive', 'motion-safe', 'motion-reduce'],
-    },
-  },
   plugins: [
     require('@tailwindcss/typography'),
     require('@tailwindcss/aspect-ratio'),
-
-    postcss({
-      plugins: [
-        require('tailwindcss'),
-        require('autoprefixer'),
-        
-        require('@fullhuman/postcss-purgecss')({
-          content: ['./index.html', './src/**/*.{js,jsx,ts,tsx}'],
-          defaultExtractor: content => content.match(/[\w-/:]+(?<!:)/g) || [],
-        }),
-      ],
-    }),
   ],
-};
+}

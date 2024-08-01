@@ -1,24 +1,25 @@
 import React from 'react';
-import { useEffect } from 'react';
-import Footer from './Footer.jsx';
-import Navbar from './Navbar.jsx';
-import { Outlet, useLocation } from 'react-router-dom';
+import { memo } from 'react';
+import dynamic from 'next/dynamic';
 
-const MainLayout = () => {
-  const location = useLocation();
+import OpenModal from './components/OpenModal'
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [location.pathname]);
+
+const Navbar = dynamic(() => import('./NavBarServer'), { ssr: true });
+const Footer = dynamic(() => import('./Footer'), { ssr: true });
+
+
+const MainLayout = memo(({ children }) => {
   return (
     <>
+    <OpenModal />
       <Navbar />
       <main className="antialiased my-auto min-h-screen">
-        <Outlet />
+        {children}
       </main>
       <Footer />
     </>
   );
-};
+});
 
 export default MainLayout;

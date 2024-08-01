@@ -1,43 +1,33 @@
 {
   "name": "intracoastal-derm",
-  "homepage": "https://mattevans45.github.io/intracoastal-derm/",
   "private": true,
   "version": "0.0.0",
-  "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist",
-    "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
   },
   "dependencies": {
     "@heroicons/react": "^2.1.5",
     "@tailwindcss/aspect-ratio": "^0.4.2",
     "autoprefixer": "^10.4.19",
     "framer-motion": "^11.3.2",
-    "gh-pages": "^6.1.1",
-    "lodash": "^4.17.21",
+    "next": "^14.2.5",
     "postcss": "^8.4.39",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-helmet-async": "^2.0.5",
     "react-icons": "^5.2.1",
     "react-intersection-observer": "^9.13.0",
     "sharp": "^0.33.4"
   },
   "devDependencies": {
-    "@fullhuman/postcss-purgecss": "^6.0.0",
     "@tailwindcss/typography": "^0.5.10",
-    "@vitejs/plugin-react": "^4.2.1",
-    "eslint-plugin-react-refresh": "^0.4.5",
+    "eslint": "^8.0.0",
+    "eslint-config-next": "^14.2.5",
+    "eslint-plugin-react-refresh": "^0.4.9",
     "prettier": "^3.3.2",
     "prettier-plugin-tailwindcss": "^0.6.5",
-    "react-router-dom": "^6.23.1",
-    "tailwindcss": "^3.4.0",
-    "vite": "^5.0.8",
-    "vite-plugin-compression": "^0.5.1",
-    "vite-plugin-image-optimizer": "^1.1.8"
+    "tailwindcss": "^3.4.0"
   }
 }

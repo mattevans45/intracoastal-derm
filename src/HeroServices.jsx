@@ -1,6 +1,8 @@
+'use client';
+
 import React, { useEffect, useRef, useMemo, useCallback, Suspense } from "react";
 import { motion, useAnimation, useInView } from "framer-motion";
-import { Link } from "react-router-dom";
+
 import { GiScalpel, GiSyringe } from "react-icons/gi";
 import boardwalk from "./assets/images/optimized/alex-CWwdzVtaGKs-unsplash.webp";
 import cosmeticDerm from "./assets/images/optimized/alexander-krivitskiy-zle2_jp-AUw-unsplash.webp";
@@ -64,8 +66,8 @@ const HeroServices = React.memo(() => {
   ), []);
 
   return (
-    <section className="font-Playfair mx-auto mt-4">
-      <h2 className="mx-auto font-Playfair text-center text-4xl font-bold md:text-5xl">
+    <section className="font-playfair mx-auto mt-4">
+      <h2 className="mx-auto font-playfair text-center text-4xl font-bold md:text-5xl">
         <span className="text-[#4d4d4d]">Services Offered</span>
       </h2>
       <div className="container my-auto mx-auto px-0 sm:px-5 rounded-lg py-5">
