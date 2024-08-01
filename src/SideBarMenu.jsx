@@ -1,10 +1,11 @@
 "use client";
+import dynamic from "next/dynamic";
 
 import React, { useRef, useMemo, useCallback, useEffect, useState } from "react";
 import { motion, useCycle, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { MdOutlineMedicalServices } from "react-icons/md";
-import ServicesList from "./ServicesList";
+
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import { ChevronDownIcon, ChevronUpIcon } from "@heroicons/react/20/solid";
 import LOGO from "./assets/images/optimized/IntracoastalDermatologyandSkinSurgeryLogo.webp";
@@ -14,6 +15,11 @@ import useClickOutside from "./hooks/useClickOutside";
 import { useBodyScrollLock } from "./hooks/useBodyScrollLock";
 import Image from "next/image";
 import { cn } from "./library/utils";
+import LoadingSpinner from "./components/LoadingSpinner.jsx";
+
+const ServicesList = dynamic(() => import("./ServicesList.jsx"), {
+  loading: () => <LoadingSpinner />,
+});
 
 const SideBarMenu = ({ mobileMenuOpen, setMobileMenuOpen }) => {
  
@@ -105,7 +111,7 @@ const SideBarMenu = ({ mobileMenuOpen, setMobileMenuOpen }) => {
       animate={mobileMenuOpen ? "open" : "closed"}
       variants={menuVariants}
       ref={containerRef}
-      className="fixed top-0 right-0 h-screen z-30 w-full max-w-sm bg-gray-200/85 p-6 shadow-xl backdrop-blur-lg sm:max-w-md flex flex-col"
+      className="fixed top-0 right-0 min-h-screen z-[50] w-full max-w-sm bg-gray-200 p-3 mx-auto shadow-xl backdrop-blur-lg sm:max-w-md flex flex-col"
       role="dialog"
       aria-modal="true"
       aria-label="Main Navigation"
@@ -114,9 +120,9 @@ const SideBarMenu = ({ mobileMenuOpen, setMobileMenuOpen }) => {
       
       <Link href="/" onClick={handleCloseMobileMenu} className="focus:outline-none focus:ring-2 focus:ring-neutral-500">
           <Image
-            className="h-full w-56 object-cover p-1 sm:w-56"
+            className="h-full w-48 object-cover p-1 sm:w-56"
             src={LOGO}
-            height={175}
+            height={155}
             width={200}
             sizes="(max-width: 640px) 10rem, 12rem"
             alt="Intracoastal Dermatology Logo"
@@ -133,14 +139,16 @@ const SideBarMenu = ({ mobileMenuOpen, setMobileMenuOpen }) => {
           <AnimatePresence>
             {isServicesOpen && (
               <ServicesList
+              key={"services-list"}
                 setMobileMenuOpen={setMobileMenuOpen}
                 variants={servicesListVariants}
               />
             )}
           </AnimatePresence>
           <motion.ul
-            className="space-y-2"
+            className="space-y-1.5"
             initial="hidden"
+            key={"menu-items"}
             animate="visible"
             exit="exit"
             variants={{
@@ -166,6 +174,7 @@ const CloseButton = ({ onClick }) => (
       className="rounded-full bg-gray-50 p-2 text-gray-400 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
       onClick={onClick}
       aria-label="Close menu"
+      key={"close-button"}
       initial={{ opacity: 0, rotate: -90, scale: 0.7 }}
       animate={{ opacity: 1, rotate: 0, scale: 1 }}
       exit={{ opacity: 0, rotate: 90, scale: 0.7 }}
@@ -184,6 +193,7 @@ const ScrollToTopButton = ({ onClick }) => (
     <motion.button
       className="fixed bottom-8 right-8 rounded-full bg-gray-50 p-4 text-gray-400 shadow-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
       onClick={onClick}
+      key={"scroll-to-top"}
       aria-label="Scroll to top"
       initial={{ opacity: 0, scale: 0.7 }}
       animate={{ opacity: 1, scale: 1 }}
@@ -194,7 +204,6 @@ const ScrollToTopButton = ({ onClick }) => (
     >
       <ChevronUpIcon className="h-6 w-6" aria-hidden="true" />
     </motion.button>
-  
 </AnimatePresence>
 );
 
@@ -203,7 +212,7 @@ const ServicesButton = ({ isOpen, onClick }) => (
     onClick={onClick}
     className={cn(
       "flex items-center justify-between w-full px-3 py-4 rounded-lg bg-gray-50 text-gray-700 shadow-md transition-all duration-300 hover:bg-gray-100 hover:shadow-lg hover:ring-1 focus-within:bg-neutral-200 hover:ring-white",
-      isOpen ? "bg-blue-200" : ""
+      isOpen ? "bg-zinc-200" : ""
     )}
     aria-expanded={isOpen}
     aria-controls="services-list"

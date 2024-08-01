@@ -156,7 +156,7 @@ const Services = () => {
       </Helmet> */}
 
       <motion.div
-        className="services-page mx-auto flex w-full flex-col items-center justify-stretch bg-gray-50 p-4 font-Playfair"
+        className="services-page mx-auto flex w-full flex-col items-center justify-stretch bg-gray-50 p-4 font-playfair"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6 }}

@@ -1,9 +1,23 @@
-import Head from 'next/head';
 import MainLayout from '../MainLayout';
-import { Inter } from 'next/font/google';
 import './globals.css';
 
-const inter = Inter({ subsets: ['latin'] });
+import { Playfair_Display, Playfair_Display_SC } from 'next/font/google'
+ 
+const playfair = Playfair_Display({
+  subsets: ['latin'],
+  weight: ['400', '700', '900'],
+  display: 'swap',
+  style: 'normal',
+  variable: '--font-playfair',
+})
+
+const playfairSC = Playfair_Display_SC({
+  subsets: ['latin'],
+  weight: ['400', '700'],
+  display: 'swap',
+  style: 'normal',
+  variable: '--font-playfairSC',
+})
 
 export const metadata = {
   title: "Intracoastal Dermatology and Skin Surgery",
@@ -18,8 +32,8 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body className={inter.children} >
+    <html lang="en" className={`${playfair.variable} ${playfairSC.variable}`}>
+    <body className="font-playfair">
         <MainLayout>
           {children}
         </MainLayout>

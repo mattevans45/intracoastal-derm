@@ -22,7 +22,7 @@ const ServicePopoverItem = memo(({ item, onClick }) => (
             <item.icon className="size-9 inline-flex text-[#4d4d4d] group-hover:text-gray-500" aria-hidden="true" />
         </div>
         <div onClick={onClick} className="flex flex-col">
-            <Link href={item.to} className="font-semibold prose text-gray-800 group-hover:text-white">
+            <Link href={toString(item.to)} className="font-semibold prose text-gray-800 group-hover:text-white">
                 {item.name}
             </Link>
             <p className="mt-1 text-gray-500 group-hover:text-white">{item.description}</p>

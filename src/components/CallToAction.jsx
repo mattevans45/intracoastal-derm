@@ -2,7 +2,7 @@
 import { motion, useTransform, useScroll } from "framer-motion";
 import Link from "next/link";
 
-const CallToAction = ({ className }) => {
+const CallToAction = ({ }) => {
   
   const { scrollYProgress } = useScroll(ref);
 
@@ -39,7 +39,7 @@ const CallToAction = ({ className }) => {
             Schedule an Appointment
           </Link>
           <Link
-            href="/intracoastal-derm/schedule-appointment"
+            href="/services"
             className="mt-2 rounded-md px-4 py-2 text-sm font-semibold leading-6 text-gray-200 transition-colors duration-300 hover:bg-slate-50/10 sm:mt-0 sm:text-base"
           >
             Learn more <span aria-hidden="true">→</span>

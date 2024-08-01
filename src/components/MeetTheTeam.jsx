@@ -1,9 +1,9 @@
 'use client';
 import headshot from "../assets/images/optimized/DrHarrisHeadshotFinal.webp";
-import React from "react";
 import { useEffect, useRef } from "react";
 import Image from "next/image";
 import { motion, useAnimation, useInView } from "framer-motion";
+import aadlogo from "../assets/images/optimized/American_Academy_of_Dermatology_logo.svg.webp";
 
 const containerVariants = {
   hidden: { opacity: 0, y: -72 },
@@ -48,7 +48,7 @@ const MeetTheTeam = () => {
       animate={controls}
       variants={containerVariants}
       ref={ref}
-      className="bg-white rounded-xl mx-4 py-16"
+      className="bg-white rounded-xl mx-4 py-16 shadow-md"
     >
 
       <div className="">
@@ -72,6 +72,7 @@ const MeetTheTeam = () => {
                 />
                 <h3 className="mb-2 text-xl font-bold">{member.name}</h3>
                 <p className="text-gray-700">{member.role}</p>
+                <Image className="w-20 mx-auto" src={aadlogo}></Image>
               </div>
             </motion.div>
           ))}

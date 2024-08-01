@@ -6,9 +6,12 @@ import Link from "next/link";
 import { Bars3Icon } from "@heroicons/react/24/outline";
 import { motion, AnimatePresence } from "framer-motion";
 import dynamic from 'next/dynamic';
-
+import { usePathname } from 'next/navigation'
 import ContactBar from "./components/ContactBar";
+import PatientResourcesPopover from "./PatientResourcesPopover";
 import Logo from "./assets/images/optimized/IntracoastalDermatologyandSkinSurgeryLogo.webp";
+import whiteLogo from "./assets/images/optimized/IntracoastalDermatologyLogoWhiteTransparent.webp";
+import { cn } from "./library/utils";
 
 const SideBarMenu = dynamic(() => import("./SideBarMenu"), { ssr: false });
 const ServicesPopover = lazy(() => import("./ServicesPopover"));
@@ -22,24 +25,45 @@ const Navbar = () => {
   }, []);
 
   return (
-    <header className={`sticky top-0 z-40 font-display backdrop-blur-[2.5px] antialiased ${mobileMenuOpen ? "bg-white/90" : "bg-white/80"}`}>
-      <ContactBar />
-      <div className="navbar sticky z-[50] w-full font-display bg-white/75 shadow md:pr-3">
-        <nav className="z-50 mx-auto ml-auto flex items-center font-display justify-between  md:w-full lg:justify-around" aria-label="Global">
-          <NavbarLogo />
-          <MobileMenuButton toggleMobileMenu={toggleMobileMenu} />
-          <DesktopMenu />
-        </nav>
-      </div>
+    <>
+      <header className="sticky top-0 z-40 font-display backdrop-blur-[2.5px] antialiased">
+        <ContactBar  />
+        <div className="navbar sticky z-50 w-full font-display bg-[hsla(210,100%,100%,.95)] shadow-md  md:pr-3">
+          <nav className="mx-auto ml-auto flex items-center font-display justify-between md:w-full lg:justify-around" aria-label="Global">
+            <NavbarLogo />
+            <MobileMenuButton toggleMobileMenu={toggleMobileMenu} />
+            <DesktopMenu />
+          </nav>
+        </div>
+      </header>
+      <Overlay isVisible={mobileMenuOpen} onClick={() => setMobileMenuOpen(false)} />
       <MobileMenu mobileMenuOpen={mobileMenuOpen} setMobileMenuOpen={setMobileMenuOpen} sidebarRef={sidebarRef} />
-    </header>
+    </>
   );
 };
+
+const Overlay = memo(({ isVisible, onClick }) => (
+  <AnimatePresence>
+    {isVisible && (
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.2 }}
+        className="fixed inset-0 w-full h-full z-[55] bg-black/30 backdrop-blur-sm"
+        onClick={onClick}
+        style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0 }}
+      />
+    )}
+  </AnimatePresence>
+));
+
+Overlay.displayName = 'Overlay';
 
 const NavbarLogo = memo(() => (
   <Link href="/">
     <Image
-      className="z-40 mx-auto h-full min-w-44 object-cover object-center"
+      className="z-40 mx-auto h-auto min-w-48 ml-1 object-cover object-center"
       src={Logo}
       priority
       width={160}
@@ -73,23 +97,30 @@ MobileMenuButton.displayName = 'MobileMenuButton';
 const DesktopMenu = memo(() => {
   const [servicesPopoverOpen, setServicesPopoverOpen] = useState(false);
 
+  const pathname = usePathname();
   const toggleServicesPopover = useCallback(() => {
     setServicesPopoverOpen((prevState) => !prevState);
   }, []);
 
   return (
-    <div className="md:text-md lg:text-md hidden font-display font-500 md:flex md:justify-evenly lg:flex lg:justify-center lg:gap-4 lg:items-center lg:space-x-3">
-      <ServicesNavItem>
-        <Suspense fallback={<div>Loading...</div>}>
+    <div className="md:text-md lg:text-md hidden font-display max-h-fit md:items-center md:text-sm font-500 md:flex md:justify-evenly lg:flex lg:justify-center lg:gap-4 lg:items-center lg:space-x-3">
+      <ServicesNavItem href="" pathname={pathname}>
+        <Suspense fallback={<div>Services</div>}>
           <ServicesPopover isOpen={servicesPopoverOpen} setIsOpen={toggleServicesPopover} />
         </Suspense>
       </ServicesNavItem>
-      <NavItem href="/location">LOCATION</NavItem>
-      <NavItem href="/contact">CONTACT</NavItem>
-      <NavItem href="/about">ABOUT</NavItem>
-      <div className="mx-auto inline-flex gap-20 px-5">
-        <NavItem href="/schedule-appointment" className="schedule-appointment-button">
-          Schedule an Appointment
+      <NavItem href="" pathname={pathname}>
+
+      <Suspense fallback={<div>Patient Resources</div>}>
+          <PatientResourcesPopover isOpen={servicesPopoverOpen} setIsOpen={toggleServicesPopover} />
+        </Suspense>
+      </NavItem>
+      <NavItem pathname={pathname} href="/location">LOCATION</NavItem>
+      <NavItem pathname={pathname} href="/contact">CONTACT</NavItem>
+      <NavItem pathname={pathname} href="/about">ABOUT</NavItem>
+      <div className="mx-auto inline-flex  px-3">
+        <NavItem pathname={pathname} href="/schedule-appointment" className="schedule-appointment-button">
+          Schedule Appointment
         </NavItem>
       </div>
     </div>
@@ -98,27 +129,40 @@ const DesktopMenu = memo(() => {
 
 DesktopMenu.displayName = 'DesktopMenu';
 
-const NavItem = memo(({ href, children, className, onClick }) => (
-  <span
-    onClick={onClick}
-    className={`rounded-lg px-2 py-1.5 font-display antialiased text-[#4d4d4d] shadow-gray-400/20 drop-shadow-md transition-all duration-500 ease-in-out focus-within:outline-none hover:rounded-lg hover:border-gray-200 hover:bg-[#30648B]/90 hover:px-2 hover:py-1.5 hover:text-white focus:outline-none focus-visible:ring focus-visible:ring-gray-500/50 ${className || ''}`}
-  >
-    {href ? (
-      <Link href={href}>
-        {children}
-      </Link>
-    ) : (
-      children
-    )}
-  </span>
-));
+const NavItem = memo(({ href, children, className, onClick, pathname }) => {
+  const isActive = pathname === href;
+
+  return (
+    <span
+      onClick={onClick}
+      className={cn(
+        `rounded-lg px-2 py-1.5 font-playfairSC antialiased text-[#4d4d4d] shadow-gray-400/20 drop-shadow-md transition-all duration-500 ease-in-out focus-within:outline-none hover:rounded-lg hover:border-gray-200 hover:bg-[#30648B]/90 hover:px-2 hover:py-1.5 hover:text-white focus:outline-none focus-visible:ring focus-visible:ring-gray-500/50`,
+        className,
+        { 
+          'bg-[#30648B]/90 ring ring-gray-200/50 text-white': isActive 
+        }
+      )}
+    >
+      {href ? (
+        <Link href={href} className={cn('link', { 'active': isActive })}>
+          {children}
+        </Link>
+      ) : (
+        children
+      )}
+    </span>
+  );
+});
+
+
+
 
 NavItem.displayName = 'NavItem';
 
 const ServicesNavItem = memo(({ children, className, onClick }) => (
   <span
     onClick={onClick}
-    className={`rounded-lg font-display text-[#4d4d4d] transition-all duration-500 ease-in-out focus-within:outline-none focus:outline-none focus-visible:ring focus-visible:ring-gray-500/50 ${className || ''}`}
+    className={`btn-nav ${className || ''}`}
   >
     {children}
   </span>
@@ -135,7 +179,7 @@ const MobileMenu = memo(({ mobileMenuOpen, setMobileMenuOpen, sidebarRef }) => (
         animate={{ x: 0 }}
         exit={{ x: "100%" }}
         transition={{ duration: 0.2 }}
-        className="fixed right-0 top-0 z-50 w-full shadow-lg md:hidden"
+        className="fixed right-0 top-0 bottom-0 bg-white z-[60] w-full max-w-sm h-screen shadow-lg md:hidden"
       >
         <SideBarMenu
           mobileMenuOpen={mobileMenuOpen}

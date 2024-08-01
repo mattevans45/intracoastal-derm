@@ -1,42 +1,17 @@
-import Head from 'next/head';
-import dynamic from 'next/dynamic';
+
 import Hero from "./components/Hero";
-import PageLoader from "./PageLoader.jsx";
 
-
-
-import './app/globals.css';
-
-
-
-
-const HeroServices = dynamic(() => import('./HeroServices.jsx'), {
-  loading: () => <PageLoader />,ssr: false
-});
-
-const AboutUs = dynamic(() => import("./components/AboutUs.jsx"),{
-  loading: () => <PageLoader />,ssr: false
-});
-
-const ServicesLanding = dynamic(() => import("./components/ServicesLanding.jsx"),{
-  loading: () => <PageLoader />,ssr: false
-});
-
-const Testimonials = dynamic(() => import("./components/Testimonials.jsx"),{
-  loading: () => <PageLoader />,ssr: false
-});
-const MeetTheTeam = dynamic(() => import("./components/MeetTheTeam.jsx"),{
-  loading: () => <PageLoader />,ssr: false
-});
-const ContactSection = dynamic(() => import("./ContactSection.jsx"),{
-  loading: () => <PageLoader />,ssr: false
-});
-
+import AboutUs from "./components/AboutUs.jsx";
+import ServicesLanding from "./components/ServicesLanding.jsx";
+import Testimonials from "./components/Testimonials.jsx";
+import MeetTheTeam from "./components/MeetTheTeam.jsx";
+import ContactSection from "./ContactSection.jsx";
+import HeroServices from "./HeroServices.jsx";
 
 const App = () => {
   return (
     <>
-    <Head>
+      {/* <Head>
         <title>Home | Intracoastal Dermatology and Skin Surgery</title>
         <link rel="canonical" href="https://intracoastal-dermatology.com/" />
         <meta
@@ -184,47 +159,39 @@ const App = () => {
             }),
           }}
         />
-      </Head>
+      </Head> */}
       <main>
-
         <Hero />
-      <div className="container mx-auto overflow-hidden">
-        <div className="mx-5 py-5 text-[#4d4d4d]">
-          <div className="mx-3 rounded-xl bg-white/85 px-2 py-2 shadow-sm backdrop-blur-md">
-            <h1 className="mb-5 text-pretty rounded-xl bg-white py-2 text-center font-Playfair text-4xl font-bold text-[#4d4d4d] sm:text-5xl">
-              Welcome to Intracoastal Dermatology and Skin Surgery
-            </h1>
-            <div className="rounded-xl px-6 text-center">
-              <p className="text-pretty leading-relaxed text-[#4d4d4d]">
-                We are excited to announce the opening of our new office in
-                Leland, NC, on August 1st, 2024. Dr. Harris and the rest of our
-                team of professionals and skincare specialists are dedicated to
-                providing you with the highest level of care for all your
-                dermatological needs.
-              </p>
-              <p className="mb-4 text-pretty leading-relaxed text-[#4d4d4d]">
-                From routine skin checks and cosmetic treatments to advanced
-                skin surgery, we are here to help you achieve and maintain
-                healthy, beautiful skin. Schedule your appointment today to
-                secure your spot and experience our expert care firsthand.
-              </p>
+        <div className="container mx-auto overflow-hidden">
+          <div className="mx-5 py-5 text-[#4d4d4d]">
+            <div className="mx-3 rounded-xl bg-white/85 px-2 py-2 shadow-sm backdrop-blur-md">
+              <h1 className="mb-5 text-pretty rounded-xl bg-white py-2 text-center text-4xl font-bold text-[#4d4d4d] sm:text-5xl">
+                Welcome to Intracoastal Dermatology and Skin Surgery
+              </h1>
+              <div className="rounded-xl px-6 text-center">
+                <p className="text-md text-pretty leading-relaxed text-[#4d4d4d]">
+                  We are excited to announce the opening of our new office in
+                  Leland, NC, on August 1st, 2024. Dr. Harris and the rest of
+                  our team of professionals and skincare specialists are
+                  dedicated to providing you with the highest level of care for
+                  all your dermatological needs.
+                </p>
+                <p className="mb-4 text-pretty leading-relaxed text-[#4d4d4d]">
+                  From routine skin checks and cosmetic treatments to advanced
+                  skin surgery, we are here to help you achieve and maintain
+                  healthy, beautiful skin. Schedule your appointment today to
+                  secure your spot and experience our expert care firsthand.
+                </p>
+              </div>
             </div>
+            <HeroServices />
+            <AboutUs />
+            <ServicesLanding />
+            <Testimonials />
+            <MeetTheTeam />
+            <ContactSection />
           </div>
-
-         
-          
-              <HeroServices />
-              <AboutUs />
-              <ServicesLanding />
-              <Testimonials />
-              <MeetTheTeam />
-              <ContactSection />
-           
-       
         </div>
-      </div>
-
-
       </main>
     </>
   );

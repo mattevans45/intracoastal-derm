@@ -22,7 +22,7 @@ const HeroServiceCard = (({ icon: Icon, title, description, backgroundImage, to 
       initial="hidden"
       animate="visible"
     >
-      <div className="flex h-full w-full flex-col rounded-3xl border-opacity-60 bg-gray-50 shadow-sm">
+      <div className="flex h-full w-full flex-col rounded-3xl border-opacity-60 bg-gray-50 shadow-lg">
         <Image
           className="w-full object-cover rounded-t-3xl object-center md:h-36 lg:h-48"
           src={backgroundImage}
@@ -45,8 +45,9 @@ const HeroServiceCard = (({ icon: Icon, title, description, backgroundImage, to 
                 href={to}
                 className="text-md mt-3 inline-flex items-center rounded-xl bg-[#30548B] p-2 leading-6 text-white duration-500 ease-in-out hover:bg-[#30548B]/90"
                 role="button"
+                description={`Learn more about ${title}`}
               >
-                Learn More
+                {`View ${title.split(" ")[0]} Services`}
                 <svg
                   fill="none"
                   stroke="currentColor"

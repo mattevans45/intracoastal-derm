@@ -1,7 +1,7 @@
-'use client'
+'use client';
 
 import { PhoneIcon, MapPinIcon, XMarkIcon } from "@heroicons/react/24/outline";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const ContactBar = ({ className }) => {
@@ -36,10 +36,10 @@ const ContactBar = ({ className }) => {
           <motion.div
             key="contactBar"
             initial={{ height: 0, opacity: 0 }}
-        
+            animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className={`w-full bg-gradient-to-r from-[#30548B] to-[#3A5F9B] font-display text-white shadow-lg ${className}`}
+            className={`w-full bg-gradient-to-r from-[#30548B] to-[#3A5F9B] text-white shadow-lg ${className}`}
           >
             <div className="container mx-auto flex items-center justify-between px-2 py-2 sm:px-4 sm:py-3">
               <address className="flex flex-1 items-center text-xs not-italic sm:text-sm md:text-base">

@@ -4,6 +4,7 @@ module.exports = {
     "./src/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     extend: {
@@ -32,6 +33,7 @@ module.exports = {
         brown: 'hsl(39, 53%, 24%)',
         darkbrown: 'hsl(34, 75%, 9%)',
         lightgrey: 'hsl(36, 15%, 87%)',
+        primary: 'hsl(198, 43%, 20% / <alpha-value>)',
         beige: 'hsl(39, 26%, 58%)',
         black: 'hsl(0, 0%, 0%)',
       },
@@ -47,8 +49,9 @@ module.exports = {
         900: '900',
       },
       fontFamily: {
-        sans: ['Roboto', 'sans-serif'],
-        Playfair: ['Playfair Display', 'serif'],
+        mono: ['var(--font-roboto-mono)'],
+        playfair: ['var(--font-playfair)'],
+        playfairSC: ['var(--font-playfairSC)'],
         display: ['ui-sans-serif', 'system-ui', 'sans-serif', '"Apple Color Emoji"', '"Segoe UI Emoji"', '"Segoe UI Symbol"', '"Noto Color Emoji"'],
       },
     },

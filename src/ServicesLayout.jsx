@@ -13,7 +13,7 @@ const ServicesLayout = ({children}) => {
       <Navbar />
       <AlertBar />
       <div className="mx-auto grid min-h-screen grid-cols-1 md:grid-cols-4">
-        <aside className="hidden bg-gray-100 font-Playfair p-4 shadow-lg md:col-span-1 md:grid md:w-full">
+        <aside className="hidden bg-gray-100 font-playfair p-4 shadow-lg md:col-span-1 md:grid md:w-full">
           <SideNavbar />
         </aside>
         <main className="col-span-3 w-full bg-gray-50">

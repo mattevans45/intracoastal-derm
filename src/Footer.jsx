@@ -1,6 +1,4 @@
-'use client';
 
-import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import whiteLogo from './assets/images/white Transparent PNG logo.png';
@@ -11,7 +9,6 @@ import {
   PATIENT_RESOURCES,
   DOCUMENTS_LINKS,
   SOCIAL_LINKS,
-  LEGAL_LINKS,
   CONTACT_INFO,
 } from './footerLinks';
 
@@ -25,6 +22,8 @@ const Footer = () => {
           src={footerImg}
           className="absolute inset-0 h-full w-full object-cover backdrop-blur-sm mix-blend-multiply z-0"
           alt="Footer background"
+          width={1920}
+          height={1080}
           loading="lazy"
         />
       </div>
@@ -57,14 +56,31 @@ const LogoSection = () => (
 );
 
 const LinkSection = ({ title, links }) => (
-  <nav className="flex flex-col items-center justify-self-evenly sm:items-start sm:justify-self-evenly text-left">
-    <h2 className="text-lg font-semibold mb-2">{title}</h2>
+  <nav className="flex flex-col items-center justify-self-center text-center sm:items-start sm:text-left sm:justify-self-start mb-6 sm:mb-0">
+    <h2 className="text-lg font-semibold mb-3">{title}</h2>
     <ul className="text-sm">
       {links.map((link) => (
         <li key={link.to} className="mb-1">
-          <Link href={link.to} className="hover:underline underline-offset-4" aria-label={link.label}>
-            {link.label}
-          </Link>
+          {link.isExternal ? (
+            <a 
+              href={link.to} 
+              target={link.target || "_blank"} 
+              rel="noopener noreferrer" 
+              className="hover:underline underline-offset-4" 
+              aria-label={link.label}
+            >
+              {link.label}
+            </a>
+          ) : (
+            <Link 
+              href={link.to} 
+              target={link.target || "_self"} 
+              className="hover:underline underline-offset-4" 
+              aria-label={link.label}
+            >
+              {link.label}
+            </Link>
+          )}
         </li>
       ))}
     </ul>
@@ -72,7 +88,7 @@ const LinkSection = ({ title, links }) => (
 );
 
 const ContactSection = ({ info, socialLinks }) => (
-  <div className="flex flex-col items-center text-center sm:items-start sm:text-left">
+  <div className="flex flex-col items-center text-center sm:items-start sm:text-left w-full sm:w-auto">
     <h2 className="text-lg font-semibold mb-2">CONTACT US</h2>
     <address className="not-italic mb-4">
       <p className="text-sm mb-2">{info.phone}</p>

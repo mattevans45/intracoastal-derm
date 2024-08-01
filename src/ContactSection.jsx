@@ -1,14 +1,14 @@
-'use client';
-import React, { useState } from "react";
+"use client";
+import { useState } from "react";
 import { LuChevronDown, LuChevronUp } from "react-icons/lu";
 
 const ContactSection = () => {
   const address = "509 Olde Waterford Way Suite 103, Leland, NC 28451";
 
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
+    name: "",
+    email: "",
+    message: "",
   });
 
   const handleChange = (e) => {
@@ -18,14 +18,16 @@ const ContactSection = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
+
     const { name, email, message } = formData;
-    const subject = encodeURIComponent('Website Contact Form Submission');
-    const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
+    const subject = encodeURIComponent("Website Contact Form Submission");
+    const body = encodeURIComponent(
+      `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`,
+    );
     const mailtoUrl = `mailto:intracoastaldermatology@gmail.com?subject=${subject}&body=${body}`;
-    
+
     window.location.href = mailtoUrl;
-    setFormData({ name: '', email: '', message: '' });
+    setFormData({ name: "", email: "", message: "" });
   };
 
   const [minimized, setMinimized] = useState(false);
@@ -35,57 +37,57 @@ const ContactSection = () => {
   };
 
   return (
-    <section className="container w-full mx-auto overflow-hidden text-gray-600 body-font">
-      <div className="py-10 mx-5">
-        <div className="rounded-xl relative mb-4 lg:mb-0">
+    <section className="mx-auto mt-10 w-full text-gray-600">
+      <h2 className="mx-3 mb-8 text-center text-4xl font-bold text-gray-600">
+        Contact Us
+      </h2>
+
+      <div className="mx-4 flex flex-1 flex-col justify-center gap-4 lg:flex-row">
+        <div className="relative w-full rounded-xl">
           <iframe
-            className="block top-0 w-full h-[90dvh] rounded-lg"
+            className="top-0 block h-[50vh] w-full rounded-lg lg:h-[90dvh]"
             loading="lazy"
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1649.623264414451!2d-78.0224513612766!3d34.21672311123845!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89aa1932ebadfab9%3A0x2861072cfbf4756!2s509%20Olde%20Waterford%20Way%20STE%20103%2C%20Leland%2C%20NC%2028451!5e0!3m2!1sen!2sus!4v1704332166267!5m2!1sen!2sus"
             title="Intracoastal Dermatology Office Location"
             allowFullScreen=""
           ></iframe>
           {minimized ? (
-            <div className="bg-white z-30 flex flex-nowrap items-center justify-end mx-auto absolute bottom-0 w-full py-2 rounded shadow-md transition-all duration-300 ease-in-out">
-              <h5 className="title-font font-semibold text-center transition-all duration-300 ease-in-out text-gray-900 tracking-widest mx-4 ">
+            <div className="absolute bottom-1/2 right-0 z-30 mx-auto flex flex-nowrap items-center justify-between rounded bg-white px-2 py-2 shadow-md transition-all duration-300 ease-in-out lg:left-auto lg:w-48">
+              <h5 className="title-font mx-2 text-center text-sm font-semibold tracking-widest text-gray-900 transition-all duration-300 ease-in-out lg:text-base">
                 Intracoastal Dermatology
               </h5>
               <button
                 onClick={toggleMinimize}
-                className="text-white flex bg-slate-500/75 border-0 py-0 w-10 h-7 justify-center items-center mr-4 px-3 focus:outline-none hover:bg-slate-600 rounded text-lg"
+                aria-label="Expand Contact Information"
+                className="mr-4 flex h-7 w-10 items-center justify-center rounded border-0 bg-slate-500/75 px-3 py-0 text-lg text-white hover:bg-slate-600 focus:outline-none"
               >
                 <LuChevronUp />
               </button>
             </div>
           ) : (
-            <div className="bg-white flex flex-wrap z-30 items-start absolute bottom-0  w-full rounded shadow-md transition-all duration-300 ease-in-out">
-              <div className="lg:w-1/2 py-2 px-6">
+            <div className="absolute bottom-0 z-30 flex w-full flex-wrap items-start rounded bg-white shadow-md transition-all duration-300 ease-in-out">
+              <div className="px-6 py-2 lg:w-1/2">
                 <button
                   onClick={toggleMinimize}
-                  className="text-white absolute right-0 top-0 bg-slate-500/75 border-0 py-2 px-3  focus:outline-none hover:bg-slate-600 rounded text-lg"
+                  className="absolute right-0 top-0 rounded border-0 bg-slate-500/75 px-3 py-2 text-lg text-white hover:bg-slate-600 focus:outline-none"
                 >
                   <LuChevronDown />
                 </button>
 
-                <h2 className="font-semibold text-gray-900 tracking-widest text-sm">
+                <h2 className="text-sm font-semibold tracking-widest text-gray-900">
                   OFFICE ADDRESS
                 </h2>
-                <p className="mt-1 text-gray-950">
-                  509 Olde Waterford Way
-                  <br />
-                  Suite 103 <br />
-                  Leland, NC 28451
-                </p>
+                <p className="mt-1 text-gray-950">{address}</p>
               </div>
-              <div className="flex flex-col lg:w-1/2 px-6 mt-4 lg:mt-0">
-                <h2 className="font-semibold text-gray-900">EMAIL</h2>
+              <div className="mt-4 flex w-full flex-col px-6 pb-4 lg:mt-0 lg:w-1/2 lg:pb-0">
+                <h2 className="w-full font-semibold text-gray-900">EMAIL</h2>
                 <a
                   href="mailto:intracoastaldermatology@gmail.com"
-                  className="text-sm text-[#30648B] leading-tight"
+                  className="break-words text-sm leading-tight text-[#30648B]"
                 >
                   intracoastaldermatology@gmail.com
                 </a>
-                <h2 className="font-semibold text-gray-900 tracking-widest text-xs mt-4">
+                <h2 className="mt-4 text-xs font-semibold tracking-widest text-gray-900">
                   PHONE
                 </h2>
                 <p className="leading-relaxed">(910) 631-0301</p>
@@ -93,17 +95,15 @@ const ContactSection = () => {
             </div>
           )}
         </div>
-        <div className="rounded-xl mt-10 p-4 bg-white">
-          <h2 className="text-gray-900 text-lg mb-1 font-medium title-font">
-            Contact
-          </h2>
-          <p className="leading-relaxed mb-5 text-gray-600">
-            Send us a message to schedule an appointment, consultation, or
-            anything else!
+        <div className="h-full w-full rounded-xl bg-white p-4 lg:w-auto">
+          <h2 className="mb-1 text-lg font-700 text-gray-900">Contact</h2>
+          <p className="mb-5 leading-relaxed text-gray-600">
+            Send us an email to schedule an appointment, consultation, or ask
+            questions regarding our services.
           </p>
           <form onSubmit={handleSubmit}>
             <div className="relative mb-4">
-              <label htmlFor="name" className="leading-7 text-sm text-gray-600">
+              <label htmlFor="name" className="text-sm leading-7 text-gray-600">
                 Name
               </label>
               <input
@@ -112,11 +112,14 @@ const ContactSection = () => {
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
-                className="w-full bg-white rounded border border-gray-300 focus:border-[#30648B] focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                className="w-full rounded border border-gray-300 bg-white px-3 py-1 text-base leading-8 text-gray-700 outline-none transition-colors duration-200 ease-in-out focus:border-[#30648B] focus:ring-2 focus:ring-indigo-200"
               />
             </div>
             <div className="relative mb-4">
-              <label htmlFor="email" className="leading-7 text-sm text-gray-600">
+              <label
+                htmlFor="email"
+                className="text-sm leading-7 text-gray-600"
+              >
                 Email
               </label>
               <input
@@ -125,11 +128,14 @@ const ContactSection = () => {
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
-                className="w-full bg-white rounded border border-gray-300 focus:border-[#30648B] focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                className="w-full rounded border border-gray-300 bg-white px-3 py-1 text-base leading-8 text-gray-700 outline-none transition-colors duration-200 ease-in-out focus:border-[#30648B] focus:ring-2 focus:ring-indigo-200"
               />
             </div>
             <div className="relative mb-4">
-              <label htmlFor="message" className="leading-7 text-sm text-gray-600">
+              <label
+                htmlFor="message"
+                className="text-sm leading-7 text-gray-600"
+              >
                 Message
               </label>
               <textarea
@@ -137,14 +143,17 @@ const ContactSection = () => {
                 name="message"
                 value={formData.message}
                 onChange={handleChange}
-                className="w-full bg-white rounded border border-gray-300 focus:border-[#30648B] focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"
+                className="h-32 w-full resize-none rounded border border-gray-300 bg-white px-3 py-1 text-base leading-6 text-gray-700 outline-none transition-colors duration-200 ease-in-out focus:border-[#30648B] focus:ring-2 focus:ring-indigo-200"
               ></textarea>
             </div>
-            <button type="submit" className="text-white bg-[#30648B] border-0 py-2 px-6 focus:outline-none hover:bg-[#30648B]/90 rounded text-lg">
-              Send Message
+            <button
+              type="submit"
+              className="rounded border-0 bg-[#30648B] px-6 py-2 text-lg text-white hover:bg-[#30648B]/90 focus:outline-none"
+            >
+              Send an Email
             </button>
           </form>
-          <p className="text-xs text-gray-500 mt-3">Thank you!</p>
+          <p className="mt-3 text-xs text-gray-500">Thank you!</p>
         </div>
       </div>
     </section>

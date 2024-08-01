@@ -8,6 +8,7 @@ const MenuItem = memo(({ item, setMobileMenuOpen }) => (
     <Link
       onClick={() => setMobileMenuOpen(false)}
       href={item.to}
+      target= {item.target || "_self"}
       className="group mx-0 flex w-full items-center rounded-lg px-4 py-2 hover:bg-gray-100"
     >
       {item.icon && (
@@ -18,7 +19,7 @@ const MenuItem = memo(({ item, setMobileMenuOpen }) => (
           />
         </div>
       )}
-      <span className="mx-3 w-full font-display font-500 capitalize text-[#4d4d4d]">
+      <span className="mx-3 line-clamp-1 w-full font-display font-500 capitalize text-[#4d4d4d]">
         {item.text}
       </span>
     </Link>

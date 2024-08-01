@@ -1,12 +1,12 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/20/solid';
-import { useParams } from 'next/navigation';
+import { useParams, useRouter } from 'next/navigation';
 
-import { useRouter } from 'next/router';
+
 import servicesData from './servicesData'; 
 import slugify from './slugify'; 
 
@@ -35,14 +35,6 @@ const CategoryList = ({ currentCategoryId, searchQuery }) => {
     setIsOpen(false);
   };
 
-  const filteredCategories = useMemo(() => {
-    return categories.map(category => ({
-      ...category,
-      services: category.services.filter(service => 
-        service.name.toLowerCase().includes(searchQuery.toLowerCase())
-      )
-    }));
-  }, [searchQuery]);
 
   const renderNestedCategories = (nestedCategories) => {
     return nestedCategories.map(category => (
@@ -96,7 +88,7 @@ const CategoryList = ({ currentCategoryId, searchQuery }) => {
             transition={{ duration: 0.3 }}
             className="mt-2 bg-white rounded-lg shadow-lg overflow-hidden"
           >
-            {renderNestedCategories(filteredCategories)}
+            {renderNestedCategories(categories)}
           </motion.div>
         )}
       </AnimatePresence>

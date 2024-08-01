@@ -1,9 +1,11 @@
 'use client'
-import React from "react";
+
+
+
 import { useEffect, useRef } from "react";
 import { motion, useAnimation, useInView } from "framer-motion";
 import { GiDoctorFace, GiLoveInjection, GiScalpel } from "react-icons/gi";
-import { MdMedicalServices, MdOutlinePermCameraMic } from "react-icons/md";
+import { MdMedicalServices } from "react-icons/md";
 
 
 const containerVariants = {
@@ -46,7 +48,7 @@ const services = [
         className="body-font mx-auto text-gray-600 container"
       >
        
-        <section className="mx-4 mt-4 py-14 rounded-xl bg-white">
+        <section className="mx-4 mt-4 py-14 rounded-xl bg-white shadow-md">
           <div className="px-6">
           <h2 className="text-4xl font-bold text-gray-600 text-center mb-12 mx-3 ">Our Services</h2>
             <motion.div className="flex flex-wrap justify-center" variants={containerVariants}>
@@ -57,7 +59,7 @@ const services = [
                   variants={itemVariants}
                 >
                   <div className="bg-gray-100 rounded-lg p-6 flex flex-col justify-center items-center text-center">
-                    <div className="text-5xl mb-4 text-[#30548B] flex-1 ">{service.icon}</div>
+                    <div className="text-5xl mb-4 flex-1 ">{service.icon}</div>
                     <h3 className="text-xl font-bold mb-2">{service.name}</h3>
                     <p className="text-gray-700">{service.description}</p>
                   </div>

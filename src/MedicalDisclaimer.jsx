@@ -1,6 +1,7 @@
-import React, { useEffect } from 'react';
+"use client";
+import { useEffect } from 'react';
 import { motion, useAnimation } from 'framer-motion';
-// import { Helmet } from 'react-helmet-async';
+
 
 const MedicalDisclaimer = () => {
   const headerControls = useAnimation();
