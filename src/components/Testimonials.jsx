@@ -22,8 +22,8 @@ const itemVariants = {
 const testimonials = [
   {
     id: 1,
-    name: "Matt Evans",
-    content: "Excellent service! My skin has never looked better.",
+    name: "Abby Harrell",
+    content: "Dr. Harris is one of the best Dermatologists I have ever been treated by! He takes the time to connect with you and hear your concerns. In procedures, he takes his time to make sure you have maximum beneftis. I cannot recommend him enough, especially as it becomes harder and harder to secure an appointment at other dermatology offices. Thank you Dr. Harris for giving me more confidence in my skin!",
     photo: photo,
   },
   {

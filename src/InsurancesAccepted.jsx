@@ -27,18 +27,18 @@ const InsurancesAccepted = () => {
         animate={headerControls}
         className="max-w-4xl container p-6 text-[#4d4d4d] bg-slate-100 rounded-lg"
         >
-        <motion.h2
+        <motion.h1
           initial={{ opacity: 0, y: -50 }}
           animate={contentControls}
           className="text-3xl mb-4 text-center"
           >
           Insurances Accepted
-        </motion.h2>
+        </motion.h1>
 
         <motion.div initial={{ opacity: 0, y: 50 }} animate={contentControls}>
-          <p className="leading-relaxed mb-5 text-gray-600 text-center">
+          <h2 className="leading-relaxed mb-5 text-gray-600 text-center">
             We accept a wide range of insurance plans to ensure that our services are accessible to as many patients as possible. Below is a list of insurance providers that we currently accept.
-          </p>
+          </h2>
 
           <ul className="list-disc list-inside mb-4">
             <li className="mb-2">Aetna</li>
@@ -66,7 +66,7 @@ const InsurancesAccepted = () => {
           </p>
 
           <p className="leading-relaxed mb-5 text-gray-600 text-center">
-            For any questions regarding insurance or payment options, feel free to reach out to our billing department at intracoastaldermatology@gmail.com.
+            For any questions regarding insurance or payment options, feel free to reach out to our billing department at skin@intracoastal-dermatology.com.
           </p>
 
           <p className="leading-relaxed mb-5 text-gray-600 text-center">

@@ -63,6 +63,6 @@ export const LEGAL_LINKS = [
 
 export const CONTACT_INFO = {
   phone: "(910) 631-0301",
-  email: "intracoastaldermatology@gmail.com",
+  email: "skin@intracoastal-dermatology.com",
   address: "509 Olde Waterford Way, Suite 103, Leland, North Carolina 28451",
 };

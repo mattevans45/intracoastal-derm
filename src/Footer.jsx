@@ -18,26 +18,6 @@ const Footer = () => {
 
   return (
     <footer role="contentinfo" className="relative leading-normal uppercase overflow-hidden tracking-wide antialiased text-white z-10">
-      <Helmet>
-        <meta name="description" content="Footer section of Intracoastal Dermatology" />
-        <meta name="keywords" content="dermatology, healthcare, skin care, intracoastal" />
-        <script type="application/ld+json">
-          {`
-            {
-              "@context": "https://schema.org",
-              "@type": "Organization",
-              "name": "Intracoastal Dermatology",
-              "url": "https://www.intracoastaldermatology.com",
-              "logo": "${whiteLogo}",
-              "sameAs": [
-                "https://www.facebook.com/intracoastaldermatology",
-                "https://www.instagram.com/intracoastaldermatology/",
-                "https://twitter.com/intracoastalderm"
-              ]
-            }
-          `}
-        </script>
-      </Helmet>
       <div className="absolute inset-0 bg-gray-500">
         <img
           src={footerImg}
@@ -95,7 +75,7 @@ const ContactSection = ({ info, socialLinks }) => (
     <h2 className="text-lg font-semibold mb-3">CONTACT US</h2>
     <address className="not-italic mb-4">
       <p className="text-sm mb-2">{info.phone}</p>
-      <p className="text-sm mb-2">{info.email}</p>
+      <p className="text-sm mb-2 w-full text-nowrap">{info.email}</p>
       <p className="text-sm mb-2">{info.address}</p>
     </address>
     <Link to="/contact" className="text-sm underline hover:text-gray-200 mb-4">GET DIRECTIONS</Link>

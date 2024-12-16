@@ -5,6 +5,8 @@ import { Helmet } from "react-helmet-async";
 import headshot from "./assets/images/optimized/DrHarrisHeadshotFinal.webp";
 import family from "./assets/images/optimized/HarrisFamily.webp";
 import aadlogo from "./assets/images/optimized/American_Academy_of_Dermatology_logo.svg.webp";
+import asdsLogo from "./assets/images/optimized/logo-asds-cmyk.png";
+import abdlogo from "./assets/images/optimized/DrHarrisABD-transformed.webp"
 // import acms from "./assets/acms-mohs-surgeon.png";
 
 const Image = ({ src, alt, className }) => (
@@ -37,12 +39,11 @@ export default function About() {
     <>
       <Helmet>
         <title>
-          About Dr. Blair Harris, DO, FAAD - Intracoastal Dermatology and Skin
-          Surgery
+          About Dr. Blair Harris, DO, FAAD
         </title>
         <meta
           name="description"
-          content="Learn about Dr. Blair Harris, a board-certified dermatologist and fellowship-trained Mohs surgeon at Intracoastal Dermatology and Skin Surgery."
+          content="Learn about Dr. Blair Harris, DO, FAAD, a board-certified dermatologist and fellowship-trained Mohs surgeon at Intracoastal Dermatology and Skin Surgery."
         />
         <link
           rel="canonical"
@@ -96,32 +97,34 @@ export default function About() {
           })}
         </script>
       </Helmet>
-      <motion.div
+      <motion.section
         initial={{ opacity: 0, y: 0 }}
         animate={headerControls}
         className="mb-1 bg-gray-100 py-8"
       >
         <div className="container px-4 lg:px-8">
-          <header className="text-center">
-            <motion.h2
+          <div className="text-center">
+            <motion.h1
               initial={{ opacity: 0, y: -50 }}
               animate={headerControls}
               className="mb-2 font-poppins text-4xl font-medium text-[#4d4d4d] lg:text-6xl"
             >
               Dr. Blair Harris, DO, FAAD
-            </motion.h2>
-            <motion.h3
+            </motion.h1>
+            <motion.h2
               initial={{ opacity: 0, y: -50 }}
               animate={headerControls}
               className="mb-7 font-poppins text-xl font-medium text-[#4d4d4d] lg:text-2xl"
             >
               Board-Certified Dermatologist, Fellowship-Trained Mohs Surgeon
-              <div className="flex justify-center gap-x-8">
-                <Image src={aadlogo} alt="AAD Logo" className="mx-auto w-20" />
+              <div className="flex justify-center items-center gap-x-8">
+                <Image src={aadlogo} alt="AAD Logo" className="w-20" />
+                <Image src={asdsLogo} alt="ASDS Logo" className="w-20" />
+                <Image src= {abdlogo}  className="w-20" alt="American Board of Dermatology Micographic Dermatologic Surgery Certified"/>
                 {/* <Image src={acms} alt = 'ACMS American College of Mohs Surgery' className="w-20 mx-auto" /> */}
               </div>
-            </motion.h3>
-          </header>
+            </motion.h2>
+          </div>
 
           <div className="flex flex-col lg:flex-row lg:items-start lg:gap-8">
             <motion.div
@@ -136,25 +139,17 @@ export default function About() {
               />
             </motion.div>
 
-            <motion.div
+            <motion.span
               initial={{ opacity: 0, y: 50 }}
               animate={contentControls}
               className="w-full lg:w-1/2"
             >
               <p className="prose-xl prose-neutral max-w-prose leading-relaxed text-[#4d4d4d]">
-                Dr. Blair Harris was born and raised in northern Utah. He
-                graduated from Brigham Young University with a degree in
-                Business Management with an emphasis in finance. After working
-                as a financial analyst at Lockheed Martin in southern California
-                for three years, he decided to pursue his lifelong dream of
-                becoming a doctor. Dr. Harris attended medical school at Pacific
-                Northwest University in Yakima, Washington. While in medical
-                school, he was elected to a position in student government and
-                enjoyed serving his fellow students. His leadership position
-                enabled him to institute multiple organizational changes
-                including implementing mental health resources, student support
-                groups, and financial tracking instruments for the student
-                government organization at PNWU.
+              A native of northern Utah, Dr. Blair Harris graduated from Brigham Young University with a degree in Business Management emphasizing in finance. Though he enjoyed his years working as a financial analyst at Lockheed Martin in Southern California, his lifelong dream of becoming a doctor persisted, leading him to Pacific Northwest University in Yakima, WA. During medical school, Blair was elected to a student government position which enabled him to institute multiple organizational changes for the benefit of his peers. These changes included: implementing mental health resources, creating student support groups, and introducing financial tracking instruments for the student government organization.
+              </p>
+
+              <p className="prose-xl prose-neutral mt-8 max-w-prose leading-relaxed text-[#4d4d4d]">
+              Blair became inspired to pursue dermatology while volunteering as a camp counselor at Camp Discovery, a summer camp for young children suffering from various skin disorders. Upon completion of his internship and residency through Campbell University, Blair secured a coveted fellowship position in Micrographic Surgery and Dermatologic Oncology. Now a board-certified, fellowship-trained physician, Dr. Harris is thrilled to open his very own office to serve the people in North Carolina he has grown to love.
               </p>
               <Image
                 src={family}
@@ -162,21 +157,12 @@ export default function About() {
                 className="mt-8 w-full rounded-lg"
               />
               <p className="prose-xl prose-neutral mt-8 max-w-prose leading-relaxed text-[#4d4d4d]">
-                Dr. Harris developed a love for dermatology while volunteering
-                as a camp counselor at Camp Discovery, a summer camp for
-                children with dermatologic skin conditions. He completed his
-                internship and residency through Campbell University, his number
-                one choice. He enjoys all aspects of dermatology, but found
-                special interest in procedural and surgical dermatology, which
-                led him to pursue a fellowship in Mohs Micrographic Surgery.
-                When he’s not working as a dermatologist, you can find Blair
-                spending time with his wife and two daughters, exercising,
-                enjoying the beaches, or doing projects around the house.
+              When he is not in his office, Dr. Harris is either spending time with his wife and two daughters, shark tooth hunting, or working on projects around the house.
               </p>
-            </motion.div>
+            </motion.span>
           </div>
         </div>
-      </motion.div>
+      </motion.section>
     </>
   );
 }

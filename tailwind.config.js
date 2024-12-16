@@ -2,24 +2,11 @@ const postcss = require('postcss');
 
 module.exports = {
   mode: 'jit',
-  purge: ['./index.html', './src/**/*.{js,jsx,ts,tsx}'],
-  darkMode: false, // or 'media' or 'class'
+  content: ['./index.html', './src/**/*.{js,jsx,ts,tsx}'],
   theme: {
     extend: {
       animation: {
         'pulse-slow': 'pulse 4s ease-in-out infinite',
-        'skeleton': 'skeleton 1s ease-in-out infinite',
-        'auto-show': 'autoShowAnimations 1s both', // Ensure duration and fill mode are set
-      },
-      keyframes: {
-        autoShowAnimations: {
-          '0%': { opacity: 0, transform: 'translateY(100px) scale(0.8)' },
-          '100%': { opacity: 1, transform: 'translateY(0) scale(1)' },
-        },
-        skeleton: {
-          '0%, 100%': { opacity: 0.5 },
-          '50%': { opacity: 1 },
-        },
       },
       boxShadow: {
         'lg': '0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08)',

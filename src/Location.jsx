@@ -66,14 +66,8 @@ const Location = () => {
                   "Thursday",
                   "Friday",
                 ],
-                opens: "08:00",
+                opens: "07:00",
                 closes: "16:00",
-              },
-              {
-                "@type": "OpeningHoursSpecification",
-                dayOfWeek: "Saturday",
-                opens: "09:00",
-                closes: "14:00",
               },
             ],
             sameAs: [
@@ -105,7 +99,7 @@ const Location = () => {
           <p className="prose-xl mt-4 font-display font-semibold text-[#4d4d4d]">
             Hours of Operation
           </p>
-          <p className="text-[#4d4d4d]">M-F 8AM - 5PM</p>
+          <p className="text-[#4d4d4d]">Monday-Friday 7AM - 4PM</p>
         </div>
 
         <div className="relative mx-auto my-4 flex flex-col items-center justify-center p-4 md:w-1/2 md:p-0">
@@ -173,7 +167,7 @@ const Location = () => {
                       href="mailto:example@email.com"
                       className="max-w-full overflow-y-auto break-all text-sm leading-tight text-[#30648B]"
                     >
-                      intracoastaldermatology@gmail.com
+                      skin@intracoastal-dermatology.com
                     </a>
                     <h2 className="mt-4 text-xs font-semibold tracking-widest text-[#4d4d4d]">
                       PHONE

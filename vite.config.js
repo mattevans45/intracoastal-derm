@@ -2,10 +2,14 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import viteCompression from 'vite-plugin-compression';
 import { ViteImageOptimizer } from 'vite-plugin-image-optimizer';
+import lightningcss from 'vite-plugin-lightningcss';
 
 export default defineConfig({
   plugins: [
     react(),
+    lightningcss({
+      browserslist: "last 2 versions",
+    }),
     viteCompression({
       ext: '.br',
       brotli: true,
@@ -27,10 +31,12 @@ export default defineConfig({
     port: 3000,
     open: true,
     cors: true,
+  
   },
   build: {
     outDir: 'dist',
     assetsInlineLimit: 4096,
+
     rollupOptions: {
       output: {
         manualChunks: {
@@ -52,6 +58,6 @@ export default defineConfig({
   },
   base: '/',
   optimizeDeps: {
-    include: ['react', 'react-dom'],
+    include: ['react', 'react-dom', 'framer-motion'],
   },
 });

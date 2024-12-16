@@ -39,9 +39,9 @@ const CategoryList = memo(({ category, services, setMobileMenuOpen }) => {
       >
         <div className="flex items-center">
           <IconComponent className="mr-8 h-6 w-6 text-gray-600" />
-          <span className="transition-colors duration-200 hover:text-[#30648B]">
+          <h1 className="transition-colors duration-200 hover:text-[#30648B]">
             {category.charAt(0).toUpperCase() + category.slice(1)}
-          </span>
+          </h1>
         </div>
         <ChevronDownIcon
           className={`h-5 w-5 text-gray-600 transition-transform duration-200 ${

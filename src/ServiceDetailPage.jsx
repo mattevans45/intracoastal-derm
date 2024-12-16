@@ -137,6 +137,8 @@ const Causes = React.memo(({ causes }) => {
 const ServiceDetailPage = () => {
   const { category, serviceName } = useParams();
   const { categories, category: selectedCategory, service } = useServiceData(category, serviceName);
+  const servicedescription = service.description.slice(0, 90);
+
 
   if (!selectedCategory || !service) {
     return <NotFound />
@@ -149,7 +151,7 @@ const ServiceDetailPage = () => {
         <title>{`${service.name} - Intracoastal Dermatology`}</title>
         <meta
           name="description"
-          content={`Learn about our ${service.name} service at Intracoastal Dermatology. ${service.shortDescription}`}
+          content={`Learn about our ${service.name} service at Intracoastal Dermatology. ${servicedescription}`}
         />
         <link
           rel="canonical"
@@ -159,7 +161,7 @@ const ServiceDetailPage = () => {
           property="og:title"
           content={`${service.name} - Intracoastal Dermatology`}
         />
-        <meta property="og:description" content={service.shortDescription} />
+        <meta property="og:description" content={servicedescription} />
         <meta
           property="og:url"
           content={`https://intracoastal-dermatology.com/services/${category}/${serviceName}`}
@@ -194,7 +196,7 @@ const ServiceDetailPage = () => {
                 url: "https://intracoastal-dermatology.com/",
                 logo: "https://intracoastal-dermatology.com/IntracoastalDermatologyandSkinSurgeryLogo.png",
                 description:
-                  "Intracoastal Dermatology offers expert care in general, cosmetic, and surgical dermatology. New office opening in Leland, NC. Schedule your consultation today.",
+                  "Intracoastal Dermatology offers expert care in general, cosmetic, and surgical dermatology. Come check out our new office in Leland, NC. Schedule your consultation today.",
                 geo: {
                   "@type": "GeoCoordinates",
                   latitude: 34.21687,
@@ -238,7 +240,7 @@ const ServiceDetailPage = () => {
                     name: "Schedule an appointment",
                   },
                 },
-                openingHours: "Mo,Tu,We,Th,Fr 08:00-17:00",
+                openingHours: "Mo,Tu,We,Th,Fr 07:00-16:00",
                 contactPoint: [
                   {
                     "@type": "ContactPoint",
@@ -263,7 +265,7 @@ const ServiceDetailPage = () => {
                 },
                 image:
                   "https://intracoastal-dermatology.com/IntracoastalDermatologyandSkinSurgeryMainLogo.webp",
-                email: "intracoastaldermatology@gmail.com",
+                email: "skin@intracoastal-dermatology.com",
                 telephone: "+1-910-631-0301",
                 priceRange: "$$",
               },
@@ -283,13 +285,13 @@ const ServiceDetailPage = () => {
           <div className="mx-auto place-self-start overflow-hidden rounded-xl bg-white shadow-lg">
             <div className="bg-[#30548B] p-4 text-white sm:p-6">
               <Breadcrumb categories={categories} />
-              <h2 className="mt-2 text-2xl font-bold sm:mt-4 sm:text-4xl">
+              <h1 className="mt-2 text-2xl font-bold sm:mt-4 sm:text-4xl">
                 {service.name}
-              </h2>
-              <p className="mt-3 pl-3 italic">
+              </h1>
+              <h2 className="mt-3 pl-3 italic">
                 What is it? What treatments are available? Read below to find
                 more.
-              </p>
+              </h2>
             </div>
             <div className="p-2.5 sm:p-3">
               <img

@@ -1,6 +1,6 @@
-import React, { useEffect, useLayoutEffect, useState, Suspense, useMemo, useCallback } from "react";
+import React, { useEffect, useState, Suspense, useMemo, useCallback } from "react";
 import { motion } from "framer-motion";
-import LoadingSpinner from "../LoadingSpinner";
+
 import whiteLogo from "../assets/images/optimized/white-transparent-nameonly.webp";
 import smallwave640 from "../assets/images/optimized/matt-hardy-6ArTTluciuA-unsplash-640w-q80.webp";
 import smallwave1280 from "../assets/images/optimized/matt-hardy-6ArTTluciuA-unsplash-1280w-q80.webp";
@@ -14,10 +14,10 @@ import background3_1280 from "../assets/images/optimized/nick-jio-Pj2TaFMH0pE-un
 import background4_640 from "../assets/images/optimized/mourad-saadi-GyDktTa0Nmw-unsplash-640w-q80.webp";
 import background4_1280 from "../assets/images/optimized/mourad-saadi-GyDktTa0Nmw-unsplash-1280w-q80.webp";
 
-import useCountdown from "./useCountdown";
+import OpenModal from "./OpenModal";
 
 import CardContent from "./CardContent";
-import FlipClock from "./FlipClock";
+
 
 
 
@@ -58,8 +58,8 @@ const Hero = () => {
   );
 
   const [currentBackgroundIndex, setCurrentBackgroundIndex] = useState(0);
-  const targetDate = useMemo(() => new Date("August 1, 2024 00:00:00").getTime(), []);
-  const timeLeft = useCountdown(targetDate);
+
+
 
   const [loadedImages, setLoadedImages] = useState([backgroundImages[0]]);
   
@@ -99,7 +99,7 @@ const Hero = () => {
   }, [updateBackgroundIndex]);
 
   return (
-    <div className="relative h-full min-h-screen overflow-hidden text-white">
+    <div className="relative h-full max-h-screen overflow-hidden text-white">
       {backgroundImages.map((image, index) => (
         <div
           key={index}
@@ -117,31 +117,9 @@ const Hero = () => {
           />
         </div>
       ))}
-
+{/* <OpenModal /> */}
       <div className="relative z-10">
-        <motion.div
-          initial={{ opacity: 0, transform: "translateX(-150px)" }}
-          animate={{ opacity: 1, transform: "translateX(0)" }}
-          transition={{ duration: 1, delay: 0.5 }}
-          className="mx-3 flex w-fit flex-1 flex-col items-start justify-center rounded-b-lg bg-black/25 px-2 font-display backdrop-blur-sm sm:gap-1"
-        >
-          <h2 className="sm:text-md text-md text-center font-Playfair capitalize md:text-lg lg:text-2xl">
-            Countdown until our Grand Opening!
-          </h2>
-      
-            <Suspense fallback={<LoadingSpinner />}>
-              <div className="mx-auto mt-4 flex items-center justify-start gap-x-3">
-                {Object.entries(timeLeft).map(([unit, value]) => (
-                  <FlipClock
-                    key={`${unit}-${value}`}
-                    time={value.toString().padStart(2, "0")}
-                    label={unit.charAt(0).toUpperCase() + unit.slice(1)}
-                  />
-                ))}
-              </div>
-            </Suspense>
        
-        </motion.div>
 
         <motion.div
           className="relative mx-auto h-auto w-full"
@@ -173,7 +151,7 @@ const Hero = () => {
               </div>
             }
           >
-            <div className="mx-2 min-h-[35vh]">
+            <div className="mx-2 min-h-[30vh]">
               <CardContent />
             </div>
           </Suspense>

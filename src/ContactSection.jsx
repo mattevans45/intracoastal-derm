@@ -21,7 +21,7 @@ const ContactSection = () => {
     const { name, email, message } = formData;
     const subject = encodeURIComponent('Website Contact Form Submission');
     const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
-    const mailtoUrl = `mailto:intracoastaldermatology@gmail.com?subject=${subject}&body=${body}`;
+    const mailtoUrl = `mailto:skin@intracoastal-dermatology.com?subject=${subject}&body=${body}`;
     
     window.location.href = mailtoUrl;
     setFormData({ name: '', email: '', message: '' });
@@ -79,10 +79,10 @@ const ContactSection = () => {
               <div className="flex flex-col lg:w-1/2 px-6 mt-4 lg:mt-0">
                 <h2 className="font-semibold text-gray-900">EMAIL</h2>
                 <a
-                  href="mailto:intracoastaldermatology@gmail.com"
+                  href="mailto:skin@intracoastal-dermatology.com"
                   className="text-sm text-[#30648B] leading-tight"
                 >
-                  intracoastaldermatology@gmail.com
+                  skin@intracoastal-dermatology.com
                 </a>
                 <h2 className="font-semibold text-gray-900 tracking-widest text-xs mt-4">
                   PHONE

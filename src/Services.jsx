@@ -74,7 +74,7 @@ const Services = () => {
                 url: "https://intracoastal-dermatology.com/",
                 logo: "https://intracoastal-dermatology.com/IntracoastalDermatologyandSkinSurgeryLogo.png",
                 description:
-                  "Intracoastal Dermatology offers expert care in general, cosmetic, and surgical dermatology. New office opening in Leland, NC. Schedule your consultation today.",
+                  "Intracoastal Dermatology offers expert care in general, cosmetic, and surgical dermatology. Come check out our new office in Leland, NC. Schedule your consultation today.",
                 geo: {
                   "@type": "GeoCoordinates",
                   latitude: 34.21687,
@@ -118,7 +118,7 @@ const Services = () => {
                     name: "Schedule an appointment",
                   },
                 },
-                openingHours: "Mo,Tu,We,Th,Fr 08:00-17:00",
+                openingHours: "Mo,Tu,We,Th,Fr 07:00-16:00",
                 contactPoint: [
                   {
                     "@type": "ContactPoint",
@@ -143,7 +143,7 @@ const Services = () => {
                 },
                 image:
                   "https://intracoastal-dermatology.com/IntracoastalDermatologyandSkinSurgeryMainLogo.webp",
-                email: "intracoastaldermatology@gmail.com",
+                email: "skin@intracoastal-dermatology.com",
                 telephone: "+1-910-631-0301",
                 priceRange: "$$",
               },

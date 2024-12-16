@@ -78,7 +78,7 @@ const SidebarMenu = memo(({ mobileMenuOpen, setMobileMenuOpen }) => {
       animate={mobileMenuOpen ? "open" : "closed"}
       variants={menuVariants}
       ref={containerRef}
-      className="absolute right-0 top-0 z-30 mx-auto h-screen w-full overflow-x-auto rounded-lg bg-gray-200/65 p-3 font-display shadow-lg backdrop-blur-md sm:w-1/2 sm:shadow-xl sm:backdrop-blur-lg md:w-1/2"
+      className="absolute right-0 top-0 z-30 mx-auto h-screen w-full rounded-lg bg-gray-200/65 p-3 font-display shadow-lg backdrop-blur-md sm:w-1/2 sm:shadow-xl sm:backdrop-blur-lg md:w-1/2"
       role="navigation"
       aria-label="Main Navigation"
     >
