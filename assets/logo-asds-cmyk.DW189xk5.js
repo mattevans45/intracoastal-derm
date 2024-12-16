@@ -1,0 +1,1 @@
+const s="/assets/DrHarrisHeadshotFinal.DW8PQOn-.webp",a="/assets/American_Academy_of_Dermatology_logo.svg.DsfrjYs4.webp",e="/assets/DrHarrisABD-transformed.BREwRffq.webp",r="/assets/logo-asds-cmyk.BAHkPTd2.png";export{a,r as b,e as c,s as h};
