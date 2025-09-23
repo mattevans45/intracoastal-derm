@@ -1,5 +1,5 @@
 # Stage 1: Build
-FROM node:18-alpine AS build
+FROM node:lts-alpine AS build
 
 # Set the working directory
 WORKDIR /app
@@ -14,10 +14,6 @@ COPY . .
 
 # Build the React application
 RUN npm run build
-
-# Copy static files
-COPY sitemap.xml /app/dist/sitemap.xml
-COPY robots.txt /app/dist/robots.txt
 
 # Stage 2: Serve
 FROM nginx:1.23-alpine-slim

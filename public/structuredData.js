@@ -47,7 +47,7 @@ script.text = `
       "name": "Schedule an appointment"
     }
   },
-  "openingHours": "Mo,Tu,We,Th,Fr 08:00-17:00",
+  "openingHours": "Mo,Tu,Th 07:00-17:00;We 08:00-17:00",
   "contactPoint": [
     {
       "@type": "ContactPoint",
