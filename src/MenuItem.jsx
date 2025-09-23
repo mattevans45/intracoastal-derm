@@ -1,11 +1,14 @@
+'use client';
+
 import React, { memo } from "react";
-import { Link } from "react-router-dom";
+import Link  from "next/link";
 
 const MenuItem = memo(({ item, setMobileMenuOpen }) => (
   <li className="mt-1.5 flex h-full w-full flex-col justify-items-center rounded-lg bg-gray-50 p-1.5 text-[#4d4d4d] drop-shadow-sm transition-all duration-300 hover:animate-pulse-slow hover:bg-gray-100 hover:shadow-lg hover:ring-2 hover:ring-white">
     <Link
       onClick={() => setMobileMenuOpen(false)}
-      to={item.to}
+      href={item.to}
+      target= {item.target || "_self"}
       className="group mx-0 flex w-full items-center rounded-lg px-4 py-2 hover:bg-gray-100"
     >
       {item.icon && (
@@ -16,7 +19,7 @@ const MenuItem = memo(({ item, setMobileMenuOpen }) => (
           />
         </div>
       )}
-      <span className="mx-3 w-full font-display font-500 capitalize text-[#4d4d4d]">
+      <span className="mx-3 line-clamp-1 w-full font-display font-500 capitalize text-[#4d4d4d]">
         {item.text}
       </span>
     </Link>

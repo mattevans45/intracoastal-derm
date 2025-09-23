@@ -1,7 +1,12 @@
-import React, { useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+'use client';
+
+import { useState, useMemo } from 'react';
+
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/20/solid';
+import { useParams, useRouter } from 'next/navigation';
+
+
 import servicesData from './servicesData'; 
 import slugify from './slugify'; 
 
@@ -11,22 +16,25 @@ const categories = Object.keys(servicesData).map(key => ({
   services: servicesData[key]
 }));
 
-const CategoryList = ({ currentCategoryId }) => {
+const CategoryList = ({ currentCategoryId, searchQuery }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const { serviceName } = useParams();
-  const navigate = useNavigate();
 
+  
+  
   const toggleDropdown = () => setIsOpen(prev => !prev);
-
+  
+  const router = useRouter();
+  const serviceName = router.serviceName;
   const handleCategoryClick = (categoryId) => {
-    navigate(`/services/${categoryId}`);
+    router.push(`/services/${categoryId}`);
     setIsOpen(false);
   };
 
   const handleServiceClick = (categoryId, serviceSlug) => {
-    navigate(`/services/${categoryId}/${serviceSlug}`);
+    router.push(`/services/${categoryId}/${serviceSlug}`);
     setIsOpen(false);
   };
+
 
   const renderNestedCategories = (nestedCategories) => {
     return nestedCategories.map(category => (
@@ -40,7 +48,7 @@ const CategoryList = ({ currentCategoryId }) => {
         >
           {category.name}
         </button>
-        {category.id === currentCategoryId && category.services && (
+        {category.id === currentCategoryId && category.services.length > 0 && (
           <div className="pl-4">
             {category.services.map(service => (
               <button

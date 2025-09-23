@@ -1,10 +1,10 @@
 import React from "react";
-import { Helmet } from "react-helmet-async";
+// import { Helmet } from "react-helmet-async";
 
 const ScheduleAppointment = () => {
   return (
     <>
-      <Helmet>
+      {/* <Helmet>
         <title>
           Schedule Appointment | Intracoastal Dermatology and Skin Surgery
         </title>
@@ -60,7 +60,7 @@ const ScheduleAppointment = () => {
   })}
 </script>
 
-      </Helmet>
+      </Helmet> */}
 
       <div className="flex min-h-screen flex-col items-center justify-center bg-gray-200 p-6">
         <h2 className="mb-4 text-center text-4xl font-bold text-gray-700">

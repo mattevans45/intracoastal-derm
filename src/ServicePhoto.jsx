@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 const ServicePhoto = ({ photoUrl }) => {
 
@@ -12,7 +13,7 @@ const ServicePhoto = ({ photoUrl }) => {
         style={{ opacity:1 }}
         className="rounded-lg overflow-hidden"
       >
-        <img
+        <Image
           src={photoUrl}
           alt="Service"
           className="h-auto"

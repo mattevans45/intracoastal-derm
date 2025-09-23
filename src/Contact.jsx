@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from "react";
-import { Helmet } from "react-helmet-async";
+'use client';
+
+import  { useState, useEffect } from "react";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -65,7 +66,7 @@ const Contact = () => {
 
   return (
     <section className="container mx-auto max-w-7xl bg-gray-100 p-4 sm:p-6">
-      <Helmet>
+      {/* <Helmet>
         <title>Contact - Intracoastal Dermatology</title>
         <link
           rel="canonical"
@@ -169,22 +170,22 @@ const Contact = () => {
           property="og:url"
           content="https://intracoastal-dermatology.com/contact"
         />
-      </Helmet>
+      </Helmet> */}
 
-      <h1 className="mb-8 text-center font-Playfair text-3xl font-bold text-gray-800 sm:mb-12 sm:text-4xl">
+      <h1 className="mb-8 text-center font-playfair text-3xl font-bold text-gray-800 sm:mb-12 sm:text-4xl">
         Contact Us
       </h1>
 
       <div className="mb-12 grid gap-8 md:grid-cols-2">
         <div className="rounded-lg bg-white p-6 shadow-md sm:p-8">
-          <h2 className="mb-4 font-Playfair text-xl font-semibold text-gray-800 sm:mb-6 sm:text-2xl">
+          <h2 className="mb-4 font-playfair text-xl font-semibold text-gray-800 sm:mb-6 sm:text-2xl">
             Office Information
           </h2>
           <div className="space-y-4">
             <h3 className="text-base font-medium text-gray-700 sm:text-lg">
               Address
             </h3>
-            <address className="font-Playfair not-italic text-gray-600">
+            <address className="font-playfair not-italic text-gray-600">
               509 Olde Waterford Way
               <br />
               Suite 103

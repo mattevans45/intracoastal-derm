@@ -1,5 +1,5 @@
+'use client';
 import React, { useState, memo, useCallback, useRef, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import { MdMedicalServices } from "react-icons/md";
 import { GiScalpel, GiSyringe } from "react-icons/gi";

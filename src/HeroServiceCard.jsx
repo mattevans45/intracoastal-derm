@@ -1,25 +1,8 @@
-import React, { useMemo } from 'react';
+
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import Image from 'next/image';
+import Link from 'next/link';
 
-const ImageCompressed = React.memo(({ src, alt, className }) => {
-  const srcSet = useMemo(() => `${src} 600w, ${src} 1200w, ${src} 2000w`, [src]);
-
-  return (
-    <picture>
-      <source media="(max-width: 600px)" srcSet={srcSet} />
-      <source media="(min-width: 601px)" srcSet={srcSet} />
-      <img
-        src={src}
-        srcSet={srcSet}
-        sizes="(max-width: 600px) 100vw, (min-width: 601px) 33vw"
-        loading="lazy"
-        alt={alt}
-        className={className}
-      />
-    </picture>
-  );
-});
 
 const cardVariants = {
   hidden: { opacity: 0, y: 72 },
@@ -30,7 +13,7 @@ const cardVariants = {
   },
 };
 
-const HeroServiceCard = React.memo(({ icon: Icon, title, description, backgroundImage, to }) => {
+const HeroServiceCard = (({ icon: Icon, title, description, backgroundImage, to }) => {
   return (
     <motion.div
       className="relative p-4 md:w-1/3"
@@ -39,8 +22,8 @@ const HeroServiceCard = React.memo(({ icon: Icon, title, description, background
       initial="hidden"
       animate="visible"
     >
-      <div className="flex h-full w-full flex-col rounded-3xl border-opacity-60 bg-gray-50 shadow-sm">
-        <ImageCompressed
+      <div className="flex h-full w-full flex-col rounded-3xl border-opacity-60 bg-gray-50 shadow-lg">
+        <Image
           className="w-full object-cover rounded-t-3xl object-center md:h-36 lg:h-48"
           src={backgroundImage}
           alt={title}
@@ -59,11 +42,12 @@ const HeroServiceCard = React.memo(({ icon: Icon, title, description, background
               aria-label={`Learn more about ${title}`}
             >
               <Link
-                to={to}
+                href={to}
                 className="text-md mt-3 inline-flex items-center rounded-xl bg-[#30548B] p-2 leading-6 text-white duration-500 ease-in-out hover:bg-[#30548B]/90"
                 role="button"
+                description={`Learn more about ${title}`}
               >
-                Learn More
+                {`View ${title.split(" ")[0]} Services`}
                 <svg
                   fill="none"
                   stroke="currentColor"

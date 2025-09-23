@@ -2,187 +2,193 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://intracoastal-dermatology.com/</loc>
-    <lastmod>2024-07-12</lastmod>
+    <lastmod>2024-07-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://intracoastal-dermatology.com/location</loc>
-    <lastmod>2024-07-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://intracoastal-dermatology.com/schedule-appointment</loc>
-    <lastmod>2024-07-12</lastmod>
+    <lastmod>2024-07-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://intracoastal-dermatology.com/contact</loc>
-    <lastmod>2024-07-12</lastmod>
+    <lastmod>2024-07-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://intracoastal-dermatology.com/about</loc>
+    <lastmod>2024-07-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://intracoastal-dermatology.com/schedule-appointment</loc>
+    <lastmod>2024-07-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://intracoastal-dermatology.com/services</loc>
-    <lastmod>2024-07-12</lastmod>
+    <lastmod>2024-07-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://intracoastal-dermatology.com/services/general</loc>
-    <lastmod>2024-07-12</lastmod>
+    <lastmod>2024-07-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://intracoastal-dermatology.com/services/general/psoriasis</loc>
-    <lastmod>2024-07-12</lastmod>
+    <lastmod>2024-07-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://intracoastal-dermatology.com/services/general/atopic-dermatitis-eczema</loc>
-    <lastmod>2024-07-12</lastmod>
+    <lastmod>2024-07-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-    <url>
+  <url>
     <loc>https://intracoastal-dermatology.com/services/general/bullous-diseases</loc>
-    <lastmod>2024-07-12</lastmod>
+    <lastmod>2024-07-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-    <url>
+  <url>
     <loc>https://intracoastal-dermatology.com/services/general/lichen-planus</loc>
-    <lastmod>2024-07-12</lastmod>
+    <lastmod>2024-07-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-    <url>
+  <url>
     <loc>https://intracoastal-dermatology.com/services/general/vitiligo</loc>
-    <lastmod>2024-07-12</lastmod>
+    <lastmod>2024-07-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-    <url>
+  <url>
     <loc>https://intracoastal-dermatology.com/services/general/acne</loc>
-    <lastmod>2024-07-12</lastmod>
+    <lastmod>2024-07-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-      <url>
+  <url>
     <loc>https://intracoastal-dermatology.com/services/general/rosacea</loc>
-    <lastmod>2024-07-12</lastmod>
+    <lastmod>2024-07-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-      <url>
+  <url>
     <loc>https://intracoastal-dermatology.com/services/general/skin-cancer-screening</loc>
-    <lastmod>2024-07-12</lastmod>
+    <lastmod>2024-07-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-      <url>
+  <url>
     <loc>https://intracoastal-dermatology.com/services/general/rash</loc>
-    <lastmod>2024-07-12</lastmod>
+    <lastmod>2024-07-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-      <url>
+  <url>
     <loc>https://intracoastal-dermatology.com/services/general/growths</loc>
-    <lastmod>2024-07-12</lastmod>
+    <lastmod>2024-07-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-      <url>
+  <url>
+    <loc>https://intracoastal-dermatology.com/services/general/hair-loss</loc>
+    <lastmod>2024-07-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://intracoastal-dermatology.com/services/general/skin-discoloration</loc>
-    <lastmod>2024-07-12</lastmod>
+    <lastmod>2024-07-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-      <url>
+  <url>
     <loc>https://intracoastal-dermatology.com/services/general/excessive-sweating</loc>
-    <lastmod>2024-07-12</lastmod>
+    <lastmod>2024-07-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://intracoastal-dermatology.com/services/cosmetic</loc>
-    <lastmod>2024-07-12</lastmod>
+    <lastmod>2024-07-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://intracoastal-dermatology.com/services/cosmetic/botox</loc>
-    <lastmod>2024-07-12</lastmod>
+    <lastmod>2024-07-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://intracoastal-dermatology.com/services/cosmetic/dermal-fillers</loc>
-    <lastmod>2024-07-12</lastmod>
+    <lastmod>2024-07-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-    <url>
+  <url>
     <loc>https://intracoastal-dermatology.com/services/cosmetic/lasers</loc>
-    <lastmod>2024-07-12</lastmod>
+    <lastmod>2024-07-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://intracoastal-dermatology.com/services/surgical</loc>
-    <lastmod>2024-07-12</lastmod>
+    <lastmod>2024-07-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://intracoastal-dermatology.com/services/surgical/skin-biopsy</loc>
-    <lastmod>2024-07-12</lastmod>
+    <lastmod>2024-07-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://intracoastal-dermatology.com/services/surgical/skin-cancer-removal</loc>
-    <lastmod>2024-07-12</lastmod>
+    <lastmod>2024-07-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://intracoastal-dermatology.com/services/surgical/mohs-surgery</loc>
-    <lastmod>2024-07-12</lastmod>
+    <lastmod>2024-07-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://intracoastal-dermatology.com/services/surgical/scar-revision</loc>
-    <lastmod>2024-07-12</lastmod>
+    <lastmod>2024-07-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://intracoastal-dermatology.com/services/surgical/mole-removal</loc>
-    <lastmod>2024-07-12</lastmod>
+    <lastmod>2024-07-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://intracoastal-dermatology.com/about</loc>
-    <lastmod>2024-07-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://intracoastal-dermatology.com/medical-disclaimer</loc>
-    <lastmod>2024-07-12</lastmod>
+    <lastmod>2024-07-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://intracoastal-dermatology.com/insurances-accepted</loc>
-    <lastmod>2024-07-12</lastmod>
+    <lastmod>2024-07-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>

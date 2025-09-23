@@ -1,6 +1,8 @@
+'use client'; 
+
 import React from "react";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import Link  from "next/link";
 
 const ServicesCard = ({ icon: Icon, title, description, backgroundImage, to }) => {
   const firstWord = title.split(" ")[0].toLowerCase();
@@ -24,7 +26,7 @@ const ServicesCard = ({ icon: Icon, title, description, backgroundImage, to }) =
             transition={{ duration: 0.5, ease: "easeOut" }}
           >
             <Icon className="h-12 w-12 text-white drop-shadow-2xl" />
-            <Link to={`services/${firstWord}`} className="ml-4 text-xl font-bold">
+            <Link href={`services/${firstWord}`} className="ml-4 text-xl font-bold">
               {title}
             </Link>
           </motion.div>
@@ -34,7 +36,7 @@ const ServicesCard = ({ icon: Icon, title, description, backgroundImage, to }) =
         </div>
         <div className="mt-auto">
           <Link
-            to={to}
+            href={to}
             className="mt-3 inline-flex items-center text-sm font-semibold leading-6 rounded-xl p-2 text-gray-100 bg-[#30548B] group-hover:text-white group-hover:bg-[#30548B]/90 group-hover:transition-all ease-in-out duration-500 group-hover:shadow-lg"
           >
             Learn More
