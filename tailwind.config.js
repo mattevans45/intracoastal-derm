@@ -1,6 +1,8 @@
-const postcss = require('postcss');
+import typography from "@tailwindcss/typography"
+import aspectRatio from "@tailwindcss/aspect-ratio"
 
-module.exports = {
+/** @type {import('tailwindcss').Config} */
+export default {
   mode: 'jit',
   content: ['./index.html', './src/**/*.{js,jsx,ts,tsx}'],
   theme: {
@@ -60,19 +62,8 @@ module.exports = {
     },
   },
   plugins: [
-    require('@tailwindcss/typography'),
-    require('@tailwindcss/aspect-ratio'),
-
-    postcss({
-      plugins: [
-        require('tailwindcss'),
-        require('autoprefixer'),
-        
-        require('@fullhuman/postcss-purgecss')({
-          content: ['./index.html', './src/**/*.{js,jsx,ts,tsx}'],
-          defaultExtractor: content => content.match(/[\w-/:]+(?<!:)/g) || [],
-        }),
-      ],
-    }),
+    typography,
+    aspectRatio
+    
   ],
 };

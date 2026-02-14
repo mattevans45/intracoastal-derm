@@ -15,6 +15,7 @@ const resources = [
     name: "Patient Portal",
     description: "Access your medical records and communicate with our staff.",
     href: "https://intracoastaldermatology.ema.md",
+    rel: "noopener noreferrer",
     target: "_blank",
     icon: FaUserCircle,
   },
@@ -23,6 +24,7 @@ const resources = [
     description: "Conveniently pay your medical bills online.",
     href: "https://intracoastaldermatology.ema.md/ema/pay/online",
     target: "_blank",
+    rel: "noopener noreferrer",
     icon: FaCreditCard,
   },
   {
@@ -69,6 +71,8 @@ export default function PatientResourcesPopover() {
                       <div>
                         <div onClick={() => close()}>
                           <Link
+                          rel={item.rel}
+                          target={item.target}
                             to={item.href}
                             className="font-semibold text-gray-900"
                           >

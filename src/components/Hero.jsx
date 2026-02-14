@@ -14,7 +14,7 @@ import background3_1280 from "../assets/images/optimized/nick-jio-Pj2TaFMH0pE-un
 import background4_640 from "../assets/images/optimized/mourad-saadi-GyDktTa0Nmw-unsplash-640w-q80.webp";
 import background4_1280 from "../assets/images/optimized/mourad-saadi-GyDktTa0Nmw-unsplash-1280w-q80.webp";
 
-import OpenModal from "./OpenModal";
+// import OpenModal from "./OpenModal";
 
 import CardContent from "./CardContent";
 
